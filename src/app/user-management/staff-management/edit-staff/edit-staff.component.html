@@ -1,0 +1,90 @@
+<div class="d-flex flex-row-reverse bd-highlight">
+    <a href="#" routerLink="/staff" class="btn back">Back</a>
+</div>
+<div class="container">
+    <h1 class="name">Staff Details</h1>
+    <div class="card">
+        <form [formGroup]="staffDetailsForm">
+            <div class="form-group row">
+                <label for="id" class="col-sm-4 col-form-label">Id</label>
+                <div class="col-sm-6">
+                    <input type="number" formControlName="id" [(ngModel)]="staffdata.id" class="form-control">
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="phoneNumber" class="col-sm-4 col-form-label">Phone Number</label>
+                <div class="col-sm-6">
+                    <input type="number" formControlName="phoneNumber" [(ngModel)]="staffdata.phoneNumber"
+                        class="form-control">
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <label for="name" class="col-sm-4 col-form-label">Name <span class="star text-danger">*</span></label>
+                <div class="col-sm-6">
+                    <input type="text" formControlName="name" [(ngModel)]="staffdata.name" class="form-control"
+                        [ngClass]="{ 'is-invalid': submitted && f['name'].errors }" />
+                    <div *ngIf="submitted && f['name'].errors" class="invalid-feedback">
+                        <div *ngIf="f['name'].errors['required']">Name is required</div>
+
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="form-group row">
+                <label for="role" class="col-sm-4 col-form-label">Role <span class="star text-danger">*</span></label>
+                <div class="col-sm-6">
+                    <p-dropdown placeholder="- Select  -" [options]="rolesList" optionLabel="roleName"
+                        formControlName="role" [(ngModel)]="staffdata.role" [style]="{width: '100%'}">
+                    </p-dropdown>
+                    <div class="text-error"
+                        *ngIf="staffDetailsForm.controls['role'].invalid && (staffDetailsForm.controls['role'].dirty || staffDetailsForm.controls['role'].touched)">
+                        <div *ngIf="staffDetailsForm.controls['role']">
+                            Role Name is Required
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <label for="aadharNumber" class="col-sm-4 col-form-label">Aadhar Number <span
+                        class="star text-danger">*</span></label>
+                <div class="col-sm-6">
+                    <input (keypress)="keyPress($event)" required type="text" formControlName="aadharNumber"
+                        [(ngModel)]="staffdata.aadharNumber" class="form-control"
+                        [ngClass]="{ 'is-invalid': submitted && f['aadharNumber'].errors }" />
+                    <div *ngIf="submitted && f['aadharNumber'].errors" class="invalid-feedback">
+                        <div *ngIf="f['aadharNumber'].errors['required']">Aadhar Number is required</div>
+                        <div
+                            *ngIf="f['aadharNumber'].errors['pattern'] || f['aadharNumber'].errors['maxlength'] || f['aadharNumber'].errors['minlength']">
+                            Aadhar Number must be 12 numbers only
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="panCardNumber" class="col-sm-4 col-form-label">Pan Card Number <span
+                        class="star text-danger">*</span></label>
+                <div class="col-sm-6">
+                    <input (keypress)="keyPress($event)" required type="text" formControlName="panCardNumber"
+                        [(ngModel)]="staffdata.panCardNumber" class="form-control"
+                        [ngClass]="{ 'is-invalid': submitted && f['panCardNumber'].errors }" />
+                    <div *ngIf="submitted && f['panCardNumber'].errors" class="invalid-feedback">
+                        <div *ngIf="f['panCardNumber'].errors['required']">Pan Card is required</div>
+                        <div
+                            *ngIf="f['panCardNumber'].errors['pattern'] || f['panCardNumber'].errors['maxlength'] || f['panCardNumber'].errors['minlength']">
+                            Aadhar Number must be 12 numbers only
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 pr-0">
+                    <button class="btn save" type="button" (click)="onSubmitUpdateStaff()">Save</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

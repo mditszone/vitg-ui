@@ -1,0 +1,30 @@
+<div class="container">
+    <div class="card">
+        <div class="text-center">
+            <form [formGroup]="staffLoginForm" (ngSubmit)="onSubmit()">
+                <div class="col-sm-12">
+                    <div class="form-group"><br>
+                        <label for="phonenumber" class="name">Enter Mobile Number </label><br>
+                        <div class="input-box">
+                            <input (keypress)="keyPress($event)" required type="text" formControlName="phonenumber"
+                                class="form-control" placeholder="Enter Your Mobile Number"
+                                [ngClass]="{ 'is-invalid': submitted && f['phonenumber'].errors }">
+                        </div>
+                        <div *ngIf="submitted && f['phonenumber'].errors" class="invalid-feedback">
+                            <div *ngIf="f['phonenumber'].errors['required']">Mobile number is required</div>
+                            <div
+                                *ngIf="f['phonenumber'].errors['pattern'] || f['phonenumber'].errors['maxlength'] || f['phonenumber'].errors['minlength']">
+                                Mobile Number must be at least 10 numbers
+                            </div>
+                        </div>
+                    </div>
+                </div><br>
+
+                <input type="submit" class="btn proceed" value="Proceed">
+            </form>
+        </div>
+        <div class="error" *ngIf="errorMessage">
+            {{errorMessage}}
+        </div>
+    </div>
+</div>

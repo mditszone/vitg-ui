@@ -1,0 +1,61 @@
+<div class="conatiner">
+    <h1 class="name">Create Sub Topic</h1>
+    <div class="card">
+        <form [formGroup]="subTopicDetailsForm">
+            <div class="form-group row">
+                <label for="course" class="col-sm-4 col-form-label">Course Name<span class="star text-danger">*</span></label>
+                <div class="col-sm-6">
+                    <p-dropdown placeholder="- Select -" [options]="courseList" optionLabel="name"
+                        formControlName="course" [style]="{width: '100%'}" (onChange)="getSubCourseList($event)">
+                    </p-dropdown>
+                    <div class="text-error"
+                        *ngIf="subTopicDetailsForm.controls['course'].invalid && (subTopicDetailsForm.controls['course'].dirty || subTopicDetailsForm.controls['course'].touched)">
+                        <div *ngIf="subTopicDetailsForm.controls['course']">
+                            Course Name is Required
+                        </div>
+                    </div>
+                </div>
+            </div><br>
+            <div class="form-group row">
+                <label for="subCourse" class="col-sm-4 col-form-label">SubCourse Name<span class="star text-danger">*</span></label>
+                <div class="col-sm-6">
+                    <p-dropdown placeholder="- Select  -" [options]="subCourseList" optionLabel="name"
+                        formControlName="subCourse" [style]="{width: '100%'}" (onChange)="getTopicList($event)">
+                    </p-dropdown>
+                    <div class="text-error"
+                        *ngIf="subTopicDetailsForm.controls['subCourse'].invalid && (subTopicDetailsForm.controls['subCourse'].dirty || subTopicDetailsForm.controls['subCourse'].touched)">
+                        <div *ngIf="subTopicDetailsForm.controls['subCourse']">
+                            SubCourse Name is Required
+                        </div>
+                    </div>
+                </div>
+            </div><br>
+            <div class="form-group row">
+                <label for="topic" class="col-sm-4 col-form-label">Topic Name<span class="star text-danger">*</span></label>
+                <div class="col-sm-6">
+                    <p-dropdown placeholder="- Select  -" [options]="topicList" optionLabel="name"
+                        formControlName="topic" [style]="{width: '100%'}" >
+                    </p-dropdown>
+                    <div class="text-error"
+                        *ngIf="subTopicDetailsForm.controls['topic'].invalid && (subTopicDetailsForm.controls['topic'].dirty || subTopicDetailsForm.controls['topic'].touched)">
+                        <div *ngIf="subTopicDetailsForm.controls['topic']">
+                            Topic Name is Required
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <br>
+            <div class="form-group row">
+                <label for="name" class="col-sm-4 col-form-label">Sub Topic Name</label>
+                <div class="col-sm-6">
+                    <input type="text" formControlName="name" class="form-control" [(ngModel)]="subTopic.name">
+                </div>
+            </div><br>
+            <div class="form-group row">
+                <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 pr-0">
+                    <button class="btn save" type="button" (click)="createSubTopic()">Save</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

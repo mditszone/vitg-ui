@@ -1,0 +1,134 @@
+<div class="conatiner">
+    <h1 class="name">Create SubCourse</h1>
+    <div class="card">
+        <form [formGroup]="subCourseDetailsForm">
+            <div class="form-group row">
+                <label for="course" class="col-sm-4 col-form-label">Course Name<span
+                        class="star text-danger">*</span></label>
+                <div class="col-sm-6">
+                    <p-dropdown placeholder="- Select  -" [options]="courseList" optionLabel="name"
+                        formControlName="course" [style]="{width: '100%'}">
+                    </p-dropdown>
+                    <div class="text-error"
+                        *ngIf="subCourseDetailsForm.controls['course'].invalid && (subCourseDetailsForm.controls['course'].dirty || subCourseDetailsForm.controls['course'].touched)">
+                        <div *ngIf="subCourseDetailsForm.controls['course']">
+                            course Name is Required
+                        </div>
+                    </div>
+                </div>
+            </div><br>
+            <div class="form-group row">
+                <label for="name" class="col-sm-4 col-form-label">Sub Course Name</label>
+                <div class="col-sm-6">
+                    <input type="text" formControlName="name" class="form-control"
+                        [(ngModel)]="subCourse.name">
+                </div>
+            </div><br>
+            <div class="form-group row">
+                <label for="durationDays" class="col-sm-4 col-form-label">Duration Days</label>
+                <div class="col-sm-6">
+                    <input type="text" formControlName="durationDays" class="form-control"
+                        [(ngModel)]="subCourse.durationDays">
+                </div>
+            </div><br>
+            <div class="form-group row">
+                <label for="durationHours" class="col-sm-4 col-form-label">Duration Hours</label>
+                <div class="col-sm-6">
+                    <input type="text" formControlName="durationHours" class="form-control"
+                        [(ngModel)]="subCourse.durationHours">
+                </div>
+            </div><br>
+            <div class="form-group row">
+                <label for="fee" class="col-sm-4 col-form-label">Fee</label>
+                <div class="col-sm-6">
+                    <input type="text" formControlName="fee" class="form-control"
+                        [(ngModel)]="subCourse.fee">
+                </div>
+            </div><br>
+            <!-- <div class="form-group row">
+                <label for="overview" class="col-sm-4 col-form-label">Overview</label>
+                <div class="col-sm-6">
+                    <input type="text" formControlName="overview" class="form-control"
+                        [(ngModel)]="subCourse.overview">
+                </div>
+            </div><br> -->
+
+            <div class="form-group row">
+                <label for="overview" class="col-sm-4 col-form-label">Overview</label>
+                <div class="form-group row">
+                    <ckeditor [editor]="editor" [config]="config" [data]="data" formControlName="overview" 
+                    [(ngModel)]="subCourse.overview"></ckeditor>
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <label for="curriculum" class="col-sm-4 col-form-label">Curriculum</label>
+                <div class="form-group row">
+                    <ckeditor [editor]="editor" [config]="config" [data]="data" formControlName="curriculum" 
+                    [(ngModel)]="subCourse.curriculum"></ckeditor>
+                </div>
+            </div>
+            
+            <div class="form-group row">
+                <label for="examCertification" class="col-sm-4 col-form-label">ExamCertification</label>
+                <div class="form-group row">
+                    <ckeditor [editor]="editor" [config]="config" [data]="data" formControlName="examCertification" 
+                    [(ngModel)]="subCourse.examCertification"></ckeditor>
+                </div>
+            </div>
+            
+            <div class="form-group row">
+                <label for="trainingMode" class="col-sm-4 col-form-label">TrainingMode</label>
+                <div class="form-group row">
+                    <ckeditor [editor]="editor" [config]="config" [data]="data" formControlName="trainingMode" 
+                    [(ngModel)]="subCourse.trainingMode"></ckeditor>
+                </div>
+            </div>
+            
+            
+            
+            <div class="form-group row">
+                <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 pr-0">
+                    <button class="btn save" type="button" (click)="createSubCourse()">Save</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- <div class="container">
+    <div class="card">
+        <form (ngSubmit)="onSubmit()">
+            <div class="form-group">
+                <label for="name"> Sub Course Name</label>
+                <input type="text" class="form-control" id="name" required [(ngModel)]="subCourse.name" name="name">
+            </div>
+            <button type="submit" class="btn save">Save</button>
+        </form>
+    </div>
+</div> -->

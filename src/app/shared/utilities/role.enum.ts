@@ -1,0 +1,9 @@
+export enum RoleEnum {
+    ADMIN = 'ADMIN',
+    MANAGER = 'MANAGER',
+    ACCOUNTANT = 'ACCOUNTANT',
+    ORGANIZER='ORGANIZER',
+    TRAINER ='TRAINER',
+    STUDENT='STUDENT',
+    GUEST='GUEST',
+}

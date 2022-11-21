@@ -1,0 +1,93 @@
+<div class="conatiner">
+    <h1 class="name">Create Batch</h1>
+    <div class="card">
+        <form [formGroup]="batchDetailsForm">
+            <div class="form-group row">
+                <label for="course" class="col-sm-4 col-form-label">Course Name<span
+                        class="star text-danger">*</span></label>
+                <div class="col-sm-6">
+                    <p-dropdown placeholder="- Select -" [options]="courseList" optionLabel="name"
+                        formControlName="course" [style]="{width: '100%'}" (onChange)="getSubCourseList($event)">
+                    </p-dropdown>
+                    <div class="text-error"
+                        *ngIf="batchDetailsForm.controls['course'].invalid && (batchDetailsForm.controls['course'].dirty || batchDetailsForm.controls['course'].touched)">
+                        <div *ngIf="batchDetailsForm.controls['course']">
+                            Course Name is Required
+                        </div>
+                    </div>
+                </div>
+            </div><br>
+            <div class="form-group row">
+                <label for="subCourse" class="col-sm-4 col-form-label">SubCourse Name<span
+                        class="star text-danger">*</span></label>
+                <div class="col-sm-6">
+
+                    <p-dropdown placeholder="- Select  -" [options]="subCourseListById" optionLabel="name"
+                        formControlName="subCourse" [style]="{width: '100%'}">
+                    </p-dropdown>
+                    <div class="text-error"
+                        *ngIf="batchDetailsForm.controls['subCourse'].invalid && (batchDetailsForm.controls['subCourse'].dirty || batchDetailsForm.controls['subCourse'].touched)">
+                        <div *ngIf="batchDetailsForm.controls['subCourse']">
+                            SubCourse Name is Required
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <br>
+            <div class="form-group row">
+                <label for="name" class="col-sm-4 col-form-label">Batch Name</label>
+                <div class="col-sm-6">
+                    <input type="text" formControlName="name" class="form-control" [(ngModel)]="batch.name">
+                </div>
+            </div><br>
+
+            <div class="form-group row">
+                <mat-form-field>
+                    <input matInput [matDatepicker]="picker1" placeholder="Start Date" formControlName="startDate"
+                        [(ngModel)]="batch.startDate">
+                    <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+
+                    <mat-datepicker #picker1></mat-datepicker>
+                </mat-form-field>
+
+                <mat-form-field>
+                    <input matInput [matDatepicker]="picker2" placeholder="End Date" formControlName="endDate"
+                         [(ngModel)]="batch.endDate">
+                    <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
+                    <mat-datepicker #picker2></mat-datepicker>
+                </mat-form-field>
+            </div>
+
+            <div class="form-group row">
+                <mat-form-field appearance="outline">
+                    <mat-label>start time</mat-label>
+                    <input type="time" matInput name="week" formControlName="startTime" [(ngModel)]="batch.startTime" />
+                </mat-form-field>
+                <br />
+                <mat-form-field appearance="outline">
+                    <mat-label>end time</mat-label>
+                    <input type="time" matInput name="week" formControlName="endTime" [(ngModel)]="batch.endTime" />
+                </mat-form-field>
+            </div>
+            <!-- <div class="form-group row">
+                <label for="organizers" class="col-sm-4 col-form-label">Organizers<span class="star text-danger">*</span></label>
+                <div class="col-sm-6">
+                    <p-dropdown placeholder="- Select  -" [options]="organizersList" optionLabel="organizers"
+                        formControlName="organizers" [style]="{width: '100%'}">
+                    </p-dropdown>
+                    <div class="text-error"
+                        *ngIf="batchDetailsForm.controls['organizers'].invalid && (batchDetailsForm.controls['organizers'].dirty || batchDetailsForm.controls['organizers'].touched)">
+                        <div *ngIf="batchDetailsForm.controls['organizers']">
+                            Organizers Name is Required
+                        </div>
+                    </div>
+                </div>
+            </div><br> -->
+            <div class="form-group row">
+                <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 pr-0">
+                    <button class="btn save" type="button" (click)="createBatch()">Save</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

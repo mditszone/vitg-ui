@@ -1,0 +1,27 @@
+<mat-toolbar class="m-toolbar">
+    <mat-toolbar-row>
+        <mat-icon class="language">language</mat-icon><br><br>
+        <h1 class="header-name-visionit">Vision IT </h1>
+        <h1 class="header-name-global">Global</h1>
+
+        <button mat-button class="notification" [matMenuTriggerFor]="bell">
+            <mat-icon>notifications_none</mat-icon>
+        </button>
+        <mat-menu #bell="matMenu" class="myMenu" yPosition="above" xPosition="before" class="notification-menu">
+            <button mat-menu-item class="notification-menu__button">
+                <mat-icon class="notification-menu__icon_yellow">local_offer</mat-icon>Notifications
+            </button>
+        </mat-menu>
+        <button mat-button class="profile" [matMenuTriggerFor]="profile">
+            <mat-icon>account_circle</mat-icon>
+        </button>
+        <mat-menu #profile="matMenu" class="myMenu" yPosition="above" xPosition="before" class="notification-menu">
+            <button mat-menu-item class="notification-menu__button">
+                <mat-icon class="notification-menu__icon_yellow">person</mat-icon>profile
+            </button>
+            <button mat-menu-item class="notification-menu__button" (click)="onLoggedout()">
+                <mat-icon class="notification-menu__icon_yellow">logout</mat-icon>Logout
+            </button>
+        </mat-menu>
+    </mat-toolbar-row>
+</mat-toolbar>

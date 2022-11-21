@@ -1,0 +1,29 @@
+import { NgModule } from '@angular/core';
+import { CommonModule } from '@angular/common';
+
+import { StudentManagementRoutingModule } from './student-management-routing.module';
+import { ViewStudentComponent } from './view-student/view-student.component';
+import { EditStudentComponent } from './edit-student/edit-student.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { NgOtpInputModule } from 'ng-otp-input';
+import { DropdownModule } from 'primeng/dropdown';
+import { ToastModule } from 'primeng/toast';
+import { MaterialModule } from 'src/app/shared/module/material.module';
+
+@NgModule({
+  declarations: [
+    ViewStudentComponent,
+    EditStudentComponent,
+  ],
+  imports: [
+    CommonModule,
+    StudentManagementRoutingModule,
+    FormsModule,
+    ReactiveFormsModule,
+    NgOtpInputModule,
+    DropdownModule,
+    ToastModule,
+    MaterialModule
+  ]
+})
+export class StudentManagementModule { }

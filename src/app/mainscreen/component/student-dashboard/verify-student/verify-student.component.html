@@ -1,0 +1,21 @@
+<div class="container">
+    <div class="card">
+      <form>
+        <h2 class="card-title">We have sent an OTP to +91 9000213324</h2>
+        <div>
+          <p class="card-subtitle">Enter OTP</p>
+          <ng-otp-input class="ngotpinput" (onInputChange)="onOtpChange($event)" [config]="config"
+            class="inline w-full lg:w-full">
+          </ng-otp-input>
+        </div>
+        <p>Didn't receive any Code? Click on Resend</p>
+        <div>
+          <button class="btn resend" (click)="resend()">Resend OTP</button>
+          <button class="btn verify mt-4" (click)="handleClick()" [disabled]="!otp">Verify OTP</button>
+        </div>
+      </form>
+      <div class="alert alert-danger" *ngIf="errorMessage">
+        {{errorMessage}}
+      </div>
+    </div>
+  </div>

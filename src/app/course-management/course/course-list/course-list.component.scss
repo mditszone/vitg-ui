@@ -1,0 +1,70 @@
+
+.card{
+    width: 80%;
+    height: 80%;
+    margin-left: 130px;
+    margin-top: 40px;
+    margin-top: -16px;
+    border: 1px solid #0669ad;
+    border-radius: 4px;
+    padding-bottom: 20px;
+}
+.addCourse{
+    float:right;
+    background-color: #FFC82A;
+    color: #000;
+    border: none;
+}
+.addCourse:hover{
+background-color: #FFC82A;
+color: #000;
+}
+.search input{
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    max-width: 250px;
+    border: 1px solid #0669ad;
+    border-radius: 4px;
+    padding-left: 0.5rem;
+	padding-top: 0.1rem;
+	padding-bottom: 0.001rem;
+    overflow: hidden;
+    font-family: sans-serif;   
+}
+    
+.search input {
+    font-size: 15px;
+    background: #fff;
+    outline: 2px;
+    padding: 0.7rem;
+  }
+.mm-eye {
+        color:#0669AD;
+        position: relative;
+        margin-left: 2px;
+        top: 2px;
+        font-size: 18px;
+        padding-left: 2px;
+    }
+.mm-edit {
+        color:#0669AD;
+        position: relative;
+        margin-left: 2px;
+        top: 2px;
+        font-size: 18px;
+        padding-left: 2px;
+    }
+.mm-delete {
+        color:#0669AD;
+        position: relative;
+        margin-left: 2px;
+        top: 2px;
+        font-size: 18px;
+        padding-left: 2px;
+        cursor: pointer;
+    }
+    .name{
+        color: #0669ad;
+        padding-left: 130px;
+    }

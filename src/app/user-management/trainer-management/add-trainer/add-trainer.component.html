@@ -1,0 +1,92 @@
+<div class="container">
+    <h1 class="name">Trainer Details</h1>
+    <div class="card">
+        <form [formGroup]="trainerDetailsForm">
+            <div class="form-group row">
+                <label for="id" class="col-sm-4 col-form-label">Id</label>
+                <div class="col-sm-6">
+                    <input type="text" formControlName="id" class="form-control">
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="phoneNumber" class="col-sm-4 col-form-label">Phone Number</label>
+                <div class="col-sm-6">
+                    <input type="text" formControlName="phoneNumber" class="form-control">
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="name" class="col-sm-4 col-form-label">Name <span class="star text-danger">*</span></label>
+                <div class="col-sm-6">
+                    <input type="text" formControlName="name" class="form-control"
+                        [ngClass]="{ 'is-invalid': submitted && f['name'].errors }" />
+                    <div *ngIf="submitted && f['name'].errors" class="invalid-feedback">
+                        <div *ngIf="f['name'].errors['required']">Name is required</div>
+
+                    </div>
+                </div>
+            </div>
+            <br>
+            <div class="form-group row">
+                <label for="gender" class="col-sm-4 col-form-label">Gender <span
+                        class="star text-danger">*</span></label>
+                <div class="col-sm-6">
+                    <input type="radio" value="Male" formControlName="gender"><label class="radio-label"> Male</label>
+                    <input type="radio" value="Female" formControlName="gender"><label class="radio-label">
+                        Female</label>
+                    <input type="radio" value="Others" formControlName="gender"><label class="radio-label">
+                        Others</label>
+                </div>
+            </div>
+            <br>
+
+            <div class="form-group row">
+                <label for="email" class="col-sm-4 col-form-label">Email<span class="star text-danger">*</span></label>
+                <div class="col-sm-6">
+                    <input required type="text" formControlName="email" class="form-control"
+                        [ngClass]="{ 'is-invalid': submitted && f['email'].errors }" />
+                    <div *ngIf="submitted && f['email'].errors" class="invalid-feedback">
+                        <div *ngIf="f['email'].errors['required']">Email is required</div>
+                        <div
+                            *ngIf="f['email'].errors['pattern'] || f['email'].errors['maxlength'] || f['email'].errors['minlength']">
+                            Email
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="aadharNumber" class="col-sm-4 col-form-label">Aadhar Number <span
+                        class="star text-danger">*</span></label>
+                <div class="col-sm-6">
+                    <input (keypress)="keyPress($event)" required type="text" formControlName="aadharNumber"
+                        class="form-control" [ngClass]="{ 'is-invalid': submitted && f['aadharNumber'].errors }" />
+                    <div *ngIf="submitted && f['aadharNumber'].errors" class="invalid-feedback">
+                        <div *ngIf="f['aadharNumber'].errors['required']">Aadhar Number is required</div>
+                        <div
+                            *ngIf="f['aadharNumber'].errors['pattern'] || f['aadharNumber'].errors['maxlength'] || f['aadharNumber'].errors['minlength']">
+                            Aadhar Number must be 12 numbers only
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="panCardNumber" class="col-sm-4 col-form-label">Pan Card Number<span
+                        class="star text-danger">*</span></label>
+                <div class="col-sm-6">
+                    <input (keypress)="keyPress($event)" required type="text" formControlName="panCardNumber"
+                        class="form-control" [ngClass]="{ 'is-invalid': submitted && f['panCardNumber'].errors }" />
+                    <div *ngIf="submitted && f['panCardNumber'].errors" class="invalid-feedback">
+                        <div *ngIf="f['panCardNumber'].errors['required']">Pan Card Number is required</div>
+                        <div
+                            *ngIf="f['panCardNumber'].errors['pattern'] || f['panCardNumber'].errors['maxlength'] || f['panCardNumber'].errors['minlength']">
+                            Pan Card Number must be 12 numbers only
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <button class="btn save" (click)="updateTrainerInfo()">Save</button>
+            </div>
+        </form>
+    </div>
+</div>

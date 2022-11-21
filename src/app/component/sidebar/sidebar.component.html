@@ -1,0 +1,19 @@
+
+<app-header></app-header>
+
+<mat-sidenav-container class="m-sidenav-container">
+    <mat-sidenav [ngClass]="{ 'm-sidenav': true, 'm-sidenav-small': sidenavSmall }" mode="side" fixedInViewport="true"
+        opened #sidenav>
+        <button mat-icon-button class="menu" type="button" (click)="sidenavToggle()">
+            <mat-icon>menu</mat-icon>
+        </button>
+        <mat-nav-list>
+            <app-sidenav *ngFor="let item of navItems" [item]="item"></app-sidenav>
+        </mat-nav-list>
+    </mat-sidenav>
+    <mat-sidenav-content [ngClass]="{ 'm-main': true, 'm-main-large': sidenavSmall }">
+        <router-outlet></router-outlet>
+    </mat-sidenav-content>
+</mat-sidenav-container>
+
+<app-footer></app-footer>

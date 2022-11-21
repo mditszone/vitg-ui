@@ -1,0 +1,46 @@
+
+.card{
+  width: 35%;
+  height: 65%;
+  margin-left: 550px;
+  margin-top: 200px;
+  padding-left: 100px;
+  border: 1px solid #0669ad;
+  border-radius: 4px;
+  padding-top: 35px;
+  padding-bottom: 55px;
+}
+.card-title{
+  padding-right: 90px;
+  font-size: 15px;
+}
+.card-subtitle{
+  color: #0669ad;
+  font-weight: 500;
+}
+
+.resend{
+  background-color: #0669ad;
+  color: #fff;
+  border-radius: 5px;
+  border-color: #fff;
+  padding: 5px 20px;
+  font-weight: 500;
+  font-size: 15px;
+  line-height: 24px;
+  margin-left: 0px;
+  cursor: pointer;
+}
+.verify{
+  background-color: #0669ad;
+  color: #fff;
+  border-radius: 5px;
+  border-color: #fff;
+  padding: 5px 20px;
+  font-weight: 500;
+  font-size: 15px;
+  line-height: 24px;
+  margin-left: 94px;
+  cursor: pointer;
+}
+

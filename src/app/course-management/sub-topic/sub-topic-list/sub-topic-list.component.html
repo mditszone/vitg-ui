@@ -1,0 +1,51 @@
+<div class="container">
+    <h1 class="name">SubTopic List</h1>
+    <div class="card">
+      <p-table #dt1 [value]="subtopicdata" dataKey="id" [paginator]="true" [rows]="10" [showCurrentPageReport]="true"
+        [rowsPerPageOptions]="[10,15,20,100]" [filterDelay]="0" [globalFilterFields]="['id','name']">
+  
+  
+        <ng-template pTemplate="caption">
+          <button class="addSubTopic" pButton label="Add SubTopic" icon="pi pi-plus" routerLink="/addSubTopic"></button>
+  
+          <div class="search">
+            <input class="search" pInputText type="text" pInputText size="20"
+              (input)="dt1.filterGlobal($any($event.target).value, 'contains')" placeholder="Global Filter"><br><br>
+          </div>
+        </ng-template>
+  
+  
+        <ng-template pTemplate="header">
+          <tr>
+            <th pSortableColumn="id">SUB TOPIC ID<p-sortIcon field="id"></p-sortIcon>
+            </th>
+            <th pSortableColumn="name">SUB TOPIC NAME<p-sortIcon field="name"></p-sortIcon>
+            </th>
+            <th pSortableColumn="name">TOPIC NAME<p-sortIcon field="name"></p-sortIcon>
+            </th>
+            
+            <th>ACTION </th>
+          </tr>
+        </ng-template>
+  
+        <ng-template pTemplate="body" let-subtopic>
+          <tr>
+            <td>{{subtopic.id}}</td>
+            <td>{{subtopic.name}}</td>
+            <td>{{subtopic.topic.name}}</td>
+            
+            <td>
+              <a [routerLink]="['/viewsubtopic/', subtopic.id]">
+                <span class="material-icons mm-eye"> visibility </span></a>
+  
+              <a [routerLink]="['/editsubtopic/', subtopic.id]">
+                <span class="material-icons mm-edit">edit </span></a>
+  
+              <a (click)="deleteSubTopic(subtopic.id)">
+                <span class="material-icons mm-delete"> delete </span></a>
+            </td>
+          </tr>
+        </ng-template>
+      </p-table>
+    </div>
+  </div>

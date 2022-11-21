@@ -1,0 +1,52 @@
+ <div class="container">
+ <div class="card">
+
+    <p-table #dt1 [value]="trainerdata" dataKey="id" [paginator]="true" [rows]="10" [showCurrentPageReport]="true"
+      [rowsPerPageOptions]="[10,15,20,100]" [filterDelay]="0"
+      [globalFilterFields]="['id','name','roleName','phoneNumber']">
+  
+  
+      <ng-template pTemplate="caption">
+        <button class="addTrainer" pButton  label="Add Trainer" icon="pi pi-plus"
+           routerLink="/trainerRegister"></button>
+        <div class="search">
+          <input class="search" pInputText type="text" pInputText size="20"
+            (input)="dt1.filterGlobal($any($event.target).value, 'contains')" placeholder="Global Filter"><br><br>
+        </div>
+      </ng-template>
+  
+  
+    
+  
+      <ng-template pTemplate="header">
+        <tr>
+          <th pSortableColumn="id">ID<p-sortIcon field="id"></p-sortIcon>
+          </th>
+          <th pSortableColumn="name">NAME<p-sortIcon field="name"></p-sortIcon>
+          </th>
+          <th pSortableColumn="phoneNumber">PHONE NUMBER<p-sortIcon field="phoneNumber"></p-sortIcon>
+          </th>
+          <th pSortableColumn="gender">GENDER<p-sortIcon field="gender"></p-sortIcon>
+          </th>
+          <th>ACTION </th>
+        </tr>
+      </ng-template>
+  
+      <ng-template pTemplate="body" let-trainer>
+        <tr>
+          <td>{{trainer.id}}</td>
+          <td>{{trainer.name}}</td>
+          <td>{{trainer.phoneNumber }}</td>
+          <td>{{trainer.gender }}</td>
+          <td>
+            <a [routerLink]="['/viewtrainer/', trainer.id]">
+              <span class="material-icons mm-eye"> visibility </span></a>
+  
+            <a [routerLink]="['/edittrainer/', trainer.id]">
+              <span class="material-icons mm-edit">edit </span></a>
+          </td>
+        </tr>
+      </ng-template>
+    </p-table>
+  </div>
+</div>

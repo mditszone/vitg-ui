@@ -1,0 +1,232 @@
+<div class="d-flex flex-row-reverse bd-highlight">
+    <a href="#" routerLink="/batches" class="btn back">Back</a>
+</div>
+<div class="container">
+    <h1 class="name">Update batch</h1>
+    <div class="card">
+        <form [formGroup]="batchDetailsForm">
+            <div class="form-group row">
+                <label for="id" class="col-sm-4 col-form-label">Batch Id</label>
+                <div class="col-sm-6">
+                    <input type="text" class="form-control" formControlName="id" [(ngModel)]="batchdata.id">
+                </div>
+            </div><br>
+            <div class="form-group row">
+                <label for="name" class="col-sm-4 col-form-label">Batch Name</label>
+                <div class="col-sm-6">
+                    <input type="text" class="form-control" formControlName="name" [(ngModel)]="batchdata.name">
+                </div>
+            </div><br>
+           
+              <div class="form-group row">
+            <label for="date" class="col-sm-4 col-form-label">Start Date</label>
+                <div class="col-sm-6">
+                    <input type="text" class="form-control" formControlName="startDate"
+                        [(ngModel)]="batchdata.startDate">
+                        
+                </div> 
+            </div><br> 
+            
+            <div class="form-group row">
+                <label for="date" class="col-sm-4 col-form-label">End Date</label>
+                <div class="col-sm-6">
+                    <input type="text" class="form-control" 
+                    formControlName="endDate" [(ngModel)]="batchdata.endDate">
+                </div>
+            </div><br> 
+            <!-- <div class="form-group row">
+                <mat-form-field>
+                    <input matInput [matDatepicker]="picker1" placeholder="Start Date" formControlName="startDate"
+                        [(ngModel)]="batchdata.startDate">
+                    <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+
+                    <mat-datepicker #picker1></mat-datepicker>
+                </mat-form-field> 
+
+                <mat-form-field>
+                    <input matInput [matDatepicker]="picker2" placeholder="End Date" formControlName="endDate"
+                         [(ngModel)]="batchdata.endDate">
+                    <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
+                    <mat-datepicker #picker2></mat-datepicker>
+                </mat-form-field>
+            </div> -->
+            <div class="form-group row">
+
+                     <label for="start time" class="col-sm-4 col-form-label">start time</label>
+                    <div class="col-sm-6">
+                        <input type="text" class="form-control" 
+                        formControlName="startTime" [(ngModel)]="batchdata.startTime">
+                    </div>
+                </div><br> 
+                <div class="form-group row">
+
+                    <label for="end time" class="col-sm-4 col-form-label">end time</label>
+                    <div class="col-sm-6">
+                        <input type="text" class="form-control" 
+                        formControlName="endTime" [(ngModel)]="batchdata.endTime">
+                    </div>
+                </div><br>  
+                <!-- <mat-form-field appearance="outline">
+                    <mat-label>start time</mat-label>
+                    <input type="time" matInput name="week"
+                     formControlName="startTime"
+                        [(ngModel)]="batchdata.startTime" />
+                </mat-form-field>
+                <br /> 
+                
+                <mat-form-field appearance="outline">
+                    <mat-label>end time</mat-label>
+                    <input type="time" matInput name="week"
+                     formControlName="endTime" [(ngModel)]="batchdata.endTime" />
+                </mat-form-field> 
+            </div> -->
+
+            
+
+            <div class="form-group row">
+                <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 pr-0">
+                    <button type="button" class="btn save" (click)="updateBatch()">Save</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- <p>contact-us works!</p>  -->
+<!-- <div class="d-flex flex-row-reverse bd-highlight">
+
+    <a href="#" routerLink="/batch" class="btn back">Back</a>
+
+</div>
+
+<div class="container">
+
+  
+    <h1 class="name">Update batch</h1>
+    <div class="card">
+        
+        <form [formGroup]="batchDetailsForm">
+
+           
+                <div class="form-group row">
+                    <label for="course" class="col-sm-4 col-form-label">Course Name<span
+                            class="star text-danger">*</span></label>
+                    <div class="col-sm-6">
+                        <p-dropdown placeholder="- Select  -" [options]="courseList" optionLabel="courseName"
+                            formControlName="course" [style]="{width: '100%'}">
+                        </p-dropdown>
+                        <div class="text-error"
+                            *ngIf="batchDetailsForm.controls['course'].invalid && (batchDetailsForm.controls['course'].dirty || batchDetailsForm.controls['course'].touched)">
+                            <div *ngIf="batchDetailsForm.controls['course']">
+                                course Name is Required
+                            </div> 
+                            <div class="col-sm-6">
+                                <input type="text" class="form-control" formControlName="course" [(ngModel)]="batchdata.course">
+                            </div>
+                        </div>
+                    </div>
+                </div><br>
+                <div class="form-group row">
+                    <label for="subCourse" class="col-sm-4 col-form-label">SubCourse Name<span class="star text-danger">*</span></label>
+                    <div class="col-sm-6">
+                        <p-dropdown placeholder="- Select  -" [options]="subCourseListById" optionLabel="subCourseName"
+                            formControlName="subCourse" [style]="{width: '100%'}">
+                        </p-dropdown>
+                        <div class="text-error"
+                            *ngIf="batchDetailsForm.controls['subCourse'].invalid && (batchDetailsForm.controls['subCourse'].dirty || batchDetailsForm.controls['subCourse'].touched)">
+                            <div *ngIf="batchDetailsForm.controls['subCourse']">
+                                SubCourse Name is Required
+                            </div>
+                            <div class="col-sm-6">
+                                <input type="text" class="form-control" formControlName="subCourse" [(ngModel)]="batchdata.subCourse">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <br>
+               
+                <div class="form-group row">
+                    <label for="name" class="col-sm-4 col-form-label">Batch Name</label>
+                    <div class="col-sm-6">
+                        <input type="text" formControlName="name" class="form-control" [(ngModel)]="batchdata.batchName">
+                    </div>
+                </div><br>
+                
+                
+                 <div class="form-group row">
+                    
+                    <mat-form-field>
+                        <input matInput [matDatepicker]="picker1" placeholder="Start Date" formControlName="startDate" class="form-control" [(ngModel)]="batch.startDate">
+                        <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+                        <mat-hint>DD/MM/YYYY</mat-hint>
+                        <mat-datepicker #picker1></mat-datepicker>
+                      </mat-form-field> 
+                      
+                      <mat-form-field>
+                        <input matInput [matDatepicker]="picker2" placeholder="End Date"
+                        formControlName="endDate" class="form-control" [(ngModel)]="batch.endDate">
+                        <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
+                        <mat-hint>DD/MM/YYYY</mat-hint>
+                        <mat-datepicker #picker2></mat-datepicker>
+                      </mat-form-field> 
+                      
+              
+                  
+                   
+               </div>
+                <div class="form-group row">
+                    <mat-form-field appearance="outline">
+                        <mat-label>start time</mat-label>
+                        <input type="time" matInput name="week" formControlName="startTime" class="form-control" [(ngModel)]="batch.startTime"  />
+                      </mat-form-field>
+                      <br />
+                      <mat-form-field appearance="outline">
+                      <mat-label>end time</mat-label>
+                      <input type="time" matInput name="week" formControlName="endTime" class="form-control" [(ngModel)]="batch.endTime"/>
+                    </mat-form-field>
+                </div>
+                
+ <div class="form-group row">
+
+                <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 pr-0">
+
+                    <button class="btn save" type="button" (click)="onSubmitUpdateBatch()">Save</button>
+
+                </div>
+
+            </div>
+
+        </form>
+
+
+    </div>
+</div>
+
+
+ -->

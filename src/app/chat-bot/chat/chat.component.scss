@@ -1,0 +1,38 @@
+
+.form-control{
+margin-top: 320px;
+}
+.send {
+background-color: #fff;
+    transition-duration: 0.4s;
+    
+}
+.send:hover{
+    background-color: #fff; /* Green */
+    color: #000;
+}
+.message {
+    color: #fff;
+    border-radius: 20px;
+    margin: 0 15px 20px;
+    padding: 10px 20px;
+    position: relative;
+    font-size: 20px;
+  }
+  .message.to {
+   // background-color: #2095FE;
+    color: #fff;
+    margin-left: 100px;
+    text-align: right;
+  }
+  .message.from {
+    //background-color: #E5E4E9;
+    color: #fff;
+    margin-right: 100px;
+  }
+  .message.to + .message.to,
+  .message.from + .message.from {
+    margin-top: -10px;
+  }
+
+  

@@ -1,0 +1,43 @@
+
+.back{
+    float: right;
+    background-color: #0669ad;
+    border-radius: 6px;
+    padding: 5px 20px;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 15px;
+    line-height: 24px;
+    color: white;
+}
+
+.card{
+    border: 1px solid #0669ad;
+    border-radius: 4px;
+    height: 90%;
+    width: 50%;
+    margin-left: 220px;
+    margin-top: -16px;
+    padding-top: 50px;
+    padding-bottom: 20px;
+    padding-left: 100px;
+}
+.save{
+    margin-top: 50px;
+    margin-left: 295px;
+    background-color: #0669ad;
+    border-color: #fff;
+    border-radius: 6px;
+    padding: 5px 30px;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 15px;
+    line-height: 24px;
+    color: white;
+    cursor: pointer;
+}
+
+.name{
+    color: #0669ad;
+    padding-left: 220px;
+}

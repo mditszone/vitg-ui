@@ -1,0 +1,75 @@
+<div class="d-flex flex-row-reverse bd-highlight">
+    <a href="#" routerLink="/subcourse" class="btn back">Back</a>
+</div>
+<div class="conatiner">
+    <h1 class="name">Upadate SubCourse</h1>
+    <div class="card">
+        <form [formGroup]="subCourseDetailsForm">
+            <div class="form-group row">
+                <label for="id" class="col-sm-4 col-form-label">Sub Course Id</label>
+                <div class="col-sm-6">
+                    <input type="text" formControlName="id" class="form-control" [(ngModel)]="subCoursedata.id">
+                </div>
+            </div><br>
+            <div class="form-group row">
+                <label for="name" class="col-sm-4 col-form-label">Sub Course Name</label>
+                <div class="col-sm-6">
+                    <input type="text" formControlName="name" class="form-control" [(ngModel)]="subCoursedata.name">
+                </div>
+            </div><br>
+            <div class="form-group row">
+                <label for="durationDays" class="col-sm-4 col-form-label">Duration Days</label>
+                <div class="col-sm-6">
+                    <input type="text" formControlName="durationDays" class="form-control" [(ngModel)]="subCoursedata.durationDays">
+                </div>
+            </div><br>
+            <div class="form-group row">
+                <label for="durationHours" class="col-sm-4 col-form-label">Duration Hours</label>
+                <div class="col-sm-6">
+                    <input type="text" formControlName="durationHours" class="form-control" [(ngModel)]="subCoursedata.durationHours">
+                </div>
+            </div><br>
+            <div class="form-group row">
+                <label for="fee" class="col-sm-4 col-form-label">Fee</label>
+                <div class="col-sm-6">
+                    <input type="text" formControlName="fee" class="form-control" [(ngModel)]="subCoursedata.fee">
+                </div>
+            </div><br>
+            <div class="form-group row">
+                <label for="overview" class="col-sm-4 col-form-label">Overview</label>
+                <div class="form-group row">
+                    <ckeditor [editor]="editor" [config]="config" [data]="ckdata" formControlName="overview" 
+                    [(ngModel)]="subCoursedata.overview"></ckeditor>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="curriculum" class="col-sm-4 col-form-label">Curriculum</label>
+                <div class="form-group row">
+                    <ckeditor [editor]="editor" [config]="config" [data]="ckdata" formControlName="curriculum" 
+                    [(ngModel)]="subCoursedata.curriculum"></ckeditor>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="examCertification" class="col-sm-4 col-form-label">ExamCertification</label>
+                <div class="form-group row">
+                    <ckeditor [editor]="editor" [config]="config" [data]="ckdata" formControlName="examCertification" 
+                    [(ngModel)]="subCoursedata.examCertification"></ckeditor>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="trainingMode" class="col-sm-4 col-form-label">TrainingMode</label>
+                <div class="form-group row">
+                    <ckeditor [editor]="editor" [config]="config" [data]="ckdata" formControlName="trainingMode" 
+                    [(ngModel)]="subCoursedata.trainingMode"></ckeditor>
+                </div>
+            </div>
+           
+
+            <div class="form-group row">
+                <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 pr-0">
+                    <button class="btn save" type="button" (click)="updateSubCourse()">Save</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
