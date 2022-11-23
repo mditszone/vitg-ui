@@ -18,7 +18,7 @@ export class AddSubCourseComponent implements OnInit {
   courseList:any;
   errorMessage:any;
   data:any;
-  subCourseForm:any
+  subCourseForm:any;
 
   constructor(private formBuilder: FormBuilder, private router: Router, private route: ActivatedRoute, private courseService: CourseService) { }
 
@@ -147,6 +147,7 @@ export class AddSubCourseComponent implements OnInit {
       ]
     },
   }
+  
 
 }
 

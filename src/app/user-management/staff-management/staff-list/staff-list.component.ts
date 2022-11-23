@@ -14,18 +14,24 @@ export class StaffListComponent implements OnInit {
   id: any;
   loggedInUserRole: string = "";
   constructor(
-    private userService: UserService,public route: ActivatedRoute) { }
+    private userService: UserService, public route: ActivatedRoute) { }
 
 
   ngOnInit(): void {
-  //  const loggedInUser = JSON.parse(sessionStorage.getItem('staffLogin') || '{}');
-  //  console.log(loggedInUser);
-   // this.loggedInUserRole = loggedInUser.vitgStaffDTO.role.roleName;
+    //  const loggedInUser = JSON.parse(sessionStorage.getItem('staffLogin') || '{}');
+    //  console.log(loggedInUser);
+    // this.loggedInUserRole = loggedInUser.vitgStaffDTO.role.roleName;
     this.userService.getAllStaff().subscribe(data => {
       this.staffdata = data;
       console.log(this.staffdata)
     });
   }
+  deleteStaff(id: number) {
+    this.userService.deleteStaffById(id).subscribe((res: any) => {
+      this.staffdata = this.staffdata.filter(item => item.id != id);
+    })
+  }
+
 
 }
 

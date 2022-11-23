@@ -10,9 +10,10 @@
                         formControlName="course" [style]="{width: '100%'}">
                     </p-dropdown>
                     <div class="text-error"
-                        *ngIf="subCourseDetailsForm.controls['course'].invalid && (subCourseDetailsForm.controls['course'].dirty || subCourseDetailsForm.controls['course'].touched)">
+                        *ngIf="subCourseDetailsForm.controls['course'].invalid &&
+                         (subCourseDetailsForm.controls['course'].dirty || subCourseDetailsForm.controls['course'].touched)">
                         <div *ngIf="subCourseDetailsForm.controls['course']">
-                            course Name is Required
+                            Course Name is Required
                         </div>
                     </div>
                 </div>

@@ -29,8 +29,7 @@ export class CourseListComponent implements OnInit {
   deleteCourse(id: number) {
     this.courseService.deleteCourseById(id).subscribe(data => {
       this.coursedata = this.coursedata.filter(item => item.id !== id);
-    }
-    );
+    });
   }
 }
 
