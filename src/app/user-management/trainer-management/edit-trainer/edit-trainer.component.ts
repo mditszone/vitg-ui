@@ -35,7 +35,7 @@ export class EditTrainerComponent implements OnInit {
       phoneNumber: [{ value: null, disabled: false }],
       name: [null, [Validators.required, Validators.pattern('[a-zA-Z ]*')]],
       aadharNumber: ['', [Validators.required, Validators.pattern("^[0-9]*$"), Validators.minLength(12), Validators.maxLength(12)]],
-      panCardNumber: ['', [Validators.required, Validators.pattern("^[0-9]*$"), Validators.minLength(12), Validators.maxLength(12)]],
+      panCardNumber: ['', [Validators.required]],
     });
 
     this.patchValue();
@@ -78,7 +78,7 @@ export class EditTrainerComponent implements OnInit {
       }
       console.log(obj);
 
-      this.userService.updateTrainerinfo(id, obj).subscribe(data => {
+      this.userService.updateTrainerinfo( obj).subscribe(data => {
         this.trainerdata = data;
         this.router.navigate(['/trainer'])
       })

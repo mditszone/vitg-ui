@@ -25,18 +25,29 @@ export class UserService {
   public getStaffRoles(): Observable<any> {
     return this.http.get(this.baseURL + '/api/admin/getStaffRoles');
   }
+  public deleteStaffById(id:number):Observable<any>{
+    return this.http.delete(this.baseURL + `/api/staff/${id}`)
+  }
+  
 ///////////////////////
 
   public getAllTrainers(): Observable<any> {
     return this.http.get(this.baseURL + '/api/trainer/getAllTrainers');
   }
-  public updateTrainerinfo(id:any, body: any): Observable<any> {
+  public updateTrainerinfo(body:any): Observable<any> {
+    console.log("hello")
     return this.http.put(this.baseURL +'/api/trainer/editTrainer',body);
   }
   
   public getTrainerById(id:number): Observable<any> {
     return this.http.get(this.baseURL + `/api/trainer/${id}`)
   }
+
+  
+  public getCoursesList(): Observable<any> {
+    return this.http.get(this.baseURL + '/api/admin/getCoursesList')
+  }
+
 
 //////////////////
 

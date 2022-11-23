@@ -1,13 +1,14 @@
 .card{
-    border: -1px solid #0669ad;
-    border-radius: 4px;
-    height: 90%;
-    width: 80%;
-    margin-left: 5px;
-    margin-top: -16px;
-    padding-top: 50px;
-    padding-bottom: 20px;
-    padding-left: 100px;
+  width: 80%;
+  height: 80%;
+  margin-left: 100px;
+  margin-top: 0px;
+  margin-bottom: 40px;
+  padding-left: 60px;
+  padding-top: 40px;
+  border: 1px solid #0669ad;
+  border-radius: 4px;
+  padding-bottom: 20px;
 }
 .save{
     margin-top: 50px;
@@ -25,9 +26,8 @@
 }
 
 .name{
-    
-    color: #0669ad;
-    padding-left: 220px;
+  color: #0669ad;
+  padding-left: 100px;
 }
 .example-form {
   min-width: 150px;

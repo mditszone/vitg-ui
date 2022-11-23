@@ -7,13 +7,13 @@
                 <div class="col-sm-6">
                     <input type="text" formControlName="id" class="form-control">
                 </div>
-            </div>
+            </div><br>
             <div class="form-group row">
                 <label for="phoneNumber" class="col-sm-4 col-form-label">Phone Number</label>
                 <div class="col-sm-6">
                     <input type="text" formControlName="phoneNumber" class="form-control">
                 </div>
-            </div>
+            </div><br>
             <div class="form-group row">
                 <label for="name" class="col-sm-4 col-form-label">Name <span class="star text-danger">*</span></label>
                 <div class="col-sm-6">
@@ -26,7 +26,28 @@
                 </div>
             </div>
             <br>
+
             <div class="form-group row">
+                <label for="course" class="col-sm-4 col-form-label">Course<span
+                        class="star text-danger">*</span></label>
+                <div class="col-sm-6">
+
+                    <ng-multiselect-dropdown [placeholder]="'Select Courses'" formControlName="course"
+                        [data]="courseList" [settings]="dropdownSettings" >
+                        <!-- [(ngModel)]="selected" 
+                        (onSelect)="onItemSelect($event)" (onSelectAll)="onSelectAll($event)" -->
+                    </ng-multiselect-dropdown>
+                    
+                    <div class="text-error" *ngIf="trainerDetailsForm.controls['course'].invalid && 
+                     (trainerDetailsForm.controls['course'].dirty || trainerDetailsForm.controls['course'].touched)">
+                        <div *ngIf="trainerDetailsForm.controls['course']">
+                            Course Name is Required
+                        </div>
+                    </div>
+                </div>
+            </div><br>
+
+            <!-- <div class="form-group row">
                 <label for="gender" class="col-sm-4 col-form-label">Gender <span
                         class="star text-danger">*</span></label>
                 <div class="col-sm-6">
@@ -52,8 +73,8 @@
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="form-group row">
+            </div> <br>-->
+            <!-- <div class="form-group row">
                 <label for="aadharNumber" class="col-sm-4 col-form-label">Aadhar Number <span
                         class="star text-danger">*</span></label>
                 <div class="col-sm-6">
@@ -67,22 +88,22 @@
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="form-group row">
+            </div><br> -->
+            <!-- <div class="form-group row">
                 <label for="panCardNumber" class="col-sm-4 col-form-label">Pan Card Number<span
                         class="star text-danger">*</span></label>
                 <div class="col-sm-6">
-                    <input (keypress)="keyPress($event)" required type="text" formControlName="panCardNumber"
-                        class="form-control" [ngClass]="{ 'is-invalid': submitted && f['panCardNumber'].errors }" />
+                    <input type="text" formControlName="panCardNumber" class="form-control"
+                        [ngClass]="{ 'is-invalid': submitted && f['panCardNumber'].errors }" />
                     <div *ngIf="submitted && f['panCardNumber'].errors" class="invalid-feedback">
                         <div *ngIf="f['panCardNumber'].errors['required']">Pan Card Number is required</div>
                         <div
                             *ngIf="f['panCardNumber'].errors['pattern'] || f['panCardNumber'].errors['maxlength'] || f['panCardNumber'].errors['minlength']">
-                            Pan Card Number must be 12 numbers only
+                            Pan Card Number must be 10 numbers only
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> -->
 
             <div class="form-group">
                 <button class="btn save" (click)="updateTrainerInfo()">Save</button>
@@ -90,3 +111,46 @@
         </form>
     </div>
 </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- <div class="form-group row">
+                <label for="course" class="col-sm-4 col-form-label">Course<span
+                        class="star text-danger">*</span></label>
+                <div class="col-sm-6">
+                    <p-dropdown placeholder="- select -" [options]="courseList" optionLabel="name"
+                        formControlName="course" [style]="{width: '100%'}">
+                    </p-dropdown>
+                    <div class="text-error" *ngIf="trainerDetailsForm.controls['course'].invalid && 
+                     (trainerDetailsForm.controls['course'].dirty || trainerDetailsForm.controls['course'].touched)">
+                        <div *ngIf="trainerDetailsForm.controls['course']">
+                            Course Name is Required
+                        </div>
+                    </div>
+                </div>
+            </div><br> -->

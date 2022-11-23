@@ -51,6 +51,7 @@ import { TrackingListComponent } from './batch-management/tracking/tracking-list
 import { BatchesModule } from './batch-management/batches/batches.module';
 import { TrackingModule } from './batch-management/tracking/tracking.module';
 import { DatePipe } from '@angular/common';
+import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
 @NgModule({
   declarations: [
     AppComponent,
@@ -104,7 +105,8 @@ import { DatePipe } from '@angular/common';
     ButtonModule,
     DialogModule,
     MessagesModule,
-    ConfirmDialogModule
+    ConfirmDialogModule,
+    NgMultiSelectDropDownModule.forRoot()
   ],
   providers: [DatePipe],
   bootstrap: [AppComponent]
