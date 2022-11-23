@@ -51,7 +51,6 @@ import { TrackingListComponent } from './batch-management/tracking/tracking-list
 import { BatchesModule } from './batch-management/batches/batches.module';
 import { TrackingModule } from './batch-management/tracking/tracking.module';
 import { DatePipe } from '@angular/common';
-import { TabComponent } from './component/tab/tab.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -73,9 +72,7 @@ import { TabComponent } from './component/tab/tab.component';
     SubTopicListComponent,
     BatchListComponent,
     TrackingListComponent,
-    SliderListComponent,
-    TabComponent,
-    
+    SliderListComponent,    
   ],
   imports: [
     BrowserModule,
