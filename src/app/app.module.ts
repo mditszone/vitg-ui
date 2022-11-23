@@ -73,8 +73,7 @@ import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
     SubTopicListComponent,
     BatchListComponent,
     TrackingListComponent,
-    SliderListComponent,
-    
+    SliderListComponent,    
   ],
   imports: [
     BrowserModule,
