@@ -34,15 +34,15 @@ export class AddsliderComponent implements OnInit {
   ngOnInit() {}
 
   // get file data [ArrayBuffer]
-  // conver ArrayBuffer Uint8Array
+  // convert ArrayBuffer Uint8Array
   // send byte data to backend
 
-  
+
   public onUploadChange(evt: any): void {
+    const reader = new FileReader();
     const file = evt.target.files[0];
     this.fileName = file.name;
     this.slider.name = file.name;
-    const reader = new FileReader();
 
     reader.addEventListener("load", () => {
       //this.slider.image = reader.result;

@@ -1,5 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { ChatService } from './../../../chat-bot/chat.service';
+import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
+import { Course } from 'src/app/shared/model/course';
 import { MenuItem } from 'src/app/shared/model/menu-item';
+import { Subcourse } from 'src/app/shared/model/subcourse';
+import { CourseService } from 'src/app/shared/services/course.service';
 
 @Component({
   selector: 'app-mainscreen',
@@ -7,49 +11,35 @@ import { MenuItem } from 'src/app/shared/model/menu-item';
   styleUrls: ['./mainscreen.component.scss']
 })
 export class MainscreenComponent implements OnInit {
+  menuItems: any = [{
+    displayName: "All Courses",
+    children: []
+  }];
 
-  constructor() { }
-
-  ngOnInit(): void {
+  constructor(private courseService: CourseService, private cdr: ChangeDetectorRef) { 
+    this.courseService.getAllCourses().subscribe((arrayOfCourse: Course[]) => {
+      arrayOfCourse.forEach((course, courseIndex) => {
+        this.menuItems[0].children[courseIndex] = {
+          "displayName": course.name,
+          "children": []
+        };
+        this.courseService.getSubCourseListByCourseId(course.id).subscribe((arrayOfSubCourse: Subcourse[]) => {
+          arrayOfSubCourse.forEach((subCourse, subCourseIndex) => {
+            this.menuItems[0].children[courseIndex].children[subCourseIndex] = {
+              "displayName": subCourse.name,
+              "route": subCourse.name,
+            };
+          });
+        });
+      });
+    });
   }
 
-  menuItems: MenuItem[] = [
-    {
-      displayName: 'All Courses',
-      children: [
-        {
-          displayName: 'Java',
-          children: [
-            {
-              displayName: 'Corejava',
-              route: 'corejava',
+  ngOnInit(): void {
 
-            },
-            {
-              displayName: 'Springboot',
-              route: 'springboot',
+  }
 
-            },
-          ]
-        },
-        {
-          displayName: 'Python',
-          children: [
-            {
-              displayName: 'Flask',
-              route: ''
-            },
-            {
-              displayName: 'Core python',
-              route: ''
-            },
-          ]
-        },
-        {
-          displayName: 'Kotlin',
-          route: 'kotlin'
-        }
-      ]
-    },
-  ];
+  ngAfterContentChecked() {
+    this.cdr.detectChanges();
+  }
 }

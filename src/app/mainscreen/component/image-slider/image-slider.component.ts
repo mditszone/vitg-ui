@@ -15,17 +15,14 @@ export class ImageSliderComponent implements OnInit {
       for (let slider of data) {
         let ext = slider.name.split('.')[1]; // get image extension[png, jpeg, jpg]
         let base64Image = `data:image/${ext};base64,${slider.imageBytes}`;
-        console.log(base64Image);
-        this.imageObject.push(
-          {
+        //console.log(base64Image);
+        this.imageObject.push({
             image: base64Image,
             thumbImage: base64Image,
             alt: slider.name,
             title: slider.name
-          }
-        );
+          });
       }
-      console.log(this.imageObject);
     });
   }
 
