@@ -16,11 +16,6 @@
                     <app-menu #menu [items]="item.children"></app-menu>
                 </span>
 
-                <span *ngIf="!item.children || item.children.length === 0">
-                    <button mat-button color="primary" [routerLink]="item.route">
-                        {{item.displayName}}
-                    </button>
-                </span>
             </span>
         </div>
 
@@ -36,9 +31,9 @@
 </mat-toolbar>
 
 
-<router-outlet></router-outlet>
+    <router-outlet></router-outlet>
 
-
+    
 <mat-toolbar class="footer">
     <mat-toolbar-row>
         &copy;All rights reserved 2022

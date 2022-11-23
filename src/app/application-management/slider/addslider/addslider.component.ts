@@ -9,8 +9,9 @@ import { SliderService } from 'src/app/shared/services/slider.service';
   templateUrl: './addslider.component.html',
   styleUrls: ['./addslider.component.scss']
 })
-export class AddsliderComponent implements OnInit {
 
+export class AddsliderComponent implements OnInit {
+  fileName: string;
   slider: Slider = new Slider();
   submitted = false;
 
@@ -21,41 +22,50 @@ export class AddsliderComponent implements OnInit {
     thumbImage: ['', Validators.required],
 
   });
-  constructor(private sliderService: SliderService, private router: Router, private formBuilder: FormBuilder) { }
 
-  ngOnInit() {
+  constructor(
+    private sliderService: SliderService, 
+    private router: Router, 
+    private formBuilder: FormBuilder
+    ) {
+      this.fileName = "";
+     }
 
-  }
-  onChange(event) {
-    this.slider = event.target.files;
+  ngOnInit() {}
 
-  }
+  // get file data [ArrayBuffer]
+  // conver ArrayBuffer Uint8Array
+  // send byte data to backend
 
-
-  onUploadChange(evt: any) {
+  
+  public onUploadChange(evt: any): void {
     const file = evt.target.files[0];
-    //const extension = file.split('.').pop();
+    this.fileName = file.name;
+    this.slider.name = file.name;
+    const reader = new FileReader();
+
+    reader.addEventListener("load", () => {
+      //this.slider.image = reader.result;
+      const arr = new Uint8Array(<ArrayBuffer>reader.result);
+      var newFileArray:Array<number> = [];
+      if (arr.length > 0) {
+        for (let i:number = 0; i < arr.length; i++) {
+          newFileArray.push(arr[i]);
+        }
+      }
+      this.slider.imageBytes = newFileArray;
+    }, false);
+    
     if (file) {
-      const reader = new FileReader();
-      reader.onload = this.handleReaderLoaded.bind(this);
-      reader.readAsBinaryString(file);
-    }
-  }
-
-  handleReaderLoaded(e) {
-    let base64textString: any;
-    base64textString = ('data:image/jpg;base64,' + btoa(e.target.result));
-    let array: Uint8Array[] = [];
-    for (var i = 0; i < base64textString.length; i++) {
-      array.push(base64textString.charCodeAt(i));
+      //reader.readAsDataURL(file);
+      reader.readAsArrayBuffer(file);
     }
 
-    this.slider.image = array;
-    this.slider.thumbImage = array;
-    console.log(this.slider.image)
   }
+
   addSlider() {
     this.submitted = true;
+    this.slider.status = true;
     console.log(this.slider);
     this.sliderService.addSlider(this.slider).subscribe(data => {
       console.log(data)
@@ -64,31 +74,3 @@ export class AddsliderComponent implements OnInit {
   }
 
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  // OnClick of button Upload
-  // onUpload() {
-  //     this.loading = !this.loading;
-  //     console.log(this.file);
-  //     this.sliderService.upload(this.file).subscribe(
-  //         (event: any) => {
-  //           this.router.navigate(['/slider']);
-  //             console.log(event)
-  //         }
-  //     );
-  // }
-
