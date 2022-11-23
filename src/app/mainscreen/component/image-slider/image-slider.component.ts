@@ -1,40 +1,54 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
 import { Slider } from 'src/app/shared/model/slider';
 import { SliderService } from 'src/app/shared/services/slider.service';
 
-// class sliderImage {
-//   image: string = "";
-//   thumbImage: string = ""
-//   title: string = ""
-// };
 @Component({
   selector: 'app-image-slider',
   templateUrl: './image-slider.component.html',
   styleUrls: ['./image-slider.component.scss']
 })
-export class ImageSliderComponent implements OnInit {
-  sliderdata: any;
-  imageObject: Array<Slider> = [];
-  retrievedImage: any;
-  base64Data: any;
-  base64: any
-  sliderImages: any = [];
-  image: any;
-  images: any;
-  constructor(private sliderService: SliderService,) { }
 
-  ngOnInit(): void {
-    this.sliderService.getAllSliders().subscribe((data: any) => {
-     
+export class ImageSliderComponent implements OnInit {
+  imageObject: Array<object> = [];
+  constructor(private sliderService: SliderService, private cdr: ChangeDetectorRef) { 
+    this.sliderService.getAllSliders().subscribe((data) => {
       for (let slider of data) {
-        this.base64Data = slider['image'];
-        this.base64=slider.thumbImage;
-        
-        this.retrievedImage = 'data:image/jpg;base64,' + this.base64Data +this.base64;
-        slider.image=this.retrievedImage;
-        //console.log(slider.image);
+        let ext = slider.name.split('.')[1]; // get image extension[png, jpeg, jpg]
+        let base64Image = `data:image/${ext};base64,${slider.imageBytes}`;
+        console.log(base64Image);
+        this.imageObject.push(
+          {
+            image: base64Image,
+            thumbImage: base64Image,
+            alt: slider.name,
+            title: slider.name
+          }
+        );
       }
-    this.imageObject = data;
+      console.log(this.imageObject);
     });
   }
+
+  ngOnInit(): void {
+    
+  }
+
+  ngAfterContentChecked() {
+    this.cdr.detectChanges();
+  }
+
 }
+
+
+// {
+//   image: '/assets/img1.png',
+//   thumbImage: '/assets/img1.png',
+//   alt: 'alt of image',
+//   title: 'title of image'
+// },
+// {
+// image: 'assets/img2.png',
+// thumbImage: '/assets/img2.png',
+// alt: 'alt of image',
+// title: 'title of image'
+// },

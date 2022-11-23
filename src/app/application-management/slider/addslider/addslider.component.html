@@ -20,16 +20,6 @@
             </div>
             <br>
             <div class="form-group row">
-                <label for="thumbImage" class="col-sm-4 col-form-label">Slider File</label>
-                <div class="col-sm-6">
-                    <input type="file" formControlName="thumbImage" class="form-control" (change)="onUploadChange($event)" 
-                        [(ngModel)]="slider.thumbImage">
-                        
-                </div>
-            </div>
-            <br>
-
-            <div class="form-group row">
                 <label for="status" class="col-sm-4 col-form-label">Status</label>
                 <div class="col-sm-6">
                     <select class="form-control" formControlName="status" placeholder="Active"

@@ -2,6 +2,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
+import { Slider } from '../model/slider';
 
 
 const httpOptions = {
@@ -19,11 +20,11 @@ export class SliderService {
   constructor(public http: HttpClient) { }
 
   public addSlider(slider: any): Observable<any> {
-    return this.http.post(this.baseURL + "/api/slider", slider);
+    return this.http.post(this.baseURL + "/api/slider/upload_image", slider);
   }
   
   public getAllSliders(): Observable<any> {
-    return this.http.get(this.baseURL + "/api/slider/getAllSlider")
+    return this.http.get<Slider>(this.baseURL + "/api/slider/getAllSlider")
   }
   
   public getSliderById(id:number): Observable<any> {

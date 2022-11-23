@@ -3,5 +3,6 @@ export class Slider {
     name:string="";
     status!:boolean;
     image:any;
-    thumbImage:any
+    imageBytes: any;
+    thumbImage:any;
 }
