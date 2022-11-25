@@ -1,3 +1,4 @@
+import { Subcourse } from './../model/subcourse';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
@@ -37,8 +38,8 @@ export class CourseService {
   public getAllSubCourses(): Observable<any> {
     return this.http.get(this.baseURL + '/api/subCourse/AllSubCourses')
   }
-  public getSubCourseById(id: number): Observable<any> {
-    return this.http.get(this.baseURL + `/api/subCourse/${id}`)
+  public getSubCourseById(id: number): Observable<Subcourse> {
+    return this.http.get<Subcourse>(this.baseURL + `/api/subCourse/${id}`)
   }
 
   public updateSubCourse(subCoursedata: any): Observable<any> {

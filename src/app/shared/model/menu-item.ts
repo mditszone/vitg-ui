@@ -3,4 +3,5 @@ export class MenuItem {
     disabled?: boolean;
     route?: string;
     children?: MenuItem[];
+    id?:number;
 }

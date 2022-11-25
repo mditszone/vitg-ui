@@ -16,7 +16,7 @@
                     <app-menu #menu [items]="item.children"></app-menu>
                 </span>
                 <span *ngIf="!item.children || item.children.length === 0">
-                    <button mat-button color="primary" [routerLink]="item.route">
+                    <button mat-button color="primary" (click)="onClick()">
                         {{item.displayName}}
                     </button>
                 </span>
