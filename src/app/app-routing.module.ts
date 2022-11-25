@@ -32,6 +32,21 @@ const routes: Routes = [
         component: ImageSliderComponent,
       }
     ]
+  },{
+    path: '', component: MainscreenComponent,
+    children: [
+      {
+        path: '', component: CardImagesComponent
+      }
+    ]
+  },
+  {
+    path: '', component: MainscreenComponent,
+    children: [
+      {
+        path: 'corejava', component: CorejavaComponent
+      }
+    ]
   },
   {
     path: '',
