@@ -34,24 +34,6 @@ const routes: Routes = [
     ]
   },
   {
-    path: '', component: MainscreenComponent,
-    children: [
-      {
-        path: '', component: CardImagesComponent
-      }
-    ]
-  },
-  {
-    path: '', component: MainscreenComponent,
-    children: [
-      {
-        path: 'corejava', component: CorejavaComponent
-      }
-    ]
-  },
-
-
-  {
     path: '',
     component: MainscreenComponent,
     children: [{
