@@ -10,14 +10,14 @@
                 </div>
             </div>
             <br>
-            <!-- <div class="form-group row">
-                <label for="image" class="col-sm-4 col-form-label">Image Upload</label>
+            <div class="form-group row">
+                <label for="image" class="col-sm-4 col-form-label">Course Image </label>
                 <div class="col-sm-6">
-                    <input type="file" formControlName="image" class="form-control" required
+                    <input type="file" formControlName="image" class="form-control" (change)="onUploadChange($event)"
                         [(ngModel)]="course.image">
                 </div>
             </div>
-            <br> -->
+            <br>
 
             <div class="form-group row">
                 <label for="status" class="col-sm-4 col-form-label">Status</label>

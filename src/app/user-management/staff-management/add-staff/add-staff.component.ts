@@ -26,7 +26,7 @@ export class AddStaffComponent implements OnInit {
     role: ['', Validators.required],
     email: ['', Validators.required],
     aadharNumber: ['', [Validators.required, Validators.pattern("^[0-9]*$"), Validators.minLength(12), Validators.maxLength(12)]],
-    panCardNumber: ['', [Validators.required, Validators.pattern("^[0-9]*$"), Validators.minLength(12), Validators.maxLength(12)]]
+    panCardNumber: ['', [Validators.required, Validators.pattern("^[0-9]*$"), Validators.minLength(10), Validators.maxLength(10)]]
   });
 
   constructor(private router: Router, private userService: UserService,public route: ActivatedRoute, private formBuilder: FormBuilder) { }

@@ -13,6 +13,7 @@ import { DropdownModule } from 'primeng/dropdown';
 import { ToastModule } from 'primeng/toast';
 import { AddTrainerComponent } from './add-trainer/add-trainer.component';
 import { MaterialModule } from 'src/app/shared/module/material.module';
+import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { MaterialModule } from 'src/app/shared/module/material.module';
     FormsModule,
     NgOtpInputModule,
     DropdownModule,
-    ToastModule
+    ToastModule,
+    NgMultiSelectDropDownModule.forRoot()
   ]
 })
 export class TrainerManagementModule { }

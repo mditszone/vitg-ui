@@ -1,4 +1,4 @@
-
+import { TabComponent } from './component/tab/tab.component'; 
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
@@ -52,6 +52,7 @@ import { TrackingListComponent } from './batch-management/tracking/tracking-list
 import { BatchesModule } from './batch-management/batches/batches.module';
 import { TrackingModule } from './batch-management/tracking/tracking.module';
 import { DatePipe } from '@angular/common';
+import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
 @NgModule({
   declarations: [
     AppComponent,
@@ -73,7 +74,9 @@ import { DatePipe } from '@angular/common';
     SubTopicListComponent,
     BatchListComponent,
     TrackingListComponent,
-    SliderListComponent  
+    SliderListComponent,
+    TabComponent
+
   ],
   imports: [
     BrowserModule,
@@ -104,7 +107,8 @@ import { DatePipe } from '@angular/common';
     ButtonModule,
     DialogModule,
     MessagesModule,
-    ConfirmDialogModule
+    ConfirmDialogModule,
+    NgMultiSelectDropDownModule.forRoot()
   ],
   providers: [DatePipe],
   bootstrap: [AppComponent]

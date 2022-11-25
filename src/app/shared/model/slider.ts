@@ -4,5 +4,4 @@ export class Slider {
     status!:boolean;
     image:any;
     imageBytes: any;
-    thumbImage:any;
 }

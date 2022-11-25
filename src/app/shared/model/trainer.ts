@@ -1,9 +1,13 @@
-export interface Trainer {
-    id:number,
-    name: string,
-    phoneNumber: number,
-    gender: string,
-    aadharNumber: string,
-    panCardNumber: string,
-    address: string,
+import { Course } from "./course";
+
+export class Trainer {
+    id!: number;
+    phoneNumber!: number;
+    name: string = "";
+    course!: Course;
+    gender: string = "";
+    email: string="";
+    aadharNumber: string = "";
+    panCardNumber: string = "";
+    address: string = "";
 }
