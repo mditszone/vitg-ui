@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { ChatService } from './../../../chat-bot/chat.service';
 import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { Course } from 'src/app/shared/model/course';
@@ -16,7 +17,7 @@ export class MainscreenComponent implements OnInit {
     children: []
   }];
 
-  constructor(private courseService: CourseService, private cdr: ChangeDetectorRef) { 
+  constructor(private courseService: CourseService, private cdr: ChangeDetectorRef, private route: Router) { 
     this.courseService.getAllCourses().subscribe((arrayOfCourse: Course[]) => {
       arrayOfCourse.forEach((course, courseIndex) => {
         this.menuItems[0].children[courseIndex] = {
@@ -27,7 +28,8 @@ export class MainscreenComponent implements OnInit {
           arrayOfSubCourse.forEach((subCourse, subCourseIndex) => {
             this.menuItems[0].children[courseIndex].children[subCourseIndex] = {
               "displayName": subCourse.name,
-              "route": subCourse.name,
+              "route": 'tabComponent',
+              "id": subCourse.id
             };
           });
         });
@@ -42,4 +44,10 @@ export class MainscreenComponent implements OnInit {
   ngAfterContentChecked() {
     this.cdr.detectChanges();
   }
+
+  onClick() {
+    console.log("i am working");
+    this.route.navigate(['/tabComponent']);  
+  }
+
 }

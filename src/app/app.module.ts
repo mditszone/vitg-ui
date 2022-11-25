@@ -1,3 +1,4 @@
+import { TabComponent } from './component/tab/tab.component';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
@@ -72,7 +73,8 @@ import { DatePipe } from '@angular/common';
     SubTopicListComponent,
     BatchListComponent,
     TrackingListComponent,
-    SliderListComponent,    
+    SliderListComponent,
+    TabComponent    
   ],
   imports: [
     BrowserModule,

@@ -1,3 +1,4 @@
+import { TabComponent } from './component/tab/tab.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { DashboardComponent } from './dashboard/dashboard.component';
@@ -35,11 +36,10 @@ const routes: Routes = [
     path:'',component:MainscreenComponent,
     children:[
       {
-        path:'corejava',component:CorejavaComponent
+        path:'tabComponent',component:TabComponent, pathMatch: 'full'
       }
     ]
   },
- 
   
   {
     path: '',
@@ -214,7 +214,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes, {useHash: false})],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }

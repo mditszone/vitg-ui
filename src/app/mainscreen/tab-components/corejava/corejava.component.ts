@@ -9,6 +9,7 @@ import { CourseService } from 'src/app/shared/services/course.service';
   templateUrl: './corejava.component.html',
   styleUrls: ['./corejava.component.scss']
 })
+
 export class CorejavaComponent implements OnInit {
   id!: number;
   subCoursedata: any
