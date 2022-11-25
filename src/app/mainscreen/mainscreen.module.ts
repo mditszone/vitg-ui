@@ -20,6 +20,7 @@ import { CorejavaComponent } from './tab-components/corejava/corejava.component'
 import { MainscreenComponent } from './component/mainscreen/mainscreen.component';
 import { ImageSliderComponent } from './component/image-slider/image-slider.component';
 import { NgImageSliderModule } from 'ng-image-slider';
+import { CardImagesComponent } from './component/card-images/card-images.component';
 
 @NgModule({
   declarations: [
@@ -34,6 +35,7 @@ import { NgImageSliderModule } from 'ng-image-slider';
     MenuComponent,
     MainscreenComponent,
     ImageSliderComponent,
+    CardImagesComponent
     
   ],
   imports: [

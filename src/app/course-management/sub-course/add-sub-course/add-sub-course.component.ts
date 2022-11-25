@@ -12,30 +12,37 @@ import ClassicEditor from '@haifahrul/ckeditor5-build-rich';
   styleUrls: ['./add-sub-course.component.scss']
 })
 export class AddSubCourseComponent implements OnInit {
+  fileName: string;
   subCourse: Subcourse = new Subcourse();
-  subCourseDetailsForm: any;
   submitted!: boolean;
-  courseList:any;
-  errorMessage:any;
-  data:any;
-  subCourseForm:any;
+  courseList: any;
+  errorMessage: any;
+  data: any;
+  subCourseForm: any;
 
-  constructor(private formBuilder: FormBuilder, private router: Router, private route: ActivatedRoute, private courseService: CourseService) { }
+
+  subCourseDetailsForm = this.formBuilder.group({
+    name: ['', [Validators.required]],
+    course: ['', [Validators.required]],
+    durationDays: ['', [Validators.required]],
+    durationHours: ['', [Validators.required]],
+    fee: ['', [Validators.required]],
+    overview: ['', [Validators.required]],
+    curriculum: ['', [Validators.required]],
+    examCertification: ['', [Validators.required]],
+    trainingMode: ['', [Validators.required]]
+  });
+
+  constructor(
+    private formBuilder: FormBuilder,
+    private router: Router,
+    private courseService: CourseService) {
+    this.fileName = "";
+  }
 
   ngOnInit(): void {
-    this.subCourseDetailsForm = this.formBuilder.group({
-      name: ['', [Validators.required]],
-      course: ['', [Validators.required]],
-      durationDays:['', [Validators.required]],
-      durationHours:['', [Validators.required]],
-      fee:['', [Validators.required]],
-      overview:['', [Validators.required]],
-      curriculum:['', [Validators.required]],
-      examCertification:['', [Validators.required]],
-      trainingMode:['', [Validators.required]]
-    }),
-      this.getCoursesList();
-      this.patchValue();
+    this.getCoursesList();
+    this.patchValue();
   }
 
   getCoursesList() {
@@ -46,35 +53,52 @@ export class AddSubCourseComponent implements OnInit {
         this.errorMessage = error;
     });
   }
-  
+
+  public onUploadChange(event: any): void {
+    const reader = new FileReader;
+    const file = event.target.files[0];
+    this.fileName = file.name;
+    //this.subCourse.name = file.name;
+
+    reader.addEventListener("load", () => {
+      const arr = new Uint8Array(<ArrayBuffer>reader.result);
+      var newFileArray: Array<number> = [];
+      if (arr.length > 0) {
+        for (let i: number = 0; i < arr.length; i++) {
+          newFileArray.push(arr[i]);
+        }
+      }
+      this.subCourse.image = newFileArray;
+    }, false
+    )
+    if (file) {
+      reader.readAsArrayBuffer(file);
+    }
+  }
   get f() { return this.subCourseDetailsForm.controls; }
 
   patchValue() {
-
-      this.subCourseDetailsForm.patchValue({
-        name: this.data.name,
-        course: this.data.course,
-        durationDays: this.data.durationdays,
-        durationHours: this.data.durationhours,
-        fee: this.data.fee,
-        overview: this.data.overview,
-        curriculum: this.data.curriculum,
-        examCertification: this.data.examCertification,
-        trainingMode: this.data.trainingMode,
-      });
+    this.subCourseDetailsForm.patchValue({
+      name: this.data.name,
+      course: this.data.course,
+      durationDays: this.data.durationdays,
+      durationHours: this.data.durationhours,
+      fee: this.data.fee,
+      overview: this.data.overview,
+      curriculum: this.data.curriculum,
+      examCertification: this.data.examCertification,
+      trainingMode: this.data.trainingMode,
+    });
   }
 
   createSubCourse() {
-
     this.submitted = true;
-
     // stop here if form is invalid
     if (this.subCourseDetailsForm.invalid) {
       return;
     }
     else {
       this.subCourseForm = this.subCourseDetailsForm.value;
-
 
       this.subCourse.name = this.subCourseForm.name;
       this.subCourse.course = this.subCourseForm.course;
@@ -86,8 +110,6 @@ export class AddSubCourseComponent implements OnInit {
       this.subCourse.examCertification = this.subCourseForm.examCertification;
       this.subCourse.trainingMode = this.subCourseForm.trainingMode;
 
-
-     
       this.courseService.createSubCourse(this.subCourse).subscribe(
         (data: any) => {
           console.log(data)
@@ -102,7 +124,7 @@ export class AddSubCourseComponent implements OnInit {
 
   editor = ClassicEditor;
   overviewdata: any = `<p>Hello, vitg!</p>`;
- 
+
   config = {
     toolbar: [
       'undo',
@@ -135,9 +157,9 @@ export class AddSubCourseComponent implements OnInit {
       'insertTable',
       'blockQuote',
       'specialCharacters',
-      
-       '|', 'colors', 
-      ],
+
+      '|', 'colors',
+    ],
     language: 'id',
     image: {
       toolbar: [
@@ -147,7 +169,7 @@ export class AddSubCourseComponent implements OnInit {
       ]
     },
   }
-  
+
 
 }
 

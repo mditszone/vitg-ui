@@ -35,17 +35,3 @@ export class ImageSliderComponent implements OnInit {
   }
 
 }
-
-
-// {
-//   image: '/assets/img1.png',
-//   thumbImage: '/assets/img1.png',
-//   alt: 'alt of image',
-//   title: 'title of image'
-// },
-// {
-// image: 'assets/img2.png',
-// thumbImage: '/assets/img2.png',
-// alt: 'alt of image',
-// title: 'title of image'
-// },

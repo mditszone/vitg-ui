@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AboutUsComponent } from './component/about-us/about-us.component';
+import { CardImagesComponent } from './component/card-images/card-images.component';
 import { ContactUsComponent } from './component/contact-us/contact-us.component';
 import { ImageSliderComponent } from './component/image-slider/image-slider.component';
 import { MainscreenComponent } from './component/mainscreen/mainscreen.component';
@@ -12,27 +13,28 @@ import { VerifyStudentComponent } from './component/student-dashboard/verify-stu
 import { TeamComponent } from './component/team/team.component';
 
 const routes: Routes = [
-  
+
   {
-    path:'imageSlider',component:ImageSliderComponent
+    path: 'imageSlider', component: ImageSliderComponent
+  },
+
+  {
+    path: 'aboutus', component: AboutUsComponent
   },
   {
-    path:'aboutus',component:AboutUsComponent
+    path: 'services', component: ServicesComponent
   },
   {
-    path:'services',component:ServicesComponent
+    path: 'portifolio', component: PortifolioComponent
   },
   {
-    path:'portifolio',component:PortifolioComponent
+    path: 'team', component: TeamComponent
   },
   {
-    path:'team',component:TeamComponent
+    path: 'contactus', component: ContactUsComponent
   },
   {
-    path:'contactus',component:ContactUsComponent
-  },
-  {
-    path:'register',component:StudentRegisterComponent
+    path: 'register', component: StudentRegisterComponent
   },
   {
     path: 'verifyStudent', pathMatch: 'full',

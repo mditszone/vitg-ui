@@ -20,27 +20,37 @@ import { SliderListComponent } from './application-management/slider/slider-list
 import { ImageSliderComponent } from './mainscreen/component/image-slider/image-slider.component';
 import { BatchListComponent } from './batch-management/batches/batch-list/batch-list.component';
 import { TrackingListComponent } from './batch-management/tracking/tracking-list/tracking-list.component';
+import { CardImagesComponent } from './mainscreen/component/card-images/card-images.component';
 
 const routes: Routes = [
 
   {
-    path:'',component:MainscreenComponent,
-    children:[
+    path: '', component: MainscreenComponent,
+    children: [
       {
-        path:'',component:ImageSliderComponent
+        path: '',
+        component: ImageSliderComponent,
       }
     ]
   },
   {
-    path:'',component:MainscreenComponent,
-    children:[
+    path: '', component: MainscreenComponent,
+    children: [
       {
-        path:'corejava',component:CorejavaComponent
+        path: '', component: CardImagesComponent
       }
     ]
   },
- 
-  
+  {
+    path: '', component: MainscreenComponent,
+    children: [
+      {
+        path: 'corejava', component: CorejavaComponent
+      }
+    ]
+  },
+
+
   {
     path: '',
     component: MainscreenComponent,
@@ -62,14 +72,14 @@ const routes: Routes = [
   //     }]
   // },
 
-  
+
   {
-    path: 'dashboard', 
+    path: 'dashboard',
     component: SidebarComponent
   },
 
   {
-    path: 'sidebar', 
+    path: 'sidebar',
     component: SidebarComponent
   },
 
@@ -77,138 +87,138 @@ const routes: Routes = [
     path: 'staffLogin',
     component: StaffLoginComponent
   },
-  
+
   {
     path: 'verifyStaffLogin',
     component: VerifyStaffLoginComponent
   },
 
-  
+
   {
-      path: '',
-      component: LayoutComponent,
-      children: [
-        {
-          path: 'course', pathMatch: 'full',
-          component: CourseListComponent
-        }]
-    },
-    {
-      path: '',
-      component: LayoutComponent,
-      children: [
-        {
-          path: 'subcourse', pathMatch: 'full',
-          component: SubCourseListComponent
-        }]
-    },
-    {
-      path: '',
-      component: LayoutComponent,
-      children: [
-        {
-          path: 'topic', pathMatch: 'full',
-          component: TopicListComponent
-        }]
-    },
-    {
-      path: '',
-      component: LayoutComponent,
-      children: [
-        {
-          path: 'subtopic', pathMatch: 'full',
-          component: SubTopicListComponent
-        }]
-    },
-    
-    {
-      path: '',
-      component: LayoutComponent,
-      children: [
-        {
-          path: 'batches', pathMatch: 'full',
-          component: BatchListComponent
-        }]
-    },
-    {
-      path: '',
-      component: LayoutComponent,
-      children: [
-        {
-          path: 'tracking', pathMatch: 'full',
-          component: TrackingListComponent
-        }]
-    },
-    ////
-    {
-      path: '',
-      component: LayoutComponent,
-      children: [
-        {
-          path: 'staff', pathMatch: 'full',
-          component: StaffListComponent
-        }]
-    },
+    path: '',
+    component: LayoutComponent,
+    children: [
+      {
+        path: 'course', pathMatch: 'full',
+        component: CourseListComponent
+      }]
+  },
+  {
+    path: '',
+    component: LayoutComponent,
+    children: [
+      {
+        path: 'subcourse', pathMatch: 'full',
+        component: SubCourseListComponent
+      }]
+  },
+  {
+    path: '',
+    component: LayoutComponent,
+    children: [
+      {
+        path: 'topic', pathMatch: 'full',
+        component: TopicListComponent
+      }]
+  },
+  {
+    path: '',
+    component: LayoutComponent,
+    children: [
+      {
+        path: 'subtopic', pathMatch: 'full',
+        component: SubTopicListComponent
+      }]
+  },
 
-    {
-      path: '',
-      component: LayoutComponent,
-      children: [
-        {
-          path: 'student', pathMatch: 'full',
-          component: StudentListComponent
-        }]
-    },
-    {
-      path: '',
-      component: LayoutComponent,
-      children: [
-        {
-          path: 'trainer', pathMatch: 'full',
-          component: TrainerListComponent
-        }]
-    },
-    {
-      path: '',
-      component: LayoutComponent,
-      children: [
-        {
-          path: 'subtopicconcept', pathMatch: 'full',
-          component: AddSubTopicConceptComponent
-        }]
-    },
-    {
-      path: '',
-      component: LayoutComponent,
-      children: [
-        {
-          path: 'slider', pathMatch: 'full',
-          component: SliderListComponent
-        }]
-    },
-    {
-      path: '',
-      component: LayoutComponent,
-      children: [
-        {
-          path: 'addSlider', pathMatch: 'full',
-          component: AddsliderComponent
-        }]
-    }
-    
+  {
+    path: '',
+    component: LayoutComponent,
+    children: [
+      {
+        path: 'batches', pathMatch: 'full',
+        component: BatchListComponent
+      }]
+  },
+  {
+    path: '',
+    component: LayoutComponent,
+    children: [
+      {
+        path: 'tracking', pathMatch: 'full',
+        component: TrackingListComponent
+      }]
+  },
+  ////
+  {
+    path: '',
+    component: LayoutComponent,
+    children: [
+      {
+        path: 'staff', pathMatch: 'full',
+        component: StaffListComponent
+      }]
+  },
 
-    // {
-    //   path: 'staff',
-    //   component: LayoutComponent,
-    //   children: [
-    //     // { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
-    //     {
-    //       path: 'staff',
-    //       loadChildren: () => import('./user-management/staff-management/staff-management.module').then(staffmanagement => staffmanagement.StaffManagementModule),
-    //     }
-  
-    //   ]
-    // }
+  {
+    path: '',
+    component: LayoutComponent,
+    children: [
+      {
+        path: 'student', pathMatch: 'full',
+        component: StudentListComponent
+      }]
+  },
+  {
+    path: '',
+    component: LayoutComponent,
+    children: [
+      {
+        path: 'trainer', pathMatch: 'full',
+        component: TrainerListComponent
+      }]
+  },
+  {
+    path: '',
+    component: LayoutComponent,
+    children: [
+      {
+        path: 'subtopicconcept', pathMatch: 'full',
+        component: AddSubTopicConceptComponent
+      }]
+  },
+  {
+    path: '',
+    component: LayoutComponent,
+    children: [
+      {
+        path: 'slider', pathMatch: 'full',
+        component: SliderListComponent
+      }]
+  },
+  {
+    path: '',
+    component: LayoutComponent,
+    children: [
+      {
+        path: 'addSlider', pathMatch: 'full',
+        component: AddsliderComponent
+      }]
+  }
+
+
+  // {
+  //   path: 'staff',
+  //   component: LayoutComponent,
+  //   children: [
+  //     // { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
+  //     {
+  //       path: 'staff',
+  //       loadChildren: () => import('./user-management/staff-management/staff-management.module').then(staffmanagement => staffmanagement.StaffManagementModule),
+  //     }
+
+  //   ]
+  // }
 
 
 ];

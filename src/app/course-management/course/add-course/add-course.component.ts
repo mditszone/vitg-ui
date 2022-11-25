@@ -11,7 +11,7 @@ import ClassicEditor from '@haifahrul/ckeditor5-build-rich';
   styleUrls: ['./add-course.component.scss']
 })
 export class AddCourseComponent implements OnInit {
-
+  fileName: string;
   course: Course = new Course();
   submitted = false;
 
@@ -20,19 +20,47 @@ export class AddCourseComponent implements OnInit {
 
   courseDetailsForm = this.formBuilder.group({
     name: [{ value: '', disabled: false }],
-   // image:['', Validators.required],
+    image: ['', Validators.required],
     status: ['', Validators.required],
     description: ['', Validators.required]
 
   });
-  constructor(private courseService: CourseService, private router: Router, private formBuilder: FormBuilder) { }
-  
+  constructor(
+    private courseService: CourseService,
+    private router: Router,
+    private formBuilder: FormBuilder
+  ) {
+    this.fileName = "";
+  }
+
   ngOnInit() {
 
   }
 
+  public onUploadChange(event: any): void {
+    const reader = new FileReader;
+    const file = event.target.files[0];
+    this.fileName = file.name;
+    //this.course.name = file.name;
+
+    reader.addEventListener("load", () => {
+      const arr = new Uint8Array(<ArrayBuffer>reader.result);
+      var newFileArray: Array<number> = [];
+      if (arr.length > 0) {
+        for (let i: number = 0; i < arr.length; i++) {
+          newFileArray.push(arr[i]);
+        }
+      }
+      this.course.image = newFileArray;
+    }, false);
+
+    if (file) {
+      reader.readAsArrayBuffer(file);
+    }
+  }
   createCourse() {
     this.submitted = true;
+    this.course.status = true;
     this.courseService.createCourse(this.course).subscribe(data => {
       console.log(data)
       this.router.navigate(['/course']);
@@ -71,9 +99,9 @@ export class AddCourseComponent implements OnInit {
       'insertTable',
       'blockQuote',
       'specialCharacters',
-      
-       '|', 'colors', 
-      ],
+
+      '|', 'colors',
+    ],
     language: 'id',
     image: {
       toolbar: [
