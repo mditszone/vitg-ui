@@ -32,14 +32,7 @@ const routes: Routes = [
       }
     ]
   },
-  {
-    path:'',component:MainscreenComponent,
-    children:[
-      {
-        path:'tabComponent',component:TabComponent, pathMatch: 'full'
-      }
-    ]
-  },
+
   
   {
     path: '',
