@@ -1,39 +1,36 @@
-
 .header{
     background-color: #0669AD;
     color: #fff;
-    
-    .language{
-        font-size: 33px;
-        padding-bottom: 34px;
-        padding-right: 30px;
-      }
-
-    .header-name{
-        font-size: 22px;
-        padding-left: 16px;
-        cursor: pointer;
-    }
-    .global{
-        font-size: 22px;
-        padding-left: 5px;
-        color: #FFC82A;
-        cursor: pointer;
-    } 
-    .menu a{
-        font-size: 12px;
-        margin: 5px;
-        color: rgb(255, 255, 255);
-        text-align: right;
-        border-bottom: none;
-      }
+    position: fixed;
+    z-index: 5;
   }
-  
-  .courses{
-    background-color: #0669AD;
+  .language{
+    font-size: 33px;
+    padding-bottom: 34px;
+    padding-right: 30px;
+  }
+
+.header-name{
+    font-size: 22px;
+    padding-left: 16px;
+    cursor: pointer;
+}
+.global{
+    font-size: 22px;
+    padding-left: 5px;
+    color: #FFC82A;
+    cursor: pointer;
+} 
+.menu a{
+    font-size: 12px;
+    margin: 5px;
+    color: rgb(255, 255, 255);
+    text-align: right;
+    border-bottom: none;
   }
 
   .allcourses{
+    cursor: pointer;
     color: #fff;
     font-size: 16px;
     right: 9px;
@@ -43,11 +40,18 @@
   }
 
   .footer{
-    background-color: #0669AD;
+    z-index: 5;
+    background-color: #0669ad;
     bottom: 0;
     position: fixed;
     font-size: 13px;
     color:#fff;
     text-align: center;
     padding-left: 690px;
+}
+.body{
+  z-index: 2;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
 }

@@ -1,9 +1,0 @@
-<div class="card">
-  <div class="container">
-    <mat-tab-group [selectedIndex]="selected.value" (selectedIndexChange)="selected.setValue($event)" (onChange)="getSubCourse" >
-      <mat-tab *ngFor="let tab of tabs" [label]="tab">
-        Corejava {{tab}}
-      </mat-tab>
-    </mat-tab-group>
-  </div>
-</div>

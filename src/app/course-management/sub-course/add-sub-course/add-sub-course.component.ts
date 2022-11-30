@@ -30,7 +30,8 @@ export class AddSubCourseComponent implements OnInit {
     overview: ['', [Validators.required]],
     curriculum: ['', [Validators.required]],
     examCertification: ['', [Validators.required]],
-    trainingMode: ['', [Validators.required]]
+    trainingMode: ['', [Validators.required]],
+    youtubeUrl:['', [Validators.required]]
   });
 
   constructor(
@@ -88,6 +89,7 @@ export class AddSubCourseComponent implements OnInit {
       curriculum: this.data.curriculum,
       examCertification: this.data.examCertification,
       trainingMode: this.data.trainingMode,
+      youtubeUrl: this.data.youtubeUrl,
     });
   }
 
@@ -109,7 +111,7 @@ export class AddSubCourseComponent implements OnInit {
       this.subCourse.curriculum = this.subCourseForm.curriculum;
       this.subCourse.examCertification = this.subCourseForm.examCertification;
       this.subCourse.trainingMode = this.subCourseForm.trainingMode;
-
+      this.subCourse.youtubeUrl= this.subCourseForm.youtubeUrl;
       this.courseService.createSubCourse(this.subCourse).subscribe(
         (data: any) => {
           console.log(data)

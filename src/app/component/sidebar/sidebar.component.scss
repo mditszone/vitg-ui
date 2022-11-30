@@ -1,31 +1,32 @@
+.m-sidenav-container{
+  min-height: 92%;
+}
+.m-sidenav{
+  margin-top:4rem;
+  width: 300px;
+  min-height: 80%;
+  transition: all 0.24s ease-in-out 0s;
+  position: absolute;
+}
+.m-sidenav-small{
+  width:50px;
+}
+.menu{
+  padding-left: 15px;
+  color: #0669ad;
+}
+.m-main{
+  padding: 2rem 2rem 4rem;
+  margin-top: 4rem;
+  transition: all 0.24s ease-in-out 0s;
+}
+.m-main-large{
+  margin-left:50px !important;
+}
 
-  .m-main{
-    padding: 2rem 2rem 4rem;
-    margin-top: 4rem;
-    transition: all 0.24s ease-in-out 0s;
-  }
-  
-  .m-main-large{
-    margin-left:50px !important;
-  }
- 
-  .m-sidenav{
-    margin-top:4rem;
-    width: 300px;
-    min-height: 80%;
-    transition: all 0.24s ease-in-out 0s;
-    position: absolute;
-  }
-
-    .m-sidenav-small{
-      width:50px;
-    }
-
-    .m-sidenav-container{
-    min-height: 92%;
-  }
-
-  .menu{
-    padding-left: 15px;
-    color: #0669ad;
-  }
+.body{
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  overflow: clip;
+}

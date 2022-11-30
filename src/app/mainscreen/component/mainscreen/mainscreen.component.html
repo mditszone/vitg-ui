@@ -1,4 +1,4 @@
-<mat-toolbar class="header">
+<mat-toolbar class="header" >
     <mat-toolbar-row>
         <mat-icon class="language">language</mat-icon>
         <h1 class="header-name" routerLink="imageSlider" routerLinkActive="active">Vision IT </h1>
@@ -26,7 +26,7 @@
         <ul class="menu">
             <a routerLink="aboutus" routerLinkActive="active" class="aboutus">ABOUT US</a>
             <a routerLink="services" routerLinkActive="active" class="services">SERVICES</a>
-            <a href="/portifolio" class="portifolio">PORTIFOLIO</a>
+            <a href="/portfolio" class="portfolio">PORTFOLIO</a>
             <a href="/team" class="team">TEAM</a>
             <a href="/contactus" class="contactus">CONTACT US</a>
             <a href="/register" class="register">REGISTER/LOGIN</a>
@@ -34,12 +34,11 @@
     </mat-toolbar-row>
 </mat-toolbar>
 
-<div>
+<div class="body" >
     <router-outlet></router-outlet>
 </div>
 
-
-<mat-toolbar class="footer">
+<mat-toolbar class="footer" >
     <mat-toolbar-row>
         &copy;All rights reserved 2022
     </mat-toolbar-row>

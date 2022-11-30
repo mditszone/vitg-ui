@@ -1,4 +1,4 @@
-import { TabComponent } from './component/tab/tab.component'; 
+
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
@@ -43,7 +43,6 @@ import { TopicListComponent } from './course-management/topic/topic-list/topic-l
 import { SubTopicListComponent } from './course-management/sub-topic/sub-topic-list/sub-topic-list.component';
 import { SubTopicModule } from './course-management/sub-topic/sub-topic.module';
 import { SubTopicConceptModule } from './course-management/sub-topic-concept/sub-topic-concept.module';
-import { MenuComponent } from './mainscreen/menu/menu.component';
 import { MainscreenComponent } from './mainscreen/component/mainscreen/mainscreen.component';
 import { SliderListComponent } from './application-management/slider/slider-list/slider-list.component';
 import { SliderModule } from './application-management/slider/slider.module';
@@ -74,8 +73,7 @@ import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
     SubTopicListComponent,
     BatchListComponent,
     TrackingListComponent,
-    SliderListComponent,
-    TabComponent
+    SliderListComponent
 
   ],
   imports: [

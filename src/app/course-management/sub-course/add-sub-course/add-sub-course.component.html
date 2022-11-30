@@ -31,7 +31,7 @@
                         [(ngModel)]="subCourse.image">
                 </div>
             </div>
-            
+
             <br>
             <div class="form-group row">
                 <label for="durationDays" class="col-sm-4 col-form-label">Duration Days</label>
@@ -79,22 +79,27 @@
 
             <div class="form-group row">
                 <label for="examCertification" class="col-sm-4 col-form-label">ExamCertification</label>
-                <div class="form-group row">
-                    <ckeditor [editor]="editor" [config]="config" [data]="data" formControlName="examCertification"
-                        [(ngModel)]="subCourse.examCertification"></ckeditor>
+                <div class="col-sm-6">
+                    <input type="text" formControlName="examCertification" class="form-control"
+                        [(ngModel)]="subCourse.examCertification">
                 </div>
             </div>
-
+            <br>
             <div class="form-group row">
                 <label for="trainingMode" class="col-sm-4 col-form-label">TrainingMode</label>
-                <div class="form-group row">
-                    <ckeditor [editor]="editor" [config]="config" [data]="data" formControlName="trainingMode"
-                        [(ngModel)]="subCourse.trainingMode"></ckeditor>
+                <div class="col-sm-6">
+                    <input type="text" formControlName="trainingMode" class="form-control"
+                        [(ngModel)]="subCourse.trainingMode">
+                </div>
+            </div><br>
+            <div class="form-group row">
+                <label for="youtubeUrl" class="col-sm-4 col-form-label">YoutubeUrl</label>
+                <div class="col-sm-6">
+                    <input type="text" formControlName="youtubeUrl" class="form-control"
+                        [(ngModel)]="subCourse.youtubeUrl">
                 </div>
             </div>
-
-
-
+            <br>
             <div class="form-group row">
                 <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 pr-0">
                     <button class="btn save" type="button" (click)="createSubCourse()">Save</button>
@@ -103,40 +108,3 @@
         </form>
     </div>
 </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<!-- <div class="container">
-    <div class="card">
-        <form (ngSubmit)="onSubmit()">
-            <div class="form-group">
-                <label for="name"> Sub Course Name</label>
-                <input type="text" class="form-control" id="name" required [(ngModel)]="subCourse.name" name="name">
-            </div>
-            <button type="submit" class="btn save">Save</button>
-        </form>
-    </div>
-</div> -->
