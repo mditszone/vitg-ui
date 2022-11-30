@@ -51,10 +51,10 @@
           <td>{{staff.role.roleName }}</td>
           <td>
             <a [routerLink]="['/viewstaff/', staff.id]">
-              <span class="material-icons mm-eye"> visibility </span></a>
+              <span class="material-icons eye"> visibility </span></a>
 
             <a [routerLink]="['/editstaff/', staff.id]">
-              <span class="material-icons mm-edit">edit </span></a>
+              <span class="material-icons edit">edit </span></a>
 
             <a (click)="deleteStaff(staff.id)">
               <span class="material-icons delete">delete</span>

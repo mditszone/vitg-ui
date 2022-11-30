@@ -1,23 +1,9 @@
-
-
-mat-sidenav-container {
-    height: 83%;
-  
-    mat-sidenav {
-      mat-nav-list {
-        .menu-item {
-          margin-left: 40px;
-        }
-      }
-    }
-  }
-
- .m-toolbar{
-    position: fixed;
-    z-index: 2;
-    background-color: #0669AD;
-    color: #fff;
-  }
+.m-toolbar{
+  position: fixed;
+  z-index: 2;
+  background-color: #0669AD;
+  color: #fff;
+}
 
   .language{
     font-size: 33px;
@@ -45,34 +31,3 @@ mat-sidenav-container {
   position:absolute;
   right:90px;
  }
- 
-//   .m-main{
-//     padding: 2rem 2rem 4rem;
-//     margin-top: 4rem;
-//     transition: all 0.24s ease-in-out 0s;
-//   }
-  
-//   .m-main-large{
-//     margin-left:50px !important;
-//   }
- 
-//   .m-sidenav{
-//     margin-top:4rem;
-//     width: 300px;
-//     min-height: 80%;
-//     transition: all 0.24s ease-in-out 0s;
-//     position: absolute;
-//   }
-
-//     .m-sidenav-small{
-//       width:50px;
-//     }
-
-//     .m-sidenav-container{
-//     min-height: 92%;
-//   }
-
-//   .menu{
-//     padding-left: 15px;
-//     color: #0669ad;
-//   }

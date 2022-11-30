@@ -33,13 +33,13 @@
           <td>{{course.status}}</td>
           <td>
             <a [routerLink]="['/viewcourse/', course.id]">
-              <span class="material-icons mm-eye"> visibility </span></a>
+              <span class="material-icons eye"> visibility </span></a>
 
             <a [routerLink]="['/editcourse/', course.id]">
-              <span class="material-icons mm-edit">edit </span></a>
+              <span class="material-icons edit">edit </span></a>
 
             <a (click)="deleteCourse(course.id)">
-              <span class="material-icons mm-delete"> delete </span></a>
+              <span class="material-icons delete"> delete </span></a>
           </td>
         </tr>
       </ng-template>

@@ -1,10 +1,9 @@
 import { NgModule,CUSTOM_ELEMENTS_SCHEMA, } from '@angular/core';
 import { CommonModule } from '@angular/common';
-
+import { NoRightClickDirective } from './no-right-click.directive';
 import { MainscreenRoutingModule } from './mainscreen-routing.module';
 import { AboutUsComponent } from './component/about-us/about-us.component';
 import { ServicesComponent } from './component/services/services.component';
-import { PortifolioComponent } from './component/portifolio/portifolio.component';
 import { ContactUsComponent } from './component/contact-us/contact-us.component';
 import { TeamComponent } from './component/team/team.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -15,12 +14,13 @@ import { AddStudentComponent } from './component/student-dashboard/add-student/a
 import { NgOtpInputModule } from 'ng-otp-input';
 import { DropdownModule } from 'primeng/dropdown';
 import { ToastModule } from 'primeng/toast';
-import { MenuComponent } from './menu/menu.component';
-import { CorejavaComponent } from './tab-components/corejava/corejava.component';
 import { MainscreenComponent } from './component/mainscreen/mainscreen.component';
 import { ImageSliderComponent } from './component/image-slider/image-slider.component';
 import { NgImageSliderModule } from 'ng-image-slider';
 import { CardImagesComponent } from './component/card-images/card-images.component';
+import { TabsComponent } from './component/tabs/tabs.component';
+import { MenuComponent } from './component/menu/menu.component';
+import { PortfolioComponent } from './component/portfolio/portfolio.component';
 
 @NgModule({
   declarations: [
@@ -31,11 +31,13 @@ import { CardImagesComponent } from './component/card-images/card-images.compone
     StudentRegisterComponent,
     VerifyStudentComponent,
     AddStudentComponent,
-    CorejavaComponent,
-    MenuComponent,
     MainscreenComponent,
     ImageSliderComponent,
-    CardImagesComponent
+    CardImagesComponent,
+    NoRightClickDirective,
+    TabsComponent,
+    MenuComponent,
+    PortfolioComponent,
     
   ],
   imports: [

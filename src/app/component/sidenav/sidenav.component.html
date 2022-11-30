@@ -1,12 +1,9 @@
-
 <a mat-list-item (click)="onItemSelected(item)">
   <mat-icon class="routeIcon">{{item.iconName}}</mat-icon>
   <a class="text">{{item.displayName}}</a>
-
   <mat-icon [@indicatorRotate]="expanded ? 'expanded': 'collapsed'">
     expand_more
   </mat-icon>
-  
 </a>
 <div *ngIf="expanded" class="children">
   <app-sidenav *ngFor="let child of item.children" [item]="child"></app-sidenav>

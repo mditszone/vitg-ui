@@ -5,7 +5,7 @@ import { CardImagesComponent } from './component/card-images/card-images.compone
 import { ContactUsComponent } from './component/contact-us/contact-us.component';
 import { ImageSliderComponent } from './component/image-slider/image-slider.component';
 import { MainscreenComponent } from './component/mainscreen/mainscreen.component';
-import { PortifolioComponent } from './component/portifolio/portifolio.component';
+import { PortfolioComponent } from './component/portfolio/portfolio.component';
 import { ServicesComponent } from './component/services/services.component';
 import { AddStudentComponent } from './component/student-dashboard/add-student/add-student.component';
 import { StudentRegisterComponent } from './component/student-dashboard/student-register/student-register.component';
@@ -25,7 +25,7 @@ const routes: Routes = [
     path: 'services', component: ServicesComponent
   },
   {
-    path: 'portifolio', component: PortifolioComponent
+    path: 'portfolio', component: PortfolioComponent
   },
   {
     path: 'team', component: TeamComponent

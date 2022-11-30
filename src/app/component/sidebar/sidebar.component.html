@@ -1,4 +1,3 @@
-
 <app-header></app-header>
 
 <mat-sidenav-container class="m-sidenav-container">
@@ -12,7 +11,9 @@
         </mat-nav-list>
     </mat-sidenav>
     <mat-sidenav-content [ngClass]="{ 'm-main': true, 'm-main-large': sidenavSmall }">
-        <router-outlet></router-outlet>
+        <div class="body">
+            <router-outlet></router-outlet>
+        </div>
     </mat-sidenav-content>
 </mat-sidenav-container>
 

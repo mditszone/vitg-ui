@@ -1,22 +1,17 @@
 <div class="container">
-    <div  style="width: 800px;margin-right: 20px; background-color: crimson;" >
-        <div *ngFor="let subCourse of finalSubcourseList" style="width: 200px;margin-bottom: 20px;">
-            <mat-card  class="card-example">
+    <div class="cards">
+        <div class="card" *ngFor="let subCourse of finalSubcourseList">
+            <mat-card class="mat-card" routerLink="/tabComponent" routerLinkActive="active">
                 <mat-card-header>
-                    <mat-card-title-group>
-                        <mat-card-title class="card-name">{{subCourse.course.name}}</mat-card-title>
-                    
-                    </mat-card-title-group>
+                    <mat-card-title class="card-name">{{subCourse.course.name}} :</mat-card-title>{{subCourse.name}}
                 </mat-card-header>
-
                 <mat-card-content>
-                <img class="card-image"  [src]="subCourse.image">
-                <mat-card-subtitle>{{subCourse.name}}</mat-card-subtitle>
+                    <img class="card-image" [src]="subCourse.image">
                 </mat-card-content>
 
-                <mat-card-actions>
-                    <a routerLink=""></a>
-                </mat-card-actions>
+                <!-- <mat-card-actions>
+                    <a routerLink="/tabComponent">Click</a>
+                </mat-card-actions> -->
             </mat-card>
         </div>
     </div>
@@ -40,23 +35,31 @@
 
 
 
-<!-- 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <div class="container">
-    <div class="style">
-        <div class="card-size">
-            <mat-card *ngFor="let subCourse of finalSubcourseList" class="card-example">
-                <mat-card-header>
-                    <mat-card-title class="card-name">{{subCourse.course.name}}</mat-card-title>
-                </mat-card-header>
-                <mat-card-content>
-                    <p>{{ subCourse.name }}</p>
-                    <mat-divider></mat-divider>
-                    <img class="card-image" [src]="subCourse.image">
-                </mat-card-content>
-                <mat-card-actions>
-                    <a routerLink=""></a>
-                </mat-card-actions>
-            </mat-card>
-        </div>
+    <div class="card">
+        <h1>Hello</h1>
     </div>
-</div>  -->
+</div>

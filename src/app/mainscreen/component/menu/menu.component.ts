@@ -1,5 +1,5 @@
+import { Component, Input, NgZone, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
-import { Component, Input,  ViewChild, NgZone } from '@angular/core';
 import { MenuItem } from 'src/app/shared/model/menu-item';
 import { CourseService } from 'src/app/shared/services/course.service';
 import { MenuService } from 'src/app/shared/services/menu.service';
@@ -9,10 +9,10 @@ import { MenuService } from 'src/app/shared/services/menu.service';
   templateUrl: './menu.component.html',
   styleUrls: ['./menu.component.scss']
 })
-export class MenuComponent  {
+export class MenuComponent {
   @Input() items!: MenuItem[];
   @ViewChild('childMenu') public childMenu: any;
-  data: any;
+
   constructor( 
     public menuService: MenuService, 
     public courseService: CourseService, 

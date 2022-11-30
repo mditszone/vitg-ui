@@ -1,22 +1,22 @@
-import { Batch } from './../../shared/model/batch';
-import { CourseService } from './../../shared/services/course.service';
-import { ActivatedRoute, Router } from '@angular/router';
 import { Component, Inject, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
+import { DomSanitizer } from '@angular/platform-browser';
+import { ActivatedRoute } from '@angular/router';
+import { CourseService } from 'src/app/shared/services/course.service';
 
 @Component({
-  selector: 'app-tab',
-  templateUrl: './tab.component.html',
-  styleUrls: ['./tab.component.scss']
+  selector: 'app-tabs',
+  templateUrl: './tabs.component.html',
+  styleUrls: ['./tabs.component.scss']
 })
+export class TabsComponent implements OnInit {
 
-
-export class TabComponent implements OnInit {
   title: string|null = "Core Java";
   tabs:Array<any> = [];
   selected = new FormControl(0);
   //@Inject(Number) private id:number
-  constructor( @Inject(ActivatedRoute) private route : ActivatedRoute, private courseService: CourseService) {
+  constructor( @Inject(ActivatedRoute) private route : ActivatedRoute, private courseService: CourseService,
+  private sanitizer: DomSanitizer) {
     
   }
   ngOnInit() {
@@ -26,15 +26,17 @@ export class TabComponent implements OnInit {
       let subCourseId: number = parseInt(params["subCourseId"]);
       this.courseService.getSubCourseById(subCourseId).subscribe((subCourse) => {
         console.log(subCourse);
+        let html = `<iframe width="420" height="315" src=${subCourse.youtubeUrl} frameborder="0" allowfullscreen></iframe>`;
         this.title = subCourse.name;
+        
         this.tabs.push(
           {
             tabName: "Overview",
-            tabData: subCourse.name
+            tabData: subCourse.overview
           }
         )
         this.tabs.push({
-          tabName: "Curriculam",
+          tabName: "Curriculum",
           tabData: subCourse.curriculum
         })
         
@@ -50,11 +52,11 @@ export class TabComponent implements OnInit {
         
         this.tabs.push({
           tabName: "Demo",
-          tabData: subCourse.youtubeUrl
+          tabData: this.sanitizer.bypassSecurityTrustHtml(html)
         })
         
         this.tabs.push({
-          tabName: "Duriation",
+          tabName: "Duration",
           tabData: subCourse.durationDays
         })
         
@@ -67,3 +69,4 @@ export class TabComponent implements OnInit {
 }
 
 }
+

@@ -1,4 +1,4 @@
-import { TabComponent } from './component/tab/tab.component';
+// import { TabComponent } from './component/tab/tab.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { DashboardComponent } from './dashboard/dashboard.component';
@@ -14,17 +14,17 @@ import { SubCourseListComponent } from './course-management/sub-course/sub-cours
 import { TopicListComponent } from './course-management/topic/topic-list/topic-list.component';
 import { SubTopicListComponent } from './course-management/sub-topic/sub-topic-list/sub-topic-list.component';
 import { AddSubTopicConceptComponent } from './course-management/sub-topic-concept/add-sub-topic-concept/add-sub-topic-concept.component';
-import { CorejavaComponent } from './mainscreen/tab-components/corejava/corejava.component';
 import { MainscreenComponent } from './mainscreen/component/mainscreen/mainscreen.component';
 import { AddsliderComponent } from './application-management/slider/addslider/addslider.component';
 import { SliderListComponent } from './application-management/slider/slider-list/slider-list.component';
 import { ImageSliderComponent } from './mainscreen/component/image-slider/image-slider.component';
 import { BatchListComponent } from './batch-management/batches/batch-list/batch-list.component';
 import { TrackingListComponent } from './batch-management/tracking/tracking-list/tracking-list.component';
-import { CardImagesComponent } from './mainscreen/component/card-images/card-images.component';
+import { TabsComponent } from './mainscreen/component/tabs/tabs.component';
 
 const routes: Routes = [
 
+  
   {
     path: '', component: MainscreenComponent,
     children: [
@@ -33,19 +33,12 @@ const routes: Routes = [
         component: ImageSliderComponent,
       }
     ]
-  },{
-    path: '', component: MainscreenComponent,
-    children: [
-      {
-        path: '', component: CardImagesComponent
-      }
-    ]
   },
   {
     path: '', component: MainscreenComponent,
     children: [
       {
-        path: 'corejava', component: CorejavaComponent
+        path: 'tabComponent', component: TabsComponent
       }
     ]
   },
