@@ -5,6 +5,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { Subcourse } from 'src/app/shared/model/subcourse';
 import { CourseService } from 'src/app/shared/services/course.service';
 import ClassicEditor from '@haifahrul/ckeditor5-build-rich';
+import { MessageService } from 'primeng/api';
 
 @Component({
   selector: 'app-add-sub-course',
@@ -19,19 +20,11 @@ export class AddSubCourseComponent implements OnInit {
   errorMessage: any;
   data: any;
   subCourseForm: any;
-
-
+  
   subCourseDetailsForm = this.formBuilder.group({
     name: ['', [Validators.required]],
     course: ['', [Validators.required]],
-    durationDays: ['', [Validators.required]],
-    durationHours: ['', [Validators.required]],
-    fee: ['', [Validators.required]],
-    overview: ['', [Validators.required]],
-    curriculum: ['', [Validators.required]],
-    examCertification: ['', [Validators.required]],
-    trainingMode: ['', [Validators.required]],
-    youtubeUrl:['', [Validators.required]]
+    image:['', [Validators.required]]
   });
 
   constructor(
@@ -39,6 +32,7 @@ export class AddSubCourseComponent implements OnInit {
     private router: Router,
     private courseService: CourseService) {
     this.fileName = "";
+    
   }
 
   ngOnInit(): void {
@@ -81,15 +75,7 @@ export class AddSubCourseComponent implements OnInit {
   patchValue() {
     this.subCourseDetailsForm.patchValue({
       name: this.data.name,
-      course: this.data.course,
-      durationDays: this.data.durationdays,
-      durationHours: this.data.durationhours,
-      fee: this.data.fee,
-      overview: this.data.overview,
-      curriculum: this.data.curriculum,
-      examCertification: this.data.examCertification,
-      trainingMode: this.data.trainingMode,
-      youtubeUrl: this.data.youtubeUrl,
+      course: this.data.course
     });
   }
 
@@ -104,18 +90,9 @@ export class AddSubCourseComponent implements OnInit {
 
       this.subCourse.name = this.subCourseForm.name;
       this.subCourse.course = this.subCourseForm.course;
-      this.subCourse.durationDays = this.subCourseForm.durationDays;
-      this.subCourse.durationHours = this.subCourseForm.durationHours;
-      this.subCourse.fee = this.subCourseForm.fee;
-      this.subCourse.overview = this.subCourseForm.overview;
-      this.subCourse.curriculum = this.subCourseForm.curriculum;
-      this.subCourse.examCertification = this.subCourseForm.examCertification;
-      this.subCourse.trainingMode = this.subCourseForm.trainingMode;
-      this.subCourse.youtubeUrl= this.subCourseForm.youtubeUrl;
       this.courseService.createSubCourse(this.subCourse).subscribe(
         (data: any) => {
-          console.log(data)
-          this.router.navigate(['/subcourse']);
+          this.router.navigate(['/subCourseTab/overview'],{queryParams: {id: data['id']}});
         }),
         (error) => {
           this.errorMessage = error.error.message;
@@ -123,10 +100,8 @@ export class AddSubCourseComponent implements OnInit {
         };
     }
   }
-
+  
   editor = ClassicEditor;
-  overviewdata: any = `<p>Hello, vitg!</p>`;
-
   config = {
     toolbar: [
       'undo',
@@ -171,7 +146,4 @@ export class AddSubCourseComponent implements OnInit {
       ]
     },
   }
-
-
 }
-

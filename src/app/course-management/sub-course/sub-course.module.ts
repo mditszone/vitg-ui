@@ -8,13 +8,33 @@ import { EditSubCourseComponent } from './edit-sub-course/edit-sub-course.compon
 import { DropdownModule } from 'primeng/dropdown';
 import { ToastModule } from 'primeng/toast';
 import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
+import { SubcourseTabsComponent } from './subcourse-tabs/subcourse-tabs.component';
+import { OverviewComponent } from './overview/overview.component';
+import { FeeComponent } from './fee/fee.component';
+import { YoutubeUrlComponent } from './youtube-url/youtube-url.component';
+import { CurriculumComponent } from './curriculum/curriculum.component';
+import { MaterialModule } from 'src/app/shared/module/material.module';
+import { DurationDaysComponent } from './duration-days/duration-days.component';
+import { DurationHoursComponent } from './duration-hours/duration-hours.component';
+import { TrainingModeComponent } from './training-mode/training-mode.component';
+import { ExamCertificationComponent } from './exam-certification/exam-certification.component';
 
 
 @NgModule({
   declarations: [
     AddSubCourseComponent,
     ViewSubCourseComponent,
-    EditSubCourseComponent
+    EditSubCourseComponent,
+    SubcourseTabsComponent,
+    OverviewComponent,
+    FeeComponent,
+    YoutubeUrlComponent,
+    CurriculumComponent,
+    DurationDaysComponent,
+    DurationHoursComponent,
+    TrainingModeComponent,
+    ExamCertificationComponent,
+
   ],
   imports: [
     CommonModule,
@@ -23,7 +43,8 @@ import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
     ReactiveFormsModule,
     DropdownModule,
     ToastModule,
-    CKEditorModule
+    CKEditorModule,
+    MaterialModule
   ]
 })
 export class SubCourseModule { }
