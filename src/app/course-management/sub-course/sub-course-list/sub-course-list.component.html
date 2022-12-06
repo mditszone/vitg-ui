@@ -6,7 +6,7 @@
 
 
       <ng-template pTemplate="caption">
-        <button class="addSubCourse" pButton label="Add SubCourse" icon="pi pi-plus" routerLink="/addSubCourse"></button>
+        <button class="addSubCourse" pButton label="Add SubCourse" icon="pi pi-plus" routerLink="/subCourseTab/addSubCourse"></button>
 
         <div class="search">
           <input class="search" pInputText type="text" pInputText size="20"
@@ -31,21 +31,21 @@
         </tr>
       </ng-template>
 
-      <ng-template pTemplate="body" let-course>
+      <ng-template pTemplate="body" let-subCourse>
         <tr>
-          <td>{{course.id}}</td>
-          <td>{{course.name}}</td>
-          <td>{{course.course.name}}</td>
-          <td>{{course.durationDays}}</td>
-          <td>{{course.durationHours}}</td>
+          <td>{{subCourse.id}}</td>
+          <td>{{subCourse.name}}</td>
+          <td>{{subCourse.course.name}}</td>
+          <td>{{subCourse.durationDays}}</td>
+          <td>{{subCourse.durationHours}}</td>
           <td>
-            <a [routerLink]="['/viewsubcourse/', course.id]">
+            <a [routerLink]="['/viewsubcourse/', subCourse.id]">
               <span class="material-icons eye"> visibility </span></a>
 
-            <a [routerLink]="['/editsubcourse/', course.id]">
+            <a [routerLink]="['/editsubcourse/', subCourse.id]">
               <span class="material-icons edit">edit </span></a>
 
-            <a (click)="deleteSubCourse(course.id)">
+            <a (click)="deleteSubCourse(subCourse.id)">
               <span class="material-icons delete"> delete </span></a>
           </td>
         </tr>
