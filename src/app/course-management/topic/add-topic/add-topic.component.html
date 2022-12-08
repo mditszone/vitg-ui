@@ -1,9 +1,9 @@
-<div class="conatiner">
+<div class="container">
     <h1 class="name">Create Topic</h1>
     <div class="card">
         <form [formGroup]="topicDetailsForm">
             <div class="form-group row">
-                <label for="course" class="col-sm-4 col-form-label">Course Name<span class="star text-danger">*</span></label>
+                <label for="course" class="col-sm-3 col-form-label">Course Name<span class="star text-danger">*</span></label>
                 <div class="col-sm-6">
                     <p-dropdown placeholder="- Select -" [options]="courseList" optionLabel="name"
                         formControlName="course" [style]="{width: '100%'}" (onChange)="getSubCourseList($event)">
@@ -17,7 +17,7 @@
                 </div>
             </div><br>
             <div class="form-group row">
-                <label for="subCourse" class="col-sm-4 col-form-label">SubCourse Name<span class="star text-danger">*</span></label>
+                <label for="subCourse" class="col-sm-3 col-form-label">SubCourse Name<span class="star text-danger">*</span></label>
                 <div class="col-sm-6">
                     <p-dropdown placeholder="- Select  -" [options]="subCourseListById" optionLabel="name"
                         formControlName="subCourse" [style]="{width: '100%'}">
@@ -33,7 +33,7 @@
             <br>
             
             <div class="form-group row">
-                <label for="name" class="col-sm-4 col-form-label">Topic Name</label>
+                <label for="name" class="col-sm-3 col-form-label">Topic Name</label>
                 <div class="col-sm-6">
                     <input type="text" formControlName="name" class="form-control" [(ngModel)]="topic.name">
                 </div>
@@ -75,7 +75,7 @@
 
 
 <!-- <div class="form-group row">
-                <label for="subCourse" class="col-sm-4 col-form-label">SubCourse Name<span class="star text-danger">*</span></label>
+                <label for="subCourse" class="col-sm-3 col-form-label">SubCourse Name<span class="star text-danger">*</span></label>
                 <div class="col-sm-6">
                     <p-dropdown placeholder="- Select  -" [options]="subCourseListById" optionLabel="subCourseName"
                         formControlName="subCourse" [style]="{width: '100%'}">

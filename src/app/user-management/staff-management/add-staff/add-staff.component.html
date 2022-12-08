@@ -3,21 +3,21 @@
     <div class="card">
         <form [formGroup]="staffDetailsForm">
             <div class="form-group row">
-                <label for="id" class="col-sm-4 col-form-label">Id</label>
+                <label for="id" class="col-sm-3 col-form-label">Id</label>
                 <div class="col-sm-6">
                     <input type="text" formControlName="id" class="form-control">
                 </div>
             </div>
             <br>
             <div class="form-group row">
-                <label for="phoneNumber" class="col-sm-4 col-form-label">Phone Number</label>
+                <label for="phoneNumber" class="col-sm-3 col-form-label">Phone Number</label>
                 <div class="col-sm-6">
                     <input type="text" formControlName="phoneNumber" class="form-control">
                 </div>
             </div>
             <br>
             <div class="form-group row">
-                <label for="name" class="col-sm-4 col-form-label">Name <span class="star text-danger">*</span></label>
+                <label for="name" class="col-sm-3 col-form-label">Name <span class="star text-danger">*</span></label>
                 <div class="col-sm-6">
                     <input type="text" formControlName="name" class="form-control"
                         [ngClass]="{ 'is-invalid': submitted && f['name'].errors }" />
@@ -28,7 +28,7 @@
             </div>
             <br>
             <div class="form-group row">
-                <label for="gender" class="col-sm-4 col-form-label">Gender <span class="star text-danger">*</span></label>
+                <label for="gender" class="col-sm-3 col-form-label">Gender <span class="star text-danger">*</span></label>
                 <div class="col-sm-6">
                     <input type="radio" value="Male" formControlName="gender"><label class="radio-label"> Male</label>&nbsp;&nbsp;
                     <input type="radio" value="Female" formControlName="gender"><label class="radio-label"> Female</label>&nbsp;&nbsp;
@@ -38,7 +38,7 @@
             
             <br>
             <div class="form-group row">
-                <label for="role" class="col-sm-4 col-form-label">Role<span class="star text-danger">*</span></label>
+                <label for="role" class="col-sm-3 col-form-label">Role<span class="star text-danger">*</span></label>
                 <div class="col-sm-6">
                     <p-dropdown placeholder="- Select  -" [options]="rolesList" optionLabel="roleName"
                         formControlName="role" [style]="{width: '100%'}">
@@ -53,7 +53,7 @@
             </div>
             <br>
             <div class="form-group row">
-                <label for="email" class="col-sm-4 col-form-label">Email<span class="star text-danger">*</span></label>
+                <label for="email" class="col-sm-3 col-form-label">Email<span class="star text-danger">*</span></label>
                 <div class="col-sm-6">
                     <input required type="text" formControlName="email" class="form-control"
                         [ngClass]="{ 'is-invalid': submitted && f['email'].errors }" />
@@ -68,7 +68,7 @@
             </div>
             <br>
             <div class="form-group row">
-                <label for="aadharNumber" class="col-sm-4 col-form-label">Aadhar Number <span
+                <label for="aadharNumber" class="col-sm-3 col-form-label">Aadhar Number <span
                         class="star text-danger">*</span></label>
                 <div class="col-sm-6">
                     <input (keypress)="keyPress($event)" required type="text" formControlName="aadharNumber"
@@ -84,7 +84,7 @@
             </div>
             <br>
             <div class="form-group row">
-                <label for="panCardNumber" class="col-sm-4 col-form-label">Pan Card Number<span
+                <label for="panCardNumber" class="col-sm-3 col-form-label">Pan Card Number<span
                         class="star text-danger">*</span></label>
                 <div class="col-sm-6">
                     <input (keypress)="keyPress($event)" required type="text" formControlName="panCardNumber"

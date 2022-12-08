@@ -1,42 +1,41 @@
-<div class="conatiner">
+<div class="container">
     <div class="card">
-        <div id="subCoursename" class="tab-pane active">
-            <form [formGroup]="subCourseDetailsForm">
-                <div class="form-group row">
-                    <label for="course" class="col-sm-4 col-form-label">Course Name<span
-                            class="star text-danger">*</span></label>
-                    <div class="col-sm-6">
-                        <p-dropdown placeholder="- Select  -" [options]="courseList" optionLabel="name"
-                            formControlName="course" [style]="{width: '100%'}">
-                        </p-dropdown>
-                        <div class="text-error"
-                            *ngIf="subCourseDetailsForm.controls['course'].invalid &&
+        <form [formGroup]="subCourseDetailsForm">
+            <div class="form-group row">
+                <label for="course" class="col-sm-3 col-form-label">Course Name<span
+                        class="star text-danger">*</span></label>
+                <div class="col-sm-6">
+                    <p-dropdown placeholder="- Select  -" [options]="courseList" optionLabel="name"
+                        formControlName="course" [style]="{width: '100%'}">
+                    </p-dropdown>
+                    <div class="text-error"
+                        *ngIf="subCourseDetailsForm.controls['course'].invalid &&
                              (subCourseDetailsForm.controls['course'].dirty || subCourseDetailsForm.controls['course'].touched)">
-                            <div *ngIf="subCourseDetailsForm.controls['course']">
-                                Course Name is Required
-                            </div>
+                        <div *ngIf="subCourseDetailsForm.controls['course']">
+                            Course Name is Required
                         </div>
                     </div>
-                </div><br>
-                <div class="form-group row">
-                    <label for="name" class="col-sm-4 col-form-label">Sub Course Name</label>
-                    <div class="col-sm-6">
-                        <input type="text" formControlName="name" class="form-control" [(ngModel)]="subCourse.name">
-                    </div>
-                </div><br>
-                <div class="form-group row">
-                    <label for="image" class="col-sm-4 col-form-label">SubCourse Image</label>
-                    <div class="col-sm-6">
-                        <input type="file" formControlName="image" class="form-control"
-                            (change)="onUploadChange($event)" [(ngModel)]="subCourse.image">
-                    </div>
                 </div>
-                <div class="form-group row">
-                    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 pr-0">
-                        <button class="btn save" type="button" (click)="createSubCourse()">Save</button>
-                    </div>
+            </div><br>
+            <div class="form-group row">
+                <label for="name" class="col-sm-3 col-form-label">Sub Course Name</label>
+                <div class="col-sm-6">
+                    <input type="text" formControlName="name" class="form-control" [(ngModel)]="subCourse.name">
                 </div>
-            </form>
-        </div>
+            </div><br>
+            <div class="form-group row">
+                <label for="image" class="col-sm-3 col-form-label">SubCourse Logo</label>
+                <div class="col-sm-6">
+                    <input type="file" formControlName="image" class="form-control" (change)="onUploadChange($event)"
+                        [(ngModel)]="subCourse.image">
+                </div>
+            </div>
+            <br>
+            <div class="form-group row">
+                <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 pr-0">
+                    <button class="btn save" type="button" (click)="createSubCourse()">Save</button>
+                </div>
+            </div>
+        </form>
     </div>
 </div>

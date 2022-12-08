@@ -25,7 +25,7 @@ export class TabsComponent implements OnInit {
       let subCourseId: number = parseInt(params["subCourseId"]);
       this.courseService.getSubCourseById(subCourseId).subscribe((subCourse) => {
         console.log(subCourse);
-        let html = `<iframe width="420" height="315" src=${subCourse.youtubeUrl} frameborder="0" allowfullscreen></iframe>`;
+        let html = `<iframe width="680" height="420" src=${subCourse.youtubeUrl} frameborder="0" allowfullscreen></iframe>`;
         this.title = subCourse.name;
 
         this.tabs.push(

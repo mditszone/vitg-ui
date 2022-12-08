@@ -2,7 +2,13 @@
     padding: 7%;
     .tab-title {
         margin-bottom: 34px;
-        color: blue;
+        color: #0069ad;
         font-size: 34px;
     }
+}
+::ng-deep.mat-tab-label,
+::ng-deep.mat-tab-label-active {
+    min-width: 0px !important;
+    padding: 25px !important;
+    margin: 7px !important;
 }

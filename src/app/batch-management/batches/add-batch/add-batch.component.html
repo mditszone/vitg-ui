@@ -3,7 +3,7 @@
     <div class="card">
         <form [formGroup]="batchDetailsForm">
             <div class="form-group row">
-                <label for="course" class="col-sm-4 col-form-label">Course Name<span
+                <label for="course" class="col-sm-3 col-form-label">Course Name<span
                         class="star text-danger">*</span></label>
                 <div class="col-sm-6">
                     <p-dropdown placeholder="- Select -" [options]="courseList" optionLabel="name"
@@ -18,7 +18,7 @@
                 </div>
             </div><br>
             <div class="form-group row">
-                <label for="subCourse" class="col-sm-4 col-form-label">SubCourse Name<span
+                <label for="subCourse" class="col-sm-3 col-form-label">SubCourse Name<span
                         class="star text-danger">*</span></label>
                 <div class="col-sm-6">
 
@@ -35,7 +35,7 @@
             </div>
             <br>
             <div class="form-group row">
-                <label for="name" class="col-sm-4 col-form-label">Batch Name</label>
+                <label for="name" class="col-sm-3 col-form-label">Batch Name</label>
                 <div class="col-sm-6">
                     <input type="text" formControlName="name" class="form-control" [(ngModel)]="batch.name">
                 </div>
@@ -70,7 +70,7 @@
                 </mat-form-field>
             </div>
             <!-- <div class="form-group row">
-                <label for="organizers" class="col-sm-4 col-form-label">Organizers<span class="star text-danger">*</span></label>
+                <label for="organizers" class="col-sm-3 col-form-label">Organizers<span class="star text-danger">*</span></label>
                 <div class="col-sm-6">
                     <p-dropdown placeholder="- Select  -" [options]="organizersList" optionLabel="organizers"
                         formControlName="organizers" [style]="{width: '100%'}">

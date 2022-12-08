@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
+import { UploadAdapter } from 'src/app/shared/model/ckuploader';
 import { Course } from 'src/app/shared/model/course';
 import { CourseService } from 'src/app/shared/services/course.service';
-import ClassicEditor from '@haifahrul/ckeditor5-build-rich';
+import * as DecoupledEditor from '@ckeditor/ckeditor5-build-decoupled-document';
 
 @Component({
   selector: 'app-add-course',
@@ -15,16 +16,13 @@ export class AddCourseComponent implements OnInit {
   course: Course = new Course();
   submitted = false;
 
-  editor = ClassicEditor;
-  data: any = `<p>Hello, vitg!</p>`;
-
   courseDetailsForm = this.formBuilder.group({
     name: [{ value: '', disabled: false }],
     image: ['', Validators.required],
     status: ['', Validators.required],
     description: ['', Validators.required]
-
   });
+
   constructor(
     private courseService: CourseService,
     private router: Router,
@@ -33,9 +31,20 @@ export class AddCourseComponent implements OnInit {
     this.fileName = "";
   }
 
-  ngOnInit() {
-
+  public Editor = DecoupledEditor;
+  public onReady(eventData: any) {
+    eventData.ui.getEditableElement().parentElement.insertBefore(
+      eventData.ui.view.toolbar.element,
+      eventData.ui.getEditableElement()
+    );
+    eventData.plugins.get('FileRepository').createUploadAdapter = function (loader: { file: string; }) {
+      console.log('loader : ', loader)
+      console.log(btoa(loader.file));
+      return new UploadAdapter(loader);
+    };
   }
+
+  ngOnInit() { }
 
   public onUploadChange(event: any): void {
     const reader = new FileReader;
@@ -58,6 +67,7 @@ export class AddCourseComponent implements OnInit {
       reader.readAsArrayBuffer(file);
     }
   }
+
   createCourse() {
     this.submitted = true;
     this.course.status = true;
@@ -67,49 +77,4 @@ export class AddCourseComponent implements OnInit {
     });
     (error: any) => console.log(error);
   }
-  config = {
-    toolbar: [
-      'undo',
-      'redo',
-      '|',
-      'heading',
-      'fontFamily',
-      'fontSize',
-      '|',
-      'bold',
-      'italic',
-      'underline',
-      'fontColor',
-      'fontBackgroundColor',
-      'backgroundColor',
-      'highlight',
-      '|',
-      'link',
-      'CKFinder',
-      'imageUpload',
-      'mediaEmbed',
-      '|',
-      'alignment',
-      'bulletedList',
-      'numberedList',
-      '|',
-      'indent',
-      'outdent',
-      '|',
-      'insertTable',
-      'blockQuote',
-      'specialCharacters',
-
-      '|', 'colors',
-    ],
-    language: 'id',
-    image: {
-      toolbar: [
-        'imageTextAlternative',
-        'imageStyle:full',
-        'imageStyle:side'
-      ]
-    },
-  }
-
 }

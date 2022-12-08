@@ -3,7 +3,7 @@
     <div class="card">
         <form [formGroup]="sliderDetailsForm">
             <div class="form-group row">
-                <label for="name" class="col-sm-4 col-form-label">Slider Name</label>
+                <label for="name" class="col-sm-3 col-form-label">Slider Name</label>
                 <div class="col-sm-6">
                     <input type="text" formControlName="name" class="form-control" required
                         [(ngModel)]="slider.name">
@@ -11,7 +11,7 @@
             </div>
             <br>
             <div class="form-group row">
-                <label for="image" class="col-sm-4 col-form-label">Slider File</label>
+                <label for="image" class="col-sm-3 col-form-label">Slider File</label>
                 <div class="col-sm-6">
                     <input type="file" formControlName="image" class="form-control" (change)="onUploadChange($event)" 
                         [(ngModel)]="slider.image">
@@ -20,7 +20,7 @@
             </div>
             <br>
             <div class="form-group row">
-                <label for="status" class="col-sm-4 col-form-label">Status</label>
+                <label for="status" class="col-sm-3 col-form-label">Status</label>
                 <div class="col-sm-6">
                     <select class="form-control" formControlName="status" placeholder="Active"
                         [(ngModel)]="slider.status">

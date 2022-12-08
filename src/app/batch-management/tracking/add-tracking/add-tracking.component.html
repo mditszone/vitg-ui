@@ -1,10 +1,10 @@
-<div class="conatiner">
+<div class="container">
     <h1 class="name">Create Tracker</h1>
     <div class="card">
         <form [formGroup]="trackDetailsForm">
 
             <div class="form-group row">
-                <label for="batch" class="col-sm-4 col-form-label">Batch Name<span
+                <label for="batch" class="col-sm-3 col-form-label">Batch Name<span
                         class="star text-danger">*</span></label>
                 <div class="col-sm-6">
                     <p-dropdown placeholder="- Select  -" [options]="batchList" optionLabel="name"
@@ -20,28 +20,36 @@
             </div><br>
 
             <div class="form-group row">
-                 <mat-form-field>
+                <label for="date" class="col-sm-3 col-form-label">Date<span
+                    class="star text-danger">*</span></label>
+                <div class="col-sm-6">
+                    <mat-form-field>
                         <input matInput [matDatepicker]="picker1" placeholder="Date" formControlName="date"
                             [(ngModel)]="track.date">
                         <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
-    
+
                         <mat-datepicker #picker1></mat-datepicker>
                     </mat-form-field>
-     
+                </div>
             </div>
             <div class="form-group row">
-                <mat-form-field appearance="outline">
-                    <mat-label>start time</mat-label>
-                    <input type="time" matInput name="week" formControlName="startTime" [(ngModel)]="track.startTime" />
-                </mat-form-field>
-                <br />
-                <mat-form-field appearance="outline">
-                    <mat-label>end time</mat-label>
-                    <input type="time" matInput name="week" formControlName="endTime" [(ngModel)]="track.endTime" />
-                </mat-form-field>
+                <label for="time" class="col-sm-3 col-form-label">Time<span
+                    class="star text-danger">*</span></label>
+                <div class="col-sm-6">
+                    <mat-form-field appearance="outline">
+                        <mat-label>start time</mat-label>
+                        <input type="time" matInput name="week" formControlName="startTime"
+                            [(ngModel)]="track.startTime" />
+                    </mat-form-field>
+                    <br />
+                    <mat-form-field appearance="outline">
+                        <mat-label>end time</mat-label>
+                        <input type="time" matInput name="week" formControlName="endTime" [(ngModel)]="track.endTime" />
+                    </mat-form-field>
+                </div>
             </div>
             <div class="form-group row">
-                <label for="topicsCovered" class="col-sm-4 col-form-label">Topics Covered<span
+                <label for="topicsCovered" class="col-sm-3 col-form-label">Topics Covered<span
                         class="star text-danger">*</span></label>
                 <div class="col-sm-6">
                     <input type="text" formControlName="topicsCovered" class="form-control"
@@ -49,7 +57,7 @@
                 </div>
             </div><br>
             <div class="form-group row">
-                <label for="remarks" class="col-sm-4 col-form-label">Remarks<span
+                <label for="remarks" class="col-sm-3 col-form-label">Remarks<span
                         class="star text-danger">*</span></label>
                 <div class="col-sm-6">
                     <input type="text" formControlName="remarks" class="form-control" [(ngModel)]="track.remarks">

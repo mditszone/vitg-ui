@@ -3,7 +3,8 @@ import { FormBuilder, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Subcourse } from 'src/app/shared/model/subcourse';
 import { CourseService } from 'src/app/shared/services/course.service';
-import ClassicEditor from '@haifahrul/ckeditor5-build-rich';
+import * as DecoupledEditor from '@ckeditor/ckeditor5-build-decoupled-document';
+import { UploadAdapter } from 'src/app/shared/model/ckuploader';
 
 @Component({
   selector: 'app-overview',
@@ -15,9 +16,25 @@ export class OverviewComponent implements OnInit {
   subCourseDetailsForm: any;
   subCoursedata!: Subcourse;
   submitted!: boolean;
-  subCourseForm: any
+  subCourseForm: any;
 
-  constructor(private formBuilder: FormBuilder, private router: Router, private route: ActivatedRoute, private courseService: CourseService) { }
+  constructor(private formBuilder: FormBuilder,
+    private router: Router,
+    private route: ActivatedRoute,
+    private courseService: CourseService) { }
+
+  public Editor = DecoupledEditor;
+  public onReady(eventData: any) {
+    eventData.ui.getEditableElement().parentElement.insertBefore(
+      eventData.ui.view.toolbar.element,
+      eventData.ui.getEditableElement()
+    );
+    eventData.plugins.get('FileRepository').createUploadAdapter = function (loader: { file: string; }) {
+      console.log('loader : ', loader)
+      console.log(btoa(loader.file));
+      return new UploadAdapter(loader);
+    };
+  }
 
   ngOnInit(): void {
     this.subCourseDetailsForm = this.formBuilder.group({
@@ -55,56 +72,8 @@ export class OverviewComponent implements OnInit {
       this.courseService.updateSubCourse(this.subCoursedata).subscribe(data => {
         this.subCoursedata = data;
         console.log(this.subCoursedata)
-        this.router.navigate(['/subCourseTab/curriculum'],{queryParams: {id: data['id']}})
+        this.router.navigate(['/subCourseTab/curriculum'], { queryParams: { id: data['id'] } })
       })
     }
-
-  }
-  editor = ClassicEditor;
-  ckdata: any = `<p>Hello, vitg!</p>`;
- 
-  config = {
-    toolbar: [
-      'undo',
-      'redo',
-      '|',
-      'heading',
-      'fontFamily',
-      'fontSize',
-      '|',
-      'bold',
-      'italic',
-      'underline',
-      'fontColor',
-      'fontBackgroundColor',
-      'backgroundColor',
-      'highlight',
-      '|',
-      'link',
-      'CKFinder',
-      'imageUpload',
-      'mediaEmbed',
-      '|',
-      'alignment',
-      'bulletedList',
-      'numberedList',
-      '|',
-      'indent',
-      'outdent',
-      '|',
-      'insertTable',
-      'blockQuote',
-      'specialCharacters',
-      
-       '|', 'colors', 
-      ],
-    language: 'id',
-    image: {
-      toolbar: [
-        'imageTextAlternative',
-        'imageStyle:full',
-        'imageStyle:side'
-      ]
-    },
   }
 }

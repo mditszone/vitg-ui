@@ -8,10 +8,9 @@ import { Router } from '@angular/router';
 })
 export class SubcourseTabsComponent implements OnInit {
 
-  navLinks: any[];
-  activeLinkIndex = -1;
-  constructor(private router: Router) {
-    this.navLinks = [
+  subCourseTabs: any[];
+  constructor() {
+    this.subCourseTabs = [
       {
         label: "AddSubCourse",
         link: "./addSubCourse",
@@ -61,10 +60,6 @@ export class SubcourseTabsComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.router.events.subscribe(res => {
-      this.activeLinkIndex = this.navLinks.indexOf(this.navLinks.find(tab => tab.link === "." + this.router.url)
-      );
-    });
   }
 
 }

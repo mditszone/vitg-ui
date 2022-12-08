@@ -15,7 +15,7 @@ import { TeamComponent } from './component/team/team.component';
 const routes: Routes = [
 
   {
-    path: 'imageSlider', component: ImageSliderComponent
+    path: '', component: ImageSliderComponent
   },
 
   {

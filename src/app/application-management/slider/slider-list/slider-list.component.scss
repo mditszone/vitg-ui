@@ -1,25 +1,20 @@
-
-.card{
-    width: 80%;
-    height: 80%;
-    margin-left: 130px;
-    margin-top: 40px;
-    margin-top: -16px;
+.card {
     border: 1px solid #0669ad;
     border-radius: 4px;
-    padding-bottom: 20px;
+    margin-top: -16px;
+    margin-bottom: 20px;
 }
-.addSlider{
-    float:right;
-    background-color: #FFC82A;
+.addSlider {
+    float: right;
+    background-color: #ffc82a;
     color: #000;
     border: none;
 }
-.addSlider:hover{
-background-color: #FFC82A;
-color: #000;
+.addSlider:hover {
+    background-color: #ffc82a;
+    color: #000;
 }
-.search input{
+.search input {
     box-sizing: border-box;
     display: flex;
     align-items: center;
@@ -27,44 +22,43 @@ color: #000;
     border: 1px solid #0669ad;
     border-radius: 4px;
     padding-left: 0.5rem;
-	padding-top: 0.1rem;
-	padding-bottom: 0.001rem;
+    padding-top: 0.1rem;
+    padding-bottom: 0.001rem;
     overflow: hidden;
-    font-family: sans-serif;   
+    font-family: sans-serif;
 }
-    
+
 .search input {
     font-size: 15px;
     background: #fff;
     outline: 2px;
     padding: 0.7rem;
-  }
+}
 .eye {
-        color:#0669AD;
-        position: relative;
-        margin-left: 2px;
-        top: 2px;
-        font-size: 18px;
-        padding-left: 2px;
-    }
+    color: #0669ad;
+    position: relative;
+    margin-left: 2px;
+    top: 2px;
+    font-size: 18px;
+    padding-left: 2px;
+}
 .edit {
-        color:#0669AD;
-        position: relative;
-        margin-left: 2px;
-        top: 2px;
-        font-size: 18px;
-        padding-left: 2px;
-    }
+    color: #0669ad;
+    position: relative;
+    margin-left: 2px;
+    top: 2px;
+    font-size: 18px;
+    padding-left: 2px;
+}
 .delete {
-        color:#0669AD;
-        position: relative;
-        margin-left: 2px;
-        top: 2px;
-        font-size: 18px;
-        padding-left: 2px;
-        cursor: pointer;
-    }
-    .name{
-        color: #0669ad;
-        padding-left: 130px;
-    }
+    color: #0669ad;
+    position: relative;
+    margin-left: 2px;
+    top: 2px;
+    font-size: 18px;
+    padding-left: 2px;
+    cursor: pointer;
+}
+.name {
+    color: #0669ad;
+}
