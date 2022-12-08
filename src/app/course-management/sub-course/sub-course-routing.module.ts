@@ -15,15 +15,15 @@ import { ViewSubCourseComponent } from './view-sub-course/view-sub-course.compon
 import { YoutubeUrlComponent } from './youtube-url/youtube-url.component';
 
 const routes: Routes = [
-  {
-    path: '',
-    component: LayoutComponent,
-    children: [
-      {
-        path: 'subCourseTab', pathMatch: 'full',
-        component: SubcourseTabsComponent
-      }]
-  },
+  // {
+  //   path: '',
+  //   component: LayoutComponent,
+  //   children: [
+  //     {
+  //       path: 'subCourseTab', pathMatch: 'full',
+  //       component: SubcourseTabsComponent
+  //     }]
+  // },
 
   {
     path: '',
@@ -174,11 +174,16 @@ const routes: Routes = [
     component: LayoutComponent,
     children: [
       {
-        path: 'editsubcourse/:id',
-        component: EditSubCourseComponent
-      }
+        path: 'subCourseTab',
+        component: SubcourseTabsComponent,
+        children: [
+          {
+            path: 'editsubcourse/:id', pathMatch: 'full',
+            component: EditSubCourseComponent
+          }]
+      },
     ]
-  },
+  }
 ];
 
 @NgModule({

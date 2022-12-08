@@ -6,7 +6,6 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { SidebarComponent } from './component/sidebar/sidebar.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
-import { FooterComponent } from './component/footer/footer.component';
 import { LayoutComponent } from './component/layout/layout.component';
 import { MainscreenModule } from './mainscreen/mainscreen.module';
 import { MatTableModule } from '@angular/material/table';
@@ -57,7 +56,6 @@ import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
     AppComponent,
     SidebarComponent,
     DashboardComponent,
-    FooterComponent,
     LayoutComponent,
     ChatComponent,
     StaffLoginComponent,

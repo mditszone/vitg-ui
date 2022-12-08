@@ -1,12 +1,8 @@
 .card {
-    width: 95%;
-    height: 80%;
-    margin-left: 40px;
-    margin-top: 40px;
-    margin-top: -16px;
     border: 1px solid #0669ad;
     border-radius: 4px;
-    padding-bottom: 20px;
+    margin-top: -16px;
+    margin-bottom: 20px;
 }
 .addSubCourse {
     float: right;
@@ -65,5 +61,4 @@
 }
 .name {
     color: #0669ad;
-    padding-left: 40px;
 }

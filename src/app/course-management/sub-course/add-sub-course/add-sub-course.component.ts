@@ -4,8 +4,6 @@ import { FormBuilder, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Subcourse } from 'src/app/shared/model/subcourse';
 import { CourseService } from 'src/app/shared/services/course.service';
-import ClassicEditor from '@haifahrul/ckeditor5-build-rich';
-import { MessageService } from 'primeng/api';
 
 @Component({
   selector: 'app-add-sub-course',
@@ -20,11 +18,11 @@ export class AddSubCourseComponent implements OnInit {
   errorMessage: any;
   data: any;
   subCourseForm: any;
-  
+
   subCourseDetailsForm = this.formBuilder.group({
     name: ['', [Validators.required]],
     course: ['', [Validators.required]],
-    image:['', [Validators.required]]
+    image: ['', [Validators.required]]
   });
 
   constructor(
@@ -32,7 +30,6 @@ export class AddSubCourseComponent implements OnInit {
     private router: Router,
     private courseService: CourseService) {
     this.fileName = "";
-    
   }
 
   ngOnInit(): void {
@@ -92,58 +89,12 @@ export class AddSubCourseComponent implements OnInit {
       this.subCourse.course = this.subCourseForm.course;
       this.courseService.createSubCourse(this.subCourse).subscribe(
         (data: any) => {
-          this.router.navigate(['/subCourseTab/overview'],{queryParams: {id: data['id']}});
+          this.router.navigate(['/subCourseTab/overview'], { queryParams: { id: data['id'] } });
         }),
         (error) => {
           this.errorMessage = error.error.message;
           console.log(this.errorMessage)
         };
     }
-  }
-  
-  editor = ClassicEditor;
-  config = {
-    toolbar: [
-      'undo',
-      'redo',
-      '|',
-      'heading',
-      'fontFamily',
-      'fontSize',
-      '|',
-      'bold',
-      'italic',
-      'underline',
-      'fontColor',
-      'fontBackgroundColor',
-      'backgroundColor',
-      'highlight',
-      '|',
-      'link',
-      'CKFinder',
-      'imageUpload',
-      'mediaEmbed',
-      '|',
-      'alignment',
-      'bulletedList',
-      'numberedList',
-      '|',
-      'indent',
-      'outdent',
-      '|',
-      'insertTable',
-      'blockQuote',
-      'specialCharacters',
-
-      '|', 'colors',
-    ],
-    language: 'id',
-    image: {
-      toolbar: [
-        'imageTextAlternative',
-        'imageStyle:full',
-        'imageStyle:side'
-      ]
-    },
   }
 }

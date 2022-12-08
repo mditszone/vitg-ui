@@ -13,6 +13,10 @@ export class SidebarComponent {
   @ViewChild('sidenav', {static:false}) sidenav!: MatSidenav;
   sidenavSmall:boolean = false;
   
+  onLoggedout() {
+    this.router.navigate(['/']);
+  }
+  
   sidenavToggle(){
     this.sidenavSmall = !this.sidenavSmall;
   }

@@ -2,48 +2,12 @@
   <a href="#" routerLink="/subcourse" class="btn back">Back</a>
 </div>
 
-
 <div class="container">
-  <div class="card">
-    <form>
-      <div class="form-group row">
-        <label class="col-sm-4">Id</label>
-        <div class="col-sm-2">:</div>
-        <div class="col-sm-4">
-          {{subCoursedata.id}}
-        </div>
-      </div>
-      <br>
-
-      <div class="form-group row">
-        <label class="col-sm-4">SubCourse Name</label>
-        <div class="col-sm-2">:</div>
-        <div class="col-sm-4">
-          {{subCoursedata.name}}
-        </div>
-      </div><br>
-      <div class="form-group row">
-        <label class="col-sm-4">Course DurationDays</label>
-        <div class="col-sm-2">:</div>
-        <div class="col-sm-4">
-          {{subCoursedata.durationDays}}
-        </div>
-      </div><br>
-      <div class="form-group row">
-        <label class="col-sm-4">Course DuarationHours</label>
-        <div class="col-sm-2">:</div>
-        <div class="col-sm-4">
-          {{subCoursedata.durationHours}}
-        </div>
-      </div><br>
-      <div class="form-group row">
-        <label class="col-sm-4">Course Fee</label>
-        <div class="col-sm-2">:</div>
-        <div class="col-sm-4">
-          {{subCoursedata.fee}}
-        </div>
-      </div><br>
-
-    </form>
+  <div>
+    <mat-tab-group>
+      <mat-tab *ngFor="let tab of tabs" [label]="tab['tabName']">
+        <div [innerHTML]="tab['tabData']"></div>
+      </mat-tab>
+    </mat-tab-group>
   </div>
 </div>

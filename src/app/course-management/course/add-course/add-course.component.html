@@ -3,15 +3,14 @@
     <div class="card">
         <form [formGroup]="courseDetailsForm">
             <div class="form-group row">
-                <label for="name" class="col-sm-4 col-form-label">Course Name</label>
+                <label for="name" class="col-sm-3 col-form-label">Course Name</label>
                 <div class="col-sm-6">
-                    <input type="text" formControlName="name" class="form-control" required
-                        [(ngModel)]="course.name">
+                    <input type="text" formControlName="name" class="form-control" required [(ngModel)]="course.name">
                 </div>
             </div>
             <br>
             <div class="form-group row">
-                <label for="image" class="col-sm-4 col-form-label">Course Image </label>
+                <label for="image" class="col-sm-3 col-form-label">Course Logo </label>
                 <div class="col-sm-6">
                     <input type="file" formControlName="image" class="form-control" (change)="onUploadChange($event)"
                         [(ngModel)]="course.image">
@@ -20,7 +19,7 @@
             <br>
 
             <div class="form-group row">
-                <label for="status" class="col-sm-4 col-form-label">Status</label>
+                <label for="status" class="col-sm-3 col-form-label">Status</label>
                 <div class="col-sm-6">
                     <select class="form-control" formControlName="status" placeholder="Active"
                         [(ngModel)]="course.status">
@@ -31,10 +30,10 @@
             </div>
             <br>
             <div class="form-group row">
-                <label for="description" class="col-sm-4 col-form-label">Description</label>
-                <div class="form-group row">
-                    <ckeditor [editor]="editor" [config]="config" [data]="data" formControlName="description"
-                    [(ngModel)]="course.description"></ckeditor>
+                <label for="description" class="col-sm-3 col-form-label">Description</label>
+                <div class="col-sm-6">
+                    <ckeditor [editor]="Editor" data="<p>Hello, vitg!</p>" (ready)="onReady($event)"
+                        formControlName="description" [(ngModel)]="course.description"></ckeditor>
                 </div>
             </div>
             <br>

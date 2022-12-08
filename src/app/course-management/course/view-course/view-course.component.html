@@ -4,16 +4,23 @@
 
 
 <div class="container">
+  <h1 class="name">Course Details</h1>
   <div class="card">
     <form>
+      <div class="form-group row">
+        <label class="col-sm-4">Course Id</label>
+        <div class="col-sm-2">:</div>
+        <div class="col-sm-4">
+          {{coursedata.id}}
+        </div>
+      </div><br>
       <div class="form-group row">
         <label class="col-sm-4">Course Name</label>
         <div class="col-sm-2">:</div>
         <div class="col-sm-4">
           {{coursedata.name}}
         </div>
-      </div><br>
-
+      </div>
     </form>
   </div>
 </div>

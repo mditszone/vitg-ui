@@ -1,8 +1,7 @@
 <app-header></app-header>
 
-<mat-sidenav-container class="m-sidenav-container">
-    <mat-sidenav [ngClass]="{ 'm-sidenav': true, 'm-sidenav-small': sidenavSmall }" mode="side" fixedInViewport="true"
-        opened #sidenav>
+<mat-sidenav-container>
+    <mat-sidenav [ngClass]="{ 'm-sidenav': true, 'm-sidenav-exapand': sidenavSmall }" mode="side" opened #sidenav>
         <button mat-icon-button class="menu" type="button" (click)="sidenavToggle()">
             <mat-icon>menu</mat-icon>
         </button>
@@ -10,11 +9,13 @@
             <app-sidenav *ngFor="let item of navItems" [item]="item"></app-sidenav>
         </mat-nav-list>
     </mat-sidenav>
-    <mat-sidenav-content [ngClass]="{ 'm-main': true, 'm-main-large': sidenavSmall }">
-        <div class="body">
-            <router-outlet></router-outlet>
-        </div>
+    <mat-sidenav-content [ngClass]="{ 'm-content': true, 'm-content-exapand': sidenavSmall }">
+        <router-outlet></router-outlet>
     </mat-sidenav-content>
 </mat-sidenav-container>
 
-<app-footer></app-footer>
+<mat-toolbar class="footer">
+    <mat-toolbar-row>
+        &copy;All rights reserved 2022
+    </mat-toolbar-row>
+</mat-toolbar>

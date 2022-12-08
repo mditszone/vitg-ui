@@ -1,9 +1,10 @@
-<div class="conatiner">
+<div class="container">
     <h1 class="name">Create Sub Topic Concept </h1>
     <div class="card">
         <form [formGroup]="subTopicConceptDetailsForm">
             <div class="form-group row">
-                <label for="course" class="col-sm-4 col-form-label">Course Name<span class="star text-danger">*</span></label>
+                <label for="course" class="col-sm-3 col-form-label">Course Name<span
+                        class="star text-danger">*</span></label>
                 <div class="col-sm-6">
                     <p-dropdown placeholder="- Select -" [options]="courseList" optionLabel="name"
                         formControlName="course" [style]="{width: '100%'}" (onChange)="getSubCourseList($event)">
@@ -18,7 +19,8 @@
             </div>
             <br>
             <div class="form-group row">
-                <label for="subCourse" class="col-sm-4 col-form-label">SubCourse Name<span class="star text-danger">*</span></label>
+                <label for="subCourse" class="col-sm-3 col-form-label">SubCourse Name<span
+                        class="star text-danger">*</span></label>
                 <div class="col-sm-6">
                     <p-dropdown placeholder="- Select  -" [options]="subCourseList" optionLabel="name"
                         formControlName="subCourse" [style]="{width: '100%'}" (onChange)="getTopicList($event)">
@@ -32,7 +34,8 @@
                 </div>
             </div><br>
             <div class="form-group row">
-                <label for="topic" class="col-sm-4 col-form-label">Topic Name<span class="star text-danger">*</span></label>
+                <label for="topic" class="col-sm-3 col-form-label">Topic Name<span
+                        class="star text-danger">*</span></label>
                 <div class="col-sm-6">
                     <p-dropdown placeholder="- Select  -" [options]="topicList" optionLabel="name"
                         formControlName="topic" [style]="{width: '100%'}" (onChange)="getSubTopicList($event)">
@@ -46,10 +49,11 @@
                 </div>
             </div><br>
             <div class="form-group row">
-                <label for="subTopic" class="col-sm-4 col-form-label">SubTopic Name<span class="star text-danger">*</span></label>
+                <label for="subTopic" class="col-sm-3 col-form-label">SubTopic Name<span
+                        class="star text-danger">*</span></label>
                 <div class="col-sm-6">
                     <p-dropdown placeholder="- Select  -" [options]="subTopicList" optionLabel="name"
-                        formControlName="subTopic" [style]="{width: '100%'}" >
+                        formControlName="subTopic" [style]="{width: '100%'}">
                     </p-dropdown>
                     <div class="text-error"
                         *ngIf="subTopicConceptDetailsForm.controls['subTopic'].invalid && (subTopicConceptDetailsForm.controls['subTopic'].dirty || subTopicConceptDetailsForm.controls['subTopic'].touched)">
@@ -61,13 +65,13 @@
             </div>
             <br>
             <div class="form-group row">
-                <label for="description" class="col-sm-4 col-form-label">Description</label>
-                <div class="form-group row">
-                    <ckeditor [editor]="editor" [config]="config" [data]="ckdata" formControlName="description"
-                    [(ngModel)]="subTopicConcept.description"></ckeditor>
+                <label for="description" class="col-sm-3 col-form-label">Description</label>
+                <div class="col-sm-6">
+                    <ckeditor [editor]="Editor" data="<p>Hello, vitg!</p>" (ready)="onReady($event)"
+                        formControlName="description" [(ngModel)]="subTopicConcept.description"></ckeditor>
                 </div>
             </div>
-    
+            <br>
             <div class="form-group row">
                 <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 pr-0">
                     <button class="btn save" type="button" (click)="createSubTopicConcept()">Save</button>
