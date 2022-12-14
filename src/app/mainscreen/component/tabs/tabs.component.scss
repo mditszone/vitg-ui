@@ -14,16 +14,27 @@
 }
 
 .card {
-    border: 1px solid #0669ad;
+    border: 0.001rem solid #0669ad;
+    border-radius: 4px;
+    padding-right: 50px;
+    margin-top: 46px;
+    margin-bottom: 20px;
+    margin-right: 150px;
+    padding-top: 20px;
+    padding-bottom: 40px;
+}
+.card-tabName {
+    border: 0.01rem solid #0669ad;
+    margin-left: 150px;
     border-radius: 4px;
     margin-top: 46px;
     margin-bottom: 20px;
     margin-right: 150px;
     padding-top: 20px;
-    padding-bottom: 20px;
+    padding-bottom: 150px;
 }
-
-button{
+button {
     background-color: #0669ad;
     color: #fff;
+    margin-top: 100px;
 }
