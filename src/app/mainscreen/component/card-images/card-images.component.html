@@ -1,65 +1,17 @@
 <div class="container">
-    <div class="cards">
-        <div class="card" *ngFor="let subCourse of finalSubcourseList">
-            <mat-card class="mat-card" routerLink="/tabComponent" routerLinkActive="active">
-                <mat-card-header>
-                    <mat-card-title class="card-name">{{subCourse.course.name}} :</mat-card-title>{{subCourse.name}}
-                </mat-card-header>
-                <mat-card-content>
-                    <img class="card-image" [src]="subCourse.image">
-                </mat-card-content>
-
-                <!-- <mat-card-actions>
-                    <a routerLink="/tabComponent">Click</a>
-                </mat-card-actions> -->
-            </mat-card>
+    <h1 class="name">Courses</h1>
+    <div class="border">
+        <div class="cards">
+            <div class="card" *ngFor="let subCourse of finalSubcourseList">
+                <mat-card class="mat-card" (click)="onClick(subCourse.id)">
+                    <mat-card-header>
+                        <mat-card-title class="card-name">{{subCourse.course.name}} :</mat-card-title>{{subCourse.name}}
+                    </mat-card-header>
+                    <mat-card-content>
+                        <img class="card-image" [src]="subCourse.image">
+                    </mat-card-content>
+                </mat-card>
+            </div>
         </div>
-    </div>
-</div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div class="container">
-    <div class="card">
-        <h1>Hello</h1>
     </div>
 </div>

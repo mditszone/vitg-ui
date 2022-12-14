@@ -1,8 +1,8 @@
 .tab-container {
     padding: 7%;
     .tab-title {
-        margin-bottom: 34px;
-        color: #0069ad;
+        margin-bottom: 25px;
+        color: #0669ad;
         font-size: 34px;
     }
 }
@@ -11,4 +11,19 @@
     min-width: 0px !important;
     padding: 25px !important;
     margin: 7px !important;
+}
+
+.card {
+    border: 1px solid #0669ad;
+    border-radius: 4px;
+    margin-top: 46px;
+    margin-bottom: 20px;
+    margin-right: 150px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+button{
+    background-color: #0669ad;
+    color: #fff;
 }

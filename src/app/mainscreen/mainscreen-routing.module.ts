@@ -10,10 +10,14 @@ import { ServicesComponent } from './component/services/services.component';
 import { AddStudentComponent } from './component/student-dashboard/add-student/add-student.component';
 import { StudentRegisterComponent } from './component/student-dashboard/student-register/student-register.component';
 import { VerifyStudentComponent } from './component/student-dashboard/verify-student/verify-student.component';
+import { TabsComponent } from './component/tabs/tabs.component';
 import { TeamComponent } from './component/team/team.component';
 
 const routes: Routes = [
 
+  {
+    path:'tabComponent/:id',component:TabsComponent
+  },
   {
     path: '', component: ImageSliderComponent
   },

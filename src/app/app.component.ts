@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { DisableRightClickService } from './shared/services/disable-right-click.service';
 
 @Component({
   selector: 'app-root',
@@ -7,5 +8,8 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'vitg';
-  
+  constructor(private rightClickDisable: DisableRightClickService) {}
+  // ngOnInit() {
+  //   this.rightClickDisable.disableRightClick();
+  // }
 }

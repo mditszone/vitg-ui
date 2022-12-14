@@ -28,14 +28,18 @@
             </div>
             <br>
             <div class="form-group row">
-                <label for="gender" class="col-sm-3 col-form-label">Gender <span class="star text-danger">*</span></label>
+                <label for="gender" class="col-sm-3 col-form-label">Gender <span
+                        class="star text-danger">*</span></label>
                 <div class="col-sm-6">
-                    <input type="radio" value="Male" formControlName="gender"><label class="radio-label"> Male</label>&nbsp;&nbsp;
-                    <input type="radio" value="Female" formControlName="gender"><label class="radio-label"> Female</label>&nbsp;&nbsp;
-                    <input type="radio" value="Others" formControlName="gender"><label class="radio-label"> Others</label>
+                    <input type="radio" value="Male" formControlName="gender"><label class="radio-label">
+                        Male</label>&nbsp;&nbsp;
+                    <input type="radio" value="Female" formControlName="gender"><label class="radio-label">
+                        Female</label>&nbsp;&nbsp;
+                    <input type="radio" value="Others" formControlName="gender"><label class="radio-label">
+                        Others</label>
                 </div>
             </div>
-            
+
             <br>
             <div class="form-group row">
                 <label for="role" class="col-sm-3 col-form-label">Role<span class="star text-danger">*</span></label>
@@ -87,8 +91,8 @@
                 <label for="panCardNumber" class="col-sm-3 col-form-label">Pan Card Number<span
                         class="star text-danger">*</span></label>
                 <div class="col-sm-6">
-                    <input (keypress)="keyPress($event)" required type="text" formControlName="panCardNumber"
-                        class="form-control" [ngClass]="{ 'is-invalid': submitted && f['panCardNumber'].errors }" />
+                    <input required type="text" formControlName="panCardNumber" class="form-control"
+                        [ngClass]="{ 'is-invalid': submitted && f['panCardNumber'].errors }" />
                     <div *ngIf="submitted && f['panCardNumber'].errors" class="invalid-feedback">
                         <div *ngIf="f['panCardNumber'].errors['required']">Pan Card Number is required</div>
                         <div
@@ -98,7 +102,32 @@
                     </div>
                 </div>
             </div>
-
+            <br>
+            <div class="form-group row">
+                <label for="aadharPic" class="col-sm-3 col-form-label">Aadhar Pic<span
+                        class="star text-danger">*</span></label>
+                <div class="col-sm-6">
+                    <input type="file" formControlName="aadharPic" class="form-control"
+                        (change)="onUploadChangeAadharPic($event)">
+                </div>
+            </div><br>
+            <div class="form-group row">
+                <label for="panCardPic" class="col-sm-3 col-form-label">PanCard Pic<span
+                        class="star text-danger">*</span></label>
+                <div class="col-sm-6">
+                    <input type="file" formControlName="panCardPic" class="form-control"
+                        (change)="onUploadChangePanCardPic($event)">
+                </div>
+            </div><br>
+            <div class="form-group row">
+                <label for="profPic" class="col-sm-3 col-form-label">Prof Pic<span
+                        class="star text-danger">*</span></label>
+                <div class="col-sm-6">
+                    <input type="file" formControlName="profPic" class="form-control"
+                        (change)="onUploadChangeProfPic($event)">
+                </div>
+            </div>
+            <br>
             <div class="form-group">
                 <button class="btn save" (click)="updateStaffInfo()">Save</button>
             </div>

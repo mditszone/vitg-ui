@@ -1,3 +1,7 @@
+.container {
+    padding-top: 50px;
+    padding-bottom: 100px;
+}
 .card {
     border: 1px solid #0669ad;
     border-radius: 4px;
@@ -6,17 +10,8 @@
 .name {
     color: #0669ad;
 }
-.addStudent {
-    float: right;
-    background-color: #ffc82a;
-    color: #000;
-    border: none;
-}
-.addStudent:hover {
-    background-color: #ffc82a;
-    color: #000;
-}
 .search input {
+    float: right;
     box-sizing: border-box;
     display: flex;
     align-items: center;
@@ -31,29 +26,12 @@
 }
 
 .search input {
-    float: right;
     font-size: 15px;
     background: #fff;
     outline: 2px;
     padding: 0.7rem;
 }
 .eye {
-    color: #0669ad;
-    position: relative;
-    margin-left: 2px;
-    top: 2px;
-    font-size: 18px;
-    padding-left: 2px;
-}
-.edit {
-    color: #0669ad;
-    position: relative;
-    margin-left: 2px;
-    top: 2px;
-    font-size: 18px;
-    padding-left: 2px;
-}
-.delete {
     color: #0669ad;
     position: relative;
     margin-left: 2px;

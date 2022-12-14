@@ -10,9 +10,11 @@
                 <span *ngIf="item.children && item.children.length > 0">
                     <button #menuTrigger="matMenuTrigger" (mouseover)="menuTrigger.openMenu()" mat-raised-button
                         class="allcourses" [matMenuTriggerFor]="menu.childMenu">
+                        <mat-icon>apps</mat-icon>
                         {{item.displayName}}
+                        <span (mouseleave)="menuTrigger.closeMenu()"></span>
                     </button>
-                    <span (mouseleave)="menuTrigger.closeMenu()"></span>
+                    
                     <app-menu #menu [items]="item.children"></app-menu>
                 </span>
                 <span *ngIf="!item.children || item.children.length === 0">
@@ -26,10 +28,10 @@
         <ul class="menu">
             <a routerLink="aboutus" routerLinkActive="active" class="aboutus">ABOUT US</a>
             <a routerLink="services" routerLinkActive="active" class="services">SERVICES</a>
-            <a href="/portfolio" class="portfolio">PORTFOLIO</a>
-            <a href="/team" class="team">TEAM</a>
-            <a href="/contactus" class="contactus">CONTACT US</a>
-            <a href="/register" class="register">REGISTER/LOGIN</a>
+            <a routerLink="portfolio" routerLinkActive="active" class="portfolio">PORTFOLIO</a>
+            <a routerLink="team" routerLinkActive="active" class="team">TEAM</a>
+            <a routerLink="contactus" routerLinkActive="active" class="abcontactusoutus">CONTACT US</a>
+            <a routerLink="register" routerLinkActive="active" class="register">LOGIN/REGISTER</a>
         </ul>
     </mat-toolbar-row>
 </mat-toolbar>
