@@ -21,6 +21,7 @@ export class ViewStaffComponent implements OnInit {
     console.log(this.id)
     this.userService.getStaffById(this.id).subscribe((data: Staff) => {
       this.staffdata = data;
+      console.log(this.staffdata)
     }),
     (error) => {
       this.errorMessage = error.error.message;

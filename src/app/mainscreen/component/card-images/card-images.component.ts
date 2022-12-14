@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, NgZone, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Course } from 'src/app/shared/model/course';
 import { Subcourse } from 'src/app/shared/model/subcourse';
 import { CourseService } from 'src/app/shared/services/course.service';
@@ -12,7 +13,7 @@ export class CardImagesComponent implements OnInit {
   finalSubcourseList: Array<Subcourse> = [];
   SubcourseList: Array<Subcourse> = [];
   base64Image: any
-  constructor(private courseService: CourseService) { }
+  constructor(private courseService: CourseService, private zone: NgZone, private route: Router) { }
 
   ngOnInit(): void {
     this.courseService.getAllSubCourses().subscribe((data: any) => {
@@ -36,5 +37,7 @@ export class CardImagesComponent implements OnInit {
       this.finalSubcourseList = this.SubcourseList;
     });
   }
-
+  onClick(id: any) {
+    this.zone.run(() => this.route.navigate(['/tabComponent'], { queryParams: { subCourseId: id } }));
+  }
 }

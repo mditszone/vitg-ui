@@ -1,8 +1,20 @@
-<div class="tab-container">
-  <div class="tab-title">{{title}}</div>
-  <mat-tab-group>
-    <mat-tab *ngFor="let tab of tabs" [label]="tab['tabName']">
-      <div [innerHTML]="tab['tabData']"></div>
-    </mat-tab>
-  </mat-tab-group>
+<div class="container">
+  <div class="tab-container">
+    <div class="tab-title">{{title}}</div>
+    <div class="card">
+      <mat-tab-group>
+        <mat-tab *ngFor="let tab of tabs" [label]="tab['tabName']">
+          <div class="card-tabName">
+            <div [innerHTML]="tab['tabData']"></div>
+            <div *ngIf="tab['tabName'] === 'Demo' ">
+              <div fxLayout="row wrap" fxLayout.xs="column wrap" fxLayoutAlign="center center" fxLayoutGap="20px"
+                fxLayoutGap.xs="0px">
+                <button mat-button (click)="openDialog()">Watch Demo Video </button>
+              </div>
+            </div>
+          </div>
+        </mat-tab>
+      </mat-tab-group>
+    </div>
+  </div>
 </div>

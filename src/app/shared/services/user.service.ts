@@ -15,7 +15,7 @@ export class UserService {
   public getAllStaff(): Observable<any> {
     return this.http.get(this.baseURL + '/api/staff/getAllStaff');
   }
-  public updateStaffinfo(id:any, body: any): Observable<any> {
+  public updateStaffinfo( body: any): Observable<any> {
     return this.http.put(this.baseURL +'/api/staff/editStaff',body);
   }
   

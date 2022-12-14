@@ -1,11 +1,21 @@
-.container{
+.container {
     padding-top: 40px;
 }
-.mat-card{
+.border {
+    border-radius: 4px;
+    padding-top: 20px;
+    padding-right: 5px;
+    padding-bottom: 20px;
+    margin-top: -16px;
+}
+.name {
+    color: #0669ad;
+}
+.mat-card {
     background-color: rgb(156, 197, 235);
     cursor: pointer;
 }
-.card-name{
+.card-name {
     font-size: 15px;
 }
 .card-image {
@@ -13,14 +23,14 @@
     width: 60px;
     margin-bottom: 20px;
     border-radius: 6px;
-  }
+}
 
-.cards{
+.cards {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(190px, 1fr));
     grid-gap: 20px;
 }
-.card{
+.card {
     width: 205px;
     display: grid;
 }

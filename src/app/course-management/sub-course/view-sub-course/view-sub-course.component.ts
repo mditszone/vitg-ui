@@ -65,7 +65,7 @@ export class ViewSubCourseComponent implements OnInit {
       })
 
       this.tabs.push({
-        tabName: "YoutubeUrl",
+        tabName: "Demo",
         tabData: this.sanitizer.bypassSecurityTrustHtml(html)
       })
     });

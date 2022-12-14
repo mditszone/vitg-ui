@@ -17,9 +17,9 @@ export class AddTrainerComponent implements OnInit {
   errorMessage: any;
   trainerForm: any;
   rolesList: any;
-  courseList:any = [];
+  courseList: any = [];
   subCourseListById: any;
-  dropdownSettings:IDropdownSettings={};
+  dropdownSettings: IDropdownSettings = {};
   //selected:any = [];
 
   //selectedItems!: any[];
@@ -37,10 +37,10 @@ export class AddTrainerComponent implements OnInit {
     phoneNumber: [{ value: '', disabled: false }],
     name: ['', Validators.required],
     course: ['', [Validators.required]],
-    //gender: ['', Validators.required],
-    //email: ['', Validators.required,Validators.pattern("^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$")],
-    //aadharNumber: ['', [Validators.required,Validators.minLength(12), Validators.maxLength(12), Validators.pattern("^[0-9]*$") ]],
-    //panCardNumber: ['', [Validators.required,Validators.minLength(10), Validators.maxLength(10), Validators.pattern("^[A-Z]{5}[0-9]{4}[A-Z]*$")]]
+    gender: ['', Validators.required],
+    email: ['', Validators.required, Validators.pattern("^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$")],
+    aadharNumber: ['', [Validators.required, Validators.minLength(12), Validators.maxLength(12), Validators.pattern("^[0-9]*$")]],
+    panCardNumber: ['', [Validators.required, Validators.minLength(10), Validators.maxLength(10), Validators.pattern("^[A-Z]{5}[0-9]{4}[A-Z]*$")]]
   });
 
   constructor(private router: Router, private userService: UserService,
@@ -83,10 +83,10 @@ export class AddTrainerComponent implements OnInit {
         phoneNumber: this.data.phoneNumber,
         name: this.data.name,
         course: this.data.course,
-        //gender: this.data.gender,
-        //email: this.data.email,
-        //aadharNumber: this.data.aadharNumber,
-        //panCardNumber: this.data.panCardNumber
+        gender: this.data.gender,
+        email: this.data.email,
+        aadharNumber: this.data.aadharNumber,
+        panCardNumber: this.data.panCardNumber
       });
     });
   }
@@ -105,12 +105,12 @@ export class AddTrainerComponent implements OnInit {
       this.trainer.phoneNumber = this.trainerForm.phoneNumber,
         this.trainer.name = this.trainerForm.name;
       this.trainer.course = this.trainerForm.course,
-        //this.trainer.gender = this.trainerForm.gender,
-        //this.trainer.email = this.trainerForm.email,
-        //this.trainer.aadharNumber = this.trainerForm.aadharNumber,
-        //this.trainer.panCardNumber = this.trainerForm.panCardNumber
+        this.trainer.gender = this.trainerForm.gender,
+        this.trainer.email = this.trainerForm.email,
+        this.trainer.aadharNumber = this.trainerForm.aadharNumber,
+        this.trainer.panCardNumber = this.trainerForm.panCardNumber
 
-        console.log(this.trainer);
+      console.log(this.trainer);
 
       this.userService.updateTrainerinfo(this.trainer).subscribe(
         (data: any) => {

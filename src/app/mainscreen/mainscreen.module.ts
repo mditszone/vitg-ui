@@ -1,6 +1,5 @@
 import { NgModule,CUSTOM_ELEMENTS_SCHEMA, } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { NoRightClickDirective } from './no-right-click.directive';
 import { MainscreenRoutingModule } from './mainscreen-routing.module';
 import { AboutUsComponent } from './component/about-us/about-us.component';
 import { ServicesComponent } from './component/services/services.component';
@@ -21,6 +20,13 @@ import { CardImagesComponent } from './component/card-images/card-images.compone
 import { TabsComponent } from './component/tabs/tabs.component';
 import { MenuComponent } from './component/menu/menu.component';
 import { PortfolioComponent } from './component/portfolio/portfolio.component';
+import { UpcomingBatchesTableComponent } from './component/upcoming-batches-table/upcoming-batches-table.component';
+import { TableModule } from 'primeng/table';
+import { ButtonModule } from 'primeng/button';
+import { DialogModule } from 'primeng/dialog';
+import { ToolbarModule } from 'primeng/toolbar';
+import { DemoComponent } from './component/demo/demo.component';
+import { FlexLayoutModule } from '@angular/flex-layout';
 
 @NgModule({
   declarations: [
@@ -34,10 +40,11 @@ import { PortfolioComponent } from './component/portfolio/portfolio.component';
     MainscreenComponent,
     ImageSliderComponent,
     CardImagesComponent,
-    NoRightClickDirective,
     TabsComponent,
     MenuComponent,
     PortfolioComponent,
+    UpcomingBatchesTableComponent,
+    DemoComponent
     
   ],
   imports: [
@@ -49,7 +56,13 @@ import { PortfolioComponent } from './component/portfolio/portfolio.component';
     NgOtpInputModule,
     DropdownModule,
     ToastModule,
-    NgImageSliderModule
+    NgImageSliderModule,
+    TableModule,
+    ButtonModule,
+    DialogModule,
+    ToolbarModule,
+    FlexLayoutModule
+    
   ]
 })
 export class MainscreenModule { }
