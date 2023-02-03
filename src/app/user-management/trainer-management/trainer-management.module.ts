@@ -14,6 +14,7 @@ import { ToastModule } from 'primeng/toast';
 import { AddTrainerComponent } from './add-trainer/add-trainer.component';
 import { MaterialModule } from 'src/app/shared/module/material.module';
 import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
+import { TrainerCourseComponent } from './trainer-course/trainer-course.component';
 
 @NgModule({
   declarations: [
@@ -21,17 +22,18 @@ import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
     EditTrainerComponent,
     RegisterTrainerComponent,
     VerifyTrainerComponent,
-    AddTrainerComponent
+    AddTrainerComponent,
+    TrainerCourseComponent
   ],
   imports: [
     CommonModule,
     TrainerManagementRoutingModule,
     ReactiveFormsModule,
-    MaterialModule,
     FormsModule,
     NgOtpInputModule,
     DropdownModule,
     ToastModule,
+    MaterialModule,
     NgMultiSelectDropDownModule.forRoot()
   ]
 })

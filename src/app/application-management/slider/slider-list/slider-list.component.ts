@@ -13,14 +13,16 @@ export class SliderListComponent implements OnInit {
   sliderdata: Slider[] = [];
   id: any;
   loggedInUserRole: string = "";
+
   constructor(
-    private sliderService: SliderService) { }
+    private sliderService: SliderService) {
+  }
 
 
   ngOnInit(): void {
-    //  const loggedInUser = JSON.parse(sessionStorage.getItem('staffLogin') || '{}');
-    //  console.log(loggedInUser);
-    // this.loggedInUserRole = loggedInUser.vitgStaffDTO.role.roleName;
+    const loggedInUser = JSON.parse(sessionStorage.getItem('staff_dto') || '{}');
+    this.loggedInUserRole = loggedInUser.vitgStaffDTO.role.roleName;
+
     this.sliderService.getAllSliders().subscribe(data => {
       this.sliderdata = data;
       console.log(this.sliderdata)

@@ -4,10 +4,16 @@ import { Subtopic } from "./subtopic";
 import { Topic } from "./topic";
 
 export class SubTopicConcept {
-    //name!:string;
+    id!:number
+    name!:string;
     course!:Course;
     subCourse!:Subcourse;
     topic!:Topic;
     subTopic!:Subtopic;
-    description:any;
+    concept:any;
+    trainerPpt:any;
+    examples:any;
+    youtubeUrl:any;
+    githubUrl:any;
+    otherUrls:any;
 }

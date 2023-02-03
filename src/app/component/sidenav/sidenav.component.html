@@ -8,3 +8,28 @@
 <div *ngIf="expanded" class="children">
   <app-sidenav *ngFor="let child of item.children" [item]="child"></app-sidenav>
 </div>
+
+
+<!-- 
+<mat-accordion >
+  <mat-expansion-panel   (click)="onItemSelected(item)">
+    <mat-expansion-panel-header >
+      <mat-panel-title>{{item.iconName}}
+      </mat-panel-title>
+      {{item.displayName}}
+    </mat-expansion-panel-header>
+
+  </mat-expansion-panel>
+</mat-accordion> -->
+
+<!-- 
+<mat-expansion-panel>
+  <mat-expansion-panel-header>
+    <mat-panel-title>
+      <mat-icon>{{item.iconName}}</mat-icon>
+    </mat-panel-title>
+    <mat-panel-title>
+      {{item.displayName}}
+    </mat-panel-title>
+  </mat-expansion-panel-header>
+</mat-expansion-panel> -->

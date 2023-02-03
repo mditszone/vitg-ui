@@ -12,9 +12,9 @@ export class ViewStaffComponent implements OnInit {
 
   staffdata: any;
   id!: number;
-  errorMessage:string="";
+  errorMessage: string = "";
 
-  constructor(private userService: UserService, public route: ActivatedRoute) {}
+  constructor(private userService: UserService, public route: ActivatedRoute) { }
 
   ngOnInit() {
     this.id = this.route.snapshot.params['id'];
@@ -23,10 +23,9 @@ export class ViewStaffComponent implements OnInit {
       this.staffdata = data;
       console.log(this.staffdata)
     }),
-    (error) => {
-      this.errorMessage = error.error.message;
-      console.log(this.errorMessage)
-    };
+      (error) => {
+        this.errorMessage = error.error.message;
+        console.log(this.errorMessage)
+      };
   }
-
 }

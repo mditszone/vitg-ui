@@ -38,6 +38,7 @@ export class EditStaffComponent implements OnInit {
       phoneNumber: [{ value: null, disabled: false }],
       name: [null, [Validators.required, Validators.pattern('[a-zA-Z ]*')]],
       role: [null, [Validators.required]],
+      email: ['', Validators.required],
       aadharNumber: ['', [Validators.required, Validators.pattern("^[0-9]*$"), Validators.minLength(12), Validators.maxLength(12)]],
       panCardNumber: ['', [Validators.required, Validators.minLength(10), Validators.maxLength(10), Validators.pattern("^[A-Z]{5}[0-9]{4}[A-Z]*$")]],
       // aadharPic: ['', Validators.required],
@@ -139,6 +140,7 @@ export class EditStaffComponent implements OnInit {
       phoneNumber: this.staffdata.phoneNumber,
       name: this.staffdata.name,
       role: this.staffdata.role,
+      email:this.staffdata.email,
       aadharNumber: this.staffdata.aadharNumber,
       panCardNumber: this.staffdata.panCardNumber,
       // aadharPic: this.staffdata.aadharPic,
@@ -159,14 +161,12 @@ export class EditStaffComponent implements OnInit {
       this.staff.id = this.staffForm.id;
       this.staff.phoneNumber = this.staffForm.phoneNumber;
       this.staff.name = this.staffForm.name;
-      this.staff.gender = this.staffForm.gender;
       this.staff.role = this.staffForm.role;
       this.staff.email = this.staffForm.email;
       this.staff.aadharNumber = this.staffForm.aadharNumber;
       this.staff.panCardNumber = this.staffForm.panCardNumber;
 
       this.userService.updateStaffinfo(this.staff).subscribe(data => {
-        this.staffdata = data;
         this.router.navigate(['/staff'])
       })
     }

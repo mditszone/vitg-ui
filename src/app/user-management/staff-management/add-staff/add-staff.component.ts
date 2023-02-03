@@ -13,7 +13,6 @@ export class AddStaffComponent implements OnInit {
   fileName: string;
   staff: Staff = new Staff();
   submitted = false;
-  staffDTO!: Staff;
   data: any;
   errorMessage: any;
   staffForm: any;
@@ -30,8 +29,7 @@ export class AddStaffComponent implements OnInit {
     panCardNumber: ['', [Validators.required, Validators.minLength(10), Validators.maxLength(10), Validators.pattern("^[A-Z]{5}[0-9]{4}[A-Z]*$")]],
     aadharPic: ['', Validators.required],
     panCardPic: ['', Validators.required],
-    profPic: ['', Validators.required],
-
+    profPic: ['', Validators.required]
   });
 
   constructor(private router: Router,
@@ -69,7 +67,6 @@ export class AddStaffComponent implements OnInit {
     this.staff.name = file.name;
 
     reader.addEventListener("load", () => {
-      //this.slider.image = reader.result;
       const arr = new Uint8Array(<ArrayBuffer>reader.result);
       var newFileArray: Array<number> = [];
       if (arr.length > 0) {
@@ -81,7 +78,6 @@ export class AddStaffComponent implements OnInit {
     }, false);
 
     if (file) {
-      //reader.readAsDataURL(file);
       reader.readAsArrayBuffer(file);
     }
   }
@@ -92,7 +88,6 @@ export class AddStaffComponent implements OnInit {
     this.staff.name = file.name;
 
     reader.addEventListener("load", () => {
-      //this.slider.image = reader.result;
       const arr = new Uint8Array(<ArrayBuffer>reader.result);
       var newFileArray: Array<number> = [];
       if (arr.length > 0) {
@@ -104,7 +99,6 @@ export class AddStaffComponent implements OnInit {
     }, false);
 
     if (file) {
-      //reader.readAsDataURL(file);
       reader.readAsArrayBuffer(file);
     }
   }
@@ -115,7 +109,6 @@ export class AddStaffComponent implements OnInit {
     this.staff.name = file.name;
 
     reader.addEventListener("load", () => {
-      //this.slider.image = reader.result;
       const arr = new Uint8Array(<ArrayBuffer>reader.result);
       var newFileArray: Array<number> = [];
       if (arr.length > 0) {
@@ -127,10 +120,10 @@ export class AddStaffComponent implements OnInit {
     }, false);
 
     if (file) {
-      //reader.readAsDataURL(file);
       reader.readAsArrayBuffer(file);
     }
   }
+
   // convenience getter for easy access to form fields
   get f() { return this.staffDetailsForm.controls; }
 

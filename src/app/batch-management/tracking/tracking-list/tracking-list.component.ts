@@ -11,19 +11,21 @@ import { TrackService } from 'src/app/shared/services/track.service';
 export class TrackingListComponent implements OnInit {
 
   trackdata: Track[] = [];
-  
+
   id: any;
   loggedInUserRole: string = "";
   constructor(
-    private trackService: TrackService, public route: ActivatedRoute) { }
-
+    private trackService: TrackService,
+    public route: ActivatedRoute) { }
 
   ngOnInit(): void {
+    const loggedInUser = JSON.parse(sessionStorage.getItem('staff_dto') || '{}');
+    this.loggedInUserRole = loggedInUser.vitgStaffDTO.role.roleName;
     
     this.trackService.getAllTracks().subscribe(data => {
       console.log(data)
       this.trackdata = data;
     });
   }
-  
+
 }

@@ -1,15 +1,17 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
+import { Student } from 'src/app/shared/model/student';
 import { UserService } from 'src/app/shared/services/user.service';
 
 @Component({
   selector: 'app-add-student',
   templateUrl: './add-student.component.html',
   styleUrls: ['./add-student.component.scss']
-})
+}) 
 export class AddStudentComponent implements OnInit {
 
+  student: Student =new Student();
   submitted = false;
   data: any;
   errorMessage: any;
@@ -58,19 +60,18 @@ export class AddStudentComponent implements OnInit {
       this.studentForm = this.studentDetailsForm.value;
       let id = this.studentDetailsForm.value.id;
 
-      let obj = {
-        id: this.studentForm.id,
-        phoneNumber: this.studentForm.phoneNumber,
-        name: this.studentForm.name,
-        gender:this.studentForm.gender,
-        email: this.studentForm.email
-      }
-      console.log(obj);
+      this.student.id = this.studentForm.id
+      this.student.phoneNumber = this.studentForm.phoneNumber
+      this.student.name = this.studentForm.name
+      this.student.gender = this.studentForm.gender
+      this.student.email = this.studentForm.email
+      
+      console.log(this.student);
 
-      this.userService.updateStudentinfo(id, obj).subscribe(
+      this.userService.updateStudentinfo(this.student).subscribe(
         (data: any) => {
           console.log(data)
-          this.router.navigate(['/']);
+          this.router.navigate(['/materialScreen']);
         },
         (error) => {
           this.errorMessage = error.error.message;

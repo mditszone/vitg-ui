@@ -6,11 +6,24 @@ import { AddSubTopicConceptComponent } from './add-sub-topic-concept/add-sub-top
 import { DropdownModule } from 'primeng/dropdown';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
+import { SubtopicConceptTabsComponent } from './subtopic-concept-tabs/subtopic-concept-tabs.component';
+import { MaterialModule } from 'src/app/shared/module/material.module';
+import { TrainerPptComponent } from './trainer-ppt/trainer-ppt.component';
+import { GithubUrlComponent } from './github-url/github-url.component';
+import { OtherUrlsComponent } from './other-urls/other-urls.component';
+import { ExamplesComponent } from './examples/examples.component';
+import { SubtopicConceptYoutubeUrlComponent } from './subtopic-concept-youtube-url/subtopic-concept-youtube-url.component';
 
 
 @NgModule({
   declarations: [
-    AddSubTopicConceptComponent
+    AddSubTopicConceptComponent,
+    SubtopicConceptTabsComponent,
+    TrainerPptComponent,
+    GithubUrlComponent,
+    OtherUrlsComponent,
+    ExamplesComponent,
+    SubtopicConceptYoutubeUrlComponent,
   ],
   imports: [
     CommonModule,
@@ -18,7 +31,8 @@ import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
     DropdownModule,
     FormsModule,
     ReactiveFormsModule,
-    CKEditorModule
+    CKEditorModule,
+    MaterialModule
     
   ]
 })

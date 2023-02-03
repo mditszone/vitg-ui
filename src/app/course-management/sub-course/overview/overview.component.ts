@@ -49,9 +49,7 @@ export class OverviewComponent implements OnInit {
       console.log(params["id"]);
       let subCourseId: number = parseInt(params["id"]);
       this.courseService.getSubCourseById(subCourseId).subscribe((subCourse) => {
-        console.log(subCourse);
         this.subCoursedata = subCourse;
-        console.log(this.subCoursedata)
       })
     })
     this.subCourseDetailsForm.patchValue({
@@ -71,7 +69,6 @@ export class OverviewComponent implements OnInit {
 
       this.courseService.updateSubCourse(this.subCoursedata).subscribe(data => {
         this.subCoursedata = data;
-        console.log(this.subCoursedata)
         this.router.navigate(['/subCourseTab/curriculum'], { queryParams: { id: data['id'] } })
       })
     }

@@ -10,7 +10,6 @@ import { CourseService } from 'src/app/shared/services/course.service';
   styleUrls: ['./view-sub-course.component.scss']
 })
 export class ViewSubCourseComponent implements OnInit {
-  title: string | null = "Core Java";
   tabs: Array<any> = [];
   constructor(@Inject(ActivatedRoute) private route: ActivatedRoute,
     private courseService: CourseService,

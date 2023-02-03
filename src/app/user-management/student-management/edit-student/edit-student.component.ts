@@ -18,7 +18,10 @@ export class EditStudentComponent implements OnInit {
   rolesList: any;
   studentForm: any;
 
-  constructor(private formBuilder: FormBuilder, private userService: UserService, public route: ActivatedRoute,
+  constructor(
+    private formBuilder: FormBuilder,
+    private userService: UserService,
+    public route: ActivatedRoute,
     public router: Router,) { }
 
   keyPress(event: any) {
@@ -34,11 +37,9 @@ export class EditStudentComponent implements OnInit {
       id: [{ value: null, disabled: false }],
       phoneNumber: [{ value: null, disabled: false }],
       name: [null, [Validators.required, Validators.pattern('[a-zA-Z ]*')]],
-      email: ["",Validators.pattern("^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$")]
-     });
-
+      email: ['', Validators.pattern("^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$")]
+    });
     this.patchValue();
-
   }
   get f() {
     return this.studentDetailsForm.controls;
@@ -64,20 +65,18 @@ export class EditStudentComponent implements OnInit {
     }
     else {
       this.studentForm = this.studentDetailsForm.value;
-      let id = this.studentDetailsForm.value.id;
 
-      let obj = {
-        id: this.studentForm.id,
-        phoneNumber: this.studentForm.phoneNumber,
-        name: this.studentForm.name,
-        email: this.studentForm.name
+      this.studentdata.id = this.studentForm.id;
+      this.studentdata.phoneNumber = this.studentForm.phoneNumber;
+      this.studentdata.name = this.studentForm.name;
+      this.studentdata.email = this.studentForm.email;
 
-      }
-      console.log(obj);
+      console.log(this.studentdata)
 
-      this.userService.updateStudentinfo(id, obj).subscribe(data => {
+      this.userService.updateStudentinfo(this.studentdata).subscribe(data => {
         this.studentdata = data;
-        this.router.navigate(['/student'])
+        console.log(data)
+        this.router.navigate(['/studentTab/access'], { queryParams: { id: data['id'] } })
       })
     }
   }

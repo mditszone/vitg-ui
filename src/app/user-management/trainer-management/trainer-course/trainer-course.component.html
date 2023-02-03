@@ -1,0 +1,25 @@
+<div class="container">
+    <div class="card">
+        <form [formGroup]="trainerDetailsForm">
+            <div class="form-group row">
+                <label for="course" class="col-sm-3 col-form-label">Course<span
+                        class="star text-danger">*</span></label>
+                <div class="col-sm-6">
+                    <ng-multiselect-dropdown [placeholder]="'Select Courses'" formControlName="course"
+                        [data]="courseList" [settings]="dropdownSettings" [(ngModel)]="selected"
+                        (onSelect)="onItemSelect($event)" (onSelectAll)="onSelectAll($event)">
+                    </ng-multiselect-dropdown>
+                    <!-- <div class="text-error" *ngIf="trainerDetailsForm.controls['course'].invalid && 
+         (trainerDetailsForm.controls['course'].dirty || trainerDetailsForm.controls['course'].touched)">
+                        <div *ngIf="trainerDetailsForm.controls['course']">
+                            Course Name is Required
+                        </div>
+                    </div> -->
+                </div>
+            </div><br>
+            <div class="form-group">
+                <button class="btn save" (click)="updateTrainerInfo()">Save</button>
+            </div>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,76 @@
+<mat-toolbar class="header">
+    <mat-toolbar-row>
+        <img class="vitg-logo"  routerLink="" routerLinkActive="active" src="../../assets/vitg-logo.png">
+        <h1 class="vision" routerLink="" routerLinkActive="active">Vision </h1>
+        <h1 class="it" routerLink="" routerLinkActive="active">IT</h1>
+        <h1 class="global" routerLink="" routerLinkActive="active">Global</h1>
+
+        <div class="basic-container">
+            <span *ngFor="let item of menuItems">
+                <span *ngIf="item.children && item.children.length > 0">
+                    <button #menuTrigger="matMenuTrigger" (mouseover)="menuTrigger.openMenu()" mat-raised-button
+                        class="allcourses" [matMenuTriggerFor]="menu.childMenu">
+                        <mat-icon>apps</mat-icon>
+                        {{item.displayName}}
+                    </button>
+                    <app-all-courses-menu #menu [items]="item.children" >
+                        <span (mouseleave)="closeMyMenu()"></span>
+                    </app-all-courses-menu>
+                </span>
+                <span *ngIf="!item.children || item.children.length === 0">
+                    <button mat-button (click)="onClick()">
+                        {{item.displayName}}
+                    </button>
+                </span>
+            </span>
+        </div>
+
+        <div  class="basic-container">
+            <span *ngFor="let item of materialMenuItems">
+                <span *ngIf="item.children && item.children.length > 0">
+                    <button #menuTrigger="matMenuTrigger" (mouseover)="menuTrigger.openMenu()" mat-raised-button class="material"
+                        [matMenuTriggerFor]="menu.childMenu">
+                        <mat-icon>library_books</mat-icon>
+                        {{item.displayName}}
+                    </button>
+                    <app-material-menu #menu [items]="item.children"></app-material-menu>
+                </span>
+                <span *ngIf="!item.children || item.children.length === 0">
+                    <button mat-button (click)="onClickMaterial()">
+                        {{item.displayName}}
+                    </button>
+                </span>
+            </span>
+        </div>
+        
+        <span class="fill-remaining-space"></span>
+        <ul class="menu">
+            <!-- <a routerLink="aboutus" routerLinkActive="active">ABOUT US</a>
+            <a routerLink="services" routerLinkActive="active">SERVICES</a>
+            <a routerLink="portfolio" routerLinkActive="active">PORTFOLIO</a>
+            <a routerLink="team" routerLinkActive="active">TEAM</a>
+            <a routerLink="contactus" routerLinkActive="active">CONTACT US</a> -->
+            <button mat-icon-button [matMenuTriggerFor]="profile">
+                <mat-icon>account_circle</mat-icon>
+            </button>
+            <mat-menu #profile="matMenu" class="myMenu" yPosition="above" xPosition="before" class="notification-menu">
+                <button mat-menu-item class="notification-menu__button">
+                    <mat-icon class="notification-menu__icon_yellow">person</mat-icon>profile
+                </button>
+                <button mat-menu-item class="notification-menu__button" (click)="onLoggedout()">
+                    <mat-icon class="notification-menu__icon_yellow">logout</mat-icon>Logout
+                </button>
+            </mat-menu>
+        </ul>
+    </mat-toolbar-row>
+</mat-toolbar>
+
+<div class="body">
+    <router-outlet></router-outlet>
+</div>
+
+<mat-toolbar class="footer">
+    <mat-toolbar-row>
+        &copy;All rights reserved 2022
+    </mat-toolbar-row>
+</mat-toolbar>

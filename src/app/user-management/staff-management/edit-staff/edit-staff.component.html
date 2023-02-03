@@ -20,7 +20,7 @@
             </div>
             <br>
             <div class="form-group row">
-                <label for="name" class="col-sm-3 col-form-label">Name <span class="star text-danger">*</span></label>
+                <label for="name" class="col-sm-3 col-form-label">Name<span class="star text-danger">*</span></label>
                 <div class="col-sm-6">
                     <input type="text" formControlName="name" [(ngModel)]="staffdata.name" class="form-control"
                         [ngClass]="{ 'is-invalid': submitted && f['name'].errors }" />
@@ -32,10 +32,11 @@
             </div>
             <br>
             <div class="form-group row">
-                <label for="role" class="col-sm-3 col-form-label">Role <span class="star text-danger">*</span></label>
+                <label for="role" class="col-sm-3 col-form-label">Role<span class="star text-danger">*</span></label>
                 <div class="col-sm-6">
-                    <p-dropdown placeholder="- Select  -" [options]="rolesList" optionLabel="roleName"
-                        formControlName="role" [(ngModel)]="staffdata.role" [style]="{width: '100%'}">
+                    <p-dropdown placeholder="- Select -" [options]="rolesList" optionLabel="roleName"
+                        formControlName="role" [(ngModel)]="staffdata.role" [style]="{width: '100%'}"
+                        [showClear]="true">
                     </p-dropdown>
                     <div class="text-error"
                         *ngIf="staffDetailsForm.controls['role'].invalid && (staffDetailsForm.controls['role'].dirty || staffDetailsForm.controls['role'].touched)">
@@ -46,6 +47,20 @@
                 </div>
             </div>
             <br>
+            <div class="form-group row">
+                <label for="email" class="col-sm-3 col-form-label">Email<span class="star text-danger">*</span></label>
+                <div class="col-sm-6">
+                    <input required type="text" formControlName="email" class="form-control"
+                        [(ngModel)]="staffdata.email" [ngClass]="{ 'is-invalid': submitted && f['email'].errors }" />
+                    <div *ngIf="submitted && f['email'].errors" class="invalid-feedback">
+                        <div *ngIf="f['email'].errors['required']">Email is required</div>
+                        <div
+                            *ngIf="f['email'].errors['pattern'] || f['email'].errors['maxlength'] || f['email'].errors['minlength']">
+                            Email
+                        </div>
+                    </div>
+                </div>
+            </div><br>
             <div class="form-group row">
                 <label for="aadharNumber" class="col-sm-3 col-form-label">Aadhar Number <span
                         class="star text-danger">*</span></label>
@@ -66,9 +81,8 @@
                 <label for="panCardNumber" class="col-sm-3 col-form-label">Pan Card Number <span
                         class="star text-danger">*</span></label>
                 <div class="col-sm-6">
-                    <input (keypress)="keyPress($event)" required type="text" formControlName="panCardNumber"
-                        [(ngModel)]="staffdata.panCardNumber" class="form-control"
-                        [ngClass]="{ 'is-invalid': submitted && f['panCardNumber'].errors }" />
+                    <input required type="text" formControlName="panCardNumber" [(ngModel)]="staffdata.panCardNumber"
+                        class="form-control" [ngClass]="{ 'is-invalid': submitted && f['panCardNumber'].errors }" />
                     <div *ngIf="submitted && f['panCardNumber'].errors" class="invalid-feedback">
                         <div *ngIf="f['panCardNumber'].errors['required']">Pan Card is required</div>
                         <div

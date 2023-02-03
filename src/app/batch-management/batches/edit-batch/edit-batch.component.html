@@ -17,71 +17,58 @@
                     <input type="text" class="form-control" formControlName="name" [(ngModel)]="batchdata.name">
                 </div>
             </div><br>
-           
-              <div class="form-group row">
-            <label for="date" class="col-sm-3 col-form-label">Start Date</label>
+            <!--  -->
+            <div class="form-group row">
+                <label for="courseId" class="col-sm-3 col-form-label">Course Name<span
+                        class="star text-danger">*</span></label>
+                <div class="col-sm-6">
+                    <p-dropdown   [options]="courseList" optionLabel="name" 
+                        formControlName="courseId"  [(ngModel)]="batchdata.courseId" [style]="{width: '100%'}" placeholder="- Select Course -"
+                        (onChange)="getTrainerList($event)">
+                    </p-dropdown>
+                </div>
+            </div><br>
+            <div class="form-group row">
+                <label for="trainerCourse" class="col-sm-3 col-form-label">Trainer<span
+                        class="star text-danger">*</span></label>
+                <div class="col-sm-6">
+                    <p-dropdown aria-placeholder="- Select Trainer -" formControlName="trainerCourse" [options]="trainerListById"
+                        optionLabel="trainerName" 
+                        [(ngModel)]="batchdata.trainerCourse" [style]="{width: '100%'}">
+                    </p-dropdown>
+                </div>
+            </div><br>
+
+            <div class="form-group row">
+                <label for="date" class="col-sm-3 col-form-label">Start Date</label>
                 <div class="col-sm-6">
                     <input type="text" class="form-control" formControlName="startDate"
                         [(ngModel)]="batchdata.startDate">
-                        
-                </div> 
-            </div><br> 
-            
+                </div>
+            </div><br>
+
             <div class="form-group row">
                 <label for="date" class="col-sm-3 col-form-label">End Date</label>
                 <div class="col-sm-6">
-                    <input type="text" class="form-control" 
-                    formControlName="endDate" [(ngModel)]="batchdata.endDate">
+                    <input type="text" class="form-control" formControlName="endDate" [(ngModel)]="batchdata.endDate">
                 </div>
-            </div><br> 
-            <!-- <div class="form-group row">
-                <mat-form-field>
-                    <input matInput [matDatepicker]="picker1" placeholder="Start Date" formControlName="startDate"
-                        [(ngModel)]="batchdata.startDate">
-                    <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+            </div><br>
 
-                    <mat-datepicker #picker1></mat-datepicker>
-                </mat-form-field> 
-
-                <mat-form-field>
-                    <input matInput [matDatepicker]="picker2" placeholder="End Date" formControlName="endDate"
-                         [(ngModel)]="batchdata.endDate">
-                    <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
-                    <mat-datepicker #picker2></mat-datepicker>
-                </mat-form-field>
-            </div> -->
             <div class="form-group row">
 
-                     <label for="start time" class="col-sm-3 col-form-label">start time</label>
-                    <div class="col-sm-6">
-                        <input type="text" class="form-control" 
-                        formControlName="startTime" [(ngModel)]="batchdata.startTime">
-                    </div>
-                </div><br> 
-                <div class="form-group row">
+                <label for="start time" class="col-sm-3 col-form-label">Start time</label>
+                <div class="col-sm-6">
+                    <input type="text" class="form-control" formControlName="startTime"
+                        [(ngModel)]="batchdata.startTime">
+                </div>
+            </div><br>
+            <div class="form-group row">
 
-                    <label for="end time" class="col-sm-3 col-form-label">end time</label>
-                    <div class="col-sm-6">
-                        <input type="text" class="form-control" 
-                        formControlName="endTime" [(ngModel)]="batchdata.endTime">
-                    </div>
-                </div><br>  
-                <!-- <mat-form-field appearance="outline">
-                    <mat-label>start time</mat-label>
-                    <input type="time" matInput name="week"
-                     formControlName="startTime"
-                        [(ngModel)]="batchdata.startTime" />
-                </mat-form-field>
-                <br /> 
-                
-                <mat-form-field appearance="outline">
-                    <mat-label>end time</mat-label>
-                    <input type="time" matInput name="week"
-                     formControlName="endTime" [(ngModel)]="batchdata.endTime" />
-                </mat-form-field> 
-            </div> -->
-
-            
+                <label for="end time" class="col-sm-3 col-form-label">End time</label>
+                <div class="col-sm-6">
+                    <input type="text" class="form-control" formControlName="endTime" [(ngModel)]="batchdata.endTime">
+                </div>
+            </div><br>
 
             <div class="form-group row">
                 <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 pr-0">

@@ -14,13 +14,14 @@ export class SubCourseListComponent implements OnInit {
   id: any;
   loggedInUserRole: string = "";
   constructor(
-    private courseService: CourseService, public route: ActivatedRoute) { }
+    private courseService: CourseService,
+    public route: ActivatedRoute) { }
 
 
   ngOnInit(): void {
-    //  const loggedInUser = JSON.parse(sessionStorage.getItem('staffLogin') || '{}');
-    //  console.log(loggedInUser);
-    // this.loggedInUserRole = loggedInUser.vitgStaffDTO.role.roleName;
+     const loggedInUser = JSON.parse(sessionStorage.getItem('staff_dto') || '{}');
+    this.loggedInUserRole = loggedInUser.vitgStaffDTO.role.roleName;
+    
     this.courseService.getAllSubCourses().subscribe(data => {
       this.subcoursedata = data;
       console.log(this.subcoursedata)

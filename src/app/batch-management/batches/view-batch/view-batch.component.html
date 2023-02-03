@@ -1,48 +1,68 @@
-<h1>Batch Info</h1>
 <div class="d-flex flex-row-reverse bd-highlight">
-    <a href="#" routerLink="/batches" class="btn back">Back</a>
+  <a href="#" routerLink="/batches" class="btn back">Back</a>
 </div>
+
 <div class="container">
-  <div class="card"> 
-    <table>
-      <th>
-      <tr>
-      <td><h3>batchName</h3></td>
-      <td> : </td>
-      <td><h3> {{batchdata.batchName}}</h3></td>
-    </tr>
-    
-    <!-- <tr>
-        <td><h3>Trainer</h3></td>
-        <td> : </td>
-        <td><h3> {{batchdata.trainer}}</h3></td>
-      </tr> -->
-      <tr>
-        <td><h3>StartDate</h3></td>
-        <td> : </td>
-        <td><h3> {{batchdata.startDate}}</h3></td>
-      </tr>
-      <tr>
-        <td><h3>EndDate</h3></td>
-        <td> : </td>
-        <td><h3> {{batchdata.endDate}}</h3></td>
-      </tr>
-      <tr>
-        <td><h3>StartTime</h3></td>
-        <td> : </td>
-        <td><h3> {{batchdata.startTime}}</h3></td>
-      </tr>
-      <tr>
-        <td><h3>EndTime</h3></td>
-        <td> : </td>
-        <td><h3> {{batchdata.endTime}}</h3></td>
-      </tr>
-      <!-- <tr>
-        <td><h3>Organizer</h3></td>
-        <td> : </td>
-        <td><h3> {{batchdata.organizer}}</h3></td>
-      </tr> -->
-  </th> 
-  </table>
+  <h1 class="name">Staff Details</h1>
+  <div class="card">
+    <form>
+      <div class="form-group row">
+        <label class="col-sm-4">Batch Id</label>
+        <div class="col-sm-2">:</div>
+        <div class="col-sm-4">
+          {{batchdata.id}}
+        </div>
+      </div>
+      <br>
+      <div class="form-group row">
+        <label class="col-sm-4">Batch Name</label>
+        <div class="col-sm-2">:</div>
+        <div class="col-sm-4">
+          {{batchdata.name}}
+        </div>
+      </div><br>
+      <div class="form-group row">
+        <label class="col-sm-4">Batch TrainerName</label>
+        <div class="col-sm-2">:</div>
+        <div class="col-sm-4">
+          {{batchdata.trainerCourse.trainerName}}
+        </div>
+      </div><br>
+      <div class="form-group row">
+        <label class="col-sm-4">Batch CourseId</label>
+        <div class="col-sm-2">:</div>
+        <div class="col-sm-4">
+          {{batchdata.trainerCourse.courseId}}
+        </div>
+      </div><br>
+      <div class="form-group row">
+        <label class="col-sm-4">Batch StartDate</label>
+        <div class="col-sm-2">:</div>
+        <div class="col-sm-4">
+          {{batchdata.startDate}}
+        </div>
+      </div><br>
+      <div class="form-group row">
+        <label class="col-sm-4">Batch EndDate</label>
+        <div class="col-sm-2">:</div>
+        <div class="col-sm-4">
+          {{batchdata.endDate}}
+        </div>
+      </div><br>
+      <div class="form-group row">
+        <label class="col-sm-4">Batch StartTime</label>
+        <div class="col-sm-2">:</div>
+        <div class="col-sm-4">
+          {{batchdata.startTime}}
+        </div>
+      </div><br>
+      <div class="form-group row">
+        <label class="col-sm-4">Batch EndTime</label>
+        <div class="col-sm-2">:</div>
+        <div class="col-sm-4">
+          {{batchdata.endTime}}
+        </div>
+      </div>
+    </form>
   </div>
-  </div>
+</div>

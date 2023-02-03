@@ -55,8 +55,14 @@ export class UserService {
     return this.http.get(this.baseURL + '/api/student/getAllStudents');
   }
 
-  public updateStudentinfo(id:any, body: any): Observable<any> {
+  public updateStudentinfo( body: any): Observable<any> {
     return this.http.put(this.baseURL +'/api/student/editStudent',body);
+  }
+  public updateStudentSubCourse( body: any): Observable<any> {
+    return this.http.put(this.baseURL +'/api/studentSubCourse/update_selected_subCourses',body);
+  }
+  public createTrainerCourse( body: any): Observable<any> {
+    return this.http.post(this.baseURL +'/api/trainerCourse/selectTrainerCourses',body);
   }
   
   public getStudentById(id:number): Observable<any> {

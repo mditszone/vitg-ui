@@ -49,7 +49,7 @@ export class AddSubTopicConceptComponent implements OnInit {
       subCourse: ['', [Validators.required]],
       topic: ['', [Validators.required]],
       subTopic: ['', [Validators.required]],
-      description: ['', Validators.required],
+      concept: ['', [Validators.required]],
     }),
       this.getCoursesList();
     this.getSubCourseList(this.data);
@@ -90,7 +90,7 @@ export class AddSubTopicConceptComponent implements OnInit {
     console.log(data)
     this.route.snapshot.params['id']
 
-    this.courseService.getSubTopicListBySubCourseId(data.value.id).subscribe((data: SubTopicConcept) => {
+    this.courseService.getSubTopicListByTopicId(data.value.id).subscribe((data: SubTopicConcept) => {
       console.log(data)
       this.subTopicList = data;
       (error: any) =>
@@ -107,7 +107,7 @@ export class AddSubTopicConceptComponent implements OnInit {
       subCourse: this.data.subCourse,
       topic: this.data.topic,
       subTopic: this.data.subTopic,
-      description: this.data.description,
+      concept: this.data.concept,
     });
   }
 
@@ -126,12 +126,12 @@ export class AddSubTopicConceptComponent implements OnInit {
       this.subTopicConcept.subCourse = this.subTopicConceptForm.subCourse;
       this.subTopicConcept.topic = this.subTopicConceptForm.topic;
       this.subTopicConcept.subTopic = this.subTopicConceptForm.subTopic;
-      this.subTopicConcept.description = this.subTopicConceptForm.description;
+      this.subTopicConcept.concept = this.subTopicConceptForm.concept;
 
       this.courseService.createSubTopicConcept(this.subTopicConcept).subscribe(
         (data: any) => {
           console.log(data)
-          this.router.navigate(['/sidebar']);
+          this.router.navigate(['/subtopicConceptTab/trainerPpt'], { queryParams: { id: data['id'] } });
 
           (error) => {
             this.errorMessage = error.error.message;

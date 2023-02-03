@@ -11,26 +11,26 @@ import { BatchService } from 'src/app/shared/services/batch.service';
 import { CourseService } from 'src/app/shared/services/course.service';
 import { UserService } from 'src/app/shared/services/user.service';
 import { DatePipe } from '@angular/common';
+
 @Component({
   selector: 'app-add-batch',
   templateUrl: './add-batch.component.html',
   styleUrls: ['./add-batch.component.scss']
 })
 export class AddBatchComponent implements OnInit {
+
   batch: Batch = new Batch();
   batchDetailsForm: any;
   submitted!: boolean;
   courseList: any;
   subCourseListById: any;
+  trainerListById: any;
   organizersList: any;
   data: any;
   id!: number;
   batchForm: any;
   errorMessage: any;
   minStartDate = new Date();
-
-
-
 
   constructor(private formBuilder: FormBuilder, private router: Router,
     private route: ActivatedRoute, private courseService: CourseService,
@@ -39,21 +39,19 @@ export class AddBatchComponent implements OnInit {
   ngOnInit(): void {
     console.log("data")
     this.batchDetailsForm = this.formBuilder.group({
+      courseId: ['', [Validators.required]],
+      trainerCourse: ['', [Validators.required]],
       name: ['', [Validators.required]],
-      course: ['', [Validators.required]],
-      subCourse: ['', [Validators.required]],
-     // organizers: ['', [Validators.required]],
+      //organizers: ['', [Validators.required]],
       startDate: ['', [Validators.required]],
       endDate: ['', [Validators.required]],
       startTime: ['', [Validators.required]],
       endTime: ['', [Validators.required]],
 
     }),
-
-
       this.getCoursesList();
-    this.getSubCourseList(this.data);
-    this.getOrganizersList();
+    this.getTrainerList(this.data);
+    //this.getOrganizersList();
   }
 
   getCoursesList() {
@@ -65,36 +63,35 @@ export class AddBatchComponent implements OnInit {
     });
   }
 
-  getSubCourseList(data: any) {
+  getTrainerList(data: any) {
     this.route.snapshot.params['id']
-    this.courseService.getSubCourseListByCourseId(data.value.id).subscribe((data: Batch) => {
+    this.courseService.getTrainerListByCourseId(data.value.id).subscribe((data: Batch) => {
       console.log(data);
-      this.subCourseListById = data;
+      this.trainerListById = data;
       (error: any) =>
         this.errorMessage = error;
     })
   }
-  getOrganizersList() {
-    this.batchService.getOrganizersList().subscribe((data: any) => {
-      console.log(data);
-      this.organizersList = data;
-      (error: any) =>
-        this.errorMessage = error;
-    });
-  }
+  // getOrganizersList() {
+  //   this.batchService.getOrganizersList().subscribe((data: any) => {
+  //     console.log(data);
+  //     this.organizersList = data;
+  //     (error: any) =>
+  //       this.errorMessage = error;
+  //   });
+  // }
   get f() { return this.batchDetailsForm.controls; }
 
   patchValue() {
 
     this.batchDetailsForm.patchValue({
+      courseId: this.data.courseId,
+      trainerCourse: this.data.trainerCourse,
       name: this.data.name,
-      course: this.data.course,
-      subCourse: this.data.subCourse,
       //organizers: this.data.organizers,
       batchName: this.data.batchName,
       startDate: this.data.startDate,
       endDate: this.data.endDate,
-
       startTime: this.data.startTime,
       endTime: this.data.endTime
     });
@@ -108,16 +105,14 @@ export class AddBatchComponent implements OnInit {
     else {
       this.batchForm = this.batchDetailsForm.value;
 
-
+      this.batch.courseId = this.batchForm.courseId;
+      this.batch.trainerCourse = this.batchForm.trainerCourse;
       this.batch.name = this.batchForm.name;
-      this.batch.course = this.batchForm.course;
-      this.batch.subCourse = this.batchForm.subCourse;
-    //  this.batch.organizers = this.batchForm.organizers;
+      //this.batch.organizers = this.batchForm.organizers;
       this.batch.startDate = this.batchForm.startDate;
       this.batch.endDate = this.batchForm.endDate;
       this.batch.startTime = this.batchForm.startTime;
       this.batch.endTime = this.batchForm.endTime;
-      console.log(this.batch.endTime)
 
       this.batchService.createBatch(this.batch).subscribe(
         (data: any) => {

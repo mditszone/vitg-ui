@@ -6,7 +6,7 @@ export const environment = {
   production: false,
   config : {
     // apiUrl: "http://20.62.72.49:8080" ,
-      apiUrl: "http://localhost:8081" ,
+      apiUrl: "http://localhost:8082" ,
     //apiUrl: "http://devmsfbe.cd893934fc6a4c1d9181.eastus2.aksapp.io" ,
   }
 };

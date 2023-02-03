@@ -1,5 +1,5 @@
 <div class="container">
-    <h1 class="name">Create Tracker</h1>
+    <h1 class="name">Tracker</h1>
     <div class="card">
         <form [formGroup]="trackDetailsForm">
 
@@ -13,7 +13,7 @@
                     <div class="text-error"
                         *ngIf="trackDetailsForm.controls['batch'].invalid && (trackDetailsForm.controls['batch'].dirty || trackDetailsForm.controls['batch'].touched)">
                         <div *ngIf="trackDetailsForm.controls['batch']">
-                            batch Name is Required
+                            Batch Name is Required
                         </div>
                     </div>
                 </div>
@@ -24,10 +24,9 @@
                     class="star text-danger">*</span></label>
                 <div class="col-sm-6">
                     <mat-form-field>
-                        <input matInput [matDatepicker]="picker1" placeholder="Date" formControlName="date"
+                        <input matInput [matDatepicker]="picker1" placeholder="Date" formControlName="date" 
                             [(ngModel)]="track.date">
                         <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
-
                         <mat-datepicker #picker1></mat-datepicker>
                     </mat-form-field>
                 </div>

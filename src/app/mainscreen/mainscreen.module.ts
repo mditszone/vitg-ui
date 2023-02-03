@@ -17,7 +17,6 @@ import { MainscreenComponent } from './component/mainscreen/mainscreen.component
 import { ImageSliderComponent } from './component/image-slider/image-slider.component';
 import { NgImageSliderModule } from 'ng-image-slider';
 import { CardImagesComponent } from './component/card-images/card-images.component';
-import { TabsComponent } from './component/tabs/tabs.component';
 import { MenuComponent } from './component/menu/menu.component';
 import { PortfolioComponent } from './component/portfolio/portfolio.component';
 import { UpcomingBatchesTableComponent } from './component/upcoming-batches-table/upcoming-batches-table.component';
@@ -25,8 +24,11 @@ import { TableModule } from 'primeng/table';
 import { ButtonModule } from 'primeng/button';
 import { DialogModule } from 'primeng/dialog';
 import { ToolbarModule } from 'primeng/toolbar';
-import { DemoComponent } from './component/demo/demo.component';
 import { FlexLayoutModule } from '@angular/flex-layout';
+import { AllcoursesTabsComponent } from './component/allcourses-tabs/allcourses-tabs.component';
+import { MaterialSidebarComponent } from './component/material-sidebar/material-sidebar.component';
+import { MaterialLayoutComponent } from './component/material-layout/material-layout.component';
+import { DialogDemoComponent } from './component/dialog-demo/dialog-demo.component';
 
 @NgModule({
   declarations: [
@@ -40,11 +42,13 @@ import { FlexLayoutModule } from '@angular/flex-layout';
     MainscreenComponent,
     ImageSliderComponent,
     CardImagesComponent,
-    TabsComponent,
     MenuComponent,
+    DialogDemoComponent,
     PortfolioComponent,
     UpcomingBatchesTableComponent,
-    DemoComponent
+    AllcoursesTabsComponent,
+    MaterialSidebarComponent,
+    MaterialLayoutComponent,
     
   ],
   imports: [

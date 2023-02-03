@@ -47,9 +47,7 @@ export class CurriculumComponent implements OnInit {
       console.log(params["id"]);
       let subCourseId: number = parseInt(params["id"]);
       this.courseService.getSubCourseById(subCourseId).subscribe((subCourse) => {
-        console.log(subCourse);
         this.subCoursedata = subCourse;
-        console.log(this.subCoursedata)
       })
     })
 

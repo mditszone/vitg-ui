@@ -11,25 +11,27 @@ import { CourseService } from 'src/app/shared/services/course.service';
 })
 export class EditCourseComponent implements OnInit {
 
-  id!:any;
+  id!: any;
   courseDetailsForm: FormGroup = new FormGroup({});
-  coursedata!:Course;
+  coursedata!: Course;
   submitted = false;
-  courseForm:any;
+  courseForm: any;
 
-  constructor(private route:ActivatedRoute,private courseService:CourseService, private formBuilder:FormBuilder,
-    private router:Router) { }
+  constructor(private route: ActivatedRoute,
+    private courseService: CourseService,
+    private formBuilder: FormBuilder,
+    private router: Router) { }
 
   ngOnInit(): void {
     this.courseDetailsForm = this.formBuilder.group({
       id: [{ value: null, disabled: false }],
       name: [null, [Validators.required, Validators.pattern('[a-zA-Z ]*')]],
-      status:[null, [Validators.required,]]
-      });
+      status: [null, [Validators.required,]]
+    });
 
     this.patchValue();
   }
- 
+
   get f() {
     return this.courseDetailsForm.controls;
   }
@@ -37,18 +39,21 @@ export class EditCourseComponent implements OnInit {
     this.id = this.route.snapshot.params['id']
     this.courseService.getCourseById(this.id).subscribe((data: Course) => {
       this.coursedata = data;
+      console.log(this.coursedata)
     });
-    
+
     this.courseDetailsForm.patchValue({
       id: this.coursedata.id,
       name: this.coursedata.name,
       status: this.coursedata.status,
     });
+    console.log(this.coursedata.status)
   }
 
- 
+
   onSubmitUpdateCourse() {
     this.submitted = true;
+
     if (this.courseDetailsForm.invalid) {
       return
     }
@@ -58,6 +63,7 @@ export class EditCourseComponent implements OnInit {
       this.coursedata.id = this.courseForm.id;
       this.coursedata.name = this.courseForm.name;
       this.coursedata.status = this.courseForm.status;
+      console.log(this.coursedata.status)
 
       this.courseService.updateCourse(this.coursedata).subscribe(data => {
         this.coursedata = data;

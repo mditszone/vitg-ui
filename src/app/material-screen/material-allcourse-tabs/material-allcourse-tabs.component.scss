@@ -1,0 +1,38 @@
+.tab-container {
+    padding: 3%;
+    .tab-title {
+        color: #0669ad;
+        font-size: 25px;
+    }
+}
+::ng-deep.mat-tab-label,
+::ng-deep.mat-tab-label-active {
+    min-width: 0px !important;
+    padding: 25px !important;
+    margin: 7px !important;
+}
+.card {
+    border: 0.001rem solid #0669ad;
+    border-radius: 4px;
+    padding-right: 50px;
+    margin-top: 15px;
+    margin-bottom: 20px;
+    margin-right: 150px;
+    padding-top: 20px;
+    padding-bottom: 40px;
+}
+.card-tabName {
+    border: 0.01rem solid #0669ad;
+    margin-left: 150px;
+    border-radius: 4px;
+    margin-top: 46px;
+    margin-bottom: 20px;
+    margin-right: 150px;
+    padding-top: 20px;
+    padding-bottom: 150px;
+}
+button {
+    background-color: #0669ad;
+    color: #fff;
+    margin-top: 100px;
+}

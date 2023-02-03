@@ -9,11 +9,16 @@ import { NgOtpInputModule } from 'ng-otp-input';
 import { DropdownModule } from 'primeng/dropdown';
 import { ToastModule } from 'primeng/toast';
 import { MaterialModule } from 'src/app/shared/module/material.module';
+import { StudentTabsComponent } from './student-tabs/student-tabs.component';
+import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
+import { StudentSubcourseComponent } from './student-subcourse/student-subcourse.component';
 
 @NgModule({
   declarations: [
     ViewStudentComponent,
     EditStudentComponent,
+    StudentTabsComponent,
+    StudentSubcourseComponent
   ],
   imports: [
     CommonModule,
@@ -23,7 +28,8 @@ import { MaterialModule } from 'src/app/shared/module/material.module';
     NgOtpInputModule,
     DropdownModule,
     ToastModule,
-    MaterialModule
+    MaterialModule,
+    NgMultiSelectDropDownModule.forRoot()
   ]
 })
 export class StudentManagementModule { }

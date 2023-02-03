@@ -1,46 +1,53 @@
-<h1>Tracking Info</h1>
 <div class="d-flex flex-row-reverse bd-highlight">
-    <a href="#" routerLink="/tracking" class="btn back">Back</a>
+  <a href="#" routerLink="/tracking" class="btn back">Back</a>
 </div>
-<div class="container">
-  <div class="card"> 
-    <table>
-      <th>
-      
-    
-    <!-- <tr>
-        <td><h3>Trainer</h3></td>
-        <td> : </td>
-        <td><h3> {{batchdata.trainer}}</h3></td>
-      </tr> -->
-      <tr>
-        <td><h3>Date</h3></td>
-        <td> : </td>
-        <td><h3> {{trackdata.date}}</h3></td>
-      </tr>
-      
-      <tr>
-        <td><h3>StartTime</h3></td>
-        <td> : </td>
-        <td><h3> {{trackdata.startTime}}</h3></td>
-      </tr>
-      <tr>
-        <td><h3>EndTime</h3></td>
-        <td> : </td>
-        <td><h3> {{trackdata.endTime}}</h3></td>
-      </tr>
-      <tr>
-        <td><h3>TopicsCovered</h3></td>
-        <td> : </td>
-        <td><h3> {{trackdata.topicsCovered}}</h3></td>
-      </tr>
-      <tr>
-        <td><h3>Remarks</h3></td>
-        <td> : </td>
-        <td><h3> {{trackdata.remarks}}</h3></td>
-      </tr>
-  </th> 
-  </table>
-  </div>
-  </div>
 
+<div class="container">
+  <h1 class="name">Track Details</h1>
+  <div class="card">
+    <form>
+      <div class="form-group row">
+        <label class="col-sm-4">Track Id</label>
+        <div class="col-sm-2">:</div>
+        <div class="col-sm-4">
+          {{trackdata.id}}
+        </div>
+      </div>
+      <div class="form-group row">
+        <label class="col-sm-4">Date</label>
+        <div class="col-sm-2">:</div>
+        <div class="col-sm-4">
+          {{trackdata.date}}
+        </div>
+      </div>
+      <div class="form-group row">
+        <label class="col-sm-4">Start Time</label>
+        <div class="col-sm-2">:</div>
+        <div class="col-sm-4">
+          {{trackdata.startTime}}
+        </div>
+      </div>
+      <div class="form-group row">
+        <label class="col-sm-4">End Time</label>
+        <div class="col-sm-2">:</div>
+        <div class="col-sm-4">
+          {{trackdata.endTime}}
+        </div>
+      </div>
+      <div class="form-group row">
+        <label class="col-sm-4">Topics Covered</label>
+        <div class="col-sm-2">:</div>
+        <div class="col-sm-4">
+          {{trackdata.topicsCovered}}
+        </div>
+      </div>
+      <div class="form-group row">
+        <label class="col-sm-4">Remarks</label>
+        <div class="col-sm-2">:</div>
+        <div class="col-sm-4">
+          {{trackdata.remarks}}
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

@@ -32,9 +32,7 @@ export class DurationDaysComponent implements OnInit {
       console.log(params["id"]);
       let subCourseId: number = parseInt(params["id"]);
       this.courseService.getSubCourseById(subCourseId).subscribe((subCourse) => {
-        console.log(subCourse);
         this.subCoursedata = subCourse;
-        console.log(this.subCoursedata)
       })
     })
 
@@ -55,7 +53,6 @@ export class DurationDaysComponent implements OnInit {
 
       this.courseService.updateSubCourse(this.subCoursedata).subscribe(data => {
         this.subCoursedata = data;
-        console.log(this.subCoursedata);
         this.router.navigate(['/subCourseTab/durationHours'],{queryParams: {id: data['id']}})
       })
     }
