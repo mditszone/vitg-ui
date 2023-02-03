@@ -2,8 +2,7 @@
   <h1 class="name">Course List</h1>
   <div class="card">
     <p-table #dt1 [value]="coursedata" dataKey="id" [paginator]="true" [rows]="10" [showCurrentPageReport]="true"
-      [rowsPerPageOptions]="[10,15,20,100]" [filterDelay]="0"
-      [globalFilterFields]="['id','name']">
+      [rowsPerPageOptions]="[10,15,20,100]" [filterDelay]="0" [globalFilterFields]="['id','name']">
 
       <ng-template pTemplate="caption">
         <button class="addCourse" pButton label="Add Course" icon="pi pi-plus" routerLink="/addCourse"></button>

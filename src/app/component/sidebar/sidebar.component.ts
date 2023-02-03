@@ -154,7 +154,7 @@ export class SidebarComponent implements OnInit {
     },
     {
       displayName: 'Application management',
-      iconName: 'group',
+      iconName: 'manage_accounts',
       children: [
         {
           displayName: 'Slider',
