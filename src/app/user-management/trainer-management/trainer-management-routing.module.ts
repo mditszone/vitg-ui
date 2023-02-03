@@ -4,12 +4,37 @@ import { LayoutComponent } from 'src/app/component/layout/layout.component';
 import { AddTrainerComponent } from './add-trainer/add-trainer.component';
 import { EditTrainerComponent } from './edit-trainer/edit-trainer.component';
 import { RegisterTrainerComponent } from './register-trainer/register-trainer.component';
+import { TrainerCourseComponent } from './trainer-course/trainer-course.component';
 import { TrainerListComponent } from './trainer-list/trainer-list.component';
 import { VerifyTrainerComponent } from './verify-trainer/verify-trainer.component';
 import { ViewTrainerComponent } from './view-trainer/view-trainer.component';
 
 const routes: Routes = [
 
+  // {
+  //   path: '',
+  //   component: LayoutComponent,
+  //   children: [
+  //     {
+  //       path: 'studentTab',
+  //       component: StudentTabsComponent,
+  //       children: [
+  //         {
+  //           path: 'access', pathMatch: 'full',
+  //           component: StudentSubcourseComponent
+  //         }]
+  //     },
+  //   ]
+  // },
+  {
+    path: '',
+    component: LayoutComponent,
+    children: [
+      {
+        path: 'trainerCourse', pathMatch: 'full',
+        component: TrainerCourseComponent
+      }]
+  },
   {
     path: '',
     component: LayoutComponent,

@@ -2,7 +2,7 @@
     <a href="#" routerLink="/trainer" class="btn back">Back</a>
 </div>
 <div class="container">
-    <h1 class="name">Trainer Details</h1>
+    <h1 class="name">Update Trainer</h1>
     <div class="card">
         <form [formGroup]="trainerDetailsForm">
             <div class="form-group row">
@@ -10,7 +10,7 @@
                 <div class="col-sm-6">
                     <input type="number" formControlName="id" [(ngModel)]="trainerdata.id" class="form-control">
                 </div>
-            </div>
+            </div><br>
             <div class="form-group row">
                 <label for="phoneNumber" class="col-sm-3 col-form-label">Phone Number</label>
                 <div class="col-sm-6">
@@ -18,7 +18,7 @@
                         class="form-control">
                 </div>
             </div>
-
+            <br>
             <div class="form-group row">
                 <label for="name" class="col-sm-3 col-form-label">Name <span class="star text-danger">*</span></label>
                 <div class="col-sm-6">
@@ -30,8 +30,21 @@
                     </div>
                 </div>
             </div>
-
-
+            <br>
+            <div class="form-group row">
+                <label for="email" class="col-sm-3 col-form-label">Email<span class="star text-danger">*</span></label>
+                <div class="col-sm-6">
+                    <input required type="text" formControlName="email" class="form-control"
+                        [(ngModel)]="trainerdata.email" [ngClass]="{ 'is-invalid': submitted && f['email'].errors }" />
+                    <div *ngIf="submitted && f['email'].errors" class="invalid-feedback">
+                        <div *ngIf="f['email'].errors['required']">Email is required</div>
+                        <div
+                            *ngIf="f['email'].errors['pattern'] || f['email'].errors['maxlength'] || f['email'].errors['minlength']">
+                            Email
+                        </div>
+                    </div>
+                </div>
+            </div><br>
             <div class="form-group row">
                 <label for="aadharNumber" class="col-sm-3 col-form-label">Aadhar Number <span
                         class="star text-danger">*</span></label>
@@ -47,14 +60,13 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </div><br>
             <div class="form-group row">
                 <label for="panCardNumber" class="col-sm-3 col-form-label">Pan Card Number <span
                         class="star text-danger">*</span></label>
                 <div class="col-sm-6">
-                    <input  required type="text" formControlName="panCardNumber"
-                        [(ngModel)]="trainerdata.panCardNumber" class="form-control"
-                        [ngClass]="{ 'is-invalid': submitted && f['panCardNumber'].errors }" />
+                    <input required type="text" formControlName="panCardNumber" [(ngModel)]="trainerdata.panCardNumber"
+                        class="form-control" [ngClass]="{ 'is-invalid': submitted && f['panCardNumber'].errors }" />
                     <div *ngIf="submitted && f['panCardNumber'].errors" class="invalid-feedback">
                         <div *ngIf="f['panCardNumber'].errors['required']">Pan Card is required</div>
                         <div
@@ -64,7 +76,7 @@
                     </div>
                 </div>
             </div>
-
+            <br>
             <div class="form-group row">
                 <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 pr-0">
                     <button class="btn save" type="button" (click)="onSubmitUpdateTrainer()">Save</button>

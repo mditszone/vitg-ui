@@ -13,7 +13,5 @@ export class MenuService {
 
   public getData():Observable<any>{
     return this.http.get(this.baseURL + '/api/menu/menuitems')
-  }
- 
-  
+  }  
 }

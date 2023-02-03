@@ -13,9 +13,9 @@ export class VerifyStaffLoginComponent implements OnInit {
   otp!: string;
   verify: any;
   phoneNumber: string = "";
-  verificationRef: string ="";
+  verificationRef: string = "";
   subscription: Subscription = new Subscription;
-  errorMessage: string="";
+  errorMessage: string = "";
   message: string = "";
 
   constructor(private loginService: LoginService, private router: Router) { }
@@ -40,38 +40,40 @@ export class VerifyStaffLoginComponent implements OnInit {
   }
   handleClick() {
     console.log(this.otp);
-    var data = JSON.parse(localStorage.getItem('send_staffLoginOtp_response') || '{}');
+    var data = JSON.parse(localStorage.getItem('send_otp') || '{}');
+    console.log(data)
+    
     this.phoneNumber = data.phoneNumber;
     this.verificationRef = data.verificationRef;
 
-
-    console.log(data.phoneNumber);
     let obj = {
-      phoneNumber: this.phoneNumber,
+      phoneNumber: data.phoneNumber,
       otp: this.otp,
-      verificationRef:this.verificationRef
+      verificationRef: data.verificationRef
     }
+    console.log(obj);
+
     this.subscription = this.loginService.verifyOTP(obj).subscribe((data: any) => {
-      sessionStorage.setItem('staffLogin', JSON.stringify(data));
-      localStorage.setItem('staffLogin', JSON.stringify(data));
+      
+      sessionStorage.setItem('staff_dto', JSON.stringify(data));
       this.router.navigate(['/dashboard']);
     },
       (error) => {
         this.errorMessage = error.error.message;
         console.log(this.errorMessage)
-        
+
       }
     );
   }
   resend() {
-    let data = JSON.parse(localStorage.getItem('staffLogin') || '{}');
+    let data = JSON.parse(localStorage.getItem('send_otp') || '{}');
     console.log(data)
     console.log(data.phoneNumber)
 
     this.subscription = this.loginService.sendOTP('/api/auth/login/sendOtp/', `?phoneNumber=${data.phoneNumber}`).subscribe((data: any) => {
       this.message = data;
       console.log(this.message);
-      localStorage.setItem('staffLogin', JSON.stringify(data));
+      localStorage.setItem('send_otp', JSON.stringify(data));
     }
     );
   }

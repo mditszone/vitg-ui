@@ -13,10 +13,10 @@ export class BatchService {
 
 
   public createBatch(batch: any): Observable<any> {
-    console.log("inside create batch service layer")
-    console.log(batch.startDate);
-    console.log(batch.startTime);
-    return this.http.post(this.baseURL + '/api/batch', batch);
+    // console.log("inside create batch service layer")
+    // console.log(batch.startDate);
+    // console.log(batch.startTime);
+    return this.http.post(this.baseURL + '/api/batch/createBatch', batch);
   }
 
   public getAllBatches(): Observable<any> {

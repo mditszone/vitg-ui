@@ -9,6 +9,7 @@ import { environment } from 'src/environments/environment';
 })
 export class CourseService {
 
+
   baseURL: string = environment?.config?.apiUrl
   constructor(public http: HttpClient) { }
 
@@ -30,8 +31,9 @@ export class CourseService {
   public getCoursesList(): Observable<any> {
     return this.http.get(this.baseURL + '/api/admin/getCoursesList')
   }
-  
+
   ///////////////////////////////////
+
   public createSubCourse(body: any): Observable<any> {
     return this.http.post(this.baseURL + '/api/subCourse', body);
   }
@@ -51,8 +53,21 @@ export class CourseService {
   public getSubCourseListByCourseId(id: number): Observable<any> {
     return this.http.get(this.baseURL + `/api/subCourse/getSubCourseByCourseId/?courseId=${id}`)
   }
-  // public getSubCoursesList(): Observable<any> {
-  //   return this.http.get(this.baseURL + '/api/admin/getSubCoursesList')
+
+  public getStudentIdBySubCourseId(studentId: number,subCourseId:number): Observable<any> {
+    return this.http.get(this.baseURL + `/api/studentSubCourse/by_subCourse_id_and_student_id?studentId=${studentId}&subCourseId=${subCourseId}`)
+  }
+
+  public getTrainerListByCourseId(id: number): Observable<any> {
+    return this.http.get(this.baseURL + `/api/trainerCourse/getTrainerListByCourseId/?courseId=${id}`)
+  }
+  
+  // public getTrainerList(courseId:number): Observable<any> {
+  //   return this.http.get(this.baseURL + `/api/trainerCourse/getTrainerListByCourseId/?courseId=${courseId}`)
+  // }
+
+  // public getCourseListById(id: number): Observable<any> {
+  //   return this.http.get(this.baseURL + `/api/trainerCourse/getCourseListById`)
   // }
 
   /////////////////////////
@@ -71,13 +86,13 @@ export class CourseService {
   public deleteTopicById(id: number): Observable<any> {
     return this.http.delete(this.baseURL + `/api/topic/${id}`)
   }
-  
+
   public getTopicListBySubCourseId(id: number): Observable<any> {
-    return this.http.get(this.baseURL + `/api/topic/getTopicBySubCourseId/?subCourseId=${id}`)
+    return this.http.get(this.baseURL + `/api/topic/getTopicListBySubCourseId/?subCourseId=${id}`)
   }
-  // public getTopicList(): Observable<any> {
-  //   return this.http.get(this.baseURL + '/api/admin/getTopicList')
-  // }
+  public getTopicListByStudentId(studentId: number,subCourseId:number): Observable<any> {
+    return this.http.get(this.baseURL + `/api/topic/getTopicListByStudentId?studentId=${studentId}&subCourseId=${subCourseId}`)
+  }
   
   /////////////////////////////////
 
@@ -96,17 +111,45 @@ export class CourseService {
   public deleteSubTopicById(id: number): Observable<any> {
     return this.http.delete(this.baseURL + `/api/subTopic/${id}`)
   }
-  
-  public getSubTopicListBySubCourseId(id: number): Observable<any> {
+
+  public getSubTopicListByTopicId(id: number): Observable<any> {
     return this.http.get(this.baseURL + `/api/subTopic/getsubTopicListByTopicId/?topicId=${id}`)
   }
-  // public getSubTopicList(): Observable<any> {
-  //   return this.http.get(this.baseURL + '/api/admin/getSubTopicList')
-  // }
+
 
   ////////////////////////////
+
   public createSubTopicConcept(subTopicConcept: any): Observable<any> {
     return this.http.post(this.baseURL + '/api/subTopicConcept', subTopicConcept);
   }
+  public getSubTopicConceptById(id: number): Observable<any> {
+    return this.http.get(this.baseURL + `/api/subTopicConcept/${id}`)
+  }
 
+  public getsubTopicConceptListBySubTopicId(id: number): Observable<any> {
+    return this.http.get(this.baseURL + `/api/subTopicConcept/getSubTopicConceptBySubTopicId/?subTopicId=${id}`)
+  }
+
+
+  public updateSubTopicConceptInfo(body: any): Observable<any> {
+    return this.http.put(this.baseURL + '/api/subTopicConcept/editSubTopicConcept', body)
+  }
+
+  public pushFileToStorage(body: any): Observable<any> {
+    const formdata: FormData = new FormData();
+    formdata.append('file', body);
+    return this.http.post(this.baseURL + '/api/fileUpload', formdata, {
+      reportProgress: true,
+      responseType: 'text'
+    });
+  }
+
+  // public pushFileToStorage(body: any): Observable<any> {
+  //   const formdata: FormData = new FormData();
+  //   formdata.append('file', body);
+  //   return this.http.post('http://localhost:8081/file/upload', formdata,{
+  //     reportProgress: true,
+  //     responseType: 'text'
+  //   });
+  // }
 }

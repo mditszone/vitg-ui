@@ -18,7 +18,6 @@ import { ViewBatchComponent } from './view-batch/view-batch.component';
 
 @NgModule({
   declarations: [
-
     AddBatchComponent,
     EditBatchComponent,
     ViewBatchComponent,
@@ -28,7 +27,6 @@ import { ViewBatchComponent } from './view-batch/view-batch.component';
 
     BatchesRoutingModule,
     CommonModule,
-    FormsModule,
     ReactiveFormsModule,
     FormsModule,
     NgOtpInputModule,

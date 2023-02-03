@@ -1,5 +1,4 @@
 <div class="container">
-    <h1 class="name">Create Sub Topic Concept </h1>
     <div class="card">
         <form [formGroup]="subTopicConceptDetailsForm">
             <div class="form-group row">
@@ -65,10 +64,10 @@
             </div>
             <br>
             <div class="form-group row">
-                <label for="description" class="col-sm-3 col-form-label">Description</label>
+                <label for="concept" class="col-sm-3 col-form-label">Concept</label>
                 <div class="col-sm-6">
                     <ckeditor [editor]="Editor" data="<p>Hello, vitg!</p>" (ready)="onReady($event)"
-                        formControlName="description" [(ngModel)]="subTopicConcept.description"></ckeditor>
+                        formControlName="concept" [(ngModel)]="subTopicConcept.concept"></ckeditor>
                 </div>
             </div>
             <br>

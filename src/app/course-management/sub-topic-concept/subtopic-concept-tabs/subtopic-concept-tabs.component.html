@@ -1,0 +1,7 @@
+<nav mat-tab-nav-bar>
+    <a mat-tab-link #tab [disabled]='!tab.isActive' *ngFor="let tab of subTopicConceptTabs" routerLink="{{ tab.link }}" routerLinkActive #rla="routerLinkActive"
+        [active]="rla.isActive">
+        {{tab.label}}
+    </a>
+</nav>
+<router-outlet></router-outlet>

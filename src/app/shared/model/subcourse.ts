@@ -3,7 +3,7 @@ import { Course } from "./course";
 export class Subcourse {
     id!:number;
     course!:Course;
-    name:any;
+    name:string = "";
     durationDays:any;
     durationHours:any;
     fee:any;

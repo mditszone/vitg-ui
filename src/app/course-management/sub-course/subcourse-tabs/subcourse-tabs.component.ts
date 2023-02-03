@@ -12,7 +12,7 @@ export class SubcourseTabsComponent implements OnInit {
   constructor() {
     this.subCourseTabs = [
       {
-        label: "AddSubCourse",
+        label: "CreateSubCourse",
         link: "./addSubCourse",
         index: 0
       },

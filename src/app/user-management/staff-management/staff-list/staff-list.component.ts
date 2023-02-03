@@ -18,9 +18,9 @@ export class StaffListComponent implements OnInit {
 
 
   ngOnInit(): void {
-    //  const loggedInUser = JSON.parse(sessionStorage.getItem('staffLogin') || '{}');
-    //  console.log(loggedInUser);
-    // this.loggedInUserRole = loggedInUser.vitgStaffDTO.role.roleName;
+    const loggedInUser = JSON.parse(sessionStorage.getItem('staff_dto') || '{}');
+    this.loggedInUserRole = loggedInUser.vitgStaffDTO.role.roleName;
+    
     this.userService.getAllStaff().subscribe(data => {
       this.staffdata = data;
       console.log(this.staffdata)

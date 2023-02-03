@@ -1,0 +1,35 @@
+<mat-sidenav-container>
+    <mat-sidenav class="app-sidenav" #sidenav mode="side" opened="true">
+        <mat-nav-list>
+            <mat-accordion>
+                <div *ngFor="let topic of topicListdata">
+                    <mat-expansion-panel>
+                        <mat-expansion-panel-header (click)="onClickTopic(topic.topicId)">
+                            <mat-panel-title>
+                                <div>
+                                    {{topic.topicName}}
+                                </div>
+                            </mat-panel-title>
+                        </mat-expansion-panel-header>
+                        <div *ngFor="let subTopic of subTopicListdata">
+                            <mat-list-item (click)="onClickSubTopic(subTopic.id)">
+                                {{subTopic.name}}
+                            </mat-list-item>
+                        </div>
+                    </mat-expansion-panel>
+                </div>
+            </mat-accordion>
+        </mat-nav-list>
+
+    </mat-sidenav>
+    <mat-sidenav-content>
+        <div class="container">
+            <mat-tab-group>
+                <mat-tab *ngFor="let tab of tabs" [label]="tab['tabName']">
+                    <div [innerHTML]="tab['tabData']"></div>
+                </mat-tab>
+            </mat-tab-group>
+        </div>
+        <router-outlet></router-outlet>
+    </mat-sidenav-content>
+</mat-sidenav-container>

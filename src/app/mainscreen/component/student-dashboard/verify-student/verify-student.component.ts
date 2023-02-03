@@ -11,7 +11,6 @@ import { RegistrationService } from 'src/app/shared/services/registration.servic
 })
 export class VerifyStudentComponent implements OnInit {
 
-  
   otp!: string;
   phoneNumber: string = "";
   verificationRef: string = "";
@@ -20,7 +19,9 @@ export class VerifyStudentComponent implements OnInit {
   errorMessage: string = "";
   message: string = "";
 
-  constructor(private registrationService: RegistrationService, private router: Router) { }
+  constructor(
+    private registrationService: RegistrationService,
+    private router: Router) { }
 
   config = {
     allowNumbersOnly: true,
@@ -42,7 +43,7 @@ export class VerifyStudentComponent implements OnInit {
   }
   handleClick() {
     console.log(this.otp);
-    var data = JSON.parse(localStorage.getItem('student_send_otp_response') || '{}');
+    var data = JSON.parse(sessionStorage.getItem('student_send_otp_response') || '{}');
     this.phoneNumber = data.phoneNumber;
     this.verificationRef = data.verificationRef;
 
@@ -55,18 +56,23 @@ export class VerifyStudentComponent implements OnInit {
     }
 
     this.subscription = this.registrationService.verifyStudentOTP(obj).subscribe((data: any) => {
-
+      console.log(data)
       this.studentDTO = data;
-      this.router.navigate(['/addStudent'],
-        {
-          queryParams: { data: btoa(JSON.stringify(this.studentDTO)) }
-        });
-    },
-      (error) => {
+      sessionStorage.setItem('student_dto',JSON.stringify(data));
 
-        this.errorMessage = error.error.message;
-        console.log(this.errorMessage);
-      });
+
+      if (this.studentDTO.registrationStatus) {
+        this.router.navigate(['/materialScreen'],
+          {
+            queryParams: { data: btoa(JSON.stringify(this.studentDTO)) }
+          });
+      } else {
+        this.router.navigate(['/addStudent'],
+          {
+            queryParams: { data: btoa(JSON.stringify(this.studentDTO)) }
+          });
+      }
+    })
   }
   resend() {
     let data = JSON.parse(localStorage.getItem('student_send_otp_response') || '{}');
@@ -77,6 +83,7 @@ export class VerifyStudentComponent implements OnInit {
       this.message = data;
       console.log(this.message);
       localStorage.setItem('student_send_otp_response', JSON.stringify(data));
+      sessionStorage.setItem('student_send_otp_response',JSON.stringify(data))
     }
     );
   }

@@ -18,9 +18,9 @@ export class SubTopicListComponent implements OnInit {
 
 
   ngOnInit(): void {
-    //  const loggedInUser = JSON.parse(sessionStorage.getItem('staffLogin') || '{}');
-    //  console.log(loggedInUser);
-    // this.loggedInUserRole = loggedInUser.vitgStaffDTO.role.roleName;
+     const loggedInUser = JSON.parse(sessionStorage.getItem('staff_dto') || '{}');
+    this.loggedInUserRole = loggedInUser.vitgStaffDTO.role.roleName;
+
     this.courseService.getAllSubTopics().subscribe(data => {
       this.subtopicdata = data;
       console.log(this.subtopicdata)

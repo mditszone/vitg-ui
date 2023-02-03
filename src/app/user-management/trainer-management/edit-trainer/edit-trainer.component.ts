@@ -10,15 +10,16 @@ import { UserService } from 'src/app/shared/services/user.service';
   styleUrls: ['./edit-trainer.component.scss']
 })
 export class EditTrainerComponent implements OnInit {
-
+  trainer: Trainer = new Trainer();
   trainerDetailsForm: FormGroup = new FormGroup({});
   id: any;
   submitted = false;
   trainerdata!: Trainer;
-  rolesList: any;
   trainerForm: any;
 
-  constructor(private formBuilder: FormBuilder, private userService: UserService, public route: ActivatedRoute,
+  constructor(private formBuilder: FormBuilder,
+    private userService: UserService,
+    public route: ActivatedRoute,
     public router: Router,) { }
 
   keyPress(event: any) {
@@ -33,9 +34,10 @@ export class EditTrainerComponent implements OnInit {
     this.trainerDetailsForm = this.formBuilder.group({
       id: [{ value: null, disabled: false }],
       phoneNumber: [{ value: null, disabled: false }],
-      name: [null, [Validators.required, Validators.pattern('[a-zA-Z ]*')]],
+      name: ['', [Validators.required, Validators.pattern('[a-zA-Z ]*')]],
+      email: ['', Validators.required],
       aadharNumber: ['', [Validators.required, Validators.pattern("^[0-9]*$"), Validators.minLength(12), Validators.maxLength(12)]],
-      panCardNumber: ['', [Validators.required]],
+      panCardNumber: ['', [Validators.required, Validators.minLength(10), Validators.maxLength(10), Validators.pattern("^[A-Z]{5}[0-9]{4}[A-Z]*$")]],
     });
 
     this.patchValue();
@@ -53,6 +55,7 @@ export class EditTrainerComponent implements OnInit {
       id: this.trainerdata.id,
       phoneNumber: this.trainerdata.phoneNumber,
       name: this.trainerdata.name,
+      email:this.trainerdata.email,
       aadharNumber: this.trainerdata.aadharNumber,
       panCardNumber: this.trainerdata.panCardNumber
     });
@@ -66,23 +69,18 @@ export class EditTrainerComponent implements OnInit {
     }
     else {
       this.trainerForm = this.trainerDetailsForm.value;
-      let id = this.trainerDetailsForm.value.id;
 
-      let obj = {
-        id: this.trainerForm.id,
-        phoneNumber: this.trainerForm.phoneNumber,
-        name: this.trainerForm.name,
-        aadharNumber: this.trainerForm.aadharNumber,
-        panCardNumber: this.trainerForm.panCardNumber
-
-      }
-      console.log(obj);
-
-      this.userService.updateTrainerinfo( obj).subscribe(data => {
-        this.trainerdata = data;
-        this.router.navigate(['/trainer'])
-      })
+      this.trainer.id = this.trainerForm.id,
+        this.trainer.phoneNumber = this.trainerForm.phoneNumber,
+        this.trainer.name = this.trainerForm.name,
+        this.trainer.email = this.trainerForm.email;
+        this.trainer.aadharNumber = this.trainerForm.aadharNumber,
+        this.trainer.panCardNumber = this.trainerForm.panCardNumber
     }
-  }
 
+    this.userService.updateTrainerinfo(this.trainer).subscribe(data => {
+      this.trainerdata = data;
+      this.router.navigate(['/trainer'])
+    })
+  }
 }

@@ -44,7 +44,7 @@
             <div class="form-group row">
                 <label for="role" class="col-sm-3 col-form-label">Role<span class="star text-danger">*</span></label>
                 <div class="col-sm-6">
-                    <p-dropdown placeholder="- Select  -" [options]="rolesList" optionLabel="roleName"
+                    <p-dropdown placeholder="- Select -" [options]="rolesList" optionLabel="roleName"
                         formControlName="role" [style]="{width: '100%'}">
                     </p-dropdown>
                     <div class="text-error"
@@ -91,7 +91,7 @@
                 <label for="panCardNumber" class="col-sm-3 col-form-label">Pan Card Number<span
                         class="star text-danger">*</span></label>
                 <div class="col-sm-6">
-                    <input required type="text" formControlName="panCardNumber" class="form-control"
+                    <input type="text" formControlName="panCardNumber" class="form-control"
                         [ngClass]="{ 'is-invalid': submitted && f['panCardNumber'].errors }" />
                     <div *ngIf="submitted && f['panCardNumber'].errors" class="invalid-feedback">
                         <div *ngIf="f['panCardNumber'].errors['required']">Pan Card Number is required</div>

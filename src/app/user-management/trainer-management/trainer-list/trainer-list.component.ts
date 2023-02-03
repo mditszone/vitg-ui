@@ -14,13 +14,11 @@ export class TrainerListComponent implements OnInit {
   id: any;
   loggedInUserRole: string = "";
   constructor(
-    private userService: UserService,public route: ActivatedRoute) { }
+    private userService: UserService, public route: ActivatedRoute) { }
 
 
   ngOnInit(): void {
-  //  const loggedInUser = JSON.parse(sessionStorage.getItem('staffLogin') || '{}');
-  //  console.log(loggedInUser);
-   // this.loggedInUserRole = loggedInUser.vitg.role.roleName;
+
     this.userService.getAllTrainers().subscribe(data => {
       this.trainerdata = data;
       console.log(this.trainerdata)

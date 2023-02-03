@@ -1,4 +1,3 @@
-// import { TabComponent } from './component/tab/tab.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { DashboardComponent } from './dashboard/dashboard.component';
@@ -20,11 +19,12 @@ import { SliderListComponent } from './application-management/slider/slider-list
 import { ImageSliderComponent } from './mainscreen/component/image-slider/image-slider.component';
 import { BatchListComponent } from './batch-management/batches/batch-list/batch-list.component';
 import { TrackingListComponent } from './batch-management/tracking/tracking-list/tracking-list.component';
-import { TabsComponent } from './mainscreen/component/tabs/tabs.component';
+import { AllcoursesTabsComponent } from './mainscreen/component/allcourses-tabs/allcourses-tabs.component';
+import { SubtopicConceptTabsComponent } from './course-management/sub-topic-concept/subtopic-concept-tabs/subtopic-concept-tabs.component';
+import { MaterialScreenComponent } from './material-screen/material-screen/material-screen.component';
+import { MaterialSidebarComponent } from './mainscreen/component/material-sidebar/material-sidebar.component';
 
 const routes: Routes = [
-
-  
   {
     path: '', component: MainscreenComponent,
     children: [
@@ -38,10 +38,19 @@ const routes: Routes = [
     path: '', component: MainscreenComponent,
     children: [
       {
-        path: 'tabComponent', component: TabsComponent
+        path: 'tabComponent', component: AllcoursesTabsComponent
       }
     ]
   },
+  {
+    path: '', component: MaterialScreenComponent,
+    children: [
+      {
+        path: 'materialSidebar', component: MaterialSidebarComponent
+      }
+    ]
+  },
+
   {
     path: '',
     component: MainscreenComponent,
@@ -70,8 +79,7 @@ const routes: Routes = [
   },
 
   {
-    path: 'sidebar',
-    component: SidebarComponent
+    path:'materialScreen',component:MaterialScreenComponent
   },
 
   {
@@ -83,8 +91,6 @@ const routes: Routes = [
     path: 'verifyStaffLogin',
     component: VerifyStaffLoginComponent
   },
-
-
   {
     path: '',
     component: LayoutComponent,
@@ -174,8 +180,8 @@ const routes: Routes = [
     component: LayoutComponent,
     children: [
       {
-        path: 'subtopicconcept', pathMatch: 'full',
-        component: AddSubTopicConceptComponent
+        path: 'subtopicConceptTab', pathMatch: 'full',
+        component: SubtopicConceptTabsComponent
       }]
   },
   {
@@ -197,25 +203,10 @@ const routes: Routes = [
       }]
   }
 
-
-  // {
-  //   path: 'staff',
-  //   component: LayoutComponent,
-  //   children: [
-  //     // { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
-  //     {
-  //       path: 'staff',
-  //       loadChildren: () => import('./user-management/staff-management/staff-management.module').then(staffmanagement => staffmanagement.StaffManagementModule),
-  //     }
-
-  //   ]
-  // }
-
-
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes, {useHash: false})],
+  imports: [RouterModule.forRoot(routes, { useHash: false })],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }

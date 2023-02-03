@@ -1,9 +1,9 @@
 <mat-toolbar class="header">
     <mat-toolbar-row>
-        <mat-icon class="language">language</mat-icon>
-        <h1 class="header-name" routerLink="" routerLinkActive="active">Vision IT </h1>
+        <img class="vitg-logo"  routerLink="" routerLinkActive="active" src="../../assets/vitg-logo.png">
+        <h1 class="vision" routerLink="" routerLinkActive="active">Vision </h1>
+        <h1 class="it" routerLink="" routerLinkActive="active">IT</h1>
         <h1 class="global" routerLink="" routerLinkActive="active">Global</h1>
-
 
         <div class="basic-container">
             <span *ngFor="let item of menuItems">
@@ -12,26 +12,27 @@
                         class="allcourses" [matMenuTriggerFor]="menu.childMenu">
                         <mat-icon>apps</mat-icon>
                         {{item.displayName}}
-                        <span (mouseleave)="menuTrigger.closeMenu()"></span>
                     </button>
-                    
-                    <app-menu #menu [items]="item.children"></app-menu>
+                    <app-menu #menu [items]="item.children" >
+                        <span (mouseleave)="closeMyMenu()"></span>
+                    </app-menu>
                 </span>
                 <span *ngIf="!item.children || item.children.length === 0">
-                    <button mat-button color="primary" (click)="onClick()">
+                    <button mat-button (click)="onClick()">
                         {{item.displayName}}
                     </button>
                 </span>
             </span>
         </div>
+        
         <span class="fill-remaining-space"></span>
         <ul class="menu">
-            <a routerLink="aboutus" routerLinkActive="active" class="aboutus">ABOUT US</a>
-            <a routerLink="services" routerLinkActive="active" class="services">SERVICES</a>
-            <a routerLink="portfolio" routerLinkActive="active" class="portfolio">PORTFOLIO</a>
-            <a routerLink="team" routerLinkActive="active" class="team">TEAM</a>
-            <a routerLink="contactus" routerLinkActive="active" class="abcontactusoutus">CONTACT US</a>
-            <a routerLink="register" routerLinkActive="active" class="register">LOGIN/REGISTER</a>
+            <a routerLink="aboutus" routerLinkActive="active">ABOUT US</a>
+            <a routerLink="services" routerLinkActive="active">SERVICES</a>
+            <a routerLink="portfolio" routerLinkActive="active">PORTFOLIO</a>
+            <a routerLink="team" routerLinkActive="active">TEAM</a>
+            <a routerLink="contactus" routerLinkActive="active">CONTACT US</a>
+            <a routerLink="register" routerLinkActive="active">LOGIN/REGISTER</a>
         </ul>
     </mat-toolbar-row>
 </mat-toolbar>

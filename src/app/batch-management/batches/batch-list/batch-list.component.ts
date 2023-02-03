@@ -14,7 +14,11 @@ export class BatchListComponent implements OnInit {
   loggedInUserRole: string = "";
   constructor(private batchService: BatchService, public route: ActivatedRoute) { }
   ngOnInit(): void {
+    const loggedInUser = JSON.parse(sessionStorage.getItem('staff_dto') || '{}');
+    this.loggedInUserRole = loggedInUser.vitgStaffDTO.role.roleName;
+    
     this.batchService.getAllBatches().subscribe(data => {
+      sessionStorage.setItem('trainerdata', JSON.stringify(data));
       this.batchdata = data;
       console.log(this.batchdata)
     });

@@ -12,40 +12,53 @@
                 </div>
             </div><br>
             <div class="form-group row">
-            <label for="date" class="col-sm-3 col-form-label"> Date</label>
+                <label for="date" class="col-sm-3 col-form-label"> Date</label>
                 <div class="col-sm-6">
-                    <input type="text" class="form-control" formControlName="date"
-                        [(ngModel)]="trackdata.date">
-                        </div> 
-            </div><br> 
-             <div class="form-group row">
+                    <input type="text" class="form-control" formControlName="date" [(ngModel)]="trackdata.date">
+                </div>
+            </div><br>
+            <div class="form-group row">
                 <label for="startTime" class="col-sm-3 col-form-label">StartTime</label>
                 <div class="col-sm-6">
-                    <input type="text" class="form-control" 
-                    formControlName="startTime" [(ngModel)]="trackdata.startTime">
+                    <input type="text" class="form-control" formControlName="startTime"
+                        [(ngModel)]="trackdata.startTime">
                 </div>
-            </div><br> 
+            </div><br>
             <div class="form-group row">
                 <label for="endTime" class="col-sm-3 col-form-label">EndTime</label>
                 <div class="col-sm-6">
-                    <input type="text" class="form-control" 
-                    formControlName="endTime" [(ngModel)]="trackdata.endTime">
+                    <input type="text" class="form-control" formControlName="endTime" [(ngModel)]="trackdata.endTime">
                 </div>
-            </div><br> 
-            <div class="form-group row">
-                <label for="topicsCovered" class="col-sm-3 col-form-label">topicsCovered</label>
+            </div><br>
+            <!-- <div class="form-group row">
+                <label for="time" class="col-sm-3 col-form-label">Time<span class="star text-danger">*</span></label>
                 <div class="col-sm-6">
-                    <input type="text" class="form-control" 
-                    formControlName="topicsCovered" [(ngModel)]="trackdata.topicsCovered">
+                    <mat-form-field appearance="outline">
+                        <mat-label>Start time</mat-label>
+                        <input type="time" matInput name="week" formControlName="startTime"
+                            [(ngModel)]="trackdata.startTime" />
+                    </mat-form-field>
+                    <br />
+                    <mat-form-field appearance="outline">
+                        <mat-label>End time</mat-label>
+                        <input type="time" matInput name="week" formControlName="endTime" 
+                        [(ngModel)]="trackdata.endTime" />
+                    </mat-form-field>
                 </div>
-            </div><br> 
+            </div><br> -->
             <div class="form-group row">
-                <label for="remarks" class="col-sm-3 col-form-label">remarks</label>
+                <label for="topicsCovered" class="col-sm-3 col-form-label">TopicsCovered</label>
                 <div class="col-sm-6">
-                    <input type="text" class="form-control" 
-                    formControlName="remarks" [(ngModel)]="trackdata.remarks">
+                    <input type="text" class="form-control" formControlName="topicsCovered"
+                        [(ngModel)]="trackdata.topicsCovered">
                 </div>
-            </div><br> 
+            </div><br>
+            <div class="form-group row">
+                <label for="remarks" class="col-sm-3 col-form-label">Remarks</label>
+                <div class="col-sm-6">
+                    <input type="text" class="form-control" formControlName="remarks" [(ngModel)]="trackdata.remarks">
+                </div>
+            </div><br>
             <div class="form-group row">
                 <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 pr-0">
                     <button type="button" class="btn save" (click)="updateTrack()">Save</button>
@@ -54,4 +67,3 @@
         </form>
     </div>
 </div>
-

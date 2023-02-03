@@ -2,7 +2,7 @@ export class Course {
     id!:number;
     name:string="";;
     image:any;
-    status!:boolean;
+    status?:boolean;
     description:any;
     
 }

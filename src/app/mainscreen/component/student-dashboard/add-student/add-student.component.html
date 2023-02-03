@@ -7,13 +7,13 @@
                 <div class="col-sm-6">
                     <input type="text" formControlName="id" class="form-control">
                 </div>
-            </div>
+            </div><br>
             <div class="form-group row">
                 <label for="phoneNumber" class="col-sm-4 col-form-label">Phone Number</label>
                 <div class="col-sm-6">
                     <input type="text" formControlName="phoneNumber" class="form-control">
                 </div>
-            </div>
+            </div><br>
             <div class="form-group row">
                 <label for="name" class="col-sm-4 col-form-label">Name <span class="star text-danger">*</span></label>
                 <div class="col-sm-6">
@@ -27,20 +27,22 @@
             </div>
             <br>
             <div class="form-group row">
-                <label for="gender" class="col-sm-4 col-form-label">Gender <span class="star text-danger">*</span></label>
+                <label for="gender" class="col-sm-4 col-form-label">Gender <span
+                        class="star text-danger">*</span></label>
                 <div class="col-sm-6">
                     <input type="radio" value="Male" formControlName="gender"><label class="radio-label"> Male</label>
-                    <input type="radio" value="Female" formControlName="gender"><label class="radio-label"> Female</label>
-                    <input type="radio" value="Others" formControlName="gender"><label class="radio-label"> Others</label>
+                    <input type="radio" value="Female" formControlName="gender"><label class="radio-label">
+                        Female</label>
+                    <input type="radio" value="Others" formControlName="gender"><label class="radio-label">
+                        Others</label>
                 </div>
             </div>
-
-
+            <br>
             <div class="form-group row">
                 <label for="email" class="col-sm-4 col-form-label">Email<span class="star text-danger">*</span></label>
                 <div class="col-sm-6">
-                    <input type="email" formControlName="email"
-                        class="form-control" [ngClass]="{ 'is-invalid': submitted && f['email'].errors }" />
+                    <input type="email" formControlName="email" class="form-control"
+                        [ngClass]="{ 'is-invalid': submitted && f['email'].errors }" />
                     <div *ngIf="submitted && f['email'].errors" class="invalid-feedback">
                         <div *ngIf="f['email'].errors['required']">Email is required</div>
                         <div
@@ -50,7 +52,7 @@
                     </div>
                 </div>
             </div>
-
+            <br>
             <div class="form-group">
                 <button class="btn save" (click)="updateStudentInfo()">Save</button>
             </div>

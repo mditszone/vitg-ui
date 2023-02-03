@@ -7,7 +7,7 @@
                         <label for="phonenumber" class="name">Enter Mobile Number </label><br>
                         <div class="input-box">
                             <input (keypress)="keyPress($event)" required type="text" formControlName="phonenumber"
-                                class="form-control" placeholder="Enter Your Mobile Number"
+                                placeholder="Enter Your Mobile Number"
                                 [ngClass]="{ 'is-invalid': submitted && f['phonenumber'].errors }">
                         </div>
                         <div *ngIf="submitted && f['phonenumber'].errors" class="invalid-feedback">

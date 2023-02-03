@@ -26,8 +26,7 @@ export class AddCourseComponent implements OnInit {
   constructor(
     private courseService: CourseService,
     private router: Router,
-    private formBuilder: FormBuilder
-  ) {
+    private formBuilder: FormBuilder) {
     this.fileName = "";
   }
 
@@ -70,7 +69,7 @@ export class AddCourseComponent implements OnInit {
 
   createCourse() {
     this.submitted = true;
-    this.course.status = true;
+    this.course.status;
     this.courseService.createCourse(this.course).subscribe(data => {
       console.log(data)
       this.router.navigate(['/course']);

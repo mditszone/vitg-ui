@@ -1,23 +1,30 @@
 .header {
   background-color: #0669ad;
   color: #fff;
-  position: fixed;
-  z-index: 5;
 }
 .language {
   font-size: 33px;
   padding-bottom: 34px;
   padding-right: 30px;
 }
-.header-name {
+.vitg-logo {
+  width: 60px;
+  cursor: pointer;
+}
+.vision {
   font-size: 22px;
   padding-left: 16px;
+  cursor: pointer;
+}
+.it {
+  font-size: 22px;
+  padding-left: 5px;
+  color: #ffc82a;
   cursor: pointer;
 }
 .global {
   font-size: 22px;
   padding-left: 5px;
-  color: #ffc82a;
   cursor: pointer;
 }
 .menu a {
@@ -26,7 +33,7 @@
   color: rgb(255, 255, 255);
   text-decoration: none;
 }
-.fill-remaining-space{
+.fill-remaining-space {
   flex: 1 1 auto;
 }
 .allcourses {
@@ -40,19 +47,30 @@
   background-color: #0669ad;
   border-color: #fff;
 }
-.footer {
-  z-index: 5;
-  background-color: #0669ad;
-  bottom: 0;
-  position: fixed;
-  font-size: 13px;
+.material {
+  border: 1px solid rgb(241, 238, 238);
+  border-radius: 4px;
+  cursor: pointer;
   color: #fff;
-  text-align: center;
+  font-size: 16px;
+  right: 9px;
+  margin-left: 50px;
+  background-color: #0669ad;
+  border-color: #fff;
+}
+.footer {
+  overflow: hidden;
+  position: sticky;
+  top: 100%;
+  background-color: #0669ad;
+  color: #fff;
+  font-size: 13px;
   padding-left: 690px;
 }
-.body {
-  z-index: 2;
-  width: 100%;
-  height: 100%;
-  overflow: auto;
-}
+
+// .body {
+//   z-index: 2;
+//   width: 100%;
+//   height: 100%;
+//   overflow: auto;
+// }

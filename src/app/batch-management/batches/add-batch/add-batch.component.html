@@ -3,34 +3,27 @@
     <div class="card">
         <form [formGroup]="batchDetailsForm">
             <div class="form-group row">
-                <label for="course" class="col-sm-3 col-form-label">Course Name<span
+                <label for="courseId" class="col-sm-3 col-form-label">Course Name<span
                         class="star text-danger">*</span></label>
                 <div class="col-sm-6">
-                    <p-dropdown placeholder="- Select -" [options]="courseList" optionLabel="name"
-                        formControlName="course" [style]="{width: '100%'}" (onChange)="getSubCourseList($event)">
+                    <p-dropdown placeholder="- Select Course -" [options]="courseList" optionLabel="name"
+                        formControlName="courseId" [style]="{width: '100%'}" (onChange)="getTrainerList($event)">
                     </p-dropdown>
                     <div class="text-error"
-                        *ngIf="batchDetailsForm.controls['course'].invalid && (batchDetailsForm.controls['course'].dirty || batchDetailsForm.controls['course'].touched)">
-                        <div *ngIf="batchDetailsForm.controls['course']">
+                        *ngIf="batchDetailsForm.controls['courseId'].invalid && (batchDetailsForm.controls['courseId'].dirty || batchDetailsForm.controls['courseId'].touched)">
+                        <div *ngIf="batchDetailsForm.controls['courseId']">
                             Course Name is Required
                         </div>
                     </div>
                 </div>
             </div><br>
             <div class="form-group row">
-                <label for="subCourse" class="col-sm-3 col-form-label">SubCourse Name<span
+                <label for="trainerCourse" class="col-sm-3 col-form-label">Trainer<span
                         class="star text-danger">*</span></label>
                 <div class="col-sm-6">
-
-                    <p-dropdown placeholder="- Select  -" [options]="subCourseListById" optionLabel="name"
-                        formControlName="subCourse" [style]="{width: '100%'}">
+                    <p-dropdown aria-placeholder="- Select Trainer -" [options]="trainerListById" optionLabel="trainerName"
+                        formControlName="trainerCourse" [style]="{width: '100%'}">
                     </p-dropdown>
-                    <div class="text-error"
-                        *ngIf="batchDetailsForm.controls['subCourse'].invalid && (batchDetailsForm.controls['subCourse'].dirty || batchDetailsForm.controls['subCourse'].touched)">
-                        <div *ngIf="batchDetailsForm.controls['subCourse']">
-                            SubCourse Name is Required
-                        </div>
-                    </div>
                 </div>
             </div>
             <br>
@@ -46,27 +39,27 @@
                     <input matInput [matDatepicker]="picker1" placeholder="Start Date" formControlName="startDate"
                         [(ngModel)]="batch.startDate">
                     <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
-
                     <mat-datepicker #picker1></mat-datepicker>
                 </mat-form-field>
 
                 <mat-form-field>
                     <input matInput [matDatepicker]="picker2" placeholder="End Date" formControlName="endDate"
-                         [(ngModel)]="batch.endDate">
+                        [(ngModel)]="batch.endDate">
                     <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
                     <mat-datepicker #picker2></mat-datepicker>
                 </mat-form-field>
             </div>
 
+
             <div class="form-group row">
                 <mat-form-field appearance="outline">
                     <mat-label>start time</mat-label>
-                    <input type="time" matInput name="week" formControlName="startTime" [(ngModel)]="batch.startTime" />
+                    <input type="time" matInput formControlName="startTime" [(ngModel)]="batch.startTime" />
                 </mat-form-field>
                 <br />
                 <mat-form-field appearance="outline">
                     <mat-label>end time</mat-label>
-                    <input type="time" matInput name="week" formControlName="endTime" [(ngModel)]="batch.endTime" />
+                    <input type="time" matInput formControlName="endTime" [(ngModel)]="batch.endTime" />
                 </mat-form-field>
             </div>
             <!-- <div class="form-group row">

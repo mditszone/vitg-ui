@@ -21,33 +21,11 @@
                         [ngClass]="{ 'is-invalid': submitted && f['name'].errors }" />
                     <div *ngIf="submitted && f['name'].errors" class="invalid-feedback">
                         <div *ngIf="f['name'].errors['required']">Name is required</div>
-
                     </div>
                 </div>
             </div>
             <br>
-
             <div class="form-group row">
-                <label for="course" class="col-sm-3 col-form-label">Course<span
-                        class="star text-danger">*</span></label>
-                <div class="col-sm-6">
-
-                    <ng-multiselect-dropdown [placeholder]="'Select Courses'" formControlName="course"
-                        [data]="courseList" [settings]="dropdownSettings" >
-                        <!-- [(ngModel)]="selected" 
-                        (onSelect)="onItemSelect($event)" (onSelectAll)="onSelectAll($event)" -->
-                    </ng-multiselect-dropdown>
-                    
-                    <div class="text-error" *ngIf="trainerDetailsForm.controls['course'].invalid && 
-                     (trainerDetailsForm.controls['course'].dirty || trainerDetailsForm.controls['course'].touched)">
-                        <div *ngIf="trainerDetailsForm.controls['course']">
-                            Course Name is Required
-                        </div>
-                    </div>
-                </div>
-            </div><br>
-
-            <!-- <div class="form-group row">
                 <label for="gender" class="col-sm-3 col-form-label">Gender <span
                         class="star text-danger">*</span></label>
                 <div class="col-sm-6">
@@ -59,7 +37,6 @@
                 </div>
             </div>
             <br>
-
             <div class="form-group row">
                 <label for="email" class="col-sm-3 col-form-label">Email<span class="star text-danger">*</span></label>
                 <div class="col-sm-6">
@@ -73,8 +50,8 @@
                         </div>
                     </div>
                 </div>
-            </div> <br>-->
-            <!-- <div class="form-group row">
+            </div> <br>
+            <div class="form-group row">
                 <label for="aadharNumber" class="col-sm-3 col-form-label">Aadhar Number <span
                         class="star text-danger">*</span></label>
                 <div class="col-sm-6">
@@ -88,8 +65,9 @@
                         </div>
                     </div>
                 </div>
-            </div><br> -->
-            <!-- <div class="form-group row">
+            </div>
+            <br>
+            <div class="form-group row">
                 <label for="panCardNumber" class="col-sm-3 col-form-label">Pan Card Number<span
                         class="star text-danger">*</span></label>
                 <div class="col-sm-6">
@@ -103,54 +81,35 @@
                         </div>
                     </div>
                 </div>
-            </div> -->
-
+            </div>
+            <br>
+            <div class="form-group row">
+                <label for="aadharPic" class="col-sm-3 col-form-label">Aadhar Pic<span
+                        class="star text-danger">*</span></label>
+                <div class="col-sm-6">
+                    <input type="file" formControlName="aadharPic" class="form-control"
+                        (change)="onUploadChangeAadharPic($event)">
+                </div>
+            </div><br>
+            <div class="form-group row">
+                <label for="panCardPic" class="col-sm-3 col-form-label">PanCard Pic<span
+                        class="star text-danger">*</span></label>
+                <div class="col-sm-6">
+                    <input type="file" formControlName="panCardPic" class="form-control"
+                        (change)="onUploadChangePanCardPic($event)">
+                </div>
+            </div><br>
+            <div class="form-group row">
+                <label for="profPic" class="col-sm-3 col-form-label">Prof Pic<span
+                        class="star text-danger">*</span></label>
+                <div class="col-sm-6">
+                    <input type="file" formControlName="profPic" class="form-control"
+                        (change)="onUploadChangeProfPic($event)">
+                </div>
+            </div><br>
             <div class="form-group">
                 <button class="btn save" (click)="updateTrainerInfo()">Save</button>
             </div>
         </form>
     </div>
 </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<!-- <div class="form-group row">
-                <label for="course" class="col-sm-3 col-form-label">Course<span
-                        class="star text-danger">*</span></label>
-                <div class="col-sm-6">
-                    <p-dropdown placeholder="- select -" [options]="courseList" optionLabel="name"
-                        formControlName="course" [style]="{width: '100%'}">
-                    </p-dropdown>
-                    <div class="text-error" *ngIf="trainerDetailsForm.controls['course'].invalid && 
-                     (trainerDetailsForm.controls['course'].dirty || trainerDetailsForm.controls['course'].touched)">
-                        <div *ngIf="trainerDetailsForm.controls['course']">
-                            Course Name is Required
-                        </div>
-                    </div>
-                </div>
-            </div><br> -->
