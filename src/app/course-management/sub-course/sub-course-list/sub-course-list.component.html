@@ -2,7 +2,7 @@
   <h1 class="name">SubCourse list</h1>
   <div class="card">
     <p-table #dt1 [value]="subcoursedata" dataKey="id" [paginator]="true" [rows]="10" [showCurrentPageReport]="true"
-      [rowsPerPageOptions]="[10,15,20,100]" [filterDelay]="0" [globalFilterFields]="['id','name']">
+      [rowsPerPageOptions]="[10,15,20,100]" [filterDelay]="0" [globalFilterFields]="['id','name','course.name']">
 
 
       <ng-template pTemplate="caption">
