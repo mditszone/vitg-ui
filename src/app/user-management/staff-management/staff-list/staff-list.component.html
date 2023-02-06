@@ -3,7 +3,7 @@
   <div class="card">
     <p-table #dt1 [value]="staffdata" dataKey="id" [paginator]="true" [rows]="10" [showCurrentPageReport]="true"
       [rowsPerPageOptions]="[10,15,20,100]" [filterDelay]="0"
-      [globalFilterFields]="['id','name','roleName','phoneNumber']">
+      [globalFilterFields]="['id','name','role.roleName','phoneNumber']">
 
       <ng-template pTemplate="caption">
         <button class="addStaff" pButton label="Add Staff" icon="pi pi-plus" routerLink="/staffRegister"></button>

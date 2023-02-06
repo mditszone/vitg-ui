@@ -75,7 +75,7 @@
                 <label for="aadharNumber" class="col-sm-3 col-form-label">Aadhar Number <span
                         class="star text-danger">*</span></label>
                 <div class="col-sm-6">
-                    <input (keypress)="keyPress($event)" required type="text" formControlName="aadharNumber"
+                    <input (keypress)="keyPress($event)" required type="text" formControlName="aadharNumber" maxlength="12" 
                         class="form-control" [ngClass]="{ 'is-invalid': submitted && f['aadharNumber'].errors }" />
                     <div *ngIf="submitted && f['aadharNumber'].errors" class="invalid-feedback">
                         <div *ngIf="f['aadharNumber'].errors['required']">Aadhar Number is required</div>
@@ -88,21 +88,30 @@
             </div>
             <br>
             <div class="form-group row">
-                <label for="panCardNumber" class="col-sm-3 col-form-label">Pan Card Number<span
+                <label for="panCardNumber" class="col-sm-3 col-form-label">Pan Card<span
                         class="star text-danger">*</span></label>
                 <div class="col-sm-6">
-                    <input type="text" formControlName="panCardNumber" class="form-control"
+                    <input type="text" formControlName="panCardNumber" class="form-control" maxlength="10"
                         [ngClass]="{ 'is-invalid': submitted && f['panCardNumber'].errors }" />
                     <div *ngIf="submitted && f['panCardNumber'].errors" class="invalid-feedback">
-                        <div *ngIf="f['panCardNumber'].errors['required']">Pan Card Number is required</div>
+                        <div *ngIf="f['panCardNumber'].errors['required']">Pan Card is required</div>
                         <div
                             *ngIf="f['panCardNumber'].errors['pattern'] || f['panCardNumber'].errors['maxlength'] || f['panCardNumber'].errors['minlength']">
-                            Pan Card Number must be 10 numbers only
+                            Pan Card must be 10 digits only
                         </div>
                     </div>
                 </div>
             </div>
             <br>
+            <div class="form-group row">
+                <label for="profPic" class="col-sm-3 col-form-label">Profile Pic<span
+                        class="star text-danger">*</span></label>
+                <div class="col-sm-6">
+                    <input type="file" formControlName="profPic" class="form-control"
+                        (change)="onUploadChangeProfPic($event)">
+                </div>
+            </div>
+            <br/>
             <div class="form-group row">
                 <label for="aadharPic" class="col-sm-3 col-form-label">Aadhar Pic<span
                         class="star text-danger">*</span></label>
@@ -117,14 +126,6 @@
                 <div class="col-sm-6">
                     <input type="file" formControlName="panCardPic" class="form-control"
                         (change)="onUploadChangePanCardPic($event)">
-                </div>
-            </div><br>
-            <div class="form-group row">
-                <label for="profPic" class="col-sm-3 col-form-label">Prof Pic<span
-                        class="star text-danger">*</span></label>
-                <div class="col-sm-6">
-                    <input type="file" formControlName="profPic" class="form-control"
-                        (change)="onUploadChangeProfPic($event)">
                 </div>
             </div>
             <br>
