@@ -15,31 +15,31 @@
 
             <ng-template pTemplate="header">
                 <tr>
-                    <th pSortableColumn="course">COURSE<p-sortIcon field="course"></p-sortIcon>
-                    </th>
-                    <th pSortableColumn="startDate">START DATE<p-sortIcon field="startDate"></p-sortIcon>
-                    </th>
-                    <th pSortableColumn="mode">MODE<p-sortIcon field="mode"></p-sortIcon>
-                    </th>
-                    <th pSortableColumn="duration">DURATION<p-sortIcon field="duration"></p-sortIcon>
-                    </th>
-                    <th pSortableColumn="register">REGISTER<p-sortIcon field="register"></p-sortIcon>
-                    </th>
-                    <th>ACTION </th>
+                  <th pSortableColumn="id">ID<p-sortIcon field="id"></p-sortIcon>
+                  </th>
+                  <th pSortableColumn="batchName">BATCH NAME<p-sortIcon field="batchName"></p-sortIcon>
+                  </th>
+                  <th pSortableColumn="startDate">STARTDATE<p-sortIcon field="startDate"></p-sortIcon>
+                  </th>
+                  <th pSortableColumn="endDate">ENDDATE<p-sortIcon field="endDate"></p-sortIcon>
+                  </th>
+                  <th pSortableColumn="trainer">TRAINER<p-sortIcon field="trainer"></p-sortIcon>
+                  </th>
+                  <th>ACTION </th>
                 </tr>
-            </ng-template>
-
-            <ng-template pTemplate="body" let-upcomingBatch>
+              </ng-template>
+              <ng-template pTemplate="body" let-batch>
                 <tr>
-                    <td>{{upcomingBatch.course}}</td>
-                    <td>{{upcomingBatch.startDate}}</td>
-                    <td>{{upcomingBatch.mode }}</td>
-                    <td>{{upcomingBatch.duration }}</td>
-                    <td>{{upcomingBatch.register }}</td>
-                    <td>
-                        <a [routerLink]="['/viewstaff/']">
-                            <span class="material-icons eye"> visibility </span></a>
-                    </td>
+                  <td>{{batch.id}}</td>
+                  <td>{{batch.name}}</td>
+                  <td>{{batch.startDate}}</td>
+                  <td>{{batch.endDate}}</td>
+                  <td>{{batch.trainerCourse.trainerName}}</td>
+                  <td>
+                      <a [routerLink]="['batchView/', batch.id]">
+                          <span class="material-icons eye"> visibility </span></a>
+
+                  </td>
                 </tr>
             </ng-template>
         </p-table>

@@ -29,6 +29,8 @@ import { AllcoursesTabsComponent } from './component/allcourses-tabs/allcourses-
 import { MaterialSidebarComponent } from './component/material-sidebar/material-sidebar.component';
 import { MaterialLayoutComponent } from './component/material-layout/material-layout.component';
 import { DialogDemoComponent } from './component/dialog-demo/dialog-demo.component';
+import {NgxMatIntlTelInputComponent} from 'ngx-mat-intl-tel-input';
+import { BatchViewComponent } from './component/batch-view/batch-view.component';
 
 @NgModule({
   declarations: [
@@ -45,13 +47,15 @@ import { DialogDemoComponent } from './component/dialog-demo/dialog-demo.compone
     MenuComponent,
     DialogDemoComponent,
     PortfolioComponent,
-    UpcomingBatchesTableComponent,
+    MainscreenModule.rootComponent,
     AllcoursesTabsComponent,
     MaterialSidebarComponent,
     MaterialLayoutComponent,
+    BatchViewComponent,
     
   ],
   imports: [
+    NgxMatIntlTelInputComponent,
     CommonModule,
     MainscreenRoutingModule,
     MaterialModule,
@@ -66,7 +70,11 @@ import { DialogDemoComponent } from './component/dialog-demo/dialog-demo.compone
     DialogModule,
     ToolbarModule,
     FlexLayoutModule
-    
-  ]
+  ],
+  exports: [MainscreenModule.rootComponent],
+  entryComponents: [MainscreenModule.rootComponent]
 })
-export class MainscreenModule { }
+
+export class MainscreenModule {
+  static rootComponent = UpcomingBatchesTableComponent
+ }

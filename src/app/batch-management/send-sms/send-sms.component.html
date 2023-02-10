@@ -1,0 +1,39 @@
+<h1>SMS Invitation</h1>
+<div class="send-invitation">
+    <div class="container">
+        <div class="batch row1">
+            <span>Batch</span>
+        </div>
+        
+        <div class="row2">
+            <form [formGroup]="smsForm">
+            <p-dropdown  placeholder="- Select Batch -" class="dropdown" 
+            formControlName="batch" [options]="batchList" optionLabel="name" [style]="{'minWidth':'100%', 'height': '35px'}"></p-dropdown>
+            <div class="select-checkbox">
+                <div class="checkbox">
+                    <input type="checkbox" formControlName="student" />
+                    <span>Registered Students</span>
+                </div>
+                <div class="checkbox">
+                    <input type="checkbox" formControlName="trainer" />
+                    <span>Trainers</span>
+                </div>
+                <div class="checkbox">
+                    <input type="checkbox" formControlName="organizer" />
+                    <span>Organizers</span>
+                </div>
+                <div class="emails">
+                    <textarea formControlName="emails" placeholder="Enter phone numbers separated by comma"></textarea>
+                </div>
+            </div>
+            <div class="message">
+                <textarea formControlName="message"></textarea>
+            </div>
+            <div class="send">
+                <input type="button" value="send" (click)="onSubmit()" [disabled]="!smsForm.valid"  />
+            </div>
+        </form>
+        </div>
+    </div>
+    <div *ngIf="display_status === true" class="status"><pre>{{response}}</pre></div>
+</div>

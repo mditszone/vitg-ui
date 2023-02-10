@@ -6,8 +6,8 @@
                 <label for="courseId" class="col-sm-3 col-form-label">Course Name<span
                         class="star text-danger">*</span></label>
                 <div class="col-sm-6">
-                    <p-dropdown placeholder="- Select Course -" [options]="courseList" optionLabel="name"
-                        formControlName="courseId" [style]="{width: '100%'}" (onChange)="getTrainerList($event)">
+                    <p-dropdown placeholder="- Select Course -" [options]="courseList" optionLabel="name" [(ngModel)]="courseDropdown"
+                        otptionValue="id" formControlName="courseId" [style]="{width: '100%'}" (onChange)="getTrainerList($event)">
                     </p-dropdown>
                     <div class="text-error"
                         *ngIf="batchDetailsForm.controls['courseId'].invalid && (batchDetailsForm.controls['courseId'].dirty || batchDetailsForm.controls['courseId'].touched)">
@@ -16,7 +16,7 @@
                         </div>
                     </div>
                 </div>
-            </div><br>
+            </div>
             <div class="form-group row">
                 <label for="trainerCourse" class="col-sm-3 col-form-label">Trainer<span
                         class="star text-danger">*</span></label>
@@ -26,41 +26,48 @@
                     </p-dropdown>
                 </div>
             </div>
-            <br>
             <div class="form-group row">
                 <label for="name" class="col-sm-3 col-form-label">Batch Name</label>
                 <div class="col-sm-6">
                     <input type="text" formControlName="name" class="form-control" [(ngModel)]="batch.name">
                 </div>
-            </div><br>
-
-            <div class="form-group row">
-                <mat-form-field>
-                    <input matInput [matDatepicker]="picker1" placeholder="Start Date" formControlName="startDate"
-                        [(ngModel)]="batch.startDate">
-                    <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
-                    <mat-datepicker #picker1></mat-datepicker>
-                </mat-form-field>
-
-                <mat-form-field>
-                    <input matInput [matDatepicker]="picker2" placeholder="End Date" formControlName="endDate"
-                        [(ngModel)]="batch.endDate">
-                    <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
-                    <mat-datepicker #picker2></mat-datepicker>
-                </mat-form-field>
             </div>
 
-
+            <div class="date-times-container">
+                <div class="dates">
+                    <mat-form-field appearance="outline" class="field">
+                        <input matInput [matDatepicker]="picker1" placeholder="Start Date" formControlName="startDate"
+                            [(ngModel)]="batch.startDate">
+                        <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+                        <mat-datepicker #picker1></mat-datepicker>
+                    </mat-form-field>
+                    <mat-form-field appearance="outline" class="field">
+                        <input matInput [matDatepicker]="picker2" placeholder="End Date" formControlName="endDate"
+                            [(ngModel)]="batch.endDate">
+                        <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
+                        <mat-datepicker #picker2></mat-datepicker>
+                    </mat-form-field>
+                </div>
+                <div class="times">
+                    <mat-form-field appearance="outline" class="field">
+                        <mat-label>start time</mat-label>
+                        <input type="time" matInput formControlName="startTime" [(ngModel)]="batch.startTime" />
+                    </mat-form-field>
+                    <mat-form-field appearance="outline" class="field">
+                        <mat-label>end time</mat-label>
+                        <input type="time" matInput formControlName="endTime" [(ngModel)]="batch.endTime" />
+                    </mat-form-field>
+                </div>
+            </div>
             <div class="form-group row">
-                <mat-form-field appearance="outline">
-                    <mat-label>start time</mat-label>
-                    <input type="time" matInput formControlName="startTime" [(ngModel)]="batch.startTime" />
-                </mat-form-field>
-                <br />
-                <mat-form-field appearance="outline">
-                    <mat-label>end time</mat-label>
-                    <input type="time" matInput formControlName="endTime" [(ngModel)]="batch.endTime" />
-                </mat-form-field>
+                <div class="col-sm-6">
+                    <div class="text-error"
+                        *ngIf="batchDetailsForm.controls['courseId'].invalid && (batchDetailsForm.controls['courseId'].dirty || batchDetailsForm.controls['courseId'].touched)">
+                        <div *ngIf="batchDetailsForm.controls['courseId']">
+                            Course Name is Required
+                        </div>
+                    </div>
+                </div>
             </div>
             <!-- <div class="form-group row">
                 <label for="organizers" class="col-sm-3 col-form-label">Organizers<span class="star text-danger">*</span></label>

@@ -1,3 +1,22 @@
+<!-- <div class="login-container">
+    <div class="login-body">
+        <form #f="ngForm" [formGroup]="phoneForm" (ngSubmit)="onSubmit()" class="login-form" >
+            <mat-form-field style="width:50%" appearance="outline" [style.width.px]=327>
+              <ngx-mat-intl-tel-input
+                [cssClass]="'custom'"
+                [preferredCountries]="['us', 'ca']"
+                [enablePlaceholder]="true"
+                placeholder="Enter Number"
+                name="phone"
+                formControlName="phone" #phone></ngx-mat-intl-tel-input>
+              <mat-hint>e.g. {{phone.selectedCountry.placeHolder}}</mat-hint>
+              <mat-error *ngIf="f.form.controls['phone']?.errors?.['validatePhoneNumber']">Invalid Number</mat-error>
+            </mat-form-field>
+            <input type="button" value="Proceed" class="submit" (click)="onSubmit()" [disabled]="!smsForm.valid" />
+          </form> 
+    </div>
+</div> -->
+
 <div class="container">
     <div class="card">
         <div class="text-center">

@@ -15,7 +15,6 @@ const routes: Routes = [
         component: AddTrackingComponent
       }]
   },
-  
   {
     path: '',
     component: LayoutComponent,

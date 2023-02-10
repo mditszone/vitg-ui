@@ -11,10 +11,11 @@ export class Batch {
     trainerCourse!:TrainerCourse;
     staff!: Staff;
     organizers !: Staff;
-    name: string = "";
+    name!: string;
     batchCode!: String;
     startDate !: string;
     endDate !: string;
     startTime: string = "";
     endTime: string = "";
+    status?: boolean;
 }

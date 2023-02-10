@@ -50,5 +50,79 @@
     line-height: 24px;
     margin-left: 50px;
     cursor: pointer;
+
     margin-top: 10px;
+
+}
+
+.country-selector{
+  opacity:1 !important;
+  bottom:8px !important;
+}
+
+input:not(.country-search){
+  bottom: 3px;
+  left: 10px;
+}
+
+.country-list-button{
+  font-size: 0.8rem!important;
+}
+
+.mat-menu-content:not(:empty){
+  max-height:250px;
+}
+ 
+.mat-form-field{
+    width: 330px;
+}
+
+.m-t-10{
+  margin-top:10px;
+}
+
+.error{
+  color:red;
+}
+
+.mat-input-element {
+  border: 1px solid red!important;  
+}
+
+.login-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  height: 100%;
+  .login-body {
+    border: 1px solid #81b3d5;
+    border-radius: 5px;
+    padding: 50px 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    .login-form {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      .submit {
+        margin: 30px;
+        border: none;
+        border-radius: 5px;
+        width: 129px;
+        height: 45px;
+        background: #0669ad;
+        color: #fff;
+      }
+    }
+  }
+}
+
+.custom {
+  border: 1px solid red;
+
 }

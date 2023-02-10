@@ -18,6 +18,9 @@ export class SubcourseTabsComponent implements OnInit {
   
   
   subCourseTabs: Tab[];
+  
+  subCourseTabs: any[];
+
   constructor() {
     this.subCourseTabs = [
       {

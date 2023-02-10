@@ -49,7 +49,16 @@ import { MaterialScreenModule } from './material-screen/material-screen.module';
 import { MatMomentDateModule, MAT_MOMENT_DATE_ADAPTER_OPTIONS } from '@angular/material-moment-adapter';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { DatePipe } from '@angular/common';
+
 import { SubTopicConceptListComponent } from './course-management/sub-topic-concept/sub-topic-concept-list/sub-topic-concept-list.component';
+
+import { SendInvitationComponent } from './batch-management/send-invitation/send-invitation.component';
+import { SendSmsComponent } from './batch-management/send-sms/send-sms.component';
+import {DropdownModule} from 'primeng/dropdown';
+import { MAT_DATE_LOCALE } from '@angular/material/core'
+import {NgxMatIntlTelInputComponent} from 'ngx-mat-intl-tel-input';
+
+
 
 @NgModule({
   declarations: [
@@ -70,7 +79,9 @@ import { SubTopicConceptListComponent } from './course-management/sub-topic-conc
     SubTopicConceptListComponent,
     BatchListComponent,
     TrackingListComponent,
-    SliderListComponent
+    SliderListComponent,
+    SendInvitationComponent,
+    SendSmsComponent,
 
   ],
   imports: [
@@ -103,8 +114,12 @@ import { SubTopicConceptListComponent } from './course-management/sub-topic-conc
     DialogModule,
     MessagesModule,
     ConfirmDialogModule,
+
     MatDatepickerModule,
     MatMomentDateModule,
+
+    MatDatepickerModule, MatMomentDateModule, DropdownModule,
+
     NgMultiSelectDropDownModule.forRoot()
   ],
   providers: [
