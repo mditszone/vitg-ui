@@ -3,6 +3,7 @@ import { MatMenuTrigger } from '@angular/material/menu';
 import { Router } from '@angular/router';
 import { Course } from 'src/app/shared/model/course';
 import { Subcourse } from 'src/app/shared/model/subcourse';
+import { BatchService } from 'src/app/shared/services/batch.service';
 import { CourseService } from 'src/app/shared/services/course.service';
 
 @Component({
@@ -14,7 +15,7 @@ export class MaterialScreenComponent implements OnInit {
 
   @ViewChild(MatMenuTrigger) trigger!: MatMenuTrigger;
   loggedInUserRole: string = "";
-
+  batchMenu: BatchMenu[];
   ngOnInit(): void {
   }
   onLoggedout() {
@@ -36,7 +37,7 @@ export class MaterialScreenComponent implements OnInit {
     children: []
   }];
 
-  constructor(private courseService: CourseService, private cdr: ChangeDetectorRef, private router: Router) {
+  constructor(private courseService: CourseService, private cdr: ChangeDetectorRef, private router: Router, private batchService: BatchService) {
     this.courseService.getAllCourses().subscribe((arrayOfCourse: Course[]) => {
       arrayOfCourse.forEach((course, courseIndex) => {
         this.menuItems[0].children[courseIndex] = {
@@ -70,9 +71,16 @@ export class MaterialScreenComponent implements OnInit {
         });
       });
     });
+    this.batchService.getAllBatches().subscribe(data => {
+      this.batchMenu = data.map(item => { return {"name": item.name, "id": item.id}; });
+      console.log("batchMenu", this.batchMenu);
+    });
   }
 
 
+  batchView(id: number) {
+    this.router.navigate(['/batchView/', id]);
+  }
 
   ngAfterContentChecked() {
     this.cdr.detectChanges();
@@ -87,4 +95,10 @@ export class MaterialScreenComponent implements OnInit {
     console.log("i am working");
     this.router.navigate(['/materialSidebar']);
   }
+}
+
+
+interface BatchMenu {
+  id: number;
+  name: string;
 }

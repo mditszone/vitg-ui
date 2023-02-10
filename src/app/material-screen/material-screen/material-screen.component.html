@@ -42,6 +42,14 @@
                 </span>
             </span>
         </div>
+
+        <button mat-button [matMenuTriggerFor]="batch" class="allcourses">Batch List</button>
+            <!-- #enddocregion mat-menu-trigger-for -->
+            <mat-menu #batch="matMenu">
+                <span *ngFor="let batch of batchMenu">
+                    <button mat-menu-item (click)="batchView(batch.id)">{{batch.name}}</button>
+                </span>
+            </mat-menu>
         
         <span class="fill-remaining-space"></span>
         <ul class="menu">

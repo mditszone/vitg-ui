@@ -149,6 +149,22 @@ export class SidebarComponent implements OnInit {
           roles: [
             RoleEnum.ADMIN
           ]
+        },
+        {
+          displayName: 'Send Invitation',
+          iconName: '',
+          route: 'sendInvitation',
+          roles: [
+            RoleEnum.ADMIN
+          ]
+        },
+        {
+          displayName: 'Send SMS',
+          iconName: '',
+          route: 'sendSms',
+          roles: [
+            RoleEnum.ADMIN
+          ]
         }
       ]
     },

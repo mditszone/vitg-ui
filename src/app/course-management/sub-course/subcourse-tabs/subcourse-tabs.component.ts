@@ -7,7 +7,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./subcourse-tabs.component.scss']
 })
 export class SubcourseTabsComponent implements OnInit {
-
+  
   subCourseTabs: any[];
   constructor() {
     this.subCourseTabs = [

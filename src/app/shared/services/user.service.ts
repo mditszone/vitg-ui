@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
+import { Staff } from '../model/staff';
 
 @Injectable({
   providedIn: 'root'
@@ -34,6 +35,7 @@ export class UserService {
   public getAllTrainers(): Observable<any> {
     return this.http.get(this.baseURL + '/api/trainer/getAllTrainers');
   }
+
   public updateTrainerinfo(body:any): Observable<any> {
     console.log("hello")
     return this.http.put(this.baseURL +'/api/trainer/editTrainer',body);
@@ -68,5 +70,19 @@ export class UserService {
   public getStudentById(id:number): Observable<any> {
     return this.http.get(this.baseURL + `/api/student/${id}`)
   }
+
+
+  /// organizers
+
+public getAllOrganizers(): Observable<Staff[]> {
+  console.log("organizers");
+  return this.http.get<Staff[]>(this.baseURL + '/api/staff/getAllOrganizers');
+
+  // /api/staff/getAllOrganizers
+}
+
   
 }
+
+
+

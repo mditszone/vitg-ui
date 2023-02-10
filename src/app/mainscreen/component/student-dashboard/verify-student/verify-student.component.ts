@@ -81,9 +81,7 @@ export class VerifyStudentComponent implements OnInit {
 
     this.subscription = this.registrationService.sendOTP('/api/auth/register/vitg/student/sendOtp/', `?phoneNumber=${data.phoneNumber}`).subscribe((data: any) => {
       this.message = data;
-      console.log(this.message);
-      localStorage.setItem('student_send_otp_response', JSON.stringify(data));
-      sessionStorage.setItem('student_send_otp_response',JSON.stringify(data))
+      sessionStorage.setItem('student_send_otp_response',JSON.stringify(data));
     }
     );
   }

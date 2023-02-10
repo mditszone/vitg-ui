@@ -10,15 +10,22 @@ import { BatchService } from 'src/app/shared/services/batch.service';
 })
 export class ViewBatchComponent implements OnInit {
 
-  batchdata!:any;
-  id!:number;
+  batchData: Object[] = [];
+
   constructor(private route: ActivatedRoute, private batchService: BatchService) { }
 
   ngOnInit(): void {
-    this.id = this.route.snapshot.params['id'];
-    this.batchService.getBatchById(this.id).subscribe((data: Batch) => {
-      this.batchdata = data
-    })
-
+    const id = this.route.snapshot.params['id'];
+    this.batchService.getBatchById(id).subscribe((data: Batch) => {
+      this.batchData = [
+        ["ID", data.id],
+        ["Name", data.name],
+        ["Trainer", data.trainerCourse.trainerName],
+        ["Start Date", data.startDate],
+        ["End Date", data.endDate],
+        ["Start Time", data.startTime],
+        ["End Time", data.endTime]
+      ];
+    });
   }
 }

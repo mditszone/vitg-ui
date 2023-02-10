@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AboutUsComponent } from './component/about-us/about-us.component';
 import { AllcoursesTabsComponent } from './component/allcourses-tabs/allcourses-tabs.component';
+import { BatchViewComponent } from './component/batch-view/batch-view.component';
 import { CardImagesComponent } from './component/card-images/card-images.component';
 import { ContactUsComponent } from './component/contact-us/contact-us.component';
 import { ImageSliderComponent } from './component/image-slider/image-slider.component';
@@ -53,6 +54,9 @@ const routes: Routes = [
   },
   {
     path: 'register', component: StudentRegisterComponent
+  },
+  {
+    path: 'batchView/:id', component: BatchViewComponent,
   },
   {
     path: 'verifyStudent', pathMatch: 'full',
