@@ -3,8 +3,8 @@
         <div class="text-center">
             <form [formGroup]="staffLoginForm" (ngSubmit)="onSubmit()">
                 <div class="col-sm-12">
-                    <div class="form-group"><br>
-                        <label for="phonenumber" class="name">Enter Mobile Number </label><br>
+                    <div class="form-group">
+                        <label for="phonenumber" class="name">Enter Mobile Number </label>
                         <div class="input-box">
                             <input (keypress)="keyPress($event)" required type="text" formControlName="phonenumber" maxlength="10" 
                                 placeholder="Enter Your Mobile Number"
@@ -18,8 +18,7 @@
                             </div>
                         </div>
                     </div>
-                </div><br>
-
+                </div>
                 <input type="submit" class="btn proceed" value="Proceed">
             </form>
         </div>
