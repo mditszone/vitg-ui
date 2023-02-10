@@ -5,6 +5,7 @@ import { Subcourse } from 'src/app/shared/model/subcourse';
 import { CourseService } from 'src/app/shared/services/course.service';
 import * as DecoupledEditor from '@ckeditor/ckeditor5-build-decoupled-document';
 import { UploadAdapter } from 'src/app/shared/model/ckuploader';
+import { TabService } from 'src/app/shared/services/tab.service';
 
 @Component({
   selector: 'app-curriculum',
@@ -16,9 +17,12 @@ export class CurriculumComponent implements OnInit {
   subCourseDetailsForm: any;
   subCoursedata!: Subcourse;
   submitted!: boolean;
-  subCourseForm: any
+  subCourseForm: any;
+  subCourseId: any
 
-  constructor(private formBuilder: FormBuilder,
+  constructor(
+    private tabService: TabService,
+    private formBuilder: FormBuilder,
     private router: Router, private route: ActivatedRoute,
     private courseService: CourseService) { }
 
@@ -43,17 +47,24 @@ export class CurriculumComponent implements OnInit {
   }
 
   patchValue() {
-    this.route.queryParams.subscribe(params => {
-      console.log(params["id"]);
-      let subCourseId: number = parseInt(params["id"]);
-      this.courseService.getSubCourseById(subCourseId).subscribe((subCourse) => {
+    var response = JSON.parse(sessionStorage.getItem('tabServiceData') || '{}')
+    {
+      if (response.id) {
+        this.subCourseId = response.id;
+        console.log(this.subCourseId)
+      }
+      else {
+        this.subCourseId = response;
+        console.log(this.subCourseId)
+      }
+      this.courseService.getSubCourseById(this.subCourseId).subscribe((subCourse) => {
         this.subCoursedata = subCourse;
+        console.log(this.subCoursedata)
       })
-    })
-
-    this.subCourseDetailsForm.patchValue({
-      curriculum: this.subCoursedata.curriculum,
-    })
+    }
+      this.subCourseDetailsForm.patchValue({
+        curriculum: this.subCoursedata.curriculum,
+      })
   }
 
   updateSubCourse() {

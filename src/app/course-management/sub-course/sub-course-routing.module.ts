@@ -9,21 +9,24 @@ import { EditSubCourseComponent } from './edit-sub-course/edit-sub-course.compon
 import { ExamCertificationComponent } from './exam-certification/exam-certification.component';
 import { FeeComponent } from './fee/fee.component';
 import { OverviewComponent } from './overview/overview.component';
+import { SubCourseNameComponent } from './sub-course-name/sub-course-name.component';
 import { SubcourseTabsComponent } from './subcourse-tabs/subcourse-tabs.component';
 import { TrainingModeComponent } from './training-mode/training-mode.component';
 import { ViewSubCourseComponent } from './view-sub-course/view-sub-course.component';
 import { YoutubeUrlComponent } from './youtube-url/youtube-url.component';
 
 const routes: Routes = [
-  // {
-  //   path: '',
-  //   component: LayoutComponent,
-  //   children: [
-  //     {
-  //       path: 'subCourseTab', pathMatch: 'full',
-  //       component: SubcourseTabsComponent
-  //     }]
-  // },
+  {
+    path: '',
+    component: LayoutComponent,
+    children: [
+      {
+        path: 'addSubCourse', pathMatch: 'full',
+        component: AddSubCourseComponent
+      }
+    ]
+  },
+
 
   {
     path: '',
@@ -34,13 +37,13 @@ const routes: Routes = [
         component: SubcourseTabsComponent,
         children: [
           {
-            path: 'addSubCourse', pathMatch: 'full',
-            component: AddSubCourseComponent
-          }]
+            path: 'subCourseName', pathMatch: 'full',
+            component: SubCourseNameComponent
+          }
+        ]
       },
     ]
   },
-
   {
     path: '',
     component: LayoutComponent,
@@ -52,10 +55,12 @@ const routes: Routes = [
           {
             path: 'overview', pathMatch: 'full',
             component: OverviewComponent
-          }]
+          }
+        ]
       },
     ]
   },
+
   {
     path: '',
     component: LayoutComponent,
@@ -67,7 +72,8 @@ const routes: Routes = [
           {
             path: 'curriculum', pathMatch: 'full',
             component: CurriculumComponent
-          }]
+          }
+        ]
       },
     ]
   },
@@ -82,7 +88,8 @@ const routes: Routes = [
           {
             path: 'durationDays', pathMatch: 'full',
             component: DurationDaysComponent
-          }]
+          }
+        ]
       },
     ]
   },
@@ -97,7 +104,8 @@ const routes: Routes = [
           {
             path: 'durationHours', pathMatch: 'full',
             component: DurationHoursComponent
-          }]
+          }
+        ]
       },
     ]
   },
@@ -112,7 +120,8 @@ const routes: Routes = [
           {
             path: 'fee', pathMatch: 'full',
             component: FeeComponent
-          }]
+          }
+        ]
       },
     ]
   },
@@ -126,7 +135,8 @@ const routes: Routes = [
           {
             path: 'examCertification', pathMatch: 'full',
             component: ExamCertificationComponent
-          }]
+          }
+        ]
       },
     ]
   },
@@ -140,7 +150,8 @@ const routes: Routes = [
           {
             path: 'trainingMode', pathMatch: 'full',
             component: TrainingModeComponent
-          }]
+          }
+        ]
       },
     ]
   },
@@ -154,7 +165,8 @@ const routes: Routes = [
           {
             path: 'youtubeUrl', pathMatch: 'full',
             component: YoutubeUrlComponent
-          }]
+          }
+        ]
       },
     ]
   },
@@ -180,10 +192,43 @@ const routes: Routes = [
           {
             path: 'editsubcourse/:id', pathMatch: 'full',
             component: EditSubCourseComponent
-          }]
+          }
+        ]
       },
     ]
-  }
+  },
+  {
+    path: '',
+    component: LayoutComponent,
+    children: [
+      {
+        path: 'subCourseTab',
+        component: SubcourseTabsComponent,
+        children: [
+          {
+            path: 'editsubcourse', pathMatch: 'full',
+            component: EditSubCourseComponent
+          }
+        ]
+      },
+    ]
+  },
+  // {
+  //   path: '',
+  //   component: LayoutComponent,
+  //   children: [
+  //     {
+  //       path: 'subCourseTab',
+  //       component: SubcourseTabsComponent,
+  //       children: [
+  //         {
+  //           path: 'editsubcourseTab', pathMatch: 'full',
+  //           component: EditSubCourseComponent
+  //         }
+  //       ]
+  //     },
+  //   ]
+  // }
 ];
 
 @NgModule({

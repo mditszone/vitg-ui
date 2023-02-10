@@ -13,6 +13,9 @@ import { GithubUrlComponent } from './github-url/github-url.component';
 import { OtherUrlsComponent } from './other-urls/other-urls.component';
 import { ExamplesComponent } from './examples/examples.component';
 import { SubtopicConceptYoutubeUrlComponent } from './subtopic-concept-youtube-url/subtopic-concept-youtube-url.component';
+import { EditSubTopicConceptComponent } from './edit-sub-topic-concept/edit-sub-topic-concept.component';
+import { ViewSubTopicConceptComponent } from './view-sub-topic-concept/view-sub-topic-concept.component';
+import { SubTopicConceptNameComponent } from './sub-topic-concept-name/sub-topic-concept-name.component';
 
 
 @NgModule({
@@ -24,6 +27,9 @@ import { SubtopicConceptYoutubeUrlComponent } from './subtopic-concept-youtube-u
     OtherUrlsComponent,
     ExamplesComponent,
     SubtopicConceptYoutubeUrlComponent,
+    ViewSubTopicConceptComponent,
+    EditSubTopicConceptComponent,
+    SubTopicConceptNameComponent,
   ],
   imports: [
     CommonModule,

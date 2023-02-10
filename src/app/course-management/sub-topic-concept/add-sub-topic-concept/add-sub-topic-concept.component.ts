@@ -5,6 +5,7 @@ import { SubTopicConcept } from 'src/app/shared/model/sub-topic-concept';
 import { CourseService } from 'src/app/shared/services/course.service';
 import * as DecoupledEditor from '@ckeditor/ckeditor5-build-decoupled-document';
 import { UploadAdapter } from 'src/app/shared/model/ckuploader';
+import { TabService } from 'src/app/shared/services/tab.service';
 
 @Component({
   selector: 'app-add-sub-topic-concept',
@@ -25,7 +26,9 @@ export class AddSubTopicConceptComponent implements OnInit {
   subTopicList: any;
   errorMessage: any
 
-  constructor(private formBuilder: FormBuilder,
+  constructor(
+    private tabService:TabService,
+    private formBuilder: FormBuilder,
     private router: Router,
     private route: ActivatedRoute,
     private courseService: CourseService) { }
@@ -130,13 +133,8 @@ export class AddSubTopicConceptComponent implements OnInit {
 
       this.courseService.createSubTopicConcept(this.subTopicConcept).subscribe(
         (data: any) => {
-          console.log(data)
-          this.router.navigate(['/subtopicConceptTab/trainerPpt'], { queryParams: { id: data['id'] } });
-
-          (error) => {
-            this.errorMessage = error.error.message;
-            console.log(this.errorMessage)
-          }
+          this.tabService.myMethod(data)
+          this.router.navigate(['/subtopicConceptTab/subTopicConceptName']);
         });
     }
   }

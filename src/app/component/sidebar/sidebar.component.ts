@@ -27,6 +27,7 @@ export class SidebarComponent implements OnInit {
 
   onLoggedout() {
     this.router.navigate(['/']);
+    sessionStorage.clear();
   }
 
   sidenavToggle() {
@@ -119,7 +120,7 @@ export class SidebarComponent implements OnInit {
         {
           displayName: 'Sub Topic Concept',
           iconName: '',
-          route: 'subtopicConceptTab/addSubtopicConcept',
+          route: 'subTopicConcept',
           roles: [
             RoleEnum.ADMIN
           ]

@@ -11,8 +11,8 @@ export class SubtopicConceptTabsComponent implements OnInit {
   constructor() {
     this.subTopicConceptTabs = [
       {
-        label: "Create",
-        link: "./addSubtopicConcept",
+        label: "SubTopicConcept",
+        link: "./subTopicConceptName",
         index: 0
       },
       {

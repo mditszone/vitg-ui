@@ -4,12 +4,14 @@ import { FormBuilder, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Subcourse } from 'src/app/shared/model/subcourse';
 import { CourseService } from 'src/app/shared/services/course.service';
+import { TabService } from 'src/app/shared/services/tab.service';
 
 @Component({
   selector: 'app-add-sub-course',
   templateUrl: './add-sub-course.component.html',
   styleUrls: ['./add-sub-course.component.scss']
 })
+
 export class AddSubCourseComponent implements OnInit {
   fileName: string;
   subCourse: Subcourse = new Subcourse();
@@ -26,6 +28,7 @@ export class AddSubCourseComponent implements OnInit {
   });
 
   constructor(
+    public tabService: TabService,
     private formBuilder: FormBuilder,
     private router: Router,
     private courseService: CourseService) {
@@ -89,8 +92,11 @@ export class AddSubCourseComponent implements OnInit {
       this.subCourse.course = this.subCourseForm.course;
       this.courseService.createSubCourse(this.subCourse).subscribe(
         (data: any) => {
-          this.router.navigate(['/subCourseTab/overview'], { queryParams: { id: data['id'] } });
+          this.tabService.myMethod(data)
+          this.router.navigate(['/subCourseTab/subCourseName']);
+          //this.router.navigate(['/subCourseTab/editsubcourse',{id: data['id']}]);
         }),
+
         (error) => {
           this.errorMessage = error.error.message;
           console.log(this.errorMessage)

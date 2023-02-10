@@ -3,6 +3,7 @@ import { FormBuilder, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Subcourse } from 'src/app/shared/model/subcourse';
 import { CourseService } from 'src/app/shared/services/course.service';
+import { TabService } from 'src/app/shared/services/tab.service';
 
 @Component({
   selector: 'app-exam-certification',
@@ -14,9 +15,12 @@ export class ExamCertificationComponent implements OnInit {
   subCourseDetailsForm: any;
   subCoursedata!: Subcourse;
   submitted!: boolean;
-  subCourseForm: any
+  subCourseForm: any;
+  subCourseId: any
 
-  constructor(private formBuilder: FormBuilder,
+  constructor(
+    private tabService: TabService,
+    private formBuilder: FormBuilder,
     private router: Router,
     private route: ActivatedRoute,
     private courseService: CourseService) { }
@@ -29,16 +33,20 @@ export class ExamCertificationComponent implements OnInit {
   }
 
   patchValue() {
-    this.route.queryParams.subscribe(params => {
-      console.log(params["id"]);
-      let subCourseId: number = parseInt(params["id"]);
-      this.courseService.getSubCourseById(subCourseId).subscribe((subCourse) => {
-        console.log(subCourse);
+    var response = JSON.parse(sessionStorage.getItem('tabServiceData') || '{}')
+    {
+      if (response.id) {
+        this.subCourseId = response.id;
+        console.log(this.subCourseId)
+      }
+      else {
+        this.subCourseId = response;
+        console.log(this.subCourseId)
+      }
+      this.courseService.getSubCourseById(this.subCourseId).subscribe((subCourse) => {
         this.subCoursedata = subCourse;
-        console.log(this.subCoursedata)
       })
-    })
-
+    }
     this.subCourseDetailsForm.patchValue({
       examCertification: this.subCoursedata.examCertification
     })
@@ -57,10 +65,8 @@ export class ExamCertificationComponent implements OnInit {
       this.courseService.updateSubCourse(this.subCoursedata).subscribe(data => {
         this.subCoursedata = data;
         console.log(this.subCoursedata);
-        this.router.navigate(['/subCourseTab/trainingMode'],{queryParams: {id: data['id']}});
+        this.router.navigate(['/subCourseTab/trainingMode'], { queryParams: { id: data['id'] } });
       })
     }
-
   }
-
 }

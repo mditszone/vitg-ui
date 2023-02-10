@@ -1,0 +1,18 @@
+<div class="container">
+    <div class="card">
+        <form [formGroup]="subCourseDetailsForm">
+            <div class="form-group row">
+                <div class="form-group row">
+                    <label for="youtubeUrl" class="col-sm-3 col-form-label">SubCourse Name</label>
+                    <div class="col-sm-6">
+                        <input type="text" formControlName="name" class="form-control"
+                            [(ngModel)]="subCoursedata.name">
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 pr-0">
+                <button class="btn save" type="button" (click)="updateSubCourse()">Save</button>
+            </div>
+        </form>
+    </div>
+</div>

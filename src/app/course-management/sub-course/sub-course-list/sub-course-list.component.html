@@ -6,11 +6,11 @@
 
 
       <ng-template pTemplate="caption">
-        <button class="addSubCourse" pButton label="Add SubCourse" icon="pi pi-plus" routerLink="/subCourseTab/addSubCourse"></button>
+        <button class="addSubCourse" pButton label="Add SubCourse" icon="pi pi-plus" routerLink="/addSubCourse"></button>
 
         <div class="search">
           <input class="search" pInputText type="text" pInputText size="20"
-            (input)="dt1.filterGlobal($any($event.target).value, 'contains')" placeholder="Global Filter"><br><br>
+            (input)="dt1.filterGlobal($any($event.target).value, 'contains')" placeholder="Global Filter">
         </div>
       </ng-template>
 

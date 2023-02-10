@@ -20,10 +20,7 @@
 
 
 
-
-
-
-
+<!-- 
 <div class="container">
     <div class="card">
         <form [formGroup]="subTopicConceptDetailsForm">
@@ -36,6 +33,28 @@
                 </div>
             </div>
             <br>
+            <div class="form-group row">
+                <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 pr-0">
+                    <button class="btn save" type="button" (click)="createSubTopicConcept()">Save</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div> -->
+
+
+
+<div class="container">
+    <div class="card">
+        <form [formGroup]="subTopicConceptDetailsForm">
+            <div class="form-group row">
+                <label for="trainerPpt" class="col-sm-3 col-form-label">Trainer Ppt<span
+                        class="star text-danger">*</span></label>
+                <div class="col-sm-6">
+                    <input type="file" formControlName="trainerPpt" class="form-control"
+                        [(ngModel)]="subTopicConceptdata.trainerPpt">
+                </div>
+            </div>
             <div class="form-group row">
                 <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 pr-0">
                     <button class="btn save" type="button" (click)="createSubTopicConcept()">Save</button>

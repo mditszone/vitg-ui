@@ -18,6 +18,7 @@ import { DurationDaysComponent } from './duration-days/duration-days.component';
 import { DurationHoursComponent } from './duration-hours/duration-hours.component';
 import { TrainingModeComponent } from './training-mode/training-mode.component';
 import { ExamCertificationComponent } from './exam-certification/exam-certification.component';
+import { SubCourseNameComponent } from './sub-course-name/sub-course-name.component';
 
 
 @NgModule({
@@ -34,6 +35,7 @@ import { ExamCertificationComponent } from './exam-certification/exam-certificat
     DurationHoursComponent,
     TrainingModeComponent,
     ExamCertificationComponent,
+    SubCourseNameComponent
 
   ],
   imports: [

@@ -35,7 +35,6 @@ export class UserService {
     return this.http.get(this.baseURL + '/api/trainer/getAllTrainers');
   }
   public updateTrainerinfo(body:any): Observable<any> {
-    console.log("hello")
     return this.http.put(this.baseURL +'/api/trainer/editTrainer',body);
   }
   

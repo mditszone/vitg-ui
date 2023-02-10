@@ -3,6 +3,7 @@ import { FormBuilder, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Subcourse } from 'src/app/shared/model/subcourse';
 import { CourseService } from 'src/app/shared/services/course.service';
+import { TabService } from 'src/app/shared/services/tab.service';
 
 @Component({
   selector: 'app-training-mode',
@@ -14,11 +15,13 @@ export class TrainingModeComponent implements OnInit {
   subCourseDetailsForm: any;
   subCoursedata!: Subcourse;
   submitted!: boolean;
-  subCourseForm: any
+  subCourseForm: any;
+  subCourseId: any
 
-  constructor(private formBuilder: FormBuilder,
+  constructor(
+    private tabService: TabService,
+    private formBuilder: FormBuilder,
     private router: Router,
-    private route: ActivatedRoute,
     private courseService: CourseService) { }
 
   ngOnInit(): void {
@@ -31,16 +34,22 @@ export class TrainingModeComponent implements OnInit {
   }
 
   patchValue() {
-    this.route.queryParams.subscribe(params => {
-      console.log(params["id"]);
-      let subCourseId: number = parseInt(params["id"]);
-      this.courseService.getSubCourseById(subCourseId).subscribe((subCourse) => {
+    var response = JSON.parse(sessionStorage.getItem('tabServiceData') || '{}')
+    {
+      if (response.id) {
+        this.subCourseId = response.id;
+        console.log(this.subCourseId)
+      }
+      else {
+        this.subCourseId = response;
+        console.log(this.subCourseId)
+      }
+      this.courseService.getSubCourseById(this.subCourseId).subscribe((subCourse) => {
         console.log(subCourse);
         this.subCoursedata = subCourse;
         console.log(this.subCoursedata)
       })
-    })
-
+    }
     this.subCourseDetailsForm.patchValue({
       trainingMode: this.subCoursedata.trainingMode
     })
@@ -58,7 +67,7 @@ export class TrainingModeComponent implements OnInit {
 
       this.courseService.updateSubCourse(this.subCoursedata).subscribe(data => {
         this.subCoursedata = data;
-        this.router.navigate(['/subCourseTab/youtubeUrl'],{queryParams: {id: data['id']}});
+        this.router.navigate(['/subCourseTab/youtubeUrl'], { queryParams: { id: data['id'] } });
       })
     }
 

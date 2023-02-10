@@ -8,7 +8,6 @@
                     <input type="text" formControlName="name" class="form-control" required [(ngModel)]="course.name">
                 </div>
             </div>
-            <br>
             <div class="form-group row">
                 <label for="image" class="col-sm-3 col-form-label">Course Logo </label>
                 <div class="col-sm-6">
@@ -16,8 +15,6 @@
                         [(ngModel)]="course.image">
                 </div>
             </div>
-            <br>
-
             <div class="form-group row">
                 <label for="status" class="col-sm-3 col-form-label">Status</label>
                 <div class="col-sm-6">
@@ -28,7 +25,6 @@
                     </select>
                 </div>
             </div>
-            <br>
             <div class="form-group row">
                 <label for="description" class="col-sm-3 col-form-label">Description</label>
                 <div class="col-sm-6">
@@ -36,7 +32,6 @@
                         formControlName="description" [(ngModel)]="course.description"></ckeditor>
                 </div>
             </div>
-            <br>
             <button type="submit" class="btn save" (click)="createCourse()">Save</button>
         </form>
     </div>

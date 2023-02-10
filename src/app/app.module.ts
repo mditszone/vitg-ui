@@ -49,6 +49,8 @@ import { MaterialScreenModule } from './material-screen/material-screen.module';
 import { MatMomentDateModule, MAT_MOMENT_DATE_ADAPTER_OPTIONS } from '@angular/material-moment-adapter';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { DatePipe } from '@angular/common';
+import { SubTopicConceptListComponent } from './course-management/sub-topic-concept/sub-topic-concept-list/sub-topic-concept-list.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -65,6 +67,7 @@ import { DatePipe } from '@angular/common';
     SubCourseListComponent,
     TopicListComponent,
     SubTopicListComponent,
+    SubTopicConceptListComponent,
     BatchListComponent,
     TrackingListComponent,
     SliderListComponent
@@ -100,13 +103,15 @@ import { DatePipe } from '@angular/common';
     DialogModule,
     MessagesModule,
     ConfirmDialogModule,
-    MatDatepickerModule, MatMomentDateModule,
+    MatDatepickerModule,
+    MatMomentDateModule,
     NgMultiSelectDropDownModule.forRoot()
   ],
   providers: [
-    {provide: DatePipe},
+    { provide: DatePipe },
     { provide: MAT_MOMENT_DATE_ADAPTER_OPTIONS, useValue: { useUtc: true } },
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+
 })
 export class AppModule { }
