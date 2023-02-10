@@ -2,6 +2,8 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
+import { Email } from '../model/email';
+import { Sms } from '../model/sms';
 
 @Injectable({
   providedIn: 'root'
@@ -43,6 +45,14 @@ export class BatchService {
 
   public getOrganizersList(): Observable<any> {
     return this.http.get(this.baseURL + '/api/admin/getOrganizersList')
+  }
+
+  public sendSMS(sms: Sms): Observable<any> {
+    return this.http.post(this.baseURL + '/api/studentBatch/sendSMSToBatch', sms);
+  }
+
+  public sendEmail(email: Email): Observable<any> {
+    return this.http.post(this.baseURL + '/api/studentBatch/sendEmailToBatch', email);
   }
 
 }

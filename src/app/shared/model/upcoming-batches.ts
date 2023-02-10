@@ -1,5 +1,5 @@
 export class UpcomingBatches {
-    course:string="";
+    name:string="";
     startDate:string="";
     mode:string="";
     duration:string="";

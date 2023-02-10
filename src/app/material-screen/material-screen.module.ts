@@ -23,7 +23,7 @@ import { MaterialAllcourseTabsComponent } from './material-allcourse-tabs/materi
     MaterialScreenComponent,
     MaterialMenuComponent,
     AllCoursesMenuComponent,
-    MaterialAllcourseTabsComponent
+    MaterialAllcourseTabsComponent,
   ],
   imports: [
     CommonModule,
@@ -41,4 +41,5 @@ import { MaterialAllcourseTabsComponent } from './material-allcourse-tabs/materi
     FlexLayoutModule
   ]
 })
+
 export class MaterialScreenModule { }

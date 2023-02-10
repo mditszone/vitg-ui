@@ -23,6 +23,8 @@ import { AllcoursesTabsComponent } from './mainscreen/component/allcourses-tabs/
 import { SubtopicConceptTabsComponent } from './course-management/sub-topic-concept/subtopic-concept-tabs/subtopic-concept-tabs.component';
 import { MaterialScreenComponent } from './material-screen/material-screen/material-screen.component';
 import { MaterialSidebarComponent } from './mainscreen/component/material-sidebar/material-sidebar.component';
+import { SendInvitationComponent } from './batch-management/send-invitation/send-invitation.component';
+import { SendSmsComponent } from './batch-management/send-sms/send-sms.component';
 
 const routes: Routes = [
   {
@@ -144,6 +146,24 @@ const routes: Routes = [
       {
         path: 'tracking', pathMatch: 'full',
         component: TrackingListComponent
+      }]
+  },
+  {
+    path: '',
+    component: LayoutComponent,
+    children: [
+      {
+        path: 'sendInvitation', pathMatch: 'full',
+        component: SendInvitationComponent
+      }]
+  },
+  {
+    path: '',
+    component: LayoutComponent,
+    children: [
+      {
+        path: 'sendSms', pathMatch: 'full',
+        component: SendSmsComponent
       }]
   },
   ////

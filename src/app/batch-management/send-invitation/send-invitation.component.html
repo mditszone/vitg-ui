@@ -1,0 +1,47 @@
+<div class="email-body">
+    <h1>Send Invitation</h1>
+    <div class="send-invitation">
+        <div class="container">
+            <div class="batch row1">
+                <span>Batch</span>
+            </div>
+            <div class="row2">
+                <form [formGroup]="emailForm">
+                    <p-dropdown placeholder="- Select Batch -" class="dropdown" [options]="batchList" optionLabel="name" formControlName="batch"
+                        [style]="{'minWidth':'100%', 'height': '35px'}"></p-dropdown>
+                    <div class="select-checkbox">
+                        <div class="checkbox">
+                            <input type="checkbox" formControlName="students" />
+                            <span>Registered Students</span>
+                        </div>
+                        <div class="checkbox">
+                            <input type="checkbox" formControlName="trainers" />
+                            <span>Trainers</span>
+                        </div>
+                        <div class="checkbox">
+                            <input type="checkbox" formControlName="organizer" />
+                            <span>Organizers</span>
+                        </div>
+                    </div>
+                    <div class="emails">
+                        <textarea formControlName="emails" placeholder="Enter emails separated by comma"></textarea>
+                    </div>
+                    <div class="message">
+                        <textarea formControlName="message"></textarea>
+                    </div>
+                    <div class="send">
+                        <input type="button" value="send" (click)="onSubmit()" [disabled]="!emailForm.valid" />
+                    </div>
+    
+                    <div *ngIf="emailForm.controls['message'].invalid && (emailForm.controls['message'].dirty || emailForm.controls['message'].touched)" style="color:red">
+                        <div *ngIf="emailForm.controls['message'].errors.required">
+                        Please enter message
+                      </div>
+                    </div>
+    
+                </form>
+            </div>
+        </div>
+        <div *ngIf="display_status === true" class="status"><pre>{{response}}</pre></div>
+    </div>
+</div>

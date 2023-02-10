@@ -1,0 +1,32 @@
+<div class="container">
+    <div class="d-flex flex-row-reverse bd-highlight">
+        <a href="#" routerLink="/" class="btn back">Back</a>
+    </div>
+    <div class="tabs">
+        <mat-tab-group>
+            <mat-tab label="Batch Info">
+                <div class="card">
+                    <div class="item" *ngFor="let batch of batchData">
+                        <label class="key">{{batch[0]}}</label>
+                        <div class="separator">:</div>
+                        <div class="value">
+                            {{batch[1]}}
+                        </div>
+                    </div>
+                </div>
+            </mat-tab>
+            <mat-tab label="Overview"> Content 2 </mat-tab>
+            <mat-tab label="Demo"> Content 3 </mat-tab>
+            <mat-tab label="Fee & Register">
+                <div *ngIf="!isLoggedIn"class="fee-registration">
+                    <p>Please login to see the fee and registration details</p>
+                    <button (click)="batchRegister()">Register/Login</button>
+                </div>
+                <div *ngIf="isLoggedIn"class="fee-registration">
+                    <p>Fee Details</p>
+                    <button (click)="batchRegister()">Register To Batch</button>
+                </div>
+            </mat-tab>
+        </mat-tab-group>
+    </div>
+</div>

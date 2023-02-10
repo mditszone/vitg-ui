@@ -58,6 +58,8 @@
                             *ngIf="f['email'].errors['pattern'] || f['email'].errors['maxlength'] || f['email'].errors['minlength']">
                             Email
                         </div>
+
+                        
                     </div>
                 </div>
             </div><br>
@@ -93,33 +95,6 @@
                     </div>
                 </div>
             </div><br>
-            <!-- 
-                <div class="form-group row">
-                <label for="profPic" class="col-sm-3 col-form-label">Profile Pic<span
-                        class="star text-danger">*</span></label>
-                <div class="col-sm-6">
-                    <input type="file" formControlName="profPic" class="form-control"
-                        (change)="onUploadChangeProfPic($event)">
-                </div>
-            </div>
-            <div class="form-group row">
-                <label for="aadharPic" class="col-sm-3 col-form-label">Aadhar Pic<span
-                        class="star text-danger">*</span></label>
-                <div class="col-sm-6">
-                    <input type="file" formControlName="aadharPic" class="form-control"
-                        (change)="onUploadChangeAadharPic($event)">
-                </div>
-            </div><br>
-            <div class="form-group row">
-                <label for="panCardPic" class="col-sm-3 col-form-label">PanCard Pic<span
-                        class="star text-danger">*</span></label>
-                <div class="col-sm-6">
-                    <input type="file" formControlName="panCardPic" class="form-control"
-                        (change)="onUploadChangePanCardPic($event)">
-                </div>
-            </div><br>
-            
-            <br> -->
             <div class="form-group row">
                 <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 pr-0">
                     <button class="btn save" type="button" (click)="onSubmitUpdateStaff()">Save</button>

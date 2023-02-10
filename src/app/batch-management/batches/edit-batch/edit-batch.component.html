@@ -32,9 +32,8 @@
                 <label for="trainerCourse" class="col-sm-3 col-form-label">Trainer<span
                         class="star text-danger">*</span></label>
                 <div class="col-sm-6">
-                    <p-dropdown aria-placeholder="- Select Trainer -" formControlName="trainerCourse" [options]="trainerListById"
-                        optionLabel="trainerName" 
-                        [(ngModel)]="batchdata.trainerCourse" [style]="{width: '100%'}">
+                    <p-dropdown aria-placeholder="- Select Trainer -" formControlName="trainerName" [options]="trainerList"
+                        optionLabel="trainerName" [(ngModel)]="selectedTrainer" [style]="{width: '100%'}">
                     </p-dropdown>
                 </div>
             </div><br>
@@ -55,7 +54,6 @@
             </div><br>
 
             <div class="form-group row">
-
                 <label for="start time" class="col-sm-3 col-form-label">Start time</label>
                 <div class="col-sm-6">
                     <input type="text" class="form-control" formControlName="startTime"
@@ -69,12 +67,22 @@
                     <input type="text" class="form-control" formControlName="endTime" [(ngModel)]="batchdata.endTime">
                 </div>
             </div><br>
-
+            <div class="form-group row">
+                <mat-radio-group
+                    aria-labelledby="example-radio-group-label"
+                    class="radio-group"
+                    >
+                    <mat-radio-button class="radio-button" *ngFor="let st of status" [value]="st.name" [checked]="st.status" (change)="statusOnChange($event)">
+                        {{st.name}}
+                    </mat-radio-button>
+                </mat-radio-group>
+            </div>
             <div class="form-group row">
                 <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 pr-0">
                     <button type="button" class="btn save" (click)="updateBatch()">Save</button>
                 </div>
             </div>
+            
         </form>
     </div>
 </div>
