@@ -1,0 +1,53 @@
+<div class="container">
+    <h1 class="name">SubTopicConcept List</h1>
+    <div class="card">
+        <p-table #dt1 [value]="subTopicConceptData" dataKey="id" [paginator]="true" [rows]="10"
+            [showCurrentPageReport]="true" [rowsPerPageOptions]="[10,15,20,100]" [filterDelay]="0"
+            [globalFilterFields]="['id','concept']">
+
+            <ng-template pTemplate="caption">
+                <button class="addSubTopicConcept" pButton label="Add SubTopicConcept" icon="pi pi-plus"
+                    routerLink="/addSubTopicConcept"></button>
+
+                <div class="search">
+                    <input class="search" pInputText type="text" pInputText size="20"
+                        (input)="dt1.filterGlobal($any($event.target).value, 'contains')"
+                        placeholder="Global Filter">
+                </div>
+            </ng-template>
+
+            <ng-template pTemplate="header">
+                <tr>
+                    <th pSortableColumn="id">ID<p-sortIcon field="id"></p-sortIcon>
+                    </th>
+                    <th pSortableColumn="concept">SUB TOPIC CONCEPT<p-sortIcon field="concept"></p-sortIcon>
+                    </th>
+                    <th pSortableColumn="subTopic">SUBTOPIC<p-sortIcon field="cosubTopicncept"></p-sortIcon>
+                    </th>
+                    <th>ACTION </th>
+                </tr>
+            </ng-template>
+
+            <ng-template pTemplate="body" let-subTopicConcept>
+                <tr>
+                    <td>{{subTopicConcept.id}}</td>
+                    <td [innerHTML]="subTopicConcept['concept']"></td>
+                    <td>{{subTopicConcept.subTopic.name}}</td>
+                    <td>
+                        <a [routerLink]="['/viewSubTopicConcept/', subTopicConcept.id]">
+                            <span class="material-icons eye"> visibility </span>
+                        </a>
+
+                        <a [routerLink]="['/subtopicConceptTab/editSubTopicConcept/', subTopicConcept.id]">
+                            <span class="material-icons edit">edit </span>
+                        </a>
+
+                        <!-- <a (click)="deleteSubTopicConcept(subTopicConcept.id)">
+                            <span class="material-icons delete"> delete </span>
+                        </a> -->
+                    </td>
+                </tr>
+            </ng-template>
+        </p-table>
+    </div>
+</div>

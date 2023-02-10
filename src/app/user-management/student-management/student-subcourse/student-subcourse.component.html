@@ -1,7 +1,6 @@
 <div class="container">
     <div class="card">
         <form [formGroup]="studentDetailsForm">
-            <br>
             <div class="form-group row">
                 <label for="course" class="col-sm-3 col-form-label">Course Name<span
                         class="star text-danger">*</span></label>
@@ -10,7 +9,7 @@
                         formControlName="course" [style]="{width: '100%'}" (onChange)="getSubCourseList($event)">
                     </p-dropdown>
                 </div>
-            </div><br>
+            </div>
             <div class="form-group row">
                 <label for="course" class="col-sm-3 col-form-label">SubCourse<span
                         class="star text-danger">*</span></label>
@@ -21,7 +20,7 @@
                         (onSelect)="onItemSelect($event)" (onSelectAll)="onSelectAll($event)">
                     </ng-multiselect-dropdown>
                 </div>
-            </div><br>
+            </div>
             <div class="form-group row">
                 <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 pr-0">
                     <button class="btn save" type="button" (click)="onSubmitUpdateStudent()">Save</button>

@@ -21,7 +21,11 @@ export class AddTopicComponent implements OnInit {
   topicForm: any;
   errorMessage: any
 
-  constructor(private formBuilder: FormBuilder, private router: Router, private route: ActivatedRoute, private courseService: CourseService) { }
+  constructor(
+    private formBuilder: FormBuilder,
+    private router: Router,
+    private route: ActivatedRoute,
+    private courseService: CourseService) { }
 
   ngOnInit(): void {
     this.topicDetailsForm = this.formBuilder.group({
@@ -36,7 +40,6 @@ export class AddTopicComponent implements OnInit {
 
   getCoursesList() {
     this.courseService.getCoursesList().subscribe((data: any) => {
-      console.log(data);
       this.courseList = data;
       (error: any) =>
         this.errorMessage = error;
@@ -44,10 +47,8 @@ export class AddTopicComponent implements OnInit {
   }
 
   getSubCourseList(data: any) {
-    //console.log(data.value.id);
     this.route.snapshot.params['id']
     this.courseService.getSubCourseListByCourseId(data.value.id).subscribe((data: Topic) => {
-      console.log(data);
       this.subCourseListById = data;
       (error: any) =>
         this.errorMessage = error;
@@ -82,7 +83,6 @@ export class AddTopicComponent implements OnInit {
 
       this.courseService.createTopic(this.topic).subscribe(
         (data: any) => {
-          console.log(data)
           this.router.navigate(['/topic']);
         });
     }

@@ -5,10 +5,12 @@ import { MaterialScreenComponent } from './material-screen/material-screen.compo
 
 const routes: Routes = [
   {
-    path:'',component:MaterialScreenComponent,children:[{
-      path:'materialAllcoursestabs',component:MaterialAllcourseTabsComponent
-    }]
-    
+    path: '', component: MaterialScreenComponent,
+    children: [
+      {
+        path: 'materialAllcoursestabs', component: MaterialAllcourseTabsComponent
+      }
+    ]
   }
 ];
 

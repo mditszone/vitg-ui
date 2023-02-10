@@ -119,6 +119,10 @@ export class CourseService {
 
   ////////////////////////////
 
+  public getAllSubTopicConcepts():Observable<any>{
+    return this.http.get(this.baseURL + '/api/subTopicConcept/AllSubTopicConcepts')
+  }
+
   public createSubTopicConcept(subTopicConcept: any): Observable<any> {
     return this.http.post(this.baseURL + '/api/subTopicConcept', subTopicConcept);
   }

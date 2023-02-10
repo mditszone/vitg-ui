@@ -2,18 +2,17 @@
     <div class="card">
         <form [formGroup]="subCourseDetailsForm">
             <div class="form-group row">
-                    <div class="form-group row">
-                        <label for="trainingMode" class="col-sm-3 col-form-label">TrainingMode</label>
-                        <div class="col-sm-6">
-                            <input type="text" formControlName="trainingMode" class="form-control"
-                                [(ngModel)]="subCoursedata.trainingMode">
-                        </div>
+                <div class="form-group row">
+                    <label for="trainingMode" class="col-sm-3 col-form-label">TrainingMode</label>
+                    <div class="col-sm-6">
+                        <input type="text" formControlName="trainingMode" class="form-control"
+                            [(ngModel)]="subCoursedata.trainingMode">
                     </div>
                 </div>
-                <br>
-                <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 pr-0">
-                    <button class="btn save" type="button" (click)="updateSubCourse()">Save</button>
-                </div>
+            </div>
+            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 pr-0">
+                <button class="btn save" type="button" (click)="updateSubCourse()">Save</button>
+            </div>
         </form>
     </div>
 </div>

@@ -5,6 +5,7 @@ import { UploadAdapter } from 'src/app/shared/model/ckuploader';
 import { Subcourse } from 'src/app/shared/model/subcourse';
 import { CourseService } from 'src/app/shared/services/course.service';
 import * as DecoupledEditor from '@ckeditor/ckeditor5-build-decoupled-document';
+import { TabService } from 'src/app/shared/services/tab.service';
 
 @Component({
   selector: 'app-edit-sub-course',
@@ -13,12 +14,14 @@ import * as DecoupledEditor from '@ckeditor/ckeditor5-build-decoupled-document';
 })
 export class EditSubCourseComponent implements OnInit {
   subCourseDetailsForm: any;
-  id!: number;
   subCoursedata!: Subcourse;
   submitted!: boolean;
   subCourseForm: any
+  subCourseId:any
 
-  constructor(private formBuilder: FormBuilder,
+  constructor(
+    private tabService:TabService,
+    private formBuilder: FormBuilder,
     private router: Router,
     private route: ActivatedRoute,
     private courseService: CourseService) { }
@@ -40,17 +43,29 @@ export class EditSubCourseComponent implements OnInit {
     this.subCourseDetailsForm = this.formBuilder.group({
       id: ['', [Validators.required]],
       name: ['', [Validators.required]]
+    });
+    let id = this.route.snapshot.params['id'];
+    console.log(id)
+    this.tabService.myMethod(id);
 
-    }),
-      this.patchValue();
+    this.patchValue();
   }
   patchValue() {
-    this.id = this.route.snapshot.params['id'];
-    console.log(this.id)
-    this.courseService.getSubCourseById(this.id).subscribe((data: Subcourse) => {
+    var response = JSON.parse(sessionStorage.getItem('tabServiceData') || '{}')
+    {
+      if (response.id) {
+        this.subCourseId = response.id;
+        console.log(this.subCourseId)
+      }
+      else {
+        this.subCourseId = response;
+        console.log(this.subCourseId)
+      }
+    this.courseService.getSubCourseById(this.subCourseId).subscribe((data: Subcourse) => {
       console.log(data);
       this.subCoursedata = data;
     });
+  }
     this.subCourseDetailsForm.patchValue({
       id: this.subCoursedata.id,
       name: this.subCoursedata.name

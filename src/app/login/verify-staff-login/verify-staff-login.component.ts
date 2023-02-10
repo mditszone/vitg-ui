@@ -40,7 +40,7 @@ export class VerifyStaffLoginComponent implements OnInit {
   }
   handleClick() {
     console.log(this.otp);
-    var data = JSON.parse(localStorage.getItem('send_otp') || '{}');
+    var data = JSON.parse(sessionStorage.getItem('send_otp') || '{}');
     console.log(data)
     
     this.phoneNumber = data.phoneNumber;
@@ -66,14 +66,14 @@ export class VerifyStaffLoginComponent implements OnInit {
     );
   }
   resend() {
-    let data = JSON.parse(localStorage.getItem('send_otp') || '{}');
+    let data = JSON.parse(sessionStorage.getItem('send_otp') || '{}');
     console.log(data)
     console.log(data.phoneNumber)
 
     this.subscription = this.loginService.sendOTP('/api/auth/login/sendOtp/', `?phoneNumber=${data.phoneNumber}`).subscribe((data: any) => {
       this.message = data;
       console.log(this.message);
-      localStorage.setItem('send_otp', JSON.stringify(data));
+      sessionStorage.setItem('send_otp', JSON.stringify(data));
     }
     );
   }

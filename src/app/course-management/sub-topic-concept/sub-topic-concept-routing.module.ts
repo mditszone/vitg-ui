@@ -2,12 +2,15 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { LayoutComponent } from 'src/app/component/layout/layout.component';
 import { AddSubTopicConceptComponent } from './add-sub-topic-concept/add-sub-topic-concept.component';
+import { EditSubTopicConceptComponent } from './edit-sub-topic-concept/edit-sub-topic-concept.component';
 import { ExamplesComponent } from './examples/examples.component';
 import { GithubUrlComponent } from './github-url/github-url.component';
 import { OtherUrlsComponent } from './other-urls/other-urls.component';
+import { SubTopicConceptNameComponent } from './sub-topic-concept-name/sub-topic-concept-name.component';
 import { SubtopicConceptTabsComponent } from './subtopic-concept-tabs/subtopic-concept-tabs.component';
 import { SubtopicConceptYoutubeUrlComponent } from './subtopic-concept-youtube-url/subtopic-concept-youtube-url.component';
 import { TrainerPptComponent } from './trainer-ppt/trainer-ppt.component';
+import { ViewSubTopicConceptComponent } from './view-sub-topic-concept/view-sub-topic-concept.component';
 
 const routes: Routes = [
   {
@@ -15,16 +18,12 @@ const routes: Routes = [
     component: LayoutComponent,
     children: [
       {
-        path: 'subtopicConceptTab',
-        component: SubtopicConceptTabsComponent,
-        children: [
-          {
-            path: 'addSubtopicConcept', pathMatch: 'full',
-            component: AddSubTopicConceptComponent
-          }]
-      },
+        path: 'addSubTopicConcept', pathMatch: 'full',
+        component: AddSubTopicConceptComponent
+      }
     ]
   },
+
   {
     path: '',
     component: LayoutComponent,
@@ -100,6 +99,46 @@ const routes: Routes = [
       },
     ]
   },
+  {
+    path: '',
+    component: LayoutComponent,
+    children: [
+      {
+        path: 'viewSubTopicConcept/:id',
+        component: ViewSubTopicConceptComponent
+      }
+    ]
+  },
+  {
+    path: '',
+    component: LayoutComponent,
+    children: [
+      {
+        path: 'subtopicConceptTab',
+        component: SubtopicConceptTabsComponent,
+        children: [
+          {
+            path: 'editSubTopicConcept/:id', pathMatch: 'full',
+            component: EditSubTopicConceptComponent
+          }]
+      },
+    ]
+  },
+  {
+    path: '',
+    component: LayoutComponent,
+    children: [
+      {
+        path: 'subtopicConceptTab',
+        component: SubtopicConceptTabsComponent,
+        children: [
+          {
+            path: 'subTopicConceptName', pathMatch: 'full',
+            component: SubTopicConceptNameComponent
+          }]
+      },
+    ]
+  }
 ];
 
 @NgModule({

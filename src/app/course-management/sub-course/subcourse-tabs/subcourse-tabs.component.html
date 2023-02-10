@@ -1,6 +1,6 @@
 <nav mat-tab-nav-bar>
-    <a mat-tab-link #tab [disabled]='!tab.isActive' *ngFor="let tab of subCourseTabs" routerLink="{{ tab.link }}" routerLinkActive #rla="routerLinkActive"
-        [active]="rla.isActive">
+    <a mat-tab-link #tab  *ngFor="let tab of subCourseTabs" routerLink="{{ tab.link }}" routerLinkActive #rla="routerLinkActive"
+        [active]="rla.isActive" (click)="changeTab($event)">
         {{tab.label}}
     </a>
 </nav>

@@ -10,14 +10,14 @@
                 <div class="col-sm-6">
                     <input type="number" formControlName="id" [(ngModel)]="studentdata.id" class="form-control">
                 </div>
-            </div><br>
+            </div>
             <div class="form-group row">
                 <label for="phoneNumber" class="col-sm-3 col-form-label">Phone Number</label>
                 <div class="col-sm-6">
                     <input type="number" formControlName="phoneNumber" [(ngModel)]="studentdata.phoneNumber"
                         class="form-control">
                 </div>
-            </div><br>
+            </div>
             <div class="form-group row">
                 <label for="name" class="col-sm-3 col-form-label">Name <span class="star text-danger">*</span></label>
                 <div class="col-sm-6">
@@ -27,7 +27,7 @@
                         <div *ngIf="f['name'].errors['required']">Name is required</div>
                     </div>
                 </div>
-            </div><br>
+            </div>
             <div class="form-group row">
                 <label for="email" class="col-sm-3 col-form-label">Email<span class="star text-danger">*</span></label>
                 <div class="col-sm-6">
@@ -42,7 +42,6 @@
                     </div>
                 </div>
             </div>
-            <br>
             <div class="form-group row">
                 <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 pr-0">
                     <button class="btn save" type="button" (click)="onSubmitUpdateStudent()">Save</button>

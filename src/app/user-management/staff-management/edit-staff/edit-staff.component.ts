@@ -131,9 +131,9 @@ export class EditStaffComponent implements OnInit {
   }
   patchValue() {
     this.id = this.route.snapshot.params['id'];
-    console.log(this.id);
     this.userService.getStaffById(this.id).subscribe((data: Staff) => {
       this.staffdata = data;
+      console.log(this.staffdata)
     });
     this.staffDetailsForm.patchValue({
       id: this.staffdata.id,

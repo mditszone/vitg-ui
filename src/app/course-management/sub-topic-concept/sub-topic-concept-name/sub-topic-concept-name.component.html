@@ -1,0 +1,18 @@
+<div class="container">
+    <div class="card">
+        <form [formGroup]="subTopicConceptDetailsForm">
+            <div class="form-group row">
+                <label for="name" class="col-sm-3 col-form-label">SubTopicConcept</label>
+                <div class="col-sm-6">
+                    <ckeditor [editor]="Editor" data="<p>Hello, world!</p>" (ready)="onReady($event)"
+                        formControlName="concept" [(ngModel)]="subTopicConceptdata.concept"></ckeditor>
+                </div>
+            </div>
+            <div class="form-group row">
+                <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 pr-0">
+                    <button class="btn save" type="button" (click)="createSubTopicConcept()">Save</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

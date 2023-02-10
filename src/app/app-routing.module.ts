@@ -23,8 +23,12 @@ import { AllcoursesTabsComponent } from './mainscreen/component/allcourses-tabs/
 import { SubtopicConceptTabsComponent } from './course-management/sub-topic-concept/subtopic-concept-tabs/subtopic-concept-tabs.component';
 import { MaterialScreenComponent } from './material-screen/material-screen/material-screen.component';
 import { MaterialSidebarComponent } from './mainscreen/component/material-sidebar/material-sidebar.component';
+
+import { SubTopicConceptListComponent } from './course-management/sub-topic-concept/sub-topic-concept-list/sub-topic-concept-list.component';
+
 import { SendInvitationComponent } from './batch-management/send-invitation/send-invitation.component';
 import { SendSmsComponent } from './batch-management/send-sms/send-sms.component';
+
 
 const routes: Routes = [
   {
@@ -81,7 +85,7 @@ const routes: Routes = [
   },
 
   {
-    path:'materialScreen',component:MaterialScreenComponent
+    path: 'materialScreen', component: MaterialScreenComponent
   },
 
   {
@@ -127,7 +131,18 @@ const routes: Routes = [
       {
         path: 'subtopic', pathMatch: 'full',
         component: SubTopicListComponent
-      }]
+      }
+    ]
+  },
+  {
+    path: '',
+    component: LayoutComponent,
+    children: [
+      {
+        path: 'subTopicConcept', pathMatch: 'full',
+        component: SubTopicConceptListComponent
+      }
+    ]
   },
 
   {

@@ -3,6 +3,7 @@ import { FormBuilder, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { SubTopicConcept } from 'src/app/shared/model/sub-topic-concept';
 import { CourseService } from 'src/app/shared/services/course.service';
+import { TabService } from 'src/app/shared/services/tab.service';
 @Component({
   selector: 'app-examples',
   templateUrl: './examples.component.html',
@@ -17,10 +18,11 @@ export class ExamplesComponent implements OnInit {
   submitted!: boolean;
   subTopicConceptForm: any;
   errorMessage: any
-
-  constructor(private formBuilder: FormBuilder,
+  subTopicConceptId: any
+  constructor(
+    private tabService: TabService,
+    private formBuilder: FormBuilder,
     private router: Router,
-    private route: ActivatedRoute,
     private courseService: CourseService) { this.fileName = ""; }
 
 
@@ -56,18 +58,25 @@ export class ExamplesComponent implements OnInit {
   }
 
   patchValue() {
-    this.route.queryParams.subscribe(params => {
-      console.log(params["id"]);
-      let subTopicConceptId: number = parseInt(params["id"]);
-      this.courseService.getSubTopicConceptById(subTopicConceptId).subscribe((subTopicConcept) => {
+    var response = JSON.parse(sessionStorage.getItem('tabServiceData') || '{}')
+    {
+      if (response.id) {
+        this.subTopicConceptId = response.id;
+        console.log(this.subTopicConceptId)
+      }
+      else {
+        this.subTopicConceptId = response;
+        console.log(this.subTopicConceptId)
+      }
+      this.courseService.getSubTopicConceptById(this.subTopicConceptId).subscribe((subTopicConcept) => {
         console.log(subTopicConcept);
         this.subTopicConceptdata = subTopicConcept;
         console.log(this.subTopicConceptdata)
       })
-    })
-    this.subTopicConceptDetailsForm.patchValue({
-      examples: this.subTopicConceptdata.examples
-    })
+    }
+      this.subTopicConceptDetailsForm.patchValue({
+        examples: this.subTopicConceptdata.examples
+      })
   }
 
   createSubTopicConcept() {
@@ -82,8 +91,7 @@ export class ExamplesComponent implements OnInit {
 
       this.courseService.updateSubTopicConceptInfo(this.subTopicConceptdata).subscribe(
         (data: any) => {
-          console.log(data)
-          this.router.navigate(['/subtopicConceptTab/subtopicConceptYoutubeUrl'], { queryParams: { id: data['id'] } });
+          this.router.navigate(['/subtopicConceptTab/subtopicConceptYoutubeUrl']);
 
           (error) => {
             this.errorMessage = error.error.message;
