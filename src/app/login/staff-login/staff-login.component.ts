@@ -48,7 +48,7 @@ export class StaffLoginComponent implements OnInit {
         this.message = data;
         console.log(data.phoneNumber);
 
-        localStorage.setItem('send_otp', JSON.stringify(data));
+        sessionStorage.setItem('send_otp', JSON.stringify(data));
         this.router.navigate(['/verifyStaffLogin']);
       
         (error) => {
