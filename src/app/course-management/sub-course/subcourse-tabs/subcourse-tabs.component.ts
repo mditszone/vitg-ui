@@ -1,23 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
-export interface Tab {
-  label: string;
-  active: boolean;
-  link: string;
-  index: any;
-};
-
 @Component({
   selector: 'app-subcourse-tabs',
   templateUrl: './subcourse-tabs.component.html',
   styleUrls: ['./subcourse-tabs.component.scss']
 })
 export class SubcourseTabsComponent implements OnInit {
-
-  
-  
-  subCourseTabs: Tab[];
   
   subCourseTabs: any[];
 
