@@ -58,7 +58,7 @@ export class VerifyStudentComponent implements OnInit {
     this.subscription = this.registrationService.verifyStudentOTP(obj).subscribe((data: any) => {
       console.log(data)
       this.studentDTO = data;
-      sessionStorage.setItem('student_dto',JSON.stringify(data));
+      sessionStorage.setItem('student_dto', JSON.stringify(data));
 
 
       if (this.studentDTO.registrationStatus) {
@@ -72,6 +72,11 @@ export class VerifyStudentComponent implements OnInit {
             queryParams: { data: btoa(JSON.stringify(this.studentDTO)) }
           });
       }
+    },
+      (error) => {
+        this.errorMessage = error.error.message;
+        alert(this.errorMessage)
+        console.log(this.errorMessage)
     })
   }
   resend() {
@@ -81,7 +86,7 @@ export class VerifyStudentComponent implements OnInit {
 
     this.subscription = this.registrationService.sendOTP('/api/auth/register/vitg/student/sendOtp/', `?phoneNumber=${data.phoneNumber}`).subscribe((data: any) => {
       this.message = data;
-      sessionStorage.setItem('student_send_otp_response',JSON.stringify(data));
+      sessionStorage.setItem('student_send_otp_response', JSON.stringify(data));
     }
     );
   }
