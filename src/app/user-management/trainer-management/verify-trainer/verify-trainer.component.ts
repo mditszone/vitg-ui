@@ -59,8 +59,14 @@ export class VerifyTrainerComponent implements OnInit {
         {
           queryParams: { data: btoa(JSON.stringify(this.trainerDTO)) }
         });
+      },
+      (error) => {
+        this.errorMessage = error.error.message;
+        alert(this.errorMessage)
+        console.log(this.errorMessage);
     });
   }
+
   resend() {
     let data = JSON.parse(localStorage.getItem('trainer_send_otp_response') || '{}');
     console.log(data)

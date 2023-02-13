@@ -59,9 +59,10 @@ export class VerifyStaffLoginComponent implements OnInit {
       this.router.navigate(['/dashboard']);
     },
       (error) => {
-        this.errorMessage = error.error.message;
-        console.log(this.errorMessage)
 
+        this.errorMessage = error.error.message;
+        alert(this.errorMessage)
+        console.log(this.errorMessage)
       }
     );
   }
