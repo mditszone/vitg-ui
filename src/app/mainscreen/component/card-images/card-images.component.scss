@@ -1,36 +1,106 @@
-.container {
-    padding-top: 40px;
+// .container {
+//     padding-top: 40px;
+// }
+// .border {
+//     border-radius: 4px;
+//     padding: 40px;
+//     margin-top: -16px;
+// }
+// .name {
+//     color: #0669ad;
+// }
+// .mat-card {
+//     background-color: rgb(156, 197, 235);
+//     cursor: pointer;
+// }
+// .card-name {
+//     font-size: 15px;
+// }
+// .card-image {
+//     margin-left: 50px;
+//     width: 60px;
+//     margin-bottom: 20px;
+//     border-radius: 6px;
+// }
+
+// .cards {
+//     display: grid;
+//     grid-template-columns: repeat(auto-fill, minmax(190px, 1fr));
+//     grid-gap: 20px;
+// }
+// .card {
+//     width: 205px;
+//     display: grid;
+// }
+
+// @media (min-width: 576px) {
+//     .card {
+//       width: 100%;
+//     }
+// }
+
+// @media (min-width: 400px) {
+//     .card {
+//       width: 100%;
+//     }
+// }
+
+.card-container {
+    margin: 20px;
 }
-.border {
-    border-radius: 4px;
-    padding-top: 20px;
-    padding-right: 5px;
-    padding-bottom: 20px;
-    margin-top: -16px;
-}
-.name {
-    color: #0669ad;
-}
-.mat-card {
-    background-color: rgb(156, 197, 235);
-    cursor: pointer;
-}
-.card-name {
-    font-size: 15px;
-}
-.card-image {
-    margin-left: 50px;
-    width: 60px;
-    margin-bottom: 20px;
-    border-radius: 6px;
+.card-border {
+    border: 1px solid rgb(220, 220, 220);
 }
 
+
 .cards {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(190px, 1fr));
-    grid-gap: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    .card {
+        width: 30%;
+        margin: 10px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
 }
-.card {
-    width: 205px;
-    display: grid;
+
+@media (max-width: 480px) {
+    .card-border {
+        border: none !important;
+    }
+    .cards {
+        padding: 0;
+    }
+    .card {
+        width: 95% !important;
+    }
+}
+
+
+@media (min-width: 481px) and (max-width: 767px) {
+    .card-border {
+        border: none !important;
+    }
+    .cards {
+        padding: 0;
+    }
+    .card {
+        width: 95% !important;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+    .card-border {
+        border: none !important;
+    }
+    .cards {
+        padding: 0;
+    }
+    .card {
+        width: 45% !important;
+    }
 }

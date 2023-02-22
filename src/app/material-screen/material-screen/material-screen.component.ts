@@ -78,8 +78,8 @@ export class MaterialScreenComponent implements OnInit {
   }
 
 
-  batchView(id: number) {
-    this.router.navigate(['/batchView/', id]);
+  batchView() {
+    this.router.navigate(['/materialbatchList']);
   }
 
   ngAfterContentChecked() {

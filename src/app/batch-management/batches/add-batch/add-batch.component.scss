@@ -44,12 +44,10 @@
 
 .dates {
   display: flex;
-  flex-direction: column;
   justify-content: center;
   align-items: center;
   .field {
-    width: 50%;
-    margin: 2px 10px;
+    width: 25%;
   }
 }
 
@@ -60,4 +58,19 @@
   .field {
     width: 25%;
   }
+}
+
+.fee-duration {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px;
+  .batch-input{
+    width: 25%;
+    height: 50px;
+  }
+}
+
+.batch-input{
+  height: 50px;
 }

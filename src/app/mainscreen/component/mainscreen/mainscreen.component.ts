@@ -1,5 +1,5 @@
 import { Router } from '@angular/router';
-import { ChangeDetectorRef, Component, OnInit, ViewChild } from '@angular/core';
+import { ChangeDetectorRef, Component, NgZone, OnInit, ViewChild } from '@angular/core';
 import { Course } from 'src/app/shared/model/course';
 import { MenuItem } from 'src/app/shared/model/menu-item';
 import { Subcourse } from 'src/app/shared/model/subcourse';
@@ -26,16 +26,20 @@ export class MainscreenComponent implements OnInit {
   batchMenu: BatchMenu[];
 
   menuItems: any = [{
-    displayName: "All Courses",
+    displayName: "ALL COURSES",
     children: []
   }];
+
+  childCourse: any = this.menuItems.children;
 
   constructor(private courseService: CourseService, 
       private batchService: BatchService,  
       private cdr: ChangeDetectorRef, 
-      private router: Router) {
+      private router: Router, private zone: NgZone) {
     this.courseService.getAllCourses().subscribe((arrayOfCourse: Course[]) => {
       arrayOfCourse.forEach((course, courseIndex) => {
+      console.log("course children", this.menuItems[0].children);
+
         this.menuItems[0].children[courseIndex] = {
           "displayName": course.name,
           "children": []
@@ -50,6 +54,7 @@ export class MainscreenComponent implements OnInit {
           });
         });
       });
+      
     });
 
     this.batchService.getAllBatches().subscribe(data => {
@@ -67,13 +72,17 @@ export class MainscreenComponent implements OnInit {
     this.cdr.detectChanges();
   }
 
-  batchView(id: number) {
-    this.router.navigate(['/batchView/', id]);
+  batchView() {
+    this.router.navigate(['/batchList']);
   }
 
   onClick() {
     console.log("i am working");
     this.router.navigate(['/tabComponent']);
+  }
+
+  moveToTabs(id: any): void { 
+    this.zone.run(() => this.router.navigate(['/tabComponent'], { queryParams: { subCourseId: id } }));
   }
 
   // onClickMaterial() {

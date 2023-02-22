@@ -1,4 +1,4 @@
-<div class="container">
+<!-- <div class="container">
     <h1 class="name">Courses</h1>
     <div class="border">
         <div class="cards">
@@ -13,5 +13,38 @@
                 </mat-card>
             </div>
         </div>
+    </div>
+</div> -->
+
+<div class="card-container">
+    <h1 class="name">Courses</h1>
+    <div class="card-border">
+        <div class="cards">
+            <div class="card" *ngFor="let subCourse of finalSubcourseList">
+                <div class="card__image-holder">
+                  <img class="card__image" [src]="subCourse.image" alt="underwater" />
+                </div>
+                <div class="card-title">
+                  <a href="#" class="toggle-info btn">
+                    <span class="left"></span>
+                    <span class="right"></span>
+                  </a>
+                  <h2>
+                        {{subCourse.course.name}}
+                      <small>{{subCourse.name}}</small>
+                  </h2>
+                </div>
+                <div class="card-flap flap1">
+                  <!-- <div class="card-description">
+                    This grid is an attempt to make something nice that works on touch devices. Ignoring hover states when they're not available etc.
+                  </div> -->
+                  <div class="card-flap flap2">
+                    <div class="card-actions">
+                      <a href="#" class="btn">Read more</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+          </div>          
     </div>
 </div>

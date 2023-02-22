@@ -1,74 +1,114 @@
-<mat-toolbar class="header">
-    <mat-toolbar-row>
-        <img class="vitg-logo" routerLink="" routerLinkActive="active" src="../../assets/vitg-logo.png">
-        <h1 class="vision" routerLink="" routerLinkActive="active">Vision </h1>
-        <h1 class="it" routerLink="" routerLinkActive="active">IT</h1>
-        <h1 class="global" routerLink="" routerLinkActive="active">Global</h1>
+<div class="mainscreen-container">
+    <mat-toolbar>
+        <mat-toolbar-row class="header">
+            <div class="vitg-logo-container">
+                <img class="vitg-logo" routerLink="" routerLinkActive="active" src="../../assets/vitg-logo.png">
+                <div class="logo">
+                    <h1 class="vision" routerLink="" routerLinkActive="active">Vision </h1>
+                    <h1 class="it" routerLink="" routerLinkActive="active">IT</h1>
+                    <h1 class="global" routerLink="" routerLinkActive="active">Global</h1>
+                </div>
+            </div>
 
-        <div class="basic-container">
-            <span *ngFor="let item of menuItems">
-                <span *ngIf="item.children && item.children.length > 0">
-                    <button #menuTrigger="matMenuTrigger" (mouseover)="menuTrigger.openMenu()" mat-raised-button
-                        class="allcourses" [matMenuTriggerFor]="menu.childMenu">
-                        <mat-icon>apps</mat-icon>
-                        {{item.displayName}}
-                    </button>
-                    <app-menu #menu [items]="item.children">
-                        <span (mouseleave)="closeMyMenu()"></span>
-                    </app-menu>
+            <div class="basic-container menu">
+                <span *ngFor="let item of menuItems">
+                    <span *ngIf="item.children && item.children.length > 0">
+                        <button #menuTrigger="matMenuTrigger" (mouseover)="menuTrigger.openMenu()" mat-raised-button
+                            class="allcourses" [matMenuTriggerFor]="menu.childMenu">
+                            <mat-icon>apps</mat-icon>
+                            {{item.displayName}}
+                        </button>
+                        <app-menu #menu [items]="item.children">
+                            <span (mouseleave)="closeMyMenu()"></span>
+                        </app-menu>
+                    </span>
+                    <span *ngIf="!item.children || item.children.length === 0">
+                        <button mat-button (click)="onClick()">
+                            {{item.displayName}}
+                        </button>
+                    </span>
                 </span>
-                <span *ngIf="!item.children || item.children.length === 0">
-                    <button mat-button (click)="onClick()">
-                        {{item.displayName}}
-                    </button>
-                </span>
-            </span>
-        </div>
-        <div class="batch-menu">
-            <!-- <span *ngFor="let item of batchMenu">
-                    <button mat-raised-button
-                        class="allcourses" >
-                        <mat-icon>apps</mat-icon>
-                        {{item}}
-                    </button>
-            </span> -->
 
-            <button mat-button [matMenuTriggerFor]="batch" class="allcourses">Batch List</button>
-            <!-- #enddocregion mat-menu-trigger-for -->
-            <mat-menu #batch="matMenu">
-                <span *ngFor="let batch of batchMenu">
-                    <button mat-menu-item (click)="batchView(batch.id)">{{batch.name}}</button>
-                </span>
+                <!-- <div class="batch-menu"> -->
+                <!-- <span *ngFor="let item of batchMenu">
+                        <button mat-raised-button
+                            class="allcourses" >
+                            <mat-icon>apps</mat-icon>
+                            {{item}}
+                        </button>
+                </span> -->
+
+                <button mat-button class="allcourses" (click)="batchView()">Batch List</button>
+                <!-- #enddocregion mat-menu-trigger-for -->
+                <!-- <mat-menu #batch="matMenu">
+                    <span *ngFor="let batch of batchMenu">
+                        <button mat-menu-item (click)="batchView(batch.id)">{{batch.name}}</button>
+                    </span>
+                </mat-menu> -->
+                <ul>
+                    <a routerLink="aboutus" routerLinkActive="active">ABOUT US</a>
+                    <a routerLink="services" routerLinkActive="active">SERVICES</a>
+                    <a routerLink="portfolio" routerLinkActive="active">PORTFOLIO</a>
+                    <a routerLink="team" routerLinkActive="active">TEAM</a>
+                    <a routerLink="contactus" routerLinkActive="active">CONTACT US</a>
+                    <a routerLink="register" routerLinkActive="active">LOGIN/REGISTER</a>
+                </ul>
+            </div>
+
+            <button mat-button [matMenuTriggerFor]="menu" class="burger-menu"><mat-icon>menu</mat-icon></button>
+            <mat-menu #menu="matMenu">
+                <button mat-menu-item routerLink="batchList">Batches</button>
+                <button mat-menu-item routerLink="services">Services</button>
+                <button mat-menu-item [matMenuTriggerFor]="courses">All Courses</button>
+                <button mat-menu-item routerLink="portfolio">Portfolio</button>
+                <button mat-menu-item routerLink="team">Team</button>
+                <button mat-menu-item routerLink="contactus">Contact Us</button>
+                <button mat-menu-item routerLink="register">Register</button>
+                <button mat-menu-item routerLink="aboutus">About Us</button>
             </mat-menu>
-        </div>
+            <mat-menu #courses="matMenu">
+                <button mat-menu-item [matMenuTriggerFor]="subCourse" *ngFor="let item of menuItems[0].children">
+                    {{item.displayName}}
+                    <mat-menu #subCourse="matMenu">
+                        <button mat-menu-item *ngFor="let child of item.children" (click)="moveToTabs(child.id)">
+                            {{child.displayName}}
+                        </button>
+                    </mat-menu>
+                </button>
+            </mat-menu>
+            <!-- <mat-menu #subCourse="matMenu">
+                <span *ngFor="let item of menuItems[0].children">
+                    <span *ngFor="let child of item.children">
+                        <button mat-menu-item *ngFor="let item of menuItems[0].children">
+                            {{item.displayName}}
+                            <mat-menu #[item.displayName]="matMenu">
+                                <button mat-menu-item #menuTrigger="matMenuTrigger" (mouseover)="menuTrigger.openMenu()"
+                                    [matMenuTriggerFor]="item.displayName">
+                                    {{item.displayName}}
+                                </button>
+                            </mat-menu>
+                        </button>
+                    </span>
+                </span>
+                
+            </mat-menu> -->
+
+        </mat-toolbar-row>
+    </mat-toolbar>
 
 
-        <span class="fill-remaining-space"></span>
-        <div class="navbar-components">
-            <ul class="menu">
-                <a mat-button routerLink="aboutus" routerLinkActive="active">ABOUT US</a>
-                <a mat-button [matMenuTriggerFor]="services">SERVICES</a>
-                <mat-menu #services="matMenu">
-                    <a mat-menu-item routerLink="training" routerLinkActive="active">Training</a>
-                    <a mat-menu-item routerLink="outSourcing" routerLinkActive="active">Out Sourcing</a>
-                    <a mat-menu-item routerLink="internship" routerLinkActive="active">Internship</a>
-                    <a mat-menu-item routerLink="projectDevelopment" routerLinkActive="active">Project development</a>
-                </mat-menu>
-                <a mat-button routerLink="portfolio" routerLinkActive="active">PORTFOLIO</a>
-                <a mat-button routerLink="team" routerLinkActive="active">TEAM</a>
-                <a mat-button routerLink="contactus" routerLinkActive="active">CONTACT US</a>
-                <a mat-button routerLink="register" routerLinkActive="active">LOGIN/REGISTER</a>
-            </ul>
-        </div>
-    </mat-toolbar-row>
-</mat-toolbar>
 
-<div class="body">
-    <router-outlet></router-outlet>
-</div>
+    <div class="body">
+        <router-outlet></router-outlet>
+    </div>
 
-<mat-toolbar class="footer">
-    <mat-toolbar-row>
+    <!-- <mat-toolbar class="footer">
+        <mat-toolbar-row>
+            
+        </mat-toolbar-row>
+    </mat-toolbar> -->
+
+    <div class="footer">
         &copy;All rights reserved 2022
-    </mat-toolbar-row>
-</mat-toolbar>
+    </div>
+</div>

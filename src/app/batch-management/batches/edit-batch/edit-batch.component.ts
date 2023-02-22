@@ -124,10 +124,8 @@ export class EditBatchComponent implements OnInit {
       this.batchdata.startTime = this.batchForm.startTime;
       this.batchdata.endTime = this.batchForm.endTime;
       console.log(this.selectedStatus);
-      if (this.selectedStatus == 'Enable') this.batchdata.status = true;
-      else this.batchdata.status = false;
-
-
+      if (this.selectedStatus == 'Enable') this.batchdata.status = 'ACTIVE';
+      else this.batchdata.status = 'INACTIVE';
 
       console.log(this.batchdata)
 

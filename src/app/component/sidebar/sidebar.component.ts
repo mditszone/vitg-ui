@@ -36,6 +36,11 @@ export class SidebarComponent implements OnInit {
     this.sidenavSmall = !this.sidenavSmall;
   }
 
+  openEnquires() {
+    console.log("clicked");
+    this.router.navigate(["/enquaries"]);
+  }
+
   navItems: NavItem[] = [
 
     // {
@@ -165,6 +170,14 @@ export class SidebarComponent implements OnInit {
           displayName: 'Send SMS',
           iconName: '',
           route: 'sendSms',
+          roles: [
+            RoleEnum.ADMIN
+          ]
+        },
+        {
+          displayName: 'Student Register',
+          iconName: '',
+          route: 'registerStudent',
           roles: [
             RoleEnum.ADMIN
           ]

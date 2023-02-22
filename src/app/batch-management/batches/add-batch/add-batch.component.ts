@@ -53,6 +53,8 @@ export class AddBatchComponent implements OnInit {
       endDate: ['', [Validators.required]],
       startTime: ['', [Validators.required]],
       endTime: ['', [Validators.required]],
+      fee: ['', [Validators.required]],
+      duration: ['', [Validators.required]]
     }),
 
     this.getCoursesList();
@@ -97,7 +99,9 @@ export class AddBatchComponent implements OnInit {
       startDate: this.data.startDate,
       endDate: this.data.endDate,
       startTime: this.data.startTime,
-      endTime: this.data.endTime
+      endTime: this.data.endTime,
+      fee: this.data.fee,
+      duration: this.data.duration
     });
   }
   createBatch() {
@@ -118,6 +122,9 @@ export class AddBatchComponent implements OnInit {
       this.batch.endDate = this.batchForm.endDate;
       this.batch.startTime = this.batchForm.startTime;
       this.batch.endTime = this.batchForm.endTime;
+      this.batch.fee = this.batchForm.fee;
+      this.batch.duration = this.batchForm.duration;
+      this.batch.status = "ACTIVE";
 
       this.batchService.createBatch(this.batch).subscribe(
         (data: any) => {

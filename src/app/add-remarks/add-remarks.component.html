@@ -1,0 +1,7 @@
+<div class="container">
+    <form action="#" [formGroup]="remarksForm">
+        <label for="message">ADD REMARKS <em>&#x2a;</em>
+        </label><textarea id="message" name="message" required="" rows="4" formControlName="reply" ></textarea>
+        <button id="customerOrder" class="btn mt-4 verify" [disabled]="!remarksForm.valid" (click)="onSubmit()">UPDATE</button>
+    </form>
+</div>

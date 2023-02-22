@@ -10,8 +10,13 @@
             <mat-icon>notifications_none</mat-icon>
         </button>
         <mat-menu #bell="matMenu" class="myMenu" yPosition="above" xPosition="before" class="notification-menu">
-            <button mat-menu-item class="notification-menu__button">
-                <mat-icon class="notification-menu__icon_yellow">local_offer</mat-icon>Notifications
+            <button mat-menu-item class="notification-menu__button" >
+                <mat-icon class="notification-menu__icon_yellow">local_offer</mat-icon>
+                Notifications
+            </button>
+            <button mat-menu-item class="notification-menu__button" (click)="openEnquires()">
+                <mat-icon class="notification-menu__icon_yellow">enquiryr</mat-icon>
+                Enquires
             </button>
         </mat-menu>
         <button mat-icon-button [matMenuTriggerFor]="profile">
