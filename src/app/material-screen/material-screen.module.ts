@@ -16,6 +16,8 @@ import { DialogModule } from 'primeng/dialog';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { AllCoursesMenuComponent } from './all-courses-menu/all-courses-menu.component';
 import { MaterialAllcourseTabsComponent } from './material-allcourse-tabs/material-allcourse-tabs.component';
+import { BatchViewComponent } from './batch-view/batch-view.component';
+import { MaterialUpcomingBatchesTableComponent } from './material-upcoming-batches-table/material-upcoming-batches-table.component';
 
 
 @NgModule({
@@ -24,6 +26,8 @@ import { MaterialAllcourseTabsComponent } from './material-allcourse-tabs/materi
     MaterialMenuComponent,
     AllCoursesMenuComponent,
     MaterialAllcourseTabsComponent,
+    BatchViewComponent,
+    MaterialUpcomingBatchesTableComponent,
   ],
   imports: [
     CommonModule,

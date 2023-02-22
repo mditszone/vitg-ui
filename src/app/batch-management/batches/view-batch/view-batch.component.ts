@@ -18,11 +18,12 @@ export class ViewBatchComponent implements OnInit {
     const id = this.route.snapshot.params['id'];
     this.batchService.getBatchById(id).subscribe((data: Batch) => {
       this.batchData = [
-        ["ID", data.id],
         ["Name", data.name],
         ["Trainer", data.trainerCourse.trainerName],
-        ["Start Date", data.startDate],
-        ["End Date", data.endDate],
+        ["Fee", `${data.fee} /-`],
+        ["Duration", `${data.duration} hrs`],
+        ["Start Date", data.startDate.substring(0, 10)],
+        ["End Date", data.endDate.substring(0, 10)],
         ["Start Time", data.startTime],
         ["End Time", data.endTime]
       ];

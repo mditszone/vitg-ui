@@ -15,6 +15,7 @@ import { AddStudentComponent } from './component/student-dashboard/add-student/a
 import { StudentRegisterComponent } from './component/student-dashboard/student-register/student-register.component';
 import { VerifyStudentComponent } from './component/student-dashboard/verify-student/verify-student.component';
 import { TeamComponent } from './component/team/team.component';
+import { UpcomingBatchesTableComponent } from './component/upcoming-batches-table/upcoming-batches-table.component';
 
 const routes: Routes = [
 
@@ -55,9 +56,7 @@ const routes: Routes = [
   {
     path: 'register', component: StudentRegisterComponent
   },
-  {
-    path: 'batchView/:id', component: BatchViewComponent,
-  },
+
   {
     path: 'verifyStudent', pathMatch: 'full',
     component: VerifyStudentComponent
@@ -65,7 +64,19 @@ const routes: Routes = [
   {
     path: 'addStudent', pathMatch: 'full',
     component: AddStudentComponent
-  }
+  },
+  {
+    path: 'batchList', pathMatch: 'full', component: UpcomingBatchesTableComponent,
+    // children: [
+    //   {
+    //     path: 'batchView/:id', pathMatch: 'full', component: BatchViewComponent,
+    //   },
+    // ]
+  },
+    {
+        path: 'batchView/:id', pathMatch: 'full', component: BatchViewComponent,
+      }
+  
 ];
 
 @NgModule({

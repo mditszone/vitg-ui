@@ -9,6 +9,9 @@ export class Batch {
     courseId:any;
     trainerName:any;
     trainerCourse!:TrainerCourse;
+    fee!:number;
+    duration!:number;
+    status!: string;
     staff!: Staff;
     organizers !: Staff;
     name!: string;
@@ -17,5 +20,4 @@ export class Batch {
     endDate !: string;
     startTime: string = "";
     endTime: string = "";
-    status?: boolean;
 }

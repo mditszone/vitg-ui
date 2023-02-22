@@ -28,6 +28,9 @@ import { SubTopicConceptListComponent } from './course-management/sub-topic-conc
 
 import { SendInvitationComponent } from './batch-management/send-invitation/send-invitation.component';
 import { SendSmsComponent } from './batch-management/send-sms/send-sms.component';
+import { EnquiryComponentComponent } from './enquiry-component/enquiry-component.component';
+import { EnquiryReplyComponent } from './enquiry-reply/enquiry-reply.component';
+import { BatchRegisterComponent } from './batch-management/batch-register/batch-register.component';
 
 
 const routes: Routes = [
@@ -177,11 +180,38 @@ const routes: Routes = [
     component: LayoutComponent,
     children: [
       {
+        path: 'registerStudent', pathMatch: 'full',
+        component: BatchRegisterComponent
+      }]
+  },
+  {
+    path: '',
+    component: LayoutComponent,
+    children: [
+      {
         path: 'sendSms', pathMatch: 'full',
         component: SendSmsComponent
       }]
   },
-  ////
+  {
+    path: '',
+    component: LayoutComponent,
+    children: [
+      {
+        path: 'enquaries', pathMatch: 'full',
+        component: EnquiryComponentComponent
+      }]
+  },
+  {
+    path: '',
+    component: LayoutComponent,
+    children: [
+      {
+        path: 'enquiryReply/:id', pathMatch: 'full',
+        component: EnquiryReplyComponent
+      }]
+  },
+  //
   {
     path: '',
     component: LayoutComponent,

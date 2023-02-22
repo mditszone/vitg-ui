@@ -9,6 +9,7 @@ import { BatchService } from 'src/app/shared/services/batch.service';
   styleUrls: ['./batch-view.component.scss']
 })
 export class BatchViewComponent implements OnInit {
+  batchName: string = "";
   batchData: Object[] = [];
   isLoggedIn: boolean = sessionStorage.getItem("student_send_otp_response") == null ? false : true;
   constructor(private routes: ActivatedRoute, private batchService: BatchService, private router: Router) { }
@@ -17,12 +18,14 @@ export class BatchViewComponent implements OnInit {
     this.routes.paramMap.subscribe((params: ParamMap) => {
       const id = parseInt(params.get('id'));
       this.batchService.getBatchById(id).subscribe((data: Batch) => {
+        this.batchName = data.name;
         this.batchData = [
-          ["ID", data.id],
           ["Name", data.name],
           ["Trainer", data.trainerCourse.trainerName],
-          ["Start Date", data.startDate],
-          ["End Date", data.endDate],
+          ["Fee", `${data.fee} /-`],
+          ["Duration", `${data.duration} hrs`],
+          ["Start Date", data.startDate.substring(0, 10)],
+          ["End Date", data.endDate.substring(0, 10)],
           ["Start Time", data.startTime],
           ["End Time", data.endTime]
         ];

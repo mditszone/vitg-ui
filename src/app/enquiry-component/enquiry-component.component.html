@@ -1,0 +1,45 @@
+<div class="container">
+    <h1 class="name">Enquires</h1>
+    <div class="card">
+      <p-table #dt1 [value]="enquires" dataKey="id" [paginator]="true" [rows]="10" [showCurrentPageReport]="true"
+        [rowsPerPageOptions]="[10,15,20,100]" [filterDelay]="0" 
+        [globalFilterFields]="['id','courseName','trainer']"
+        >
+        <ng-template pTemplate="header">
+          <tr>
+            <th pSortableColumn="id">ID<p-sortIcon field="id"></p-sortIcon>
+            </th>
+            <th pSortableColumn="batchName">NAME<p-sortIcon field="batchName"></p-sortIcon>
+            </th>
+            <th pSortableColumn="startDate">EMAIL<p-sortIcon field="startDate"></p-sortIcon>
+            </th>
+            <th pSortableColumn="endDate">PHONE NUMBER<p-sortIcon field="endDate"></p-sortIcon>
+            </th>
+            <th pSortableColumn="trainer">MESSAGE<p-sortIcon field="trainer"></p-sortIcon>
+            </th>
+            <th pSortableColumn="status">STATUS<p-sortIcon field="trainer"></p-sortIcon>
+              <th pSortableColumn="status">REMARK<p-sortIcon field="trainer"></p-sortIcon>
+            </th>
+            <th>ACTION </th>
+          </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-enquiry>
+          <tr>
+            <td>{{enquiry.id}}</td>
+            <td>{{enquiry.name}}</td>
+            <td>{{enquiry.email}}</td>
+            <td>{{enquiry.phoneNumber}}</td>
+            <td>{{enquiry.message}}</td>
+            <td>{{enquiry.status}}</td>
+            <td>{{enquiry.remarks}}</td>
+            <td>
+                <a [routerLink]="['/enquiryReply/', getLink(enquiry)]">
+                    <span class="material-icons reply view"> reply </span></a>
+                  <a [routerLink]="['/editEnquiry/', getLink(enquiry)]">
+                    <span class="material-icons edit">edit </span></a>
+            </td>
+          </tr>
+        </ng-template>
+      </p-table>
+    </div>
+  </div> 

@@ -57,6 +57,10 @@ import { SendSmsComponent } from './batch-management/send-sms/send-sms.component
 import {DropdownModule} from 'primeng/dropdown';
 import { MAT_DATE_LOCALE } from '@angular/material/core'
 import {NgxMatIntlTelInputComponent} from 'ngx-mat-intl-tel-input';
+import { EnquiryComponentComponent } from './enquiry-component/enquiry-component.component';
+import { EnquiryReplyComponent } from './enquiry-reply/enquiry-reply.component';
+import { AddRemarksComponent } from './add-remarks/add-remarks.component';
+import { BatchRegisterComponent } from './batch-management/batch-register/batch-register.component';
 
 
 
@@ -82,6 +86,10 @@ import {NgxMatIntlTelInputComponent} from 'ngx-mat-intl-tel-input';
     SliderListComponent,
     SendInvitationComponent,
     SendSmsComponent,
+    EnquiryComponentComponent,
+    EnquiryReplyComponent,
+    AddRemarksComponent,
+    BatchRegisterComponent,
 
   ],
   imports: [

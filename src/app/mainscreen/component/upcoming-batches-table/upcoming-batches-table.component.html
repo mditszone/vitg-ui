@@ -15,30 +15,28 @@
 
             <ng-template pTemplate="header">
                 <tr>
-                  <th pSortableColumn="id">ID<p-sortIcon field="id"></p-sortIcon>
+                  <th pSortableColumn="batchName">BATCH NAME<p-sortIcon field="batchName"></p-sortIcon></th>
+                  <th pSortableColumn="endDate">START DATE<p-sortIcon field="endDate"></p-sortIcon>
                   </th>
-                  <th pSortableColumn="batchName">BATCH NAME<p-sortIcon field="batchName"></p-sortIcon>
+                  <th pSortableColumn="trainer">END DATE<p-sortIcon field="trainer"></p-sortIcon>
                   </th>
-                  <th pSortableColumn="startDate">STARTDATE<p-sortIcon field="startDate"></p-sortIcon>
-                  </th>
-                  <th pSortableColumn="endDate">ENDDATE<p-sortIcon field="endDate"></p-sortIcon>
-                  </th>
-                  <th pSortableColumn="trainer">TRAINER<p-sortIcon field="trainer"></p-sortIcon>
+                <th pSortableColumn="startDate">FEE<p-sortIcon field="startDate"></p-sortIcon>
+                </th>
+                  <th pSortableColumn="trainer">DURATION<p-sortIcon field="trainer"></p-sortIcon>
                   </th>
                   <th>ACTION </th>
                 </tr>
               </ng-template>
               <ng-template pTemplate="body" let-batch>
                 <tr>
-                  <td>{{batch.id}}</td>
                   <td>{{batch.name}}</td>
-                  <td>{{batch.startDate}}</td>
-                  <td>{{batch.endDate}}</td>
-                  <td>{{batch.trainerCourse.trainerName}}</td>
+                  <td>{{batch.startDate.substring(0, 10)}}</td>
+                  <td>{{batch.endDate.substring(0, 10)}}</td>
+                  <td>{{batch.fee}}</td>
+                  <td>{{batch.duration}}</td>
                   <td>
-                      <a [routerLink]="['batchView/', batch.id]">
+                      <a [routerLink]="['/batchView/', batch.id]">
                           <span class="material-icons eye"> visibility </span></a>
-
                   </td>
                 </tr>
             </ng-template>

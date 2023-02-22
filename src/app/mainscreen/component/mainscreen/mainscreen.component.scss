@@ -11,22 +11,22 @@
   width: 60px;
   cursor: pointer;
 }
-.vision {
-  font-size: 22px;
-  padding-left: 16px;
-  cursor: pointer;
-}
-.it {
-  font-size: 22px;
-  padding-left: 5px;
-  color: #ffc82a;
-  cursor: pointer;
-}
-.global {
-  font-size: 22px;
-  padding-left: 5px;
-  cursor: pointer;
-}
+// .vision {
+//   font-size: 22px;
+//   padding-left: 16px;
+//   cursor: pointer;
+// }
+// .it {
+//   font-size: 22px;
+//   padding-left: 5px;
+//   color: #ffc82a;
+//   cursor: pointer;
+// }
+// .global {
+//   font-size: 22px;
+//   padding-left: 5px;
+//   cursor: pointer;
+// }
 .menu a {
   font-size: 12px;
   margin: 8px;
@@ -65,16 +65,166 @@
   background-color: #0669ad;
   color: #fff;
   font-size: 13px;
-  padding-left: 690px;
 }
 
-// .body {
-//   z-index: 2;
-//   width: 100%;
-//   height: 100%;
-//   overflow: auto;
-// }
+.basic-container.menu {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
-.body {
-  
+.app-mainscreen{
+  display: block;
+  width: 100%;
+}
+.mainscreen-container {
+  width: 100% !important;
+  height: 100vh;
+  padding: 0 !important;
+  margin: 0 !important;
+  .header {
+    display: flex;
+      justify-content: space-between;
+      align-items: center;
+    .vitg-logo-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      .logo {
+        display: flex;
+        .vision {
+          font-size: 2.5vw;
+          padding-left: 16px;
+          cursor: pointer;
+        }
+        .it {
+          font-size: 2.5vw;
+          padding-left: 5px;
+          color: #ffc82a;
+          cursor: pointer;
+        }
+        .global {
+          font-size: 2.5vw;
+          padding-left: 5px;
+          cursor: pointer;
+        }
+      }
+    }
+    .burger-menu {
+      display: none;
+    }  
+  }
+}
+
+ul {
+  li {
+    list-style-type: none;
+    a {
+      text-decoration: none;
+    }
+  }
+}
+ /* Media Query for Mobile Devices */
+ @media (max-width: 480px) {
+  .mainscreen-container {
+    max-width: 100%;
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      
+      .vitg-logo-container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        .logo {
+          display: flex;
+          .vision {
+            font-size: 6vw;
+            padding-left: 16px;
+            cursor: pointer;
+          }
+          .it {
+            font-size: 6vw;
+            padding-left: 5px;
+            color: #ffc82a;
+            cursor: pointer;
+          }
+          .global {
+            font-size: 6vw;
+            padding-left: 5px;
+            cursor: pointer;
+          }
+        }
+      }
+      .menu {
+        display: none;
+      }
+      .burger-menu {
+        display: block;
+      }  
+    }
+  }
+}
+
+/* Media Query for low resolution  Tablets, Ipads */
+@media (min-width: 481px) and (max-width: 767px) {
+  .mainscreen-container{
+    width: 100%;
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      .vision {
+        font-size: 6vw;
+        padding-left: 16px;
+        cursor: pointer;
+      }
+      .menu {
+        display: none;
+      }
+      .logo {
+        display: flex;
+        .it {
+          font-size: 6vw;
+          padding-left: 5px;
+          color: #ffc82a;
+          cursor: pointer;
+        }
+        .global {
+          font-size: 6vw;
+          padding-left: 5px;
+          cursor: pointer;
+        }
+      }
+      .burger-menu {
+        display: block;
+      } 
+    }
+  }
+}
+
+/* Media Query for Tablets Ipads portrait mode */
+@media (min-width: 768px) and (max-width: 1024px){
+  .mainscreen-container {
+    width: 100% !important;
+    margin: 0;
+  }
+}
+
+/* Media Query for Laptops and Desktops */
+@media (min-width: 1025px) and (max-width: 1280px){
+  .mainscreen-container {
+    width: 100% ;
+    margin: 0;
+  }
+}
+
+/* Media Query for Large screens */
+@media (min-width: 1281px) {
+  .mainscreen-container {
+    width: 100%;
+    margin: 0;
+    color: #000;
+  }
 }
