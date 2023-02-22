@@ -5,7 +5,7 @@
             <div class="form-group row">
                 <label for="course" class="col-sm-3 col-form-label">Course Name<span class="star text-danger">*</span></label>
                 <div class="col-sm-6">
-                    <p-dropdown placeholder="- Select -" [options]="courseList" optionLabel="name"
+                    <p-dropdown placeholder="- Select Course -" [options]="courseList" optionLabel="name"
                         formControlName="course" [style]="{width: '100%'}" (onChange)="getSubCourseList($event)">
                     </p-dropdown>
                     <div class="text-error"
@@ -19,7 +19,7 @@
             <div class="form-group row">
                 <label for="subCourse" class="col-sm-3 col-form-label">SubCourse Name<span class="star text-danger">*</span></label>
                 <div class="col-sm-6">
-                    <p-dropdown placeholder="- Select  -" [options]="subCourseList" optionLabel="name"
+                    <p-dropdown placeholder="- Select SubCourse -" [options]="subCourseList" optionLabel="name"
                         formControlName="subCourse" [style]="{width: '100%'}" (onChange)="getTopicList($event)">
                     </p-dropdown>
                     <div class="text-error"
@@ -33,7 +33,7 @@
             <div class="form-group row">
                 <label for="topic" class="col-sm-3 col-form-label">Topic Name<span class="star text-danger">*</span></label>
                 <div class="col-sm-6">
-                    <p-dropdown placeholder="- Select  -" [options]="topicList" optionLabel="name"
+                    <p-dropdown placeholder="- Select Topic -" [options]="topicList" optionLabel="name"
                         formControlName="topic" [style]="{width: '100%'}" >
                     </p-dropdown>
                     <div class="text-error"

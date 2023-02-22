@@ -23,6 +23,11 @@ export class SubTopicConceptListComponent implements OnInit {
     this.courseService.getAllSubTopicConcepts().subscribe(data => {
       this.subTopicConceptData = data;
       console.log(this.subTopicConceptData)
+    }); 
+  }
+  deleteSubTopicConcept(id: number) {
+    this.courseService.deleteSUbTopicConceptById(id).subscribe(data => {
+      this.subTopicConceptData = this.subTopicConceptData.filter(item => item.id !== id);
     });
   }
 }

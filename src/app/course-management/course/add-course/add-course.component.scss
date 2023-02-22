@@ -25,3 +25,23 @@
 .form-group{
     padding-bottom: 10px;
 }
+.custom-select {
+    height: auto;
+    width: 511px;
+    padding: 10px;
+    font-size: 15px;
+    cursor: pointer;
+    font-weight: 400;
+    color: #222222;
+    background-color: #FDFDFD;
+    border: 1px solid #ced7dd;
+    border-radius: 5px;
+}
+.custom-select:focus {
+    border: 1px solid #ced7dd;
+  }
+
+.custom-select:focus,
+.custom-select:focus {
+  box-shadow: none;
+}

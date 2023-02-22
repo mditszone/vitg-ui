@@ -19,7 +19,9 @@ export class SidebarComponent implements OnInit {
   ngOnInit(): void {
     const userInfo = JSON.parse(sessionStorage.getItem('staff_dto') || '{}');
     const role = userInfo.vitgStaffDTO.role.roleName;
+    console.log(role)
     this.menuItems = this.navItems.filter((menuItem) => menuItem.roles?.includes(role));
+    
   }
 
   @ViewChild('sidenav', { static: false }) sidenav!: MatSidenav;

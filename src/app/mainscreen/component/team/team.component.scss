@@ -1,3 +1,31 @@
-.container{
-    padding-top: 90px;
+.team{
+    margin-top: 30px;
+    background-color: rgba(6, 105, 173, 0.49);
+    height: 70px;
+    text-align: start;
+    padding-top: 20px;
 }
+.team .header{
+    padding-left: 150px;
+    font-size: 30px;
+}
+.container{
+    padding-top: 30px;
+    padding-left: 50px;
+}
+.container .content-1{
+    display: flex;
+    column-gap: 180px;
+    padding-top: 30px;
+}
+.container .content-2{
+    display: flex;
+    column-gap: 40px;
+    padding-top: 30px;
+}
+.container .content-1 .header{
+    color: #0069ad;
+}
+  .container .content-2 .header{
+      color: #0069ad;
+  }

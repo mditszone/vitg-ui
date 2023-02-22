@@ -1,5 +1,4 @@
 import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
-import { Slider } from 'src/app/shared/model/slider';
 import { SliderService } from 'src/app/shared/services/slider.service';
 
 @Component({
