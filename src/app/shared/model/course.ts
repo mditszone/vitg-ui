@@ -3,6 +3,5 @@ export class Course {
     name:string="";;
     image:any;
     status?:boolean;
-    description:any;
-    
+    description:any;   
 }

@@ -31,6 +31,10 @@ import { MaterialLayoutComponent } from './component/material-layout/material-la
 import { DialogDemoComponent } from './component/dialog-demo/dialog-demo.component';
 import {NgxMatIntlTelInputComponent} from 'ngx-mat-intl-tel-input';
 import { BatchViewComponent } from './component/batch-view/batch-view.component';
+import { NgbCarouselConfig, NgbCarouselModule } from '@ng-bootstrap/ng-bootstrap';
+import { OutSourcingComponent } from './component/out-sourcing/out-sourcing.component';
+import { InternshipComponent } from './component/internship/internship.component';
+import { ProjectDevelopmentComponent } from './component/project-development/project-development.component';
 
 @NgModule({
   declarations: [
@@ -52,6 +56,9 @@ import { BatchViewComponent } from './component/batch-view/batch-view.component'
     MaterialSidebarComponent,
     MaterialLayoutComponent,
     BatchViewComponent,
+    OutSourcingComponent,
+    InternshipComponent,
+    ProjectDevelopmentComponent,
     
   ],
   imports: [
@@ -69,7 +76,8 @@ import { BatchViewComponent } from './component/batch-view/batch-view.component'
     ButtonModule,
     DialogModule,
     ToolbarModule,
-    FlexLayoutModule
+    FlexLayoutModule,
+    NgbCarouselModule
   ],
   exports: [MainscreenModule.rootComponent],
   entryComponents: [MainscreenModule.rootComponent]

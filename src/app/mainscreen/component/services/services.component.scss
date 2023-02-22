@@ -1,3 +1,60 @@
+.training{
+    margin-top: 30px;
+    background-color: rgba(6, 105, 173, 0.49);
+    height: 70px;
+    text-align: start;
+    padding-top: 20px;
+}
+.training .header{
+    padding-left: 110px;
+    font-size: 30px;
+}
 .container{
-    padding-top: 90px;
+    padding-top: 30px;
+    margin-bottom: 40px;
+}
+.container .content{
+    display: flex;
+    column-gap: 370px;
+    margin-bottom: 50px;
+}
+.container .content .card{
+    width:180px;
+}
+
+.container .corporate-trainings{
+    display: flex;
+    column-gap: 60px;
+}
+.corporate-trainings .card{
+    width:350px;
+    height: 250px;
+  }
+  .corporate-trainings .card img{
+  padding-left: 80px;
+  padding-top: 55px;
+  padding-bottom: 15px;
+  width: 200px;
+  }
+  .shape {
+    display:flex;
+    background-color: #0669ad;
+    height: 310px;
+    position: relative;
+    width: 1200px;
+  color:white;
+}
+.shape::before {
+    background-color: #0669ad;
+    content: "";
+    height: 310px;
+    position: absolute;
+    right: -75px;
+    transform: skew(-25deg);
+    width: 150px;
+}
+.container .shape .text{
+    padding-right: 20px;
+    padding-top: 20px;
+    padding-left: 20px;
 }

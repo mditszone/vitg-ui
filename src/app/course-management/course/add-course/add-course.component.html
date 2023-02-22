@@ -18,8 +18,9 @@
             <div class="form-group row">
                 <label for="status" class="col-sm-3 col-form-label">Status</label>
                 <div class="col-sm-6">
-                    <select class="form-control" formControlName="status" placeholder="Active"
+                    <select class="custom-select" formControlName="status" 
                         [(ngModel)]="course.status">
+                        <option value="undefined" hidden disabled>Select</option>
                         <option value="true">Active</option>
                         <option value="false">InActive</option>
                     </select>

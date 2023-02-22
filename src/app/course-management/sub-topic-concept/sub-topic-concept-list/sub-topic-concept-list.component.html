@@ -34,17 +34,14 @@
                     <td [innerHTML]="subTopicConcept['concept']"></td>
                     <td>{{subTopicConcept.subTopic.name}}</td>
                     <td>
-                        <a [routerLink]="['/viewSubTopicConcept/', subTopicConcept.id]">
-                            <span class="material-icons eye"> visibility </span>
-                        </a>
 
                         <a [routerLink]="['/subtopicConceptTab/editSubTopicConcept/', subTopicConcept.id]">
                             <span class="material-icons edit">edit </span>
                         </a>
 
-                        <!-- <a (click)="deleteSubTopicConcept(subTopicConcept.id)">
+                        <a (click)="deleteSubTopicConcept(subTopicConcept.id)">
                             <span class="material-icons delete"> delete </span>
-                        </a> -->
+                        </a>
                     </td>
                 </tr>
             </ng-template>

@@ -57,6 +57,7 @@ import { SendSmsComponent } from './batch-management/send-sms/send-sms.component
 import {DropdownModule} from 'primeng/dropdown';
 import { MAT_DATE_LOCALE } from '@angular/material/core'
 import {NgxMatIntlTelInputComponent} from 'ngx-mat-intl-tel-input';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 
 
@@ -120,7 +121,8 @@ import {NgxMatIntlTelInputComponent} from 'ngx-mat-intl-tel-input';
 
     MatDatepickerModule, MatMomentDateModule, DropdownModule,
 
-    NgMultiSelectDropDownModule.forRoot()
+    NgMultiSelectDropDownModule.forRoot(),
+      NgbModule
   ],
   providers: [
     { provide: DatePipe },

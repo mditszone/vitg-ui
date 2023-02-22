@@ -6,10 +6,13 @@ import { BatchViewComponent } from './component/batch-view/batch-view.component'
 import { CardImagesComponent } from './component/card-images/card-images.component';
 import { ContactUsComponent } from './component/contact-us/contact-us.component';
 import { ImageSliderComponent } from './component/image-slider/image-slider.component';
+import { InternshipComponent } from './component/internship/internship.component';
 import { MainscreenComponent } from './component/mainscreen/mainscreen.component';
 import { MaterialLayoutComponent } from './component/material-layout/material-layout.component';
 import { MaterialSidebarComponent } from './component/material-sidebar/material-sidebar.component';
+import { OutSourcingComponent } from './component/out-sourcing/out-sourcing.component';
 import { PortfolioComponent } from './component/portfolio/portfolio.component';
+import { ProjectDevelopmentComponent } from './component/project-development/project-development.component';
 import { ServicesComponent } from './component/services/services.component';
 import { AddStudentComponent } from './component/student-dashboard/add-student/add-student.component';
 import { StudentRegisterComponent } from './component/student-dashboard/student-register/student-register.component';
@@ -42,6 +45,18 @@ const routes: Routes = [
   },
   {
     path: 'services', component: ServicesComponent
+  },
+  {
+    path: 'training', component: ServicesComponent
+  },
+  {
+    path: 'outSourcing', component: OutSourcingComponent
+  },
+  {
+    path: 'internship', component: InternshipComponent
+  },
+  {
+    path: 'projectDevelopment', component: ProjectDevelopmentComponent
   },
   {
     path: 'portfolio', component: PortfolioComponent

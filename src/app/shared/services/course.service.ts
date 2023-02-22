@@ -134,9 +134,12 @@ export class CourseService {
     return this.http.get(this.baseURL + `/api/subTopicConcept/getSubTopicConceptBySubTopicId/?subTopicId=${id}`)
   }
 
-
   public updateSubTopicConceptInfo(body: any): Observable<any> {
     return this.http.put(this.baseURL + '/api/subTopicConcept/editSubTopicConcept', body)
+  }
+
+  public deleteSUbTopicConceptById(id: number): Observable<any> {
+    return this.http.delete(this.baseURL + `/api/subTopicConcept/${id}`)
   }
 
   public pushFileToStorage(body: any): Observable<any> {

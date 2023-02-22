@@ -10,7 +10,6 @@ import { SubTopicConceptNameComponent } from './sub-topic-concept-name/sub-topic
 import { SubtopicConceptTabsComponent } from './subtopic-concept-tabs/subtopic-concept-tabs.component';
 import { SubtopicConceptYoutubeUrlComponent } from './subtopic-concept-youtube-url/subtopic-concept-youtube-url.component';
 import { TrainerPptComponent } from './trainer-ppt/trainer-ppt.component';
-import { ViewSubTopicConceptComponent } from './view-sub-topic-concept/view-sub-topic-concept.component';
 
 const routes: Routes = [
   {
@@ -97,16 +96,6 @@ const routes: Routes = [
             component: OtherUrlsComponent
           }]
       },
-    ]
-  },
-  {
-    path: '',
-    component: LayoutComponent,
-    children: [
-      {
-        path: 'viewSubTopicConcept/:id',
-        component: ViewSubTopicConceptComponent
-      }
     ]
   },
   {
