@@ -3,5 +3,15 @@
     width: 100%;
 }
 .container{
-    padding-top: 100px;
+    padding: 50px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    .images {
+        width: 90%;
+        image {
+            height: 200px;
+        }
+    }
 }

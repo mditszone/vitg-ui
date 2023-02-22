@@ -112,6 +112,7 @@
     }
     .burger-menu {
       display: none;
+      padding-right: 50px;
     }  
   }
 }
@@ -162,6 +163,7 @@ ul {
       }
       .burger-menu {
         display: block;
+        padding-right: 50px;
       }  
     }
   }
@@ -199,6 +201,7 @@ ul {
       }
       .burger-menu {
         display: block;
+        padding-right: 50px;
       } 
     }
   }
@@ -206,9 +209,39 @@ ul {
 
 /* Media Query for Tablets Ipads portrait mode */
 @media (min-width: 768px) and (max-width: 1024px){
-  .mainscreen-container {
-    width: 100% !important;
-    margin: 0;
+  .mainscreen-container{
+    width: 100%;
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      .vision {
+        font-size: 6vw;
+        padding-left: 16px;
+        cursor: pointer;
+      }
+      .menu {
+        display: none;
+      }
+      .logo {
+        display: flex;
+        .it {
+          font-size: 6vw;
+          padding-left: 5px;
+          color: #ffc82a;
+          cursor: pointer;
+        }
+        .global {
+          font-size: 6vw;
+          padding-left: 5px;
+          cursor: pointer;
+        }
+      }
+      .burger-menu {
+        display: block;
+        padding-right: 50px;
+      } 
+    }
   }
 }
 
