@@ -57,7 +57,7 @@ export class SubtopicConceptYoutubeUrlComponent implements OnInit {
     })
   }
 
-  createSubTopicConcept() {
+  saveYoutubeUrl() {
 
     this.submitted = true;
 

@@ -35,6 +35,7 @@ import { NgbCarouselConfig, NgbCarouselModule } from '@ng-bootstrap/ng-bootstrap
 import { OutSourcingComponent } from './component/out-sourcing/out-sourcing.component';
 import { InternshipComponent } from './component/internship/internship.component';
 import { ProjectDevelopmentComponent } from './component/project-development/project-development.component';
+import { ViewExampleComponent } from './component/view-example/view-example.component';
 
 @NgModule({
   declarations: [
@@ -59,6 +60,7 @@ import { ProjectDevelopmentComponent } from './component/project-development/pro
     OutSourcingComponent,
     InternshipComponent,
     ProjectDevelopmentComponent,
+    ViewExampleComponent,
     
   ],
   imports: [

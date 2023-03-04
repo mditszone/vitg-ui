@@ -1,45 +1,82 @@
-.card{
-    width: 45%;
-    height: 65%;
-    margin-left: 400px;
-    margin-top: 80px;
-    padding-left: 120px;
+.verify-staff-login {
+    height: 88.5vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .verify-container {
+    height: 250px;
+    width: 450px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     border: 1px solid #0669ad;
-    border-radius: 4px;
-    padding-top: 35px;
-    padding-bottom: 55px;
-}
-.card-title{
-    padding-right: 90px;
-    font-size: 15px;
-}
-.card-subtitle{
+    border-radius: 5px;
+  }
+  .card-subtitle {
     color: #0669ad;
-    font-weight: 500;
-}
-
-.resend{
+    font-size: 15px;
+  }
+  .resend-message {
+    color: #0669ad;
+    padding-top: 5px;
+    font-size: 15px;
+  }
+  .resend {
     background-color: #0669ad;
     color: #fff;
-    border-radius: 5px;
     border-color: #fff;
-    padding: 5px 20px;
+    border-radius: 5px;
+    padding: 5px 15px;
     font-weight: 500;
     font-size: 15px;
     line-height: 24px;
-    margin-left: 0px;
     margin-top: 25px;
     cursor: pointer;
-}
-.verify{
+  }
+  .verify {
     background-color: #0669ad;
     color: #fff;
-    border-radius: 5px;
     border-color: #fff;
+    border-radius: 5px;
     padding: 5px 20px;
     font-weight: 500;
     font-size: 15px;
     line-height: 24px;
-    margin-left: 94px;
+    float: right;
     cursor: pointer;
-}
+  }
+  
+  // mobile screen
+  @media (max-width: 420px) {
+    .verify-container {
+      border: 0.1px solid #0669ad;
+    }
+    .card-subtitle {
+      color: #0669ad;
+      font-size: 13px;
+    }
+    .resend-message {
+      font-size: 13px;
+    }
+    .resend {
+      border-radius: 4px;
+      padding: 3px 12px;
+      font-weight: 400;
+      font-size: 12px;
+      line-height: 24px;
+      margin-top: 25px;
+    }
+    .verify {
+      border-radius: 4px;
+      padding: 3px 12px;
+      font-weight: 400;
+      font-size: 12px;
+      line-height: 24px;
+    }
+  }
+  
+  // tab screen
+  @media (max-width: 768px) {
+    
+  }

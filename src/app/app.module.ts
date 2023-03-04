@@ -64,6 +64,7 @@ import { EnquiryComponentComponent } from './enquiry-component/enquiry-component
 import { EnquiryReplyComponent } from './enquiry-reply/enquiry-reply.component';
 import { AddRemarksComponent } from './add-remarks/add-remarks.component';
 import { BatchRegisterComponent } from './batch-management/batch-register/batch-register.component';
+import { FullScreenLayoutComponent } from './component/full-screen-layout/full-screen-layout.component';
 
 
 
@@ -94,6 +95,7 @@ import { BatchRegisterComponent } from './batch-management/batch-register/batch-
     EnquiryReplyComponent,
     AddRemarksComponent,
     BatchRegisterComponent,
+    FullScreenLayoutComponent,
 
   ],
   imports: [

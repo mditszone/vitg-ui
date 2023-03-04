@@ -143,21 +143,29 @@ export class CourseService {
     return this.http.delete(this.baseURL + `/api/subTopicConcept/${id}`)
   }
 
-  public pushFileToStorage(body: any): Observable<any> {
+  public pushFileToStorage(files:File[],id:number,fileCategory:string): Observable<Object> {
     const formdata: FormData = new FormData();
-    formdata.append('file', body);
-    return this.http.post(this.baseURL + '/api/fileUpload', formdata, {
+    for (const file of files) {
+      formdata.append("files", file);
+  }
+    return this.http.post(this.baseURL + `/api/file/${id}?fileCategory=${fileCategory}`,formdata, {
       reportProgress: true,
-      responseType: 'text'
+      responseType: 'text',
     });
   }
+  public getFileListsFromS3(id:number,fileCategory:string):Observable<any>{
+    return this.http.get(this.baseURL + `/api/file/getAllFiles/${id}?fileCategory=${fileCategory}`)
+  }
 
-  // public pushFileToStorage(body: any): Observable<any> {
-  //   const formdata: FormData = new FormData();
-  //   formdata.append('file', body);
-  //   return this.http.post('http://localhost:8081/file/upload', formdata,{
-  //     reportProgress: true,
-  //     responseType: 'text'
-  //   });
-  // }
+  public getFileFromS3(fileName:any):Observable<any>{
+    const httpOptions = {
+      //'responseType'  : 'arraybuffer' as 'json'
+      'responseType'  : 'blob' as 'json'        
+    };
+    return this.http.get(this.baseURL + `/api/file/download?fileName=${fileName}`,httpOptions)
+  }
+
+  public deleteFileFromS3(fileName:any):Observable<any>{
+    return this.http.get(this.baseURL + `/api/file/delete/${fileName}`)
+  }
 }

@@ -30,8 +30,8 @@ export class VerifyStaffLoginComponent implements OnInit {
     disableAutoFocus: false,
     placeholder: '',
     inputStyles: {
-      width: '50px',
-      height: '50px',
+      width: '40px',
+      height: '40px',
     },
   };
 
@@ -56,15 +56,14 @@ export class VerifyStaffLoginComponent implements OnInit {
     this.subscription = this.loginService.verifyOTP(obj).subscribe((data: any) => {
       
       sessionStorage.setItem('staff_dto', JSON.stringify(data));
-      this.router.navigate(['/dashboard']);
-    },
-      (error) => {
-
-        this.errorMessage = error.error.message;
-        alert(this.errorMessage)
-        console.log(this.errorMessage)
+      if(data.vitgStaffDTO){
+        this.router.navigate(['/dashboard']);
       }
-    );
+      if(data.trainerDTO){
+        
+      this.router.navigate(['/materialScreen']);
+      }
+    });
   }
   resend() {
     let data = JSON.parse(sessionStorage.getItem('send_otp') || '{}');

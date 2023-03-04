@@ -69,9 +69,8 @@ export class AddSubTopicConceptComponent implements OnInit {
     });
   }
   getSubCourseList(data: any) {
-    console.log(data.value.id);
     this.route.snapshot.params['id']
-    this.courseService.getSubCourseListByCourseId(data.value.id).subscribe((data: SubTopicConcept) => {
+    this.courseService.getSubCourseListByCourseId(data.value.id).subscribe((data: any) => {
       console.log(data)
       this.subCourseList = data;
       (error: any) =>
@@ -79,9 +78,7 @@ export class AddSubTopicConceptComponent implements OnInit {
     })
   }
   getTopicList(data: any) {
-    console.log(data)
     this.route.snapshot.params['id']
-
     this.courseService.getTopicListBySubCourseId(data.value.id).subscribe((data: SubTopicConcept) => {
       console.log(data)
       this.topicList = data;

@@ -84,7 +84,7 @@ const routes: Routes = [
 
   {
     path: 'dashboard',
-    component: SidebarComponent
+    component: SidebarComponent,
   },
 
   {
