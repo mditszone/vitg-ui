@@ -1,0 +1,117 @@
+:host ::ng-deep .user {
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 10px 0;
+    background-color: #e0eef9;
+    border-bottom: 1px solid rgb(186, 186, 186);
+    img {
+        border: 1px solid grey;
+        border-radius: 100%;
+        margin: 5px 5px 5px 0;
+        display: block;
+    }
+    .data {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        margin: 5px;
+        .name {
+            color: #0669AD;
+            font-size: 12px;
+            font-weight: 500;
+            margin-right: 5px;
+        }
+        .msg {
+            font-size: 9px;
+            color: #959595;
+        }
+    }
+    .status {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        align-items: flex-end;
+        margin: 5px;
+        .time {
+            color: #BABABA;
+            font-size: 8px;
+        }
+        .count {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 15px;
+            width: 15px;
+            border-radius: 100%;
+            background-color: #0669AD;
+            color: #fff;
+            font-size: 7px;
+        }
+    }
+}
+
+
+:host ::ng-deep .selected-user {
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 10px 0;
+    background-color: #cfe9ff;
+    border-bottom: 1px solid rgb(186, 186, 186);
+    img {
+        border: 1px solid grey;
+        border-radius: 100%;
+        margin: 5px 5px 5px 0;
+        display: block;
+    }
+    .data {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        margin: 5px;
+        .name {
+            color: #0669AD;
+            font-size: 12px;
+            font-weight: 500;
+            margin-right: 10px;
+        }
+        .msg {
+            font-size: 9px;
+            color: #959595;
+        }
+    }
+    .status {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        align-items: flex-end;
+        margin: 5px;
+        mat-icon{
+            color: #b5b4b4;
+        }
+        .time {
+            color: #BABABA;
+            font-size: 8px;
+        }
+        .count {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 15px;
+            width: 15px;
+            border-radius: 100%;
+            background-color: #0669AD;
+            color: #fff;
+            font-size: 7px;
+        }
+    }
+}
+
+.user-menu-item {
+    padding: 5px 0 5px 10px;
+}

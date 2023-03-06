@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { DashboardComponent } from './dashboard/dashboard.component';
 import { StaffListComponent } from './user-management/staff-management/staff-list/staff-list.component';
 import { StudentListComponent } from './user-management/student-management/student-list/student-list.component';
 import { TrainerListComponent } from './user-management/trainer-management/trainer-list/trainer-list.component';
@@ -12,7 +11,6 @@ import { CourseListComponent } from './course-management/course/course-list/cour
 import { SubCourseListComponent } from './course-management/sub-course/sub-course-list/sub-course-list.component';
 import { TopicListComponent } from './course-management/topic/topic-list/topic-list.component';
 import { SubTopicListComponent } from './course-management/sub-topic/sub-topic-list/sub-topic-list.component';
-import { AddSubTopicConceptComponent } from './course-management/sub-topic-concept/add-sub-topic-concept/add-sub-topic-concept.component';
 import { MainscreenComponent } from './mainscreen/component/mainscreen/mainscreen.component';
 import { AddsliderComponent } from './application-management/slider/addslider/addslider.component';
 import { SliderListComponent } from './application-management/slider/slider-list/slider-list.component';
@@ -31,6 +29,9 @@ import { SendSmsComponent } from './batch-management/send-sms/send-sms.component
 import { EnquiryComponentComponent } from './enquiry-component/enquiry-component.component';
 import { EnquiryReplyComponent } from './enquiry-reply/enquiry-reply.component';
 import { BatchRegisterComponent } from './batch-management/batch-register/batch-register.component';
+import { FaqsComponent } from './application-management/faqs/faqs.component';
+import { EditFaqComponent } from './application-management/edit-faq/edit-faq.component';
+import { AddFaqComponent } from './application-management/add-faq/add-faq.component';
 
 
 const routes: Routes = [
@@ -59,43 +60,28 @@ const routes: Routes = [
       }
     ]
   },
-
   {
     path: '',
     component: MainscreenComponent,
     children: [{
       path: '',
       loadChildren: () =>
-
         import('./mainscreen/mainscreen.module').then((mainscreen) => mainscreen.MainscreenModule),
     }]
   },
-
-  // {
-  //   path: '',
-  //   component: LayoutComponent,
-  //   children: [
-  //     {
-  //       path: 'dashboard', pathMatch: 'full',
-  //       component: DashboardComponent
-  //     }]
-  // },
 
 
   {
     path: 'dashboard',
     component: SidebarComponent,
   },
-
   {
     path: 'materialScreen', component: MaterialScreenComponent
   },
-
   {
     path: 'staffLogin',
     component: StaffLoginComponent
   },
-
   {
     path: 'verifyStaffLogin',
     component: VerifyStaffLoginComponent
@@ -147,7 +133,6 @@ const routes: Routes = [
       }
     ]
   },
-
   {
     path: '',
     component: LayoutComponent,
@@ -258,6 +243,33 @@ const routes: Routes = [
         component: SliderListComponent
       }]
   },
+  {
+    path: '',
+    component: LayoutComponent,
+    children: [
+      {
+        path: 'faqs', pathMatch: 'full',
+        component: FaqsComponent
+      }]
+  },
+  {
+    path: '',
+    component: LayoutComponent,
+    children: [
+      {
+        path: 'addfaqs', pathMatch: 'full',
+        component: AddFaqComponent
+      }]
+  },
+  // {
+  //   path: '',
+  //   component: LayoutComponent,
+  //   children: [
+  //     {
+  //       path: 'chat', pathMatch: 'full',
+  //       component: ChatWindowComponent
+  //     }]
+  // },
   {
     path: '',
     component: LayoutComponent,

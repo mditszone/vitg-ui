@@ -20,8 +20,14 @@ export class SidebarComponent implements OnInit {
     const userInfo = JSON.parse(sessionStorage.getItem('staff_dto') || '{}');
     const role = userInfo.vitgStaffDTO.role.roleName;
     console.log(role)
-    this.menuItems = this.navItems.filter((menuItem) => menuItem.roles?.includes(role));
-    
+    //this.menuItems = this.navItems.filter((menuItem) => menuItem.roles?.includes(role));
+    this.navItems.forEach((menuItem) => {
+     const item = menuItem.children.filter(item => item.roles?.includes(role));
+     if (item.length > 0) {
+      menuItem.children = item;
+      this.menuItems.push(menuItem);
+     }
+    });
   }
 
   @ViewChild('sidenav', { static: false }) sidenav!: MatSidenav;
@@ -202,6 +208,45 @@ export class SidebarComponent implements OnInit {
           route: 'settings',
           roles: [
             RoleEnum.ADMIN
+          ]
+        },
+        {
+          displayName: 'Faq\'s',
+          iconName: '',
+          route: 'faqs',
+          roles: [
+            RoleEnum.ADMIN
+          ]
+        }
+      ]
+    },
+    {
+      displayName: 'Support Team',
+      iconName: 'manage_accounts',
+      roles: [ RoleEnum.SUPPORT_ENGINEER],
+      children: [
+        {
+          displayName: 'Notifications',
+          iconName: '',
+          route: 'support/notifications',
+          roles: [
+            RoleEnum.SUPPORT_ENGINEER
+          ]
+        },
+        {
+          displayName: 'Chat',
+          iconName: '',
+          route: 'support/chat/chat',
+          roles: [
+            RoleEnum.SUPPORT_ENGINEER
+          ]
+        },
+        {
+          displayName: 'Feed Back',
+          iconName: '',
+          route: 'support/feedback',
+          roles: [
+            RoleEnum.SUPPORT_ENGINEER
           ]
         }
       ]

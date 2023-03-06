@@ -6,15 +6,17 @@
         </div>
         
         <div class="row2">
-            <form [formGroup]="smsForm">
+            <form [formGroup]="batchRegisterForm">
             <p-dropdown  placeholder="- Select Batch -" class="dropdown" 
                 formControlName="batch" [options]="batchList" optionLabel="name" [style]="{'minWidth':'100%', 'height': '35px'}"></p-dropdown>
-                <div class="checkbox">
+                <div class="search-input">
                     <label>Search Student</label>
-                    <input type="input" placeholder="enter student id" formControlName="student" />
+                    <div class="search-msg">enter student id and press to start search</div>
+                    <input type="input" placeholder="enter student id" formControlName="studentId" (change)="onChange()" />
+                    <div>{{studentName}}</div>
                 </div>
             <div class="send">
-                <input type="button" value="send" [disabled]="!smsForm.valid"  />
+                <input type="button" value="Register" [disabled]="!batchRegisterForm.valid"  />
             </div>
         </form>
         </div>

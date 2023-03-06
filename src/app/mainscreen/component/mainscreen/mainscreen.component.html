@@ -45,6 +45,7 @@
                         <button mat-menu-item (click)="batchView(batch.id)">{{batch.name}}</button>
                     </span>
                 </mat-menu> -->
+
                 <div class="navbar-components">
                     <ul>
                         <a routerLink="aboutus" routerLinkActive="active">ABOUT US</a>
@@ -62,6 +63,22 @@
                         <a routerLink="register" routerLinkActive="active">LOGIN/REGISTER</a>
                     </ul>
                 </div>
+
+                <ul>
+                    <a routerLink="aboutus" routerLinkActive="active">ABOUT US</a>
+                    <a mat-button [matMenuTriggerFor]="services">SERVICES</a>
+                      <mat-menu #services="matMenu"> 
+                        <a mat-menu-item routerLink="training" routerLinkActive="active">Training</a> 
+                        <a mat-menu-item routerLink="outSourcing" routerLinkActive="active">Out Sourcing</a>
+                        <a mat-menu-item routerLink="internship" routerLinkActive="active">Internship</a>
+                        <a mat-menu-item routerLink="projectDevelopment" routerLinkActive="active">Project development</a>
+                    </mat-menu>
+                    <a routerLink="portfolio" routerLinkActive="active">PORTFOLIO</a>
+                    <a routerLink="team" routerLinkActive="active">TEAM</a>
+                    <a routerLink="contact" routerLinkActive="active">CONTACT US</a>
+                    <a routerLink="register" routerLinkActive="active">LOGIN/REGISTER</a>
+                </ul>
+
             </div>
 
             <button mat-button [matMenuTriggerFor]="menu" class="burger-menu">
@@ -73,7 +90,7 @@
                 <button mat-menu-item [matMenuTriggerFor]="courses">All Courses</button>
                 <button mat-menu-item routerLink="portfolio">Portfolio</button>
                 <button mat-menu-item routerLink="team">Team</button>
-                <button mat-menu-item routerLink="contactus">Contact Us</button>
+                <button mat-menu-item routerLink="contact">Contact</button>
                 <button mat-menu-item routerLink="register">Register</button>
                 <button mat-menu-item routerLink="aboutus">About Us</button>
             </mat-menu>
@@ -112,13 +129,46 @@
     <div class="body">
         <router-outlet></router-outlet>
     </div>
-
+    
+    <div class="faqs">
+        <h1>FAQ's</h1>
+        <cdk-accordion class="example-accordion">
+            <cdk-accordion-item
+              *ngFor="let item of items; let index = index;"
+              #accordionItem="cdkAccordionItem"
+              class="example-accordion-item"
+              role="button"
+              tabindex="0"
+              [attr.id]="'accordion-header-' + index"
+              [attr.aria-expanded]="accordionItem.expanded"
+              [attr.aria-controls]="'accordion-body-' + index">
+              <div class="example-accordion-item-header" (click)="accordionItem.toggle()">
+                {{ item.question }}
+                <span class="example-accordion-item-description">
+                  <!-- {{ accordionItem.expanded ? <mat-icon>apps</mat-icon> : 'open' }} -->
+                  <mat-icon *ngIf="accordionItem.expanded ">expand_less</mat-icon>
+                  <mat-icon *ngIf="!accordionItem.expanded ">expand_more</mat-icon>
+                </span>
+              </div>
+              <div
+                class="example-accordion-item-body"
+                role="region"
+                [style.display]="accordionItem.expanded ? '' : 'none'"
+                [attr.id]="'accordion-body-' + index"
+                [attr.aria-labelledby]="'accordion-header-' + index">
+                {{item.answer}}
+              </div>
+            </cdk-accordion-item>
+          </cdk-accordion>
+    </div>
     <!-- <mat-toolbar class="footer">
         <mat-toolbar-row>
             
         </mat-toolbar-row>
     </mat-toolbar> -->
-
+    <div class="chat-box" #scrollMe [scrollTop]="scrollMe.scrollHeight">
+        <app-chat [links]="linksArray"></app-chat>
+    </div>
     <div class="footer">
         &copy;All rights reserved 2022
     </div>

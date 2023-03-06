@@ -6,4 +6,5 @@ export enum RoleEnum {
     TRAINER ='TRAINER',
     STUDENT='STUDENT',
     GUEST='GUEST',
+    SUPPORT_ENGINEER='SUPPORT_ENGINEER'
 }

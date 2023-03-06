@@ -18,6 +18,7 @@ import { AllCoursesMenuComponent } from './all-courses-menu/all-courses-menu.com
 import { MaterialAllcourseTabsComponent } from './material-allcourse-tabs/material-allcourse-tabs.component';
 import { BatchViewComponent } from './batch-view/batch-view.component';
 import { MaterialUpcomingBatchesTableComponent } from './material-upcoming-batches-table/material-upcoming-batches-table.component';
+import { SharedModuleModule } from '../shared-module/shared-module.module';
 
 
 @NgModule({
@@ -42,7 +43,8 @@ import { MaterialUpcomingBatchesTableComponent } from './material-upcoming-batch
     ButtonModule,
     DialogModule,
     ToolbarModule,
-    FlexLayoutModule
+    FlexLayoutModule,
+    SharedModuleModule
   ]
 })
 

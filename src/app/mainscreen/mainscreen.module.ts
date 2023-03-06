@@ -35,7 +35,14 @@ import { NgbCarouselConfig, NgbCarouselModule } from '@ng-bootstrap/ng-bootstrap
 import { OutSourcingComponent } from './component/out-sourcing/out-sourcing.component';
 import { InternshipComponent } from './component/internship/internship.component';
 import { ProjectDevelopmentComponent } from './component/project-development/project-development.component';
+
 import { ViewExampleComponent } from './component/view-example/view-example.component';
+
+import { ChatComponent } from './component/chat/chat.component';
+import {CdkAccordionModule} from '@angular/cdk/accordion';
+import { MatIconModule } from '@angular/material/icon';
+import { SharedModuleModule } from '../shared-module/shared-module.module';
+
 
 @NgModule({
   declarations: [
@@ -61,9 +68,10 @@ import { ViewExampleComponent } from './component/view-example/view-example.comp
     InternshipComponent,
     ProjectDevelopmentComponent,
     ViewExampleComponent,
-    
+
   ],
   imports: [
+    MatIconModule,
     NgxMatIntlTelInputComponent,
     CommonModule,
     MainscreenRoutingModule,
@@ -79,7 +87,9 @@ import { ViewExampleComponent } from './component/view-example/view-example.comp
     DialogModule,
     ToolbarModule,
     FlexLayoutModule,
-    NgbCarouselModule
+    NgbCarouselModule,
+    CdkAccordionModule,
+    SharedModuleModule 
   ],
   exports: [MainscreenModule.rootComponent],
   entryComponents: [MainscreenModule.rootComponent]

@@ -1,16 +1,79 @@
-<div class="container">
-    <form action="#" [formGroup]="contactForm">
-        <label for="name">NAME <em>&#x2a;</em></label>
-        <input id="name" name="name" required="" type="text" formControlName="name" />
-        <label for="email">EMAIL <em>&#x2a;</em></label>
-        <input id="email" name="email" required="" type="email" formControlName="email" />
-        <label for="phone">PHONE<em>&#x2a;</em></label>
-        <input id="phoneNumber" name="phoneNumber" type="text" formControlName="phoneNumber" />
-        <label for="message">YOUR MESSAGE <em>&#x2a;</em>
-        </label><textarea id="message" name="message" required="" rows="4" formControlName="message"></textarea>
-        <h3>
-            Please provide all the information about your issue you can.
-        </h3>
-        <button id="customerOrder" class="verify" [disabled]="!contactForm.valid" (click)="onSubmit()">SUBMIT</button>
-    </form>
+<div class="contact-container">
+    <div class="contact-details">
+            <h1>Contact us</h1>
+            <span class="note">Our friendly team would love to hear from you</span>
+            <div class="contct-item">
+                <!-- <mat-icon>expand_less</mat-icon> -->
+                <!-- <span class="material-icons">home</span> -->
+                info@gmail.com
+            </div>
+            <div class="contct-item">
+                <!-- <mat-icon>phone_iphone</mat-icon> -->
+                777-789-9752
+            </div>
+            <div class="contct-item">
+                <!-- <mat-icon>mail</mat-icon> -->
+                2025 Lincoln Highway, suite# 100D, Edison NJ 08817.
+            </div>
+    </div>
+    <div class="faqs">
+        <form action="#" [formGroup]="contactForm">
+           <div class="contact-row">
+                <div class="element">
+                    <label for="name">NAME</label>
+                    <input id="name" name="name" required="" type="text" formControlName="name" placeholder="Your name" />
+                </div>
+                <div class="element">
+                    <label for="email">EMAIL</label>
+                    <input id="email" name="email" required="" type="email" formControlName="email" placeholder="your@email.com" />
+                </div>
+           </div>
+           <div class="full-element">
+                <label for="phone">PHONE</label>
+                <input id="phoneNumber" name="phoneNumber" type="text" formControlName="phoneNumber" placeholder="Your phone number"/>
+            </div>
+            <div class="full-element">
+                <label for="message">YOUR MESSAGE
+                </label><textarea id="message" name="message" required="" rows="4" formControlName="message" placeholder="Type your message"></textarea>    
+            </div>
+            
+            <h3>
+                Please provide all the information about your issue you can.
+            </h3>
+            <button id="customerOrder" class="verify" [disabled]="!contactForm.valid" (click)="onSubmit()">SUBMIT</button>
+        </form>
+    </div>
 </div>
+
+
+
+
+<!-- <div class="faqs">
+    <h1>FAQ's</h1>
+    <cdk-accordion class="example-accordion">
+        <cdk-accordion-item
+          *ngFor="let item of items; let index = index;"
+          #accordionItem="cdkAccordionItem"
+          class="example-accordion-item"
+          role="button"
+          tabindex="0"
+          [attr.id]="'accordion-header-' + index"
+          [attr.aria-expanded]="accordionItem.expanded"
+          [attr.aria-controls]="'accordion-body-' + index">
+          <div class="example-accordion-item-header" (click)="accordionItem.toggle()">
+            {{ item.question }}
+            <span class="example-accordion-item-description">
+              Click to {{ accordionItem.expanded ? 'close' : 'open' }}
+            </span>
+          </div>
+          <div
+            class="example-accordion-item-body"
+            role="region"
+            [style.display]="accordionItem.expanded ? '' : 'none'"
+            [attr.id]="'accordion-body-' + index"
+            [attr.aria-labelledby]="'accordion-header-' + index">
+            {{item.answer}}
+          </div>
+        </cdk-accordion-item>
+      </cdk-accordion>
+</div> -->

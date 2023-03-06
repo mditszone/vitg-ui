@@ -1,7 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit } from '@angular/core';
 import { ActivatedRoute, ParamMap, Router } from '@angular/router';
 import { Batch } from 'src/app/shared/model/batch';
 import { BatchService } from 'src/app/shared/services/batch.service';
+import { cashfreeSandbox } from 'cashfree-dropjs';
+
 
 @Component({
   selector: 'app-batch-view',
@@ -12,8 +14,64 @@ export class BatchViewComponent implements OnInit {
   batchName: string = "";
   batchData: Object[] = [];
   isLoggedIn: boolean = sessionStorage.getItem("student_send_otp_response") == null ? false : true;
-  constructor(private routes: ActivatedRoute, private batchService: BatchService, private router: Router) { }
+  cashfreeObject: any;
+  messageElement: any;
+  constructor(private routes: ActivatedRoute, private batchService: BatchService, private router: Router, private elementRef: ElementRef) {
+    this.cashfreeObject = new cashfreeSandbox.Cashfree();
+   
 
+    
+   }
+
+   ngAfterViewInit() {
+    const dropinComponents = [
+      {
+        name: 'Order Details',
+        id: 'order-details'
+      },
+      {
+        name: 'Card',
+        id: 'card'
+      },
+      {
+        name: 'UPI',
+        id: 'upi'
+      },
+      {
+        name: 'Wallets',
+        id: 'app'
+      },
+      {
+        name: 'Netbanking',
+        id: 'netbanking'
+      },
+      {
+        name: 'Paylater',
+        id: 'paylater'
+      },
+      {
+        name: 'Credit Card EMI',
+        id: 'creditcardemi'
+      },
+      {
+        name: 'Cardless EMI',
+        id: 'cardlessemi'
+      }
+    ];
+    this.messageElement = this.elementRef.nativeElement.querySelector('.test');
+    console.log(this.messageElement);
+
+    fetch("/generate_token")
+
+    this.cashfreeObject.initialiseDropin(this.messageElement, {
+      orderToken : "v3#he81m7ldwtny5h",
+      onSuccess: () => console.log("success"),
+      onFailure: (error) => console.log(error),
+      components: dropinComponents,
+      style: {},
+  });
+  }
+  
   ngOnInit(): void {
     this.routes.paramMap.subscribe((params: ParamMap) => {
       const id = parseInt(params.get('id'));
