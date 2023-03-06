@@ -1,0 +1,18 @@
+<div [ngClass]="selected ? 'selected-user' : 'user' " (click)="onClick()">
+    
+    <div class="data">
+        <img height="25" width="25" src="https://cdn.icon-icons.com/icons2/1378/PNG/512/avatardefault_92824.png" />
+        <span class="name">{{user.userName}}</span>
+        <!-- <span class="msg">Hello, how are you?</span> -->
+    </div>
+    <div class="status">
+            <mat-icon class="icon" matSuffix fontIcon="more_horiz" [matMenuTriggerFor]="bell"></mat-icon>
+                <mat-menu #bell="matMenu" class="myMenu" class="notification-menu">
+                    <div class="user-menu-item">End Chat</div>
+                    <div class="user-menu-item">Remove from List</div>
+                </mat-menu>
+        <!-- <div class="time">10:35 AM</div>
+        <div class="count">1</div> -->
+    </div>
+    
+</div>

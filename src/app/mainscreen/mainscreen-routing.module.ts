@@ -66,7 +66,7 @@ const routes: Routes = [
     path: 'team', component: TeamComponent
   },
   {
-    path: 'contactus', component: ContactUsComponent
+    path: 'contact', component: ContactUsComponent
   },
   {
     path: 'register', component: StudentRegisterComponent
@@ -98,5 +98,6 @@ const routes: Routes = [
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]
 })
+
 
 export class MainscreenRoutingModule { }

@@ -53,18 +53,22 @@ export class VerifyStaffLoginComponent implements OnInit {
     }
     console.log(obj);
 
-    this.subscription = this.loginService.verifyOTP(obj).subscribe((data: any) => {
-      
-      sessionStorage.setItem('staff_dto', JSON.stringify(data));
-      this.router.navigate(['/dashboard']);
-    },
-      (error) => {
+    //this.loginService.verifyOTP(obj).subscribe(data => console.log(data));
 
-        this.errorMessage = error.error.message;
-        alert(this.errorMessage)
-        console.log(this.errorMessage)
-      }
-    );
+    this.subscription = this.loginService.verifyOTP(obj).subscribe((data: any) => {
+      console.log("verify");
+      console.log(data);
+      sessionStorage.setItem('staff_dto', JSON.stringify(data));
+
+      this.router.navigate(['/dashboard']);
+    // },
+    //   (error) => {
+
+    //     this.errorMessage = error.error.message;
+    //     alert(this.errorMessage)
+    //     console.log(this.errorMessage)
+    //   }
+  });
   }
   resend() {
     let data = JSON.parse(sessionStorage.getItem('send_otp') || '{}');

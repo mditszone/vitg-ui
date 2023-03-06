@@ -1,0 +1,84 @@
+//@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;300;400&display=swap');
+
+.chat-users-container {
+    width: 100%;
+    height: 100%;
+    padding: 10px 10px;
+    border-right: 1px solid rgb(228, 226, 226);
+    .company {
+        padding: 10px;
+        text-align: center;
+        font-size: 16px;
+        font-weight: 700;
+        letter-spacing: 0.5px;
+        color: #0669AD;
+        span {
+            color: #FFB800;
+        }
+    }
+    .search {
+        input {
+            width: 100%;
+            background: rgba(220, 232, 255, 0.34);
+            border-radius: 10px;
+            outline: none;
+            border: none;
+            font-size: 0.7rem;
+            padding: 10px 15px;
+        }
+    }
+    .users {
+        .user {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 10px 0;
+            img {
+                border: 1px solid grey;
+                border-radius: 100%;
+                margin: 5px 5px 5px 0;
+                display: block;
+            }
+            .data {
+                display: flex;
+                flex-direction: column;
+                margin: 5px;
+                .name {
+                    color: #0669AD;
+                    font-size: 12px;
+                    font-weight: 500;
+                }
+                .msg {
+                    font-size: 9px;
+                    color: #959595;
+                }
+            }
+            .status {
+                display: flex;
+                flex-direction: column;
+                justify-content: flex-end;
+                align-items: flex-end;
+                margin: 5px;
+                .time {
+                    color: #BABABA;
+                    font-size: 8px;
+                }
+                .count {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    height: 15px;
+                    width: 15px;
+                    border-radius: 100%;
+                    background-color: #0669AD;
+                    color: #fff;
+                    font-size: 7px;
+                }
+            }
+        }
+    }
+}
+
+:host ::ng-deep .selected-user {
+    background-color: #959595;
+}

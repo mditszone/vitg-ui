@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FaqData } from 'src/app/shared/model/FaqData';
 import { EqnuiryService } from 'src/app/shared/services/enquiry.service';
+import { FaqService } from 'src/app/shared/services/faq.service';
 
 @Component({
   selector: 'app-contact-us',
@@ -10,14 +12,19 @@ import { EqnuiryService } from 'src/app/shared/services/enquiry.service';
 export class ContactUsComponent implements OnInit {
 
   contactForm: FormGroup;
+  items: FaqData[];
+  expandedIndex = 0;
 
-  constructor(private formBuilder: FormBuilder, private enquiryService: EqnuiryService) {
+  constructor(private formBuilder: FormBuilder, private enquiryService: EqnuiryService, private faqService: FaqService) {
     this.contactForm = this.formBuilder.group({
       name: ['', [Validators.required]],
       email: ['', [Validators.required]],
       phoneNumber: ['', [Validators.required]],
       message: ['', [Validators.required]],
     });
+
+    this.faqService.getAllFaqs().subscribe(data => {console.log(data); this.items = data.data})
+
    }
 
   ngOnInit(): void {
@@ -40,7 +47,7 @@ export class ContactUsComponent implements OnInit {
         email: '',
         phoneNumber: '',
         message: '',
-      })
+      });
       alert("Your request submitted, our agent will reach you soon");
     });
 

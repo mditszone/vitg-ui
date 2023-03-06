@@ -18,7 +18,7 @@ export class LoginService {
   }
 
    // post Create Store
-   verifyOTP(obj: any) {
+   verifyOTP(obj: any): Observable<any>{
     return this.httpclient.post(this.baseURL + '/api/auth/login/verifyOtp', obj, {
       headers: this.headers
     });

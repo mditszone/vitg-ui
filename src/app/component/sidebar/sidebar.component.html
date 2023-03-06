@@ -39,7 +39,7 @@
             <mat-icon>menu</mat-icon>
         </button>
         <mat-nav-list>
-            <app-sidenav *ngFor="let item of navItems" [item]="item"></app-sidenav>
+            <app-sidenav *ngFor="let item of menuItems" [item]="item"></app-sidenav>
         </mat-nav-list>
     </mat-sidenav>
     <mat-sidenav-content [ngClass]="{ 'm-content': true, 'm-content-exapand': sidenavSmall }">

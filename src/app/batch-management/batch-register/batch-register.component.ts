@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Batch } from 'src/app/shared/model/batch';
 import { BatchService } from 'src/app/shared/services/batch.service';
+import { UserService } from 'src/app/shared/services/user.service';
 
 @Component({
   selector: 'app-batch-register',
@@ -12,26 +13,34 @@ export class BatchRegisterComponent implements OnInit {
 
   response: String = '';
   display_status: boolean = false;
-  batchList:  Batch[] = [];
+  batchList: Batch[] = [];
   batchDropdown: null | Batch = null;
-  smsForm: any;
-  
-  constructor(private batchService: BatchService, private formBuilder: FormBuilder) {
+  batchRegisterForm: FormGroup;
+  studentName: string;
+
+  constructor(private batchService: BatchService, private formBuilder: FormBuilder, private userService: UserService) {
     this.batchService.getAllBatches().subscribe((data: Batch[]) => {
       this.batchList = data;
       console.log(this.batchList)
     });
-    this.smsForm = this.formBuilder.group({
+    this.batchRegisterForm = this.formBuilder.group({
       batch: ['', [Validators.required]],
-      message: ['', [Validators.required]],
-      emails: [''],
-      student: [''],
-      trainer: [''],
-      organizer: [''],
+      studentId: ['', [Validators.required]],
     });
-   }
-
+  }
   ngOnInit(): void {
   }
 
+  onChange() {
+    const stuentId: number = this.batchRegisterForm.value.studentId;
+    this.studentName = '';
+    this.userService.getStudentById(stuentId).subscribe(data => this.studentName = `ID: ${data.id}, name: ${data.name}` );
+  }
+
+}
+
+
+class SelectedStudent {
+  id!: number;
+  name!: string;
 }

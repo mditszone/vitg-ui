@@ -74,7 +74,9 @@
 <div class="body">
     <router-outlet></router-outlet>
 </div>
-
+<div class="chat-box" #scrollMe [scrollTop]="scrollMe.scrollHeight">
+    <app-chat [links]="linksArray"></app-chat>
+</div>
 <mat-toolbar class="footer">
     <mat-toolbar-row>
         &copy;All rights reserved 2022

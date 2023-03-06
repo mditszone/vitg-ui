@@ -1,0 +1,21 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;300;400&display=swap');
+
+.chat-window {
+    font-family: 'Inter', sans-serif;
+    display: flex;
+    height: 100%;
+    width: 100%;
+    border: 2px solid rgb(228, 226, 226);
+    border-radius: 10px;
+    .forty {
+        width: 25%;
+    }
+    .sixty {
+        width: 65%;
+    }
+
+    .twenty {
+        width: 30%;
+    }
+}
+

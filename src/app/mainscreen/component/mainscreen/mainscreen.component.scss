@@ -58,6 +58,7 @@
   background-color: #0669ad;
   border-color: #fff;
 }
+
 .footer {
   overflow: hidden;
   position: sticky;
@@ -65,6 +66,41 @@
   background-color: #0669ad;
   color: #fff;
   font-size: 13px;
+  padding: 20px;
+  text-align: center;
+}
+
+.chat-box {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: #f1e8cd;
+  z-index: 100;
+  width: 300px;
+  .minimized {
+    .user {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 5px 10px;
+      box-shadow: 0px 3px 15px rgba(0, 0, 0, 0.15);
+      img {
+          border-radius: 100%;
+          border: 1px solid grey;
+          margin-right: 10px;
+      }
+      .name {
+          font-size: 12px;
+          font-weight: 500;
+          color: #0669AD;
+      }
+      .status {
+          mat-icon {
+              padding: 2px;
+          }
+      }
+  }
+  }
 }
 
 .basic-container.menu {
@@ -260,4 +296,57 @@ ul {
     margin: 0;
     color: #000;
   }
+}
+
+.faqs {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  padding: 40px;
+}
+
+.example-accordion {
+  display: block;
+  width: 80%;
+}
+
+.example-accordion-item {
+  display: block;
+  border: solid 1px #ccc;
+}
+
+.example-accordion-item + .example-accordion-item {
+  border-top: none;
+}
+
+.example-accordion-item-header {
+  display: flex;
+  align-content: center;
+  justify-content: space-between;
+}
+
+.example-accordion-item-description {
+  font-size: 0.85em;
+  color: #999;
+}
+
+.example-accordion-item-header,
+.example-accordion-item-body {
+  padding: 16px;
+}
+
+.example-accordion-item-header:hover {
+  cursor: pointer;
+  background-color: #eee;
+}
+
+.example-accordion-item:first-child {
+  border-top-left-radius: 4px;
+  border-top-right-radius: 4px;
+}
+
+.example-accordion-item:last-child {
+  border-bottom-left-radius: 4px;
+  border-bottom-right-radius: 4px;
 }

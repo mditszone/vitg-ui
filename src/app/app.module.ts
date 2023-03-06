@@ -1,4 +1,3 @@
-
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
@@ -11,7 +10,6 @@ import { MainscreenModule } from './mainscreen/mainscreen.module';
 import { MatTableModule } from '@angular/material/table';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
-import { CdkTableModule } from '@angular/cdk/table';
 import { StaffLoginComponent } from './login/staff-login/staff-login.component';
 import { VerifyStaffLoginComponent } from './login/verify-staff-login/verify-staff-login.component';
 import { NgOtpInputModule } from 'ng-otp-input';
@@ -55,8 +53,6 @@ import { SubTopicConceptListComponent } from './course-management/sub-topic-conc
 import { SendInvitationComponent } from './batch-management/send-invitation/send-invitation.component';
 import { SendSmsComponent } from './batch-management/send-sms/send-sms.component';
 import {DropdownModule} from 'primeng/dropdown';
-import { MAT_DATE_LOCALE } from '@angular/material/core'
-import {NgxMatIntlTelInputComponent} from 'ngx-mat-intl-tel-input';
 
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
@@ -64,7 +60,13 @@ import { EnquiryComponentComponent } from './enquiry-component/enquiry-component
 import { EnquiryReplyComponent } from './enquiry-reply/enquiry-reply.component';
 import { AddRemarksComponent } from './add-remarks/add-remarks.component';
 import { BatchRegisterComponent } from './batch-management/batch-register/batch-register.component';
-
+import { SupportTeamModule } from './support-team/support-team.module';
+import { ChatBotLinksComponent } from './application-management/chat-bot-links/chat-bot-links.component';
+import { PushNotificationsService } from 'ng-push';
+import { ActiveUserChatService } from './shared/services/active.user.chat.service';
+import { AddFaqComponent } from './application-management/add-faq/add-faq.component';
+import { EditFaqComponent } from './application-management/edit-faq/edit-faq.component';
+import { FaqsComponent } from './application-management/faqs/faqs.component';
 
 
 
@@ -94,9 +96,11 @@ import { BatchRegisterComponent } from './batch-management/batch-register/batch-
     EnquiryReplyComponent,
     AddRemarksComponent,
     BatchRegisterComponent,
-
+    ChatBotLinksComponent,
+    AddFaqComponent,
+    EditFaqComponent,
   ],
-  imports: [
+  imports: [ 
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
@@ -117,7 +121,6 @@ import { BatchRegisterComponent } from './batch-management/batch-register/batch-
     TrackingModule,
     SliderModule,
     MatTableModule,
-    CdkTableModule,
     FormsModule,
     HttpClientModule,
     TableModule,
@@ -126,18 +129,23 @@ import { BatchRegisterComponent } from './batch-management/batch-register/batch-
     DialogModule,
     MessagesModule,
     ConfirmDialogModule,
-
     MatDatepickerModule,
     MatMomentDateModule,
-
-    MatDatepickerModule, MatMomentDateModule, DropdownModule,
-
+    MatDatepickerModule, 
+    MatMomentDateModule, 
+    DropdownModule,
+    SupportTeamModule,
     NgMultiSelectDropDownModule.forRoot(),
-      NgbModule
+    NgbModule, 
+    BrowserModule, 
+    FormsModule, 
+    TableModule,
   ],
   providers: [
     { provide: DatePipe },
     { provide: MAT_MOMENT_DATE_ADAPTER_OPTIONS, useValue: { useUtc: true } },
+    PushNotificationsService,
+    ActiveUserChatService
   ],
   bootstrap: [AppComponent],
 
