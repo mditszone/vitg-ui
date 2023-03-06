@@ -11,50 +11,27 @@ import { TabService } from 'src/app/shared/services/tab.service';
 })
 export class ExamplesComponent implements OnInit {
 
-  fileName: string;
   subTopicConcept: SubTopicConcept = new SubTopicConcept();
   subTopicConceptDetailsForm: any;
   subTopicConceptdata!: SubTopicConcept;
-  submitted!: boolean;
   subTopicConceptForm: any;
   errorMessage: any
   subTopicConceptId: any
+  selectedFiles: File[];
+
   constructor(
     private tabService: TabService,
     private formBuilder: FormBuilder,
     private router: Router,
-    private courseService: CourseService) { this.fileName = ""; }
+    private courseService: CourseService) {
+  }
 
 
   ngOnInit(): void {
     this.subTopicConceptDetailsForm = this.formBuilder.group({
       examples: ['', [Validators.required]]
-
     }),
       this.patchValue();
-  }
-
-  public onUploadChangeExamples(evt: any): void {
-    const reader = new FileReader();
-    const file = evt.target.files[0];
-    this.fileName = file.name;
-    //this.subTopicConcept.name = file.name;
-
-    reader.addEventListener("load", () => {
-      const arr = new Uint8Array(<ArrayBuffer>reader.result);
-      var newFileArray: Array<number> = [];
-      if (arr.length > 0) {
-        for (let i: number = 0; i < arr.length; i++) {
-          newFileArray.push(arr[i]);
-        }
-      }
-      this.subTopicConcept.examples = newFileArray;
-    }, false);
-
-    if (file) {
-      //reader.readAsDataURL(file);
-      reader.readAsArrayBuffer(file);
-    }
   }
 
   patchValue() {
@@ -74,30 +51,26 @@ export class ExamplesComponent implements OnInit {
         console.log(this.subTopicConceptdata)
       })
     }
-      this.subTopicConceptDetailsForm.patchValue({
-        examples: this.subTopicConceptdata.examples
-      })
+    this.subTopicConceptDetailsForm.patchValue({
+      examples: this.subTopicConceptdata.examples
+    })
   }
 
-  createSubTopicConcept() {
-    this.submitted = true;
-    // stop here if form is invalid
-    if (this.subTopicConceptDetailsForm.invalid) {
-      return;
-    }
-    else {
-      this.subTopicConceptForm = this.subTopicConceptDetailsForm.value;
-      this.subTopicConceptdata.examples = this.subTopicConceptForm.examples;
+  public onUploadChangeExamples(event: any): void {
+    this.selectedFiles = event.target.files;
+  }
 
-      this.courseService.updateSubTopicConceptInfo(this.subTopicConceptdata).subscribe(
+  uploadFiles(fileCategory: string) {
+    if (this.selectedFiles) {
+      this.courseService.pushFileToStorage(this.selectedFiles, this.subTopicConceptId, fileCategory).subscribe(
         (data: any) => {
+          console.log(data)
           this.router.navigate(['/subtopicConceptTab/subtopicConceptYoutubeUrl']);
-
           (error) => {
             this.errorMessage = error.error.message;
             console.log(this.errorMessage)
           }
-        });
+        })
     }
   }
 }

@@ -35,10 +35,14 @@ import { NgbCarouselConfig, NgbCarouselModule } from '@ng-bootstrap/ng-bootstrap
 import { OutSourcingComponent } from './component/out-sourcing/out-sourcing.component';
 import { InternshipComponent } from './component/internship/internship.component';
 import { ProjectDevelopmentComponent } from './component/project-development/project-development.component';
+
+import { ViewExampleComponent } from './component/view-example/view-example.component';
+
 import { ChatComponent } from './component/chat/chat.component';
 import {CdkAccordionModule} from '@angular/cdk/accordion';
 import { MatIconModule } from '@angular/material/icon';
 import { SharedModuleModule } from '../shared-module/shared-module.module';
+
 
 @NgModule({
   declarations: [
@@ -63,6 +67,8 @@ import { SharedModuleModule } from '../shared-module/shared-module.module';
     OutSourcingComponent,
     InternshipComponent,
     ProjectDevelopmentComponent,
+    ViewExampleComponent,
+
   ],
   imports: [
     MatIconModule,

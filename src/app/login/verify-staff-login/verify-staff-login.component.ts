@@ -30,8 +30,8 @@ export class VerifyStaffLoginComponent implements OnInit {
     disableAutoFocus: false,
     placeholder: '',
     inputStyles: {
-      width: '50px',
-      height: '50px',
+      width: '40px',
+      height: '40px',
     },
   };
 
@@ -60,6 +60,16 @@ export class VerifyStaffLoginComponent implements OnInit {
       console.log(data);
       sessionStorage.setItem('staff_dto', JSON.stringify(data));
 
+      if(data.vitgStaffDTO){
+        this.router.navigate(['/dashboard']);
+      }
+      if(data.trainerDTO){
+        
+      this.router.navigate(['/materialScreen']);
+      }
+    });
+
+
       this.router.navigate(['/dashboard']);
     // },
     //   (error) => {
@@ -69,6 +79,7 @@ export class VerifyStaffLoginComponent implements OnInit {
     //     console.log(this.errorMessage)
     //   }
   });
+
   }
   resend() {
     let data = JSON.parse(sessionStorage.getItem('send_otp') || '{}');

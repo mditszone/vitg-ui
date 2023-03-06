@@ -60,6 +60,10 @@ import { EnquiryComponentComponent } from './enquiry-component/enquiry-component
 import { EnquiryReplyComponent } from './enquiry-reply/enquiry-reply.component';
 import { AddRemarksComponent } from './add-remarks/add-remarks.component';
 import { BatchRegisterComponent } from './batch-management/batch-register/batch-register.component';
+
+import { FullScreenLayoutComponent } from './component/full-screen-layout/full-screen-layout.component';
+
+
 import { SupportTeamModule } from './support-team/support-team.module';
 import { ChatBotLinksComponent } from './application-management/chat-bot-links/chat-bot-links.component';
 import { PushNotificationsService } from 'ng-push';
@@ -67,6 +71,7 @@ import { ActiveUserChatService } from './shared/services/active.user.chat.servic
 import { AddFaqComponent } from './application-management/add-faq/add-faq.component';
 import { EditFaqComponent } from './application-management/edit-faq/edit-faq.component';
 import { FaqsComponent } from './application-management/faqs/faqs.component';
+
 
 
 
@@ -96,9 +101,14 @@ import { FaqsComponent } from './application-management/faqs/faqs.component';
     EnquiryReplyComponent,
     AddRemarksComponent,
     BatchRegisterComponent,
+
+    FullScreenLayoutComponent,
+
+
     ChatBotLinksComponent,
     AddFaqComponent,
     EditFaqComponent,
+
   ],
   imports: [ 
     BrowserModule,

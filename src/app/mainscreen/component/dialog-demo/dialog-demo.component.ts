@@ -18,7 +18,7 @@ export class DialogDemoComponent implements OnInit {
 
   ngOnInit(): void {
     this.demoUrl = this.sanitizer.bypassSecurityTrustResourceUrl(`${this.data.dataKey}?rel=0&modestbranding=1&autoplay=1&fs=0&muted=1  allow="autoplay"  `);
-      this.rightClickDisable.disableRightClick();
+    this.rightClickDisable.disableRightClick();
   }
   close() {
     this.dialogRef.close('Play Youtube Video Closed');

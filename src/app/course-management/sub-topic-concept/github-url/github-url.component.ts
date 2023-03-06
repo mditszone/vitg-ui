@@ -59,7 +59,7 @@ export class GithubUrlComponent implements OnInit {
     })
   }
 
-  createSubTopicConcept() {
+  saveGithubUrl() {
 
     this.submitted = true;
 

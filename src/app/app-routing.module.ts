@@ -73,7 +73,7 @@ const routes: Routes = [
 
   {
     path: 'dashboard',
-    component: SidebarComponent
+    component: SidebarComponent,
   },
   {
     path: 'materialScreen', component: MaterialScreenComponent

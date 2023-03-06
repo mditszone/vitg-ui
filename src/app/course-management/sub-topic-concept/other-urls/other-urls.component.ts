@@ -59,7 +59,7 @@ export class OtherUrlsComponent implements OnInit {
     })
   }
 
-  createSubTopicConcept() {
+  saveOtherUrls() {
 
     this.submitted = true;
 

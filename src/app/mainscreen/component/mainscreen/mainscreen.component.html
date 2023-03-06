@@ -45,6 +45,25 @@
                         <button mat-menu-item (click)="batchView(batch.id)">{{batch.name}}</button>
                     </span>
                 </mat-menu> -->
+
+                <div class="navbar-components">
+                    <ul>
+                        <a routerLink="aboutus" routerLinkActive="active">ABOUT US</a>
+                        <a mat-button [matMenuTriggerFor]="services">SERVICES</a>
+                        <mat-menu #services="matMenu">
+                            <a mat-menu-item routerLink="training" routerLinkActive="active">Training</a>
+                            <a mat-menu-item routerLink="outSourcing" routerLinkActive="active">Out Sourcing</a>
+                            <a mat-menu-item routerLink="internship" routerLinkActive="active">Internship</a>
+                            <a mat-menu-item routerLink="projectDevelopment" routerLinkActive="active">Project
+                                development</a>
+                        </mat-menu>
+                        <a routerLink="portfolio" routerLinkActive="active">PORTFOLIO</a>
+                        <a routerLink="team" routerLinkActive="active">TEAM</a>
+                        <a routerLink="contactus" routerLinkActive="active">CONTACT US</a>
+                        <a routerLink="register" routerLinkActive="active">LOGIN/REGISTER</a>
+                    </ul>
+                </div>
+
                 <ul>
                     <a routerLink="aboutus" routerLinkActive="active">ABOUT US</a>
                     <a mat-button [matMenuTriggerFor]="services">SERVICES</a>
@@ -59,9 +78,12 @@
                     <a routerLink="contact" routerLinkActive="active">CONTACT US</a>
                     <a routerLink="register" routerLinkActive="active">LOGIN/REGISTER</a>
                 </ul>
+
             </div>
 
-            <button mat-button [matMenuTriggerFor]="menu" class="burger-menu"><mat-icon>menu</mat-icon></button>
+            <button mat-button [matMenuTriggerFor]="menu" class="burger-menu">
+                <mat-icon>menu</mat-icon>
+            </button>
             <mat-menu #menu="matMenu">
                 <button mat-menu-item routerLink="batchList">Batches</button>
                 <button mat-menu-item routerLink="services">Services</button>

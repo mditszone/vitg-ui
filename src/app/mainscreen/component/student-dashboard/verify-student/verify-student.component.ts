@@ -80,7 +80,7 @@ export class VerifyStudentComponent implements OnInit {
     })
   }
   resend() {
-    let data = JSON.parse(localStorage.getItem('student_send_otp_response') || '{}');
+    let data = JSON.parse(sessionStorage.getItem('student_send_otp_response') || '{}');
     console.log(data)
     console.log(data.phoneNumber)
 
