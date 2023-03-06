@@ -38,11 +38,13 @@ export class VerifyStaffLoginComponent implements OnInit {
   onOtpChange(otp: string) {
     this.otp = otp;
   }
+
+
   handleClick() {
     console.log(this.otp);
     var data = JSON.parse(sessionStorage.getItem('send_otp') || '{}');
     console.log(data)
-    
+
     this.phoneNumber = data.phoneNumber;
     this.verificationRef = data.verificationRef;
 
@@ -60,17 +62,17 @@ export class VerifyStaffLoginComponent implements OnInit {
       console.log(data);
       sessionStorage.setItem('staff_dto', JSON.stringify(data));
 
-      if(data.vitgStaffDTO){
+      if (data.vitgStaffDTO) {
         this.router.navigate(['/dashboard']);
       }
-      if(data.trainerDTO){
-        
-      this.router.navigate(['/materialScreen']);
+      if (data.trainerDTO) {
+
+        this.router.navigate(['/materialScreen']);
       }
     });
 
 
-      this.router.navigate(['/dashboard']);
+    this.router.navigate(['/dashboard']);
     // },
     //   (error) => {
 
@@ -78,19 +80,22 @@ export class VerifyStaffLoginComponent implements OnInit {
     //     alert(this.errorMessage)
     //     console.log(this.errorMessage)
     //   }
-  });
+  };
 
-  }
-  resend() {
-    let data = JSON.parse(sessionStorage.getItem('send_otp') || '{}');
-    console.log(data)
-    console.log(data.phoneNumber)
 
-    this.subscription = this.loginService.sendOTP('/api/auth/login/sendOtp/', `?phoneNumber=${data.phoneNumber}`).subscribe((data: any) => {
-      this.message = data;
-      console.log(this.message);
-      sessionStorage.setItem('send_otp', JSON.stringify(data));
-    }
-    );
+
+
+resend() {
+  let data = JSON.parse(sessionStorage.getItem('send_otp') || '{}');
+  console.log(data)
+  console.log(data.phoneNumber)
+
+  this.subscription = this.loginService.sendOTP('/api/auth/login/sendOtp/', `?phoneNumber=${data.phoneNumber}`).subscribe((data: any) => {
+    this.message = data;
+    console.log(this.message);
+    sessionStorage.setItem('send_otp', JSON.stringify(data));
   }
+  );
+}
+
 }

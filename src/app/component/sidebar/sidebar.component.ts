@@ -14,10 +14,9 @@ export class SidebarComponent implements OnInit {
 
   menuItems: NavItem[] = [];
   constructor(public router: Router) {
-  }
 
-  ngOnInit(): void {
     const userInfo = JSON.parse(sessionStorage.getItem('staff_dto') || '{}');
+    console.log("userInfo", userInfo);
     const role = userInfo.vitgStaffDTO.role.roleName;
     console.log(role)
     //this.menuItems = this.navItems.filter((menuItem) => menuItem.roles?.includes(role));
@@ -28,6 +27,12 @@ export class SidebarComponent implements OnInit {
       this.menuItems.push(menuItem);
      }
     });
+
+    
+  }
+
+  ngOnInit(): void {
+    
   }
 
   @ViewChild('sidenav', { static: false }) sidenav!: MatSidenav;
