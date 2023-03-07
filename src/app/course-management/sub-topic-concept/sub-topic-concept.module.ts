@@ -15,6 +15,8 @@ import { ExamplesComponent } from './examples/examples.component';
 import { SubtopicConceptYoutubeUrlComponent } from './subtopic-concept-youtube-url/subtopic-concept-youtube-url.component';
 import { EditSubTopicConceptComponent } from './edit-sub-topic-concept/edit-sub-topic-concept.component';
 import { SubTopicConceptNameComponent } from './sub-topic-concept-name/sub-topic-concept-name.component';
+import { AddTrainerDocsComponent } from './add-trainer-docs/add-trainer-docs.component';
+import { AddExamplesComponent } from './add-examples/add-examples.component';
 
 
 @NgModule({
@@ -28,6 +30,8 @@ import { SubTopicConceptNameComponent } from './sub-topic-concept-name/sub-topic
     SubtopicConceptYoutubeUrlComponent,
     EditSubTopicConceptComponent,
     SubTopicConceptNameComponent,
+    AddTrainerDocsComponent,
+    AddExamplesComponent,
   ],
   imports: [
     CommonModule,

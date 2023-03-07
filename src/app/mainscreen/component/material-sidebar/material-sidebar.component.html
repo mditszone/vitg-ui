@@ -45,14 +45,11 @@
 
                                     <ng-template pTemplate="body" let-exampleTabData>
                                         <tr>
-                                            <td>{{this.exampleTabData.fileName}}</td>
+                                            <td>{{this.exampleTabData}}</td>
                                             <td>
                                                 <a (click)="viewFile(exampleTabData.fileName)">
                                                     <span class="material-icons eye"> visibility </span>
                                                 </a>
-                                                <a (click)="deleteFile(exampleTabData.fileName)">
-                                                    <span class="material-icons delete">delete</span>
-                                                  </a>
                                             </td>
                                         </tr>
                                     </ng-template>
@@ -96,22 +93,4 @@
         <router-outlet></router-outlet>
     </mat-sidenav-content>
 </mat-sidenav-container>
-
-<div #outsideElement>
-    <div class="modal-view-container">
-      <div #modalView class="modal view">
-        <div class="modal-view-details">
-          <p style="text-align: center;margin-top: 0; margin-bottom: 0">
-            <object
-              data="fileURL"
-              type="application/pdf"
-              width="100%"
-              height="592px"
-            ></object>
-          </p>
-          <button (click)="closeModal()">Close</button>
-        </div>
-      </div>
-    </div>
-  </div>
   

@@ -1,28 +1,38 @@
 import { Component, OnInit } from '@angular/core';
-import { MatDialog } from '@angular/material/dialog';
-import { ViewExampleComponent } from 'src/app/mainscreen/component/view-example/view-example.component';
+import { FormBuilder, Validators } from '@angular/forms';
+import { MatDialogRef } from '@angular/material/dialog';
+import { Router } from '@angular/router';
 import { SubTopicConcept } from 'src/app/shared/model/sub-topic-concept';
 import { CourseService } from 'src/app/shared/services/course.service';
-import { AddExamplesComponent } from '../add-examples/add-examples.component';
+
 @Component({
-  selector: 'app-examples',
-  templateUrl: './examples.component.html',
-  styleUrls: ['./examples.component.scss']
+  selector: 'app-add-examples',
+  templateUrl: './add-examples.component.html',
+  styleUrls: ['./add-examples.component.scss']
 })
-export class ExamplesComponent implements OnInit {
+export class AddExamplesComponent implements OnInit {
 
   subTopicConcept: SubTopicConcept = new SubTopicConcept();
+  subTopicConceptDetailsForm: any;
   subTopicConceptdata!: SubTopicConcept;
+  subTopicConceptForm: any;
+  errorMessage: any
   subTopicConceptId: any
+  selectedFiles: File[];
   examplesTabData: any
 
   constructor(
+    private formBuilder: FormBuilder,
+    private router: Router,
     private courseService: CourseService,
-    public dialog: MatDialog) {
+    private dialogRef: MatDialogRef<AddExamplesComponent>) {
   }
 
 
   ngOnInit(): void {
+    this.subTopicConceptDetailsForm = this.formBuilder.group({
+      examples: ['', [Validators.required]]
+    });
     var response = JSON.parse(sessionStorage.getItem('tabServiceData') || '{}')
     {
       if (response.id) {
@@ -46,29 +56,22 @@ export class ExamplesComponent implements OnInit {
     }
   }
 
-  addFiles() {
-    this.dialog.open(AddExamplesComponent, {
-      width: '800px',
-      height: '400px',
-      position: {
-        left: '30vw'
-      },
-    })
+  public onUploadChangeExamples(event: any): void {
+    this.selectedFiles = [...event.target.files]
   }
 
-  viewFile(filePath: any) {
-    this.dialog.open(ViewExampleComponent, {
-      width: '800px',
-      height: '700px',
-      data: {
-        dataKey: filePath
-      }
-    })
+  removeSelectedFile(index) {
+    this.selectedFiles.splice(index, 1);
   }
 
-  deleteFile(fileName: any) {
-    this.courseService.deleteFileFromS3(fileName).subscribe((response: any) => {
-      console.log(response)
-    })
+  uploadFiles(fileCategory: string) {
+    if (this.selectedFiles) {
+      this.courseService.pushFileToStorage(this.selectedFiles, this.subTopicConceptId, fileCategory).subscribe(
+        (data: any) => {
+          console.log(data)
+          this.router.navigate(['/subtopicConceptTab/subtopicConceptYoutubeUrl']);
+          this.dialogRef.close([]);
+        })
+    }
   }
 }

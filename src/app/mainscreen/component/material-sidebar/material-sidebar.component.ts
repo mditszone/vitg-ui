@@ -23,8 +23,8 @@ export class MaterialSidebarComponent implements OnInit {
   fileURL: string | null = '';
   fileName: string | null = '';
 
-  @ViewChild("outsideElement", {static: true}) outsideElement : ElementRef;
-  @ViewChild('modalView', {static: true}) modalView$ : ElementRef;
+  @ViewChild("outsideElement", { static: true }) outsideElement: ElementRef;
+  @ViewChild('modalView', { static: true }) modalView$: ElementRef;
 
   constructor(
     @Inject(ActivatedRoute) private route: ActivatedRoute,
@@ -58,8 +58,12 @@ export class MaterialSidebarComponent implements OnInit {
 
       this.subTopicConceptDetails = res;
       this.courseService.getFileListsFromS3(res[0].id, 'examples').subscribe((response: any) => {
-        this.exampleTabData = response
-        console.log(this.exampleTabData);
+
+        let String = response[0].fileName
+        console.log(String)
+        let arrVars = String.split("/");
+        this.exampleTabData = arrVars.pop();
+        console.log(this.exampleTabData)
       })
       this.courseService.getFileListsFromS3(res[0].id, 'trainer').subscribe((response: any) => {
         this.trainerTabData = response
@@ -96,40 +100,15 @@ export class MaterialSidebarComponent implements OnInit {
 
     })
   }
- /* viewFile(fileName: any) {
-    this.courseService.getFileFromS3(fileName).subscribe((response: any) => {
-       let file = new Blob([response], { type: 'application/pdf' });
-       var fileURL = URL.createObjectURL(file);
-      // window.open(fileURL);
 
-      //let url = this.demourl;
-      const dialogRef = this.dialog.open(ViewExampleComponent, {
-        data: {
-          dataKey: fileURL
-        }
-      });
-    })
-  }*/
   viewFile(filePath: any) {
-      const dialogRef = this.dialog.open(ViewExampleComponent, {
-        width: '900px',
-        height: '800px',
-        data: {
-          dataKey: filePath
-        }
-      })
-  }
-  openModel(fileName: any){
-    this.courseService.getFileFromS3(fileName).subscribe((response: any) => {
-      let file = new Blob([response], { type: 'application/pdf' });
-      this.fileURL = URL.createObjectURL(file);
-      this.modalView$.nativeElement.classList.add('visible');
-    
-  })
-  }
-
-  closeModal() {
-    this.modalView$.nativeElement.classList.remove('visible');
+    const dialogRef = this.dialog.open(ViewExampleComponent, {
+      width: '900px',
+      height: '800px',
+      data: {
+        dataKey: filePath
+      }
+    })
   }
 
   deleteFile(fileName: any) {
@@ -138,8 +117,3 @@ export class MaterialSidebarComponent implements OnInit {
     })
   }
 }
-// deleteStaff(id: number) {
-//   this.userService.deleteStaffById(id).subscribe((res: any) => {
-//     this.staffdata = this.staffdata.filter(item => item.id != id);
-//   })
-// }

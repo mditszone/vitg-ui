@@ -1,0 +1,27 @@
+.examples-tables{
+    display: grid;
+    justify-content: center;
+    padding-top: 20px;
+    border: 1px solid #0669ad;
+    border-radius: 5px;
+    margin-top: 30px;
+}
+.form-group {
+    padding-bottom: 10px;
+}
+.upload {
+    float: right;
+    color: #ffff;
+    background-color: #0669ad;
+    border-color: #fff;
+    border-radius: 6px;
+    padding: 5px 30px;
+    font-weight: 500;
+    font-size: 15px;
+    cursor: pointer;
+}
+.delete {
+    color: #0669ad;
+    font-size: 18px;
+    cursor: pointer;
+}
