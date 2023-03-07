@@ -44,15 +44,6 @@
     width: 1200px;
   color:white;
 }
-.shape::before {
-    background-color: #0669ad;
-    content: "";
-    height: 310px;
-    position: absolute;
-    right: -75px;
-    transform: skew(-25deg);
-    width: 150px;
-}
 .container .shape .text{
     padding-right: 20px;
     padding-top: 20px;

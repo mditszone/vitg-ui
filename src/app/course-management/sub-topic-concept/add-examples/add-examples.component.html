@@ -1,0 +1,38 @@
+<div class="examples-tables">
+    <form [formGroup]="subTopicConceptDetailsForm">
+        <div class="form-group row">
+            <label for="examples" class="col-sm-3 col-form-label">Examples<span
+                    class="star text-danger">*</span></label>
+            <div class="col-sm-9">
+                <input type="file" formControlName="examples" multiple class="form-control"
+                    (change)="onUploadChangeExamples($event)">
+            </div>
+        </div>
+        <br>
+        <div class="form-group row">
+            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 pr-0">
+                <button class="btn upload" type="button" (click)="uploadFiles('examples')">Upload</button>
+            </div>
+        </div>
+    </form>
+    <div style="border: 0.5px solid #0669ad;margin-top: 30px;margin-bottom: 20px;">
+        <table class="table table-grid">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let file of selectedFiles;let index = index">
+                    <td>{{ file.name }}</td>
+                    <td>
+                        <a (click)="removeSelectedFile(index)">
+                            <span class="material-icons delete"> delete </span>
+                        </a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

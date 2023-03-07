@@ -1,14 +1,17 @@
-.card{
+.youtube-url-container {
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 200px;
+    width: 600px;
     border: 1px solid #0669ad;
     border-radius: 4px;
-    margin-top: 50px;
-    padding-left: 100px;
-    padding-top: 50px;
-    padding-bottom: 20px;
+    margin-top: 30px;
 }
-.save{
+.save {
+    float: right;
     color: #ffff;
-    margin-left: 670px;
     background-color: #0669ad;
     border-color: #fff;
     border-radius: 6px;
@@ -17,6 +20,29 @@
     font-size: 15px;
     cursor: pointer;
 }
-.form-group{
+.form-group {
     padding-bottom: 10px;
+}
+
+@media screen and (max-width: 940px) {
+    .youtube-url-container {
+        height: 200px;
+        width: 400px;
+    }
+    .save {
+        padding: 5px 25px;
+        font-weight: 400;
+        font-size: 14px;
+    }
+}
+@media screen and (max-width: 750px) {
+    .youtube-url-container {
+        height: 100px;
+        width: 320px;
+    }
+    .save {
+        padding: 5px 20px;
+        font-weight: 350;
+        font-size: 12px;
+    }
 }

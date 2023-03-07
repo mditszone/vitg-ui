@@ -16,7 +16,7 @@ export class SubtopicConceptTabsComponent implements OnInit {
         index: 0
       },
       {
-        label: "TrainerPpt",
+        label: "Trainer",
         link: "./trainerPpt",
         index: 1
       },
@@ -31,7 +31,7 @@ export class SubtopicConceptTabsComponent implements OnInit {
         index: 3
       },
       {
-        label: "GithubUrl",
+        label: "Github",
         link: "./githubUrl",
         index: 4
       },
