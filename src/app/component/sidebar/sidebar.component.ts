@@ -20,7 +20,7 @@ export class SidebarComponent implements OnInit {
     const role = userInfo.vitgStaffDTO.role.roleName;
     console.log(role)
     //this.menuItems = this.navItems.filter((menuItem) => menuItem.roles?.includes(role));
-    this.navItems.forEach((menuItem) => {
+    navItems.forEach((menuItem) => {
      const item = menuItem.children.filter(item => item.roles?.includes(role));
      if (item.length > 0) {
       menuItem.children = item;
@@ -52,211 +52,210 @@ export class SidebarComponent implements OnInit {
     this.router.navigate(["/enquaries"]);
   }
 
-  navItems: NavItem[] = [
-
-    // {
-    //   displayName: 'Dashboard',
-    //   iconName: 'dashboard',
-    //   route: 'dashboard',
-    //   roles: [
-    //     RoleEnum.ADMIN,
-    //     RoleEnum.ACCOUNTANT,
-    //     RoleEnum.GUEST,
-    //     RoleEnum.TRAINER,
-    //     RoleEnum.MANAGER,
-    //     RoleEnum.ORGANIZER,
-    //     RoleEnum.STUDENT
-    //   ]
-    // },
-    {
-      displayName: 'User management',
-      iconName: 'person',
-      children: [
-        {
-          displayName: 'Staff',
-          iconName: '',
-          route: 'staff',
-          roles: [
-            RoleEnum.ADMIN
-          ]
-        },
-        {
-          displayName: 'Student',
-          iconName: '',
-          route: 'student',
-          roles: [
-            RoleEnum.ADMIN
-          ]
-        },
-        {
-          displayName: 'Trainer',
-          iconName: '',
-          route: 'trainer',
-          roles: [
-            RoleEnum.ADMIN
-          ]
-        }
-      ]
-    },
-    /////
-    {
-      displayName: 'Course management',
-      iconName: 'book',
-      children: [
-        {
-          displayName: 'Course',
-          iconName: '',
-          route: 'course',
-          roles: [
-            RoleEnum.ADMIN
-          ]
-        },
-        {
-          displayName: 'Sub Course',
-          iconName: '',
-          route: 'subcourse',
-          roles: [
-            RoleEnum.ADMIN
-          ]
-        },
-        {
-          displayName: 'Topic',
-          iconName: '',
-          route: 'topic',
-          roles: [
-            RoleEnum.ADMIN
-          ]
-        },
-        {
-          displayName: 'Sub Topic',
-          iconName: '',
-          route: 'subtopic',
-          roles: [
-            RoleEnum.ADMIN
-          ]
-        },
-        {
-          displayName: 'Sub Topic Concept',
-          iconName: '',
-          route: 'subTopicConcept',
-          roles: [
-            RoleEnum.ADMIN
-          ]
-        }
-      ]
-    },
-    ////////
-
-
-    {
-      displayName: 'Batch management',
-      iconName: 'group',
-      children: [
-        {
-          displayName: 'Batches',
-          iconName: '',
-          route: 'batches',
-          roles: [
-            RoleEnum.ADMIN,
-            RoleEnum.TRAINER
-          ]
-        },
-        {
-          displayName: 'Tracking',
-          iconName: '',
-          route: 'tracking',
-          roles: [
-            RoleEnum.ADMIN
-          ]
-        },
-        {
-          displayName: 'Send Invitation',
-          iconName: '',
-          route: 'sendInvitation',
-          roles: [
-            RoleEnum.ADMIN
-          ]
-        },
-        {
-          displayName: 'Send SMS',
-          iconName: '',
-          route: 'sendSms',
-          roles: [
-            RoleEnum.ADMIN
-          ]
-        },
-        {
-          displayName: 'Student Register',
-          iconName: '',
-          route: 'registerStudent',
-          roles: [
-            RoleEnum.ADMIN
-          ]
-        }
-      ]
-    },
-    {
-      displayName: 'Application management',
-      iconName: 'manage_accounts',
-      children: [
-        {
-          displayName: 'Slider',
-          iconName: '',
-          route: 'slider',
-          roles: [
-            RoleEnum.ADMIN
-          ]
-        },
-        {
-          displayName: 'Settings',
-          iconName: '',
-          route: 'settings',
-          roles: [
-            RoleEnum.ADMIN
-          ]
-        },
-        {
-          displayName: 'Faq\'s',
-          iconName: '',
-          route: 'faqs',
-          roles: [
-            RoleEnum.ADMIN
-          ]
-        }
-      ]
-    },
-    {
-      displayName: 'Support Team',
-      iconName: 'manage_accounts',
-      roles: [ RoleEnum.SUPPORT_ENGINEER],
-      children: [
-        {
-          displayName: 'Notifications',
-          iconName: '',
-          route: 'support/notifications',
-          roles: [
-            RoleEnum.SUPPORT_ENGINEER
-          ]
-        },
-        {
-          displayName: 'Chat',
-          iconName: '',
-          route: 'support/chat/chat',
-          roles: [
-            RoleEnum.SUPPORT_ENGINEER
-          ]
-        },
-        {
-          displayName: 'Feed Back',
-          iconName: '',
-          route: 'support/feedback',
-          roles: [
-            RoleEnum.SUPPORT_ENGINEER
-          ]
-        }
-      ]
-    }
-
-  ];
-
 }
+export const navItems: NavItem[] = [
+
+  // {
+  //   displayName: 'Dashboard',
+  //   iconName: 'dashboard',
+  //   route: 'dashboard',
+  //   roles: [
+  //     RoleEnum.ADMIN,
+  //     RoleEnum.ACCOUNTANT,
+  //     RoleEnum.GUEST,
+  //     RoleEnum.TRAINER,
+  //     RoleEnum.MANAGER,
+  //     RoleEnum.ORGANIZER,
+  //     RoleEnum.STUDENT
+  //   ]
+  // },
+  {
+    displayName: 'User management',
+    iconName: 'person',
+    children: [
+      {
+        displayName: 'Staff',
+        iconName: '',
+        route: 'staff',
+        roles: [
+          RoleEnum.ADMIN
+        ]
+      },
+      {
+        displayName: 'Student',
+        iconName: '',
+        route: 'student',
+        roles: [
+          RoleEnum.ADMIN
+        ]
+      },
+      {
+        displayName: 'Trainer',
+        iconName: '',
+        route: 'trainer',
+        roles: [
+          RoleEnum.ADMIN
+        ]
+      }
+    ]
+  },
+  /////
+  {
+    displayName: 'Course management',
+    iconName: 'book',
+    children: [
+      {
+        displayName: 'Course',
+        iconName: '',
+        route: 'course',
+        roles: [
+          RoleEnum.ADMIN
+        ]
+      },
+      {
+        displayName: 'Sub Course',
+        iconName: '',
+        route: 'subcourse',
+        roles: [
+          RoleEnum.ADMIN
+        ]
+      },
+      {
+        displayName: 'Topic',
+        iconName: '',
+        route: 'topic',
+        roles: [
+          RoleEnum.ADMIN
+        ]
+      },
+      {
+        displayName: 'Sub Topic',
+        iconName: '',
+        route: 'subtopic',
+        roles: [
+          RoleEnum.ADMIN
+        ]
+      },
+      {
+        displayName: 'Sub Topic Concept',
+        iconName: '',
+        route: 'subTopicConcept',
+        roles: [
+          RoleEnum.ADMIN
+        ]
+      }
+    ]
+  },
+  ////////
+
+
+  {
+    displayName: 'Batch management',
+    iconName: 'group',
+    children: [
+      {
+        displayName: 'Batches',
+        iconName: '',
+        route: 'batches',
+        roles: [
+          RoleEnum.ADMIN,
+          RoleEnum.TRAINER
+        ]
+      },
+      {
+        displayName: 'Tracking',
+        iconName: '',
+        route: 'tracking',
+        roles: [
+          RoleEnum.ADMIN
+        ]
+      },
+      {
+        displayName: 'Send Invitation',
+        iconName: '',
+        route: 'sendInvitation',
+        roles: [
+          RoleEnum.ADMIN
+        ]
+      },
+      {
+        displayName: 'Send SMS',
+        iconName: '',
+        route: 'sendSms',
+        roles: [
+          RoleEnum.ADMIN
+        ]
+      },
+      {
+        displayName: 'Student Register',
+        iconName: '',
+        route: 'registerStudent',
+        roles: [
+          RoleEnum.ADMIN
+        ]
+      }
+    ]
+  },
+  {
+    displayName: 'Application management',
+    iconName: 'manage_accounts',
+    children: [
+      {
+        displayName: 'Slider',
+        iconName: '',
+        route: 'slider',
+        roles: [
+          RoleEnum.ADMIN
+        ]
+      },
+      {
+        displayName: 'Settings',
+        iconName: '',
+        route: 'settings',
+        roles: [
+          RoleEnum.ADMIN
+        ]
+      },
+      {
+        displayName: 'Faq\'s',
+        iconName: '',
+        route: 'faqs',
+        roles: [
+          RoleEnum.ADMIN
+        ]
+      }
+    ]
+  },
+  {
+    displayName: 'Support Team',
+    iconName: 'manage_accounts',
+    roles: [ RoleEnum.SUPPORT_ENGINEER],
+    children: [
+      {
+        displayName: 'Notifications',
+        iconName: '',
+        route: 'support/notifications',
+        roles: [
+          RoleEnum.SUPPORT_ENGINEER
+        ]
+      },
+      {
+        displayName: 'Chat',
+        iconName: '',
+        route: 'support/chat/chat',
+        roles: [
+          RoleEnum.SUPPORT_ENGINEER
+        ]
+      },
+      {
+        displayName: 'Feed Back',
+        iconName: '',
+        route: 'support/feedback',
+        roles: [
+          RoleEnum.SUPPORT_ENGINEER
+        ]
+      }
+    ]
+  }
+
+];
