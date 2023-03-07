@@ -7,12 +7,14 @@ import { TableModule } from 'primeng/table';
 import { RouterModule, Routes } from '@angular/router';
 import { ChatComponent } from '../mainscreen/component/chat/chat.component';
 import { MatIconModule } from '@angular/material/icon';
+import { TableViewComponent } from './table-view/table-view.component';
 
 
 @NgModule({
   declarations: [
     FaqsComponent,
-    ChatComponent
+    ChatComponent,
+    TableViewComponent
   ],
   exports: [
     FaqsComponent,

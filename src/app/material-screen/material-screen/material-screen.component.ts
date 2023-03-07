@@ -16,6 +16,7 @@ export class MaterialScreenComponent implements OnInit {
 
   @ViewChild(MatMenuTrigger) trigger!: MatMenuTrigger;
   loggedInUserRole: string = "";
+  userName: string;
   batchMenu: BatchMenu[];
   linksArray: ChatBotData[] = [{show: false, title: "Courses", heading: "Learning about courses", body: "VIT Global is an online learning and teaching marketplace with over 213000 courses and 57 million students. Learn programming, marketing, data science and more, Take one of Udemy’s range of Python courses and learn how to code using this incredibly useful language. Its simple syntax and readability makes Python perfect for Flask, Django, data science, and machine learning. You’ll learn how to build everything from games to sites to apps. Choose from a range of courses that will appeal to"},
   {show: false, title: "Batches", heading: "Learning about courses", body: "VIT Global is an online learning and teaching marketplace with over 213000 courses and 57 million students. Learn programming, marketing, data science and more, Take one of Udemy’s range of Python courses and learn how to code using this incredibly useful language. Its simple syntax and readability makes Python perfect for Flask, Django, data science, and machine learning. You’ll learn how to build everything from games to sites to apps. Choose from a range of courses that will appeal to"},
@@ -23,6 +24,10 @@ export class MaterialScreenComponent implements OnInit {
   ];
   
   ngOnInit(): void {
+    const userInfo = JSON.parse(sessionStorage.getItem('student_dto') || '{}');
+    console.log("userInfo", userInfo);
+    this.userName = userInfo.name
+    console.log(this.userName);
   }
   onLoggedout() {
     this.router.navigate(['/']);
@@ -81,6 +86,13 @@ export class MaterialScreenComponent implements OnInit {
       this.batchMenu = data.map(item => { return {"name": item.name, "id": item.id}; });
       console.log("batchMenu", this.batchMenu);
     });
+
+    //student_dto
+
+    const userInfo = JSON.parse(sessionStorage.getItem('student_dto') || '{}');
+    console.log("userInfo", userInfo);
+    this.userName = userInfo.name
+
   }
 
 

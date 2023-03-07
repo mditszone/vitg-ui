@@ -5,9 +5,8 @@
 export const environment = {
   production: false,
   config : {
-    // apiUrl: "http://20.62.72.49:8080" ,
-    apiUrl: "http://localhost:8082" ,
-    //apiUrl: "http://visionitglobal.com" ,
+    // apiUrl: "http://localhost::8082" ,
+    apiUrl: "http://ec2-13-233-178-210.ap-south-1.compute.amazonaws.com:8082" ,
   }
 };
 

@@ -75,7 +75,7 @@
     <router-outlet></router-outlet>
 </div>
 <div class="chat-box" #scrollMe [scrollTop]="scrollMe.scrollHeight">
-    <app-chat [links]="linksArray"></app-chat>
+    <app-chat [links]="linksArray" [userName]="userName"></app-chat>
 </div>
 <mat-toolbar class="footer">
     <mat-toolbar-row>

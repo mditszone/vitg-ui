@@ -8,7 +8,6 @@ import { MatMenuTrigger } from '@angular/material/menu';
 import { Topic } from 'src/app/shared/model/topic';
 import { BatchService } from 'src/app/shared/services/batch.service';
 import { ChatBotData } from 'src/app/shared/model/chatbot-data';
-import { Observable } from 'rxjs';
 import { FaqData } from 'src/app/shared/model/FaqData';
 import { FaqService } from 'src/app/shared/services/faq.service';
 
@@ -24,7 +23,7 @@ declare var Stomp: any;
 export class MainscreenComponent implements OnInit {
   @ViewChild(MatMenuTrigger) trigger!: MatMenuTrigger;
 
-  items: FaqData[];
+  
   subscription: any;
   response: any;
   stompClient: any;
@@ -64,7 +63,6 @@ export class MainscreenComponent implements OnInit {
           "displayName": course.name,
           "children": []
         };
-        this.faqService.getAllFaqs().subscribe(data => {console.log(data); this.items = data.data});
         this.courseService.getSubCourseListByCourseId(course.id).subscribe((arrayOfSubCourse: Subcourse[]) => {
           arrayOfSubCourse.forEach((subCourse, subCourseIndex) => {
             this.menuItems[0].children[courseIndex].children[subCourseIndex] = {

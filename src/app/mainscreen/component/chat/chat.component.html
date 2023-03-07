@@ -3,7 +3,7 @@
         <div class="user">
             <div class="user-wrap">
                 <img height="30" width="30" src="https://w7.pngwing.com/pngs/81/570/png-transparent-profile-logo-computer-icons-user-user-blue-heroes-logo-thumbnail.png" />
-                <span></span>
+                <span>Welcome, {{userName}}</span>
                 <span class="msg"></span>
             </div>
             <div class="status">
@@ -143,12 +143,12 @@
 <div class="padding" >
     <div [ngClass]="minimized ? 'user' : 'chat-box-hide'">
         <div class="user-wrap">
-            <img height="30" width="30" src="https://w7.pngwing.com/pngs/81/570/png-transparent-profile-logo-computer-icons-user-user-blue-heroes-logo-thumbnail.png" />
-            <span>Welcome, Guest</span>
+            <mat-icon [ngStyle]="{'color':'blue'}" class="fullscreen" fontIcon="chat_bubble"></mat-icon>
+            <span style="color: blue">Live Chat</span>
             <span class="msg"></span>
         </div>
         <div class="status">
-            <mat-icon [ngStyle]="{'color':'#706F6F'}" class="fullscreen" fontIcon="fullscreen_exit" (click)="minimize()"></mat-icon>
+            <mat-icon [ngStyle]="{'color':'blue'}" class="fullscreen" fontIcon="fullscreen_exit" (click)="minimize()"></mat-icon>
         </div>
     </div>
 </div>
