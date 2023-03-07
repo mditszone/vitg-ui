@@ -74,9 +74,11 @@
   position: fixed;
   bottom: 20px;
   right: 20px;
-  background-color: #f1e8cd;
+  background-color: #fdfdfd;
   z-index: 100;
   width: 300px;
+  box-shadow: 1px 1px 15px 1px rgba(0, 0, 0, 0.15);
+  border: none;
   .minimized {
     .user {
       display: flex;
