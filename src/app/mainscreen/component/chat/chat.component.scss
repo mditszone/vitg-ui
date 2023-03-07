@@ -124,6 +124,13 @@ mat-icon {
     justify-content: space-between;
     padding: 5px 10px;
     box-shadow: 0px 3px 15px rgba(0, 0, 0, 0.15);
+    .user-wrap {
+        display: flex;
+        justify-content: center;
+        mat-icon {
+            margin-right: 10px;
+        }
+    }
     img {
         border-radius: 100%;
         border: 1px solid grey;

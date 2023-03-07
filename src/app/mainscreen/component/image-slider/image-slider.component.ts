@@ -1,4 +1,6 @@
 import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
+import { FaqData } from 'src/app/shared/model/FaqData';
+import { FaqService } from 'src/app/shared/services/faq.service';
 import { SliderService } from 'src/app/shared/services/slider.service';
 
 @Component({
@@ -9,7 +11,8 @@ import { SliderService } from 'src/app/shared/services/slider.service';
 
 export class ImageSliderComponent implements OnInit {
   imageObject: Array<object> = [];
-  constructor(private sliderService: SliderService, private cdr: ChangeDetectorRef) {
+  items: FaqData[];
+  constructor(private sliderService: SliderService, private cdr: ChangeDetectorRef, private faqService: FaqService,) {
     this.sliderService.getAllSliders().subscribe((data) => {
       for (let slider of data) {
         let ext = slider.name.split('.')[1]; // get image extension[png, jpeg, jpg]
@@ -22,6 +25,7 @@ export class ImageSliderComponent implements OnInit {
         });
       }
     });
+    this.faqService.getAllFaqs().subscribe(data => {console.log(data); this.items = data.data});
   }
   ngOnInit(): void {
 

@@ -1,0 +1,36 @@
+<!-- <div class="container">
+    <h1 class="name">Batch Details</h1>
+    <div class="card">
+      <p-table #dt1 [value]="data" dataKey="id" [paginator]="true" [rows]="10" [showCurrentPageReport]="true"
+        [rowsPerPageOptions]="[10,15,20,100]" [filterDelay]="0" 
+        [globalFilterFields]="['id','courseName','trainer']"
+        >
+        <ng-template pTemplate="caption">
+          <button class="createBatch" pButton label=" Create Batch" icon="pi pi-plus" routerLink="buttonRouteName"></button>
+          <div class="search">
+            <input class="search" pInputText type="text" pInputText size="20"
+              (input)="dt1.filterGlobal($any($event.target).value, 'contains')" placeholder="Global Filter"><br><br>
+          </div>
+        </ng-template>
+        <ng-template pTemplate="header">
+          <tr>
+            <th pSortableColumn="id" *ngFor="let header of headers">{{header}}<p-sortIcon field="header"></p-sortIcon>
+            </th> 
+            <th>ACTION </th>
+          </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-batch>
+          <tr>
+            <td *ngFor="let item of data">item</td>
+            <td>
+                <a [routerLink]="['/viewbatch/', batch.id]">
+                    <span class="material-icons eye"> visibility </span></a>
+                  <a [routerLink]="['/editbatch/', batch.id]">
+                    <span class="material-icons edit">edit </span></a>
+                    
+            </td>
+          </tr>
+        </ng-template>
+      </p-table>
+    </div>
+  </div>  -->
