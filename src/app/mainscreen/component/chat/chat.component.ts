@@ -40,7 +40,7 @@ export class ChatComponent implements OnInit {
       type: 'CHAT'
     }
 
-    var socket = new SockJS('http://localhost:8082/ws');
+    var socket = new SockJS('http://ec2-13-233-178-210.ap-south-1.compute.amazonaws.com:8082/ws');
     this.stompClient = Stomp.over(socket);
 
     this.stompClient.connect(chatMessage, () => {

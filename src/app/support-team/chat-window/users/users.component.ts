@@ -16,7 +16,6 @@ declare var Stomp: any;
 
 export class UsersComponent implements OnInit {
 
-  stompClient: any;
   messageElement: any;
   activeUserId: string;
   usersList: ChatUser[] = [];

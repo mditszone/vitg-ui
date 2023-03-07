@@ -19,7 +19,7 @@ export class ActiveUserChatService {
     selectedUser: BehaviorSubject<ChatUser>;
     isAccpted: boolean = false;
     showAcceptHideBox: BehaviorSubject<boolean>;
-    socket = new SockJS('http://localhost:8082/ws');
+    socket = new SockJS('http://ec2-13-233-178-210.ap-south-1.compute.amazonaws.com:8082/ws');
     stompClient = Stomp.over(this.socket);
 
     constructor() {
