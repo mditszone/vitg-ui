@@ -30,7 +30,7 @@ export class MaterialScreenComponent implements OnInit {
     console.log(this.userName);
   }
   onLoggedout() {
-    this.router.navigate(['/']);
+    this.router.navigate(['/'],{skipLocationChange: true});
   }
   openMyMenu() {
     this.trigger.openMenu();
@@ -97,7 +97,7 @@ export class MaterialScreenComponent implements OnInit {
 
 
   batchView() {
-    this.router.navigate(['/materialbatchList']);
+    this.router.navigate(['/materialbatchList'],{skipLocationChange: true});
   }
 
   ngAfterContentChecked() {
@@ -106,12 +106,12 @@ export class MaterialScreenComponent implements OnInit {
 
   onClick() {
     console.log("i am working");
-    this.router.navigate(['/tabComponent']);
+    this.router.navigate(['/tabComponent'],{skipLocationChange: true});
   }
 
   onClickMaterial() {
     console.log("i am working");
-    this.router.navigate(['/materialSidebar']);
+    this.router.navigate(['/materialSidebar'],{skipLocationChange: true});
   }
 }
 

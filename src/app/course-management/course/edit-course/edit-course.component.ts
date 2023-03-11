@@ -68,7 +68,7 @@ export class EditCourseComponent implements OnInit {
       this.courseService.updateCourse(this.coursedata).subscribe(data => {
         this.coursedata = data;
         console.log(this.coursedata)
-        this.router.navigate(['/course'])
+        this.router.navigate(['/course'],{skipLocationChange: true})
       })
     }
 

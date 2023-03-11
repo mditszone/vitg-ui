@@ -82,7 +82,7 @@ export class EditTrackingComponent implements OnInit {
       this.trackdata.remarks = this.trackForm.remarks;
       this.trackService.updateTrack(this.trackdata).subscribe((data: any) => {
         console.log(data);
-        this.router.navigate(['/tracking'])
+        this.router.navigate(['/tracking'],{skipLocationChange: true})
       })
     }
     

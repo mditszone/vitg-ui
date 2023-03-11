@@ -22,11 +22,11 @@ export class AllCoursesMenuComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    
+
   }
 
-  onClick(id: any): void { 
-    this.zone.run(() => this.router.navigate(['/materialAllcoursestabs'], { queryParams: { subCourseId: id } }));
+  onClick(id: any): void {
+    this.zone.run(() => this.router.navigate(['/materialAllcoursestabs'], { queryParams: { subCourseId: id }, skipLocationChange: true }));
   }
 
 }

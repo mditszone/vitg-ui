@@ -8,7 +8,6 @@ import { ContactUsComponent } from './component/contact-us/contact-us.component'
 import { ImageSliderComponent } from './component/image-slider/image-slider.component';
 import { InternshipComponent } from './component/internship/internship.component';
 import { MainscreenComponent } from './component/mainscreen/mainscreen.component';
-import { MaterialLayoutComponent } from './component/material-layout/material-layout.component';
 import { MaterialSidebarComponent } from './component/material-sidebar/material-sidebar.component';
 import { OutSourcingComponent } from './component/out-sourcing/out-sourcing.component';
 import { PortfolioComponent } from './component/portfolio/portfolio.component';

@@ -107,8 +107,6 @@ export class MainscreenComponent implements OnInit {
       
     // });
 
-
-
   }
 
   ngOnInit(): void {
@@ -119,25 +117,20 @@ export class MainscreenComponent implements OnInit {
     this.cdr.detectChanges();
   }
 
-
-
   batchView() {
-    this.router.navigate(['/batchList']);
+    this.router.navigate(['/batchList'],{skipLocationChange: true});
   }
 
   onClick() {
     console.log("i am working");
-    this.router.navigate(['/tabComponent']);
+    this.router.navigate(['/tabComponent'],{skipLocationChange: true});
   }
 
   moveToTabs(id: any): void { 
-    this.zone.run(() => this.router.navigate(['/tabComponent'], { queryParams: { subCourseId: id } }));
+    console.log("vamsi")
+    this.zone.run(() => this.router.navigate(['/tabComponent'], { queryParams: { subCourseId: id },skipLocationChange: true }));
   }
 
-  // onClickMaterial() {
-  //   console.log("i am working");
-  //   this.router.navigate(['/materialSidebar']);
-  // }
 }
 
 

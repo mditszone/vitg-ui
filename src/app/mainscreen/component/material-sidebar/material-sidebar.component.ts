@@ -58,16 +58,34 @@ export class MaterialSidebarComponent implements OnInit {
 
       this.subTopicConceptDetails = res;
       this.courseService.getFileListsFromS3(res[0].id, 'examples').subscribe((response: any) => {
-
-        let String = response[0].fileName
-        console.log(String)
-        let arrVars = String.split("/");
-        this.exampleTabData = arrVars.pop();
-        console.log(this.exampleTabData)
+        this.exampleTabData = response
+        // let superArray = [];
+        // this.exampleTabData = superArray
+        // console.log(this.exampleTabData)
+        // for (let files of response) {
+        //   let subArray = [];
+        //   let file = files.fileName;
+        //   let splitResult = file.split('/')
+        //   let finalResult = splitResult[splitResult.length - 1]
+        //   subArray.push(finalResult)
+        //   superArray.push(subArray)
+        // }
+        // console.log(superArray)
       })
       this.courseService.getFileListsFromS3(res[0].id, 'trainer').subscribe((response: any) => {
-        this.trainerTabData = response
-        console.log(this.trainerTabData);
+        this.trainerTabData =response
+        // let superArray = [];
+        // this.trainerTabData = superArray
+        // console.log(this.trainerTabData)
+        // for (let files of response) {
+        //   let subArray = [];
+        //   let file = files.fileName;
+        //   let splitResult = file.split('/')
+        //   let finalResult = splitResult[splitResult.length - 1]
+        //   subArray.push(finalResult)
+        //   superArray.push(subArray)
+        // }
+        // console.log(superArray)
       })
 
 
@@ -102,7 +120,7 @@ export class MaterialSidebarComponent implements OnInit {
   }
 
   viewFile(filePath: any) {
-    const dialogRef = this.dialog.open(ViewExampleComponent, {
+    this.dialog.open(ViewExampleComponent, {
       width: '900px',
       height: '800px',
       data: {

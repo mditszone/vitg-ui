@@ -72,7 +72,7 @@ export class AddCourseComponent implements OnInit {
     this.course.status;
     this.courseService.createCourse(this.course).subscribe(data => {
       console.log(data)
-      this.router.navigate(['/course']);
+      this.router.navigate(['/course'],{skipLocationChange: true});
     });
     (error: any) => console.log(error);
   }

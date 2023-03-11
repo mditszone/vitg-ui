@@ -84,7 +84,7 @@ export class EditSubCourseComponent implements OnInit {
 
       this.courseService.updateSubCourse(this.subCoursedata).subscribe(data => {
         this.subCoursedata = data;
-        this.router.navigate(['/subCourseTab/overview'], { queryParams: { id: data['id'] } });
+        this.router.navigate(['/subCourseTab/overview'], { queryParams: { id: data['id'] },skipLocationChange: true});
       })
     }
   }

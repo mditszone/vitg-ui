@@ -27,7 +27,6 @@ import { ToolbarModule } from 'primeng/toolbar';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { AllcoursesTabsComponent } from './component/allcourses-tabs/allcourses-tabs.component';
 import { MaterialSidebarComponent } from './component/material-sidebar/material-sidebar.component';
-import { MaterialLayoutComponent } from './component/material-layout/material-layout.component';
 import { DialogDemoComponent } from './component/dialog-demo/dialog-demo.component';
 import {NgxMatIntlTelInputComponent} from 'ngx-mat-intl-tel-input';
 import { BatchViewComponent } from './component/batch-view/batch-view.component';
@@ -62,7 +61,6 @@ import { SharedModuleModule } from '../shared-module/shared-module.module';
     MainscreenModule.rootComponent,
     AllcoursesTabsComponent,
     MaterialSidebarComponent,
-    MaterialLayoutComponent,
     BatchViewComponent,
     OutSourcingComponent,
     InternshipComponent,

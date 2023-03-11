@@ -82,7 +82,7 @@ export class OverviewComponent implements OnInit {
 
       this.courseService.updateSubCourse(this.subCoursedata).subscribe(data => {
         this.subCoursedata = data;
-        this.router.navigate(['/subCourseTab/curriculum'])
+        this.router.navigate(['/subCourseTab/curriculum'],{skipLocationChange: true})
       })
     }
   }

@@ -27,10 +27,10 @@ export class MaterialMenuComponent implements OnInit {
     this.courseService.getStudentIdBySubCourseId(studentId, subCourseId).subscribe((data: any) => {
       console.log(data);
       if (data.studentId) {
-        this.router.navigate(['/materialSidebar'], { queryParams: { "studentId": studentId, "subCourseId": subCourseId } });
+        this.router.navigate(['/materialSidebar'], { queryParams: { "studentId": studentId, "subCourseId": subCourseId },skipLocationChange: true });
       }
       if (data.error) {
-         this.router.navigate(['/materialScreen']);
+         this.router.navigate(['/materialScreen'],{skipLocationChange: true});
          alert("Student don't have access to this page,Please purchase this course to get access.");
       }
     })

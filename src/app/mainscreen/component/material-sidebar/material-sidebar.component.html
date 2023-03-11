@@ -45,7 +45,7 @@
 
                                     <ng-template pTemplate="body" let-exampleTabData>
                                         <tr>
-                                            <td>{{this.exampleTabData}}</td>
+                                            <td>{{this.exampleTabData.fileName}}</td>
                                             <td>
                                                 <a (click)="viewFile(exampleTabData.fileName)">
                                                     <span class="material-icons eye"> visibility </span>
@@ -77,7 +77,7 @@
                                         <tr>
                                             <td>{{this.trainerTabData.fileName}}</td>
                                             <td>
-                                                <a   (click)="viewFile(trainerTabData.fileName)">
+                                                <a (click)="viewFile(trainerTabData.fileName)">
                                                     <span class="material-icons eye"> visibility </span>
                                                 </a>
                                             </td>
@@ -93,4 +93,3 @@
         <router-outlet></router-outlet>
     </mat-sidenav-content>
 </mat-sidenav-container>
-  

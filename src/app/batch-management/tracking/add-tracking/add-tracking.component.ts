@@ -85,7 +85,7 @@ export class AddTrackingComponent implements OnInit {
       this.trackService.createTrack(this.track).subscribe(
         (data: any) => {
           console.log(data)
-          this.router.navigate(['/tracking']);
+          this.router.navigate(['/tracking'],{skipLocationChange: true});
         });
     }
   }

@@ -5,7 +5,7 @@
       [rowsPerPageOptions]="[10,15,20,100]" [filterDelay]="0" [globalFilterFields]="['id','name','subCourse.course.name','subCourse.name']">
 
       <ng-template pTemplate="caption">
-        <button class="addTopic" pButton label="Add Topic" icon="pi pi-plus" routerLink="/addTopic"></button>
+        <button class="addTopic" pButton label="Add Topic" icon="pi pi-plus" routerLink="/addTopic" skipLocationChange></button>
 
         <div class="search">
           <input class="search" pInputText type="text" pInputText size="20"

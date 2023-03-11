@@ -51,7 +51,7 @@ export class RegisterStaffComponent implements OnInit {
         console.log(data.phoneNumber);
 
         localStorage.setItem('staff_send_otp_response', JSON.stringify(data));
-        this.router.navigate(['/verifyStaff']);
+        this.router.navigate(['/verifyStaff'],{skipLocationChange: true});
 
         (error: any) =>
           this.errorMessage = error.error.message;

@@ -97,7 +97,7 @@ export class AddSubTopicComponent implements OnInit {
       this.courseService.createSubTopic(this.subTopic).subscribe(
         (data: any) => {
           console.log(data)
-          this.router.navigate(['/subtopic']);
+          this.router.navigate(['/subtopic'],{skipLocationChange: true});
         })
     }
   }

@@ -117,7 +117,7 @@ export class StudentSubcourseComponent implements OnInit {
       this.userService.updateStudentSubCourse(this.studentSubCourse).subscribe(data => {
         this.studentSubCourse = data;
         console.log(data)
-        this.router.navigate(['/student'])
+        this.router.navigate(['/student'],{skipLocationChange: true})
       })
     }
   }

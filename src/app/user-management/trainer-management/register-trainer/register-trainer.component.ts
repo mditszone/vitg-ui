@@ -50,7 +50,7 @@ export class RegisterTrainerComponent implements OnInit {
         console.log(data.phoneNumber);
 
         localStorage.setItem('trainer_send_otp_response', JSON.stringify(data));
-        this.router.navigate(['/verifyTrainer']);
+        this.router.navigate(['/verifyTrainer'],{skipLocationChange: true});
 
         (error: any) =>
           this.errorMessage = error.error.message;

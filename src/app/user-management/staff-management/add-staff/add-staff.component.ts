@@ -170,7 +170,7 @@ export class AddStaffComponent implements OnInit {
       this.userService.updateStaffinfo(this.staff).subscribe(
         (data: any) => {
           console.log(data)
-          this.router.navigate(['/staff']);
+          this.router.navigate(['/staff'],{skipLocationChange: true});
         });
       (error) => {
         this.errorMessage = error.error.message;

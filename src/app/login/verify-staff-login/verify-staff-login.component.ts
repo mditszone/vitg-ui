@@ -63,16 +63,16 @@ export class VerifyStaffLoginComponent implements OnInit {
       sessionStorage.setItem('staff_dto', JSON.stringify(data));
 
       if (data.vitgStaffDTO) {
-        this.router.navigate(['/dashboard']);
+        this.router.navigate(['/dashboard'],{skipLocationChange: true});
       }
       if (data.trainerDTO) {
 
-        this.router.navigate(['/materialScreen']);
+        this.router.navigate(['/materialScreen'],{skipLocationChange: true});
       }
     });
 
 
-    this.router.navigate(['/dashboard']);
+    this.router.navigate(['/dashboard'],{skipLocationChange: true});
     // },
     //   (error) => {
 

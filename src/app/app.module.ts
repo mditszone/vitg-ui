@@ -150,7 +150,7 @@ import { RouterModule } from '@angular/router';
     BrowserModule, 
     FormsModule, 
     TableModule,
-    RouterModule.forRoot(navItems ,{ useHash: true }),
+    //RouterModule.forRoot(navItems ,{ useHash: true }),
   ],
   providers: [
     { provide: DatePipe },
