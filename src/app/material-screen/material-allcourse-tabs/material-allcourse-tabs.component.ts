@@ -12,7 +12,7 @@ import { CourseService } from 'src/app/shared/services/course.service';
 })
 export class MaterialAllcourseTabsComponent implements OnInit {
 
-  title: string | null = "Core Java";
+  title: string | null = "No information";
   tabs: Array<any> = [];
   selected = new FormControl(0);
   demourl: string | null = '';

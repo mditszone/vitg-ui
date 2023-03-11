@@ -67,7 +67,7 @@ export class TrainingModeComponent implements OnInit {
 
       this.courseService.updateSubCourse(this.subCoursedata).subscribe(data => {
         this.subCoursedata = data;
-        this.router.navigate(['/subCourseTab/youtubeUrl'], { queryParams: { id: data['id'] } });
+        this.router.navigate(['/subCourseTab/youtubeUrl'], { queryParams: { id: data['id'],skipLocationChange: true} });
       })
     }
 

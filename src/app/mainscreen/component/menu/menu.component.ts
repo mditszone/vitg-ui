@@ -17,17 +17,10 @@ export class MenuComponent {
     public menuService: MenuService,
     public courseService: CourseService,
     private router: Router,
-    private zone: NgZone
-  ) { }
+    private zone: NgZone) { }
 
-  // getData() {
-  //   this.menuService.getData().subscribe((data: any) => {
-  //     console.log(data)
-  //   })
-  // }
-
-  onClick(id: any): void { 
-    this.zone.run(() => this.router.navigate(['/tabComponent'], { queryParams: { subCourseId: id } }));
+  onClick(id: any): void {
+    this.zone.run(() => this.router.navigate(['/tabComponent'], { queryParams: { subCourseId: id }, skipLocationChange: true }));
   }
 
 }

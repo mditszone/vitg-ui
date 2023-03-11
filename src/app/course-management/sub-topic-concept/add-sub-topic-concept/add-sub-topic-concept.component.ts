@@ -131,7 +131,7 @@ export class AddSubTopicConceptComponent implements OnInit {
       this.courseService.createSubTopicConcept(this.subTopicConcept).subscribe(
         (data: any) => {
           this.tabService.myMethod(data)
-          this.router.navigate(['/subtopicConceptTab/subTopicConceptName']);
+          this.router.navigate(['/subtopicConceptTab/subTopicConceptName'],{skipLocationChange: true});
         });
     }
   }

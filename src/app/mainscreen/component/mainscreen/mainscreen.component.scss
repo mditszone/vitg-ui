@@ -1,6 +1,11 @@
 .header {
   background-color: #0669ad;
   color: #fff;
+  position: fixed;
+  top: 0;
+  overflow: hidden;
+  z-index: 10;
+  transition: 0.9s;
 }
 .language {
   font-size: 33px;
@@ -85,21 +90,21 @@
       padding: 5px 10px;
       box-shadow: 0px 3px 15px rgba(0, 0, 0, 0.15);
       img {
-          border-radius: 100%;
-          border: 1px solid grey;
-          margin-right: 10px;
+        border-radius: 100%;
+        border: 1px solid grey;
+        margin-right: 10px;
       }
       .name {
-          font-size: 12px;
-          font-weight: 500;
-          color: #0669AD;
+        font-size: 12px;
+        font-weight: 500;
+        color: #0669ad;
       }
       .status {
-          mat-icon {
-              padding: 2px;
-          }
+        mat-icon {
+          padding: 2px;
+        }
       }
-  }
+    }
   }
 }
 
@@ -108,10 +113,10 @@
   justify-content: center;
   align-items: center;
 }
-.navbar-components{
+.navbar-components {
   margin-top: 20px;
 }
-.app-mainscreen{
+.app-mainscreen {
   display: block;
   width: 100%;
 }
@@ -122,8 +127,8 @@
   margin: 0 !important;
   .header {
     display: flex;
-      justify-content: space-between;
-      align-items: center;
+    justify-content: space-between;
+    align-items: center;
     .vitg-logo-container {
       display: flex;
       justify-content: space-between;
@@ -151,7 +156,7 @@
     .burger-menu {
       display: none;
       padding-right: 50px;
-    }  
+    }
   }
 }
 
@@ -163,15 +168,15 @@ ul {
     }
   }
 }
- /* Media Query for Mobile Devices */
- @media (max-width: 480px) {
+/* Media Query for Mobile Devices */
+@media (max-width: 480px) {
   .mainscreen-container {
     max-width: 100%;
     .header {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      
+
       .vitg-logo-container {
         display: flex;
         justify-content: space-between;
@@ -202,14 +207,14 @@ ul {
       .burger-menu {
         display: block;
         padding-right: 50px;
-      }  
+      }
     }
   }
 }
 
 /* Media Query for low resolution  Tablets, Ipads */
 @media (min-width: 481px) and (max-width: 767px) {
-  .mainscreen-container{
+  .mainscreen-container {
     width: 100%;
     .header {
       display: flex;
@@ -240,14 +245,14 @@ ul {
       .burger-menu {
         display: block;
         padding-right: 50px;
-      } 
+      }
     }
   }
 }
 
 /* Media Query for Tablets Ipads portrait mode */
-@media (min-width: 768px) and (max-width: 1024px){
-  .mainscreen-container{
+@media (min-width: 768px) and (max-width: 1024px) {
+  .mainscreen-container {
     width: 100%;
     .header {
       display: flex;
@@ -278,15 +283,15 @@ ul {
       .burger-menu {
         display: block;
         padding-right: 50px;
-      } 
+      }
     }
   }
 }
 
 /* Media Query for Laptops and Desktops */
-@media (min-width: 1025px) and (max-width: 1280px){
+@media (min-width: 1025px) and (max-width: 1280px) {
   .mainscreen-container {
-    width: 100% ;
+    width: 100%;
     margin: 0;
   }
 }

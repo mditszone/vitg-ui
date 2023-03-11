@@ -131,7 +131,7 @@ export class EditBatchComponent implements OnInit {
 
       this.batchService.updateBatch(this.batchdata).subscribe((data: any) => {
         console.log(data);
-        this.router.navigate(['/batches'])
+        this.router.navigate(['/batches'],{skipLocationChange: true})
       })
 
     }

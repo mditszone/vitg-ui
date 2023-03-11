@@ -105,7 +105,7 @@ export class TrainerCourseComponent implements OnInit {
 
       this.userService.createTrainerCourse(this.trainerCourse).subscribe(
         (data: any) => {
-          this.router.navigate(['/trainer']);
+          this.router.navigate(['/trainer'],{skipLocationChange: true});
         });
     }
   }

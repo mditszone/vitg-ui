@@ -129,7 +129,7 @@ export class AddBatchComponent implements OnInit {
       this.batchService.createBatch(this.batch).subscribe(
         (data: any) => {
           console.log(data)
-          this.router.navigate(['/batches']);
+          this.router.navigate(['/batches'],{skipLocationChange: true});
         });
     }
   }

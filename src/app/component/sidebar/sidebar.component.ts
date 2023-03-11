@@ -39,7 +39,7 @@ export class SidebarComponent implements OnInit {
   sidenavSmall: boolean = false;
 
   onLoggedout() {
-    this.router.navigate(['/']);
+    this.router.navigate(['/'],{skipLocationChange: true});
     sessionStorage.clear();
   }
 
@@ -49,7 +49,7 @@ export class SidebarComponent implements OnInit {
 
   openEnquires() {
     console.log("clicked");
-    this.router.navigate(["/enquaries"]);
+    this.router.navigate(["/enquaries"],{skipLocationChange: true});
   }
 
 }
