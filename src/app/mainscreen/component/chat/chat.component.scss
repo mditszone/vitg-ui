@@ -8,12 +8,12 @@
 
 mat-icon {
     cursor: pointer;
+    color: #fff;
 }
 
 .chat-container {
     width: 300px;
     height: 350px;
-    border-right: 1px solid rgb(228, 226, 226);
     display: flex;
     flex-direction: column;
     .messages {
@@ -122,13 +122,17 @@ mat-icon {
     display: flex;
     align-items: center;
     justify-content: space-between;
+    align-content: center;
     padding: 5px 10px;
-    box-shadow: 0px 3px 15px rgba(0, 0, 0, 0.15);
+    box-shadow: 0px 3px 15px rgb(0 0 0 / 15%);
+    background: rgba(6, 105, 173, 0.81);
     .user-wrap {
         display: flex;
         justify-content: center;
+        color: #fff;
         mat-icon {
             margin-right: 10px;
+            color: #000;
         }
     }
     img {
@@ -144,6 +148,7 @@ mat-icon {
     .status {
         mat-icon {
             padding: 2px;
+            color: #000;
         }
     }
 }
@@ -197,14 +202,14 @@ mat-icon {
 
 
 .link {
-    width: 35%;
     margin: 5px;
-    padding: 4px 15px;
-    color: #fff;
-    background-color: #0669AD;
-    border: 2px solid rgb(12, 48, 12);
-    border-radius: 15px;
+    padding: 4px 6px;
+    background-color: rgba(250, 215, 28, 0.61);
+    border: none;
+    border-radius: 5px;
     text-decoration: none;
+    color: black;
+    text-align: center;
 }
 
 .enterName {
@@ -212,10 +217,13 @@ mat-icon {
         border: none;
         padding: 4px 0px 4px 10px;
         outline: none;
+        background-color: #e8f2ff;
     }
     input[type="button"] {
         border: none;
-        padding: 4px;
+        padding: 4px 10px;
+        background-color: #4075c0;
+        color: #fff;
     }
 }
 
