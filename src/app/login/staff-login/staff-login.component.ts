@@ -49,7 +49,7 @@ export class StaffLoginComponent implements OnInit {
         console.log(data.phoneNumber);
 
         sessionStorage.setItem('send_otp', JSON.stringify(data));
-        this.router.navigate(['/verifyStaffLogin']);
+        this.router.navigate(['/verifyStaffLogin'],{skipLocationChange: true});
       },
         (error) => {
           alert(error.error.message)

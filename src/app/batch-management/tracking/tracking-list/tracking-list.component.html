@@ -5,7 +5,7 @@
       [rowsPerPageOptions]="[10,15,20,100]" [filterDelay]="0" [globalFilterFields]="['id','name']">
 
       <ng-template pTemplate="caption">
-        <button class="Addtracker" pButton label=" Addtracker" icon="pi pi-plus" routerLink="/addTracker"></button>
+        <button class="Addtracker" pButton label=" Addtracker" icon="pi pi-plus" routerLink="/addTracker" skipLocationChange></button>
 
         <div class="search">
           <input class="search" pInputText type="text" pInputText size="20"

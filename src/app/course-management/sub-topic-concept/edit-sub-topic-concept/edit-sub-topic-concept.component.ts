@@ -92,7 +92,7 @@ export class EditSubTopicConceptComponent implements OnInit {
       this.subTopicConceptdata.concept = this.subTopicConceptForm.concept;
 
       this.courseService.updateSubTopicConceptInfo(this.subTopicConceptdata).subscribe((data: any) => {
-        this.router.navigate(['/subtopicConceptTab/trainerPpt']);
+        this.router.navigate(['/subtopicConceptTab/trainerPpt'],{skipLocationChange: true});
       });
     }
   }

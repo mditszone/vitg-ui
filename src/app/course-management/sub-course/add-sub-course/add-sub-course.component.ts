@@ -93,8 +93,7 @@ export class AddSubCourseComponent implements OnInit {
       this.courseService.createSubCourse(this.subCourse).subscribe(
         (data: any) => {
           this.tabService.myMethod(data)
-          this.router.navigate(['/subCourseTab/subCourseName']);
-          //this.router.navigate(['/subCourseTab/editsubcourse',{id: data['id']}]);
+          this.router.navigate(['/subCourseTab/subCourseName'],{skipLocationChange: true});
         }),
 
         (error) => {

@@ -12,23 +12,32 @@ import { DialogDemoComponent } from '../dialog-demo/dialog-demo.component';
 })
 export class ViewExampleComponent implements OnInit {
 
- 
+
   filePath: any;
-  fileURL:any
-  constructor(public courseService:CourseService,
+  fileURL: any;
+  fileType:any
+  constructor(public courseService: CourseService,
     public dialogRef: MatDialogRef<DialogDemoComponent>,
     @Inject(MAT_DIALOG_DATA) public data: any,
     private sanitizer: DomSanitizer,
     private rightClickDisable: DisableRightClickService) { }
 
   ngOnInit(): void {
-    console.log(this.data.dataKey)
     this.courseService.getFileFromS3(this.data.dataKey).subscribe((response: any) => {
-      let file = new Blob([response], { type: "application/pdf" });
+      console.log(response)
+      let fileExtention = response.type
+      if (fileExtention === 'application/octet-stream') {
+        this.fileType = 'application/pdf';
+        // application/vnd.openxmlformats-officedocument.spreadsheetml.sheet
+      }
+      if(fileExtention === 'text/plain'){
+        this.fileType = 'text/plain';
+      }
+      let file = new Blob([response], { type: this.fileType });
       //this.fileURL = URL.createObjectURL(file);
       this.fileURL = this.sanitizer.bypassSecurityTrustResourceUrl(URL.createObjectURL(file));
-      
-    this.rightClickDisable.disableRightClick();
+
+      this.rightClickDisable.disableRightClick();
     })
   }
   close() {

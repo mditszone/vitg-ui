@@ -11,6 +11,11 @@ ul {
 .header {
   background-color: #0669ad;
   color: #fff;
+  position: fixed;
+  top: 0;
+  overflow: hidden;
+  z-index: 10;
+  transition: 0.9s;
 }
 
 .language {
@@ -74,6 +79,37 @@ ul {
   position: fixed;
   bottom: 20px;
   right: 20px;
+
+  background-color: #fdfdfd;
+  z-index: 100;
+  width: 300px;
+  box-shadow: 1px 1px 15px 1px rgba(0, 0, 0, 0.15);
+  border: none;
+  .minimized {
+    .user {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 5px 10px;
+      box-shadow: 0px 3px 15px rgba(0, 0, 0, 0.15);
+      img {
+        border-radius: 100%;
+        border: 1px solid grey;
+        margin-right: 10px;
+      }
+      .name {
+        font-size: 12px;
+        font-weight: 500;
+        color: #0669ad;
+      }
+      .status {
+        mat-icon {
+          padding: 2px;
+        }
+      }
+    }
+  }
+
 }
 
 .basic-container.menu {
@@ -81,6 +117,10 @@ ul {
   justify-content: center;
   align-items: center;
 }
+.navbar-components {
+  margin-top: 20px;
+}
+
 
 .navbar-components {
   margin-top: 20px;
@@ -131,8 +171,13 @@ ul {
     }
 
     .burger-menu {
+
       display: block;
       padding-right: 70px;
+
+      display: none;
+      padding-right: 50px;
+
     }
   }
 }
@@ -185,6 +230,10 @@ ul {
 
 /* Media Query for Laptops and Desktops */
 @media (min-width: 1025px) and (max-width: 1280px) {
+
+/* Media Query for Mobile Devices */
+@media (max-width: 480px) {
+
   .mainscreen-container {
     width: 100% !important;
     height: 100vh;
@@ -194,10 +243,12 @@ ul {
       display: flex;
       justify-content: space-between;
       align-items: center;
+
       .menu {
         display: flex;
         flex-direction: row;
       }
+
       .vitg-logo-container {
         display: flex;
         justify-content: space-between;
@@ -223,6 +274,29 @@ ul {
         }
       }
       .burger-menu {
+
+        display: block;
+        padding-right: 50px;
+      }
+    }
+  }
+}
+
+/* Media Query for low resolution  Tablets, Ipads */
+@media (min-width: 481px) and (max-width: 767px) {
+  .mainscreen-container {
+    width: 100%;
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      .vision {
+        font-size: 6vw;
+        padding-left: 16px;
+        cursor: pointer;
+      }
+      .menu {
+
         display: none;
         padding-right: 50px;
       }
@@ -231,6 +305,7 @@ ul {
   
 }
 
+
 /* Media Query for Large screens */
 @media (min-width: 1281px) {
   .mainscreen-container {
@@ -238,6 +313,12 @@ ul {
     height: 100vh;
     padding: 0 !important;
     margin: 0 !important;
+
+/* Media Query for Tablets Ipads portrait mode */
+@media (min-width: 768px) and (max-width: 1024px) {
+  .mainscreen-container {
+    width: 100%;
+
     .header {
       display: flex;
       justify-content: space-between;
@@ -281,6 +362,25 @@ ul {
     }
   }
 }
+
+
+/* Media Query for Laptops and Desktops */
+@media (min-width: 1025px) and (max-width: 1280px) {
+  .mainscreen-container {
+    width: 100%;
+    margin: 0;
+  }
+}
+
+/* Media Query for Large screens */
+@media (min-width: 1281px) {
+  .mainscreen-container {
+    width: 100%;
+    margin: 0;
+    color: #000;
+  }
+}
+
 
 .faqs {
   width: 100%;

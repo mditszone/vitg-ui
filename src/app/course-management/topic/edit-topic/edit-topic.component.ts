@@ -53,7 +53,7 @@ updateTopic(){
     this.courseService.updateTopic(this.topicdata).subscribe((data:any)=>{
       console.log(data);
 
-      this.router.navigate(['/topic'])
+      this.router.navigate(['/topic'],{skipLocationChange: true})
     })
   }
 }

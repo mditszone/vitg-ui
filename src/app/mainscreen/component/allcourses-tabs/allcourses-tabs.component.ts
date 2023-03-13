@@ -12,7 +12,7 @@ import { DialogDemoComponent } from '../dialog-demo/dialog-demo.component';
 })
 export class AllcoursesTabsComponent implements OnInit {
 
-  title: string | null = "Core Java";
+  title: string | null = "No information";
   tabs: Array<any> = [];
   selected = new FormControl(0);
   demourl: string | null = '';
@@ -31,10 +31,6 @@ export class AllcoursesTabsComponent implements OnInit {
         console.log(subCourse);
         this.demourl = subCourse.youtubeUrl;
         console.log(this.demourl);
-        
-        // let demo = `
-        // // <iframe src=${subCourse.youtubeUrl}?rel=0&autoplay=1 ></iframe>
-        // `;
 
         this.title = subCourse.name;
 
@@ -50,24 +46,8 @@ export class AllcoursesTabsComponent implements OnInit {
         })
 
         this.tabs.push({
-          tabName: "Exam & Certification",
-          tabData: subCourse.examCertification
-        })
-
-        this.tabs.push({
-          tabName: "Training Mode",
-          tabData: subCourse.trainingMode
-        })
-
-        this.tabs.push({
           tabName: "Demo",
           // tabData: this.sanitizer.bypassSecurityTrustHtml(demo)
-
-        })
-
-        this.tabs.push({
-          tabName: "Duration",
-          tabData: subCourse.durationDays
         })
 
         this.tabs.push({
@@ -80,7 +60,7 @@ export class AllcoursesTabsComponent implements OnInit {
   openDialog() {
     console.log(this.demourl);
     let url = this.demourl;
-    const dialogRef = this.dialog.open(DialogDemoComponent, {
+    this.dialog.open(DialogDemoComponent, {
       data: {
         dataKey: url
       }

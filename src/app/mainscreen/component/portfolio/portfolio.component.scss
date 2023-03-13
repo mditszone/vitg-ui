@@ -1,3 +1,4 @@
+
 // .portfolio{
 //     margin-top: 30px;
 //     background-color: rgba(6, 105, 173, 0.49);
@@ -12,6 +13,22 @@
 // .container{
 //     margin-top: 50px;
 // }
+
+.portfolio{
+    margin-top: 30px;
+    background-color: rgb(231, 230, 230);
+    height: 70px;
+    text-align: start;
+    padding-top: 20px;
+}
+.portfolio .header{
+    padding-left: 110px;
+    font-size: 30px;
+}
+.container{
+    margin-top: 50px;
+}
+
 
 // .container .text{
 //     padding-top: 50px;

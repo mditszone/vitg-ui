@@ -62,9 +62,9 @@ export class CurriculumComponent implements OnInit {
         console.log(this.subCoursedata)
       })
     }
-      this.subCourseDetailsForm.patchValue({
-        curriculum: this.subCoursedata.curriculum,
-      })
+    this.subCourseDetailsForm.patchValue({
+      curriculum: this.subCoursedata.curriculum,
+    })
   }
 
   updateSubCourse() {
@@ -80,7 +80,7 @@ export class CurriculumComponent implements OnInit {
       this.courseService.updateSubCourse(this.subCoursedata).subscribe(data => {
         this.subCoursedata = data;
         console.log(this.subCoursedata)
-        this.router.navigate(['/subCourseTab/durationDays'], { queryParams: { id: data['id'] } })
+        this.router.navigate(['/subCourseTab/durationDays'], { queryParams: { id: data['id'] }, skipLocationChange: true })
       })
     }
   }

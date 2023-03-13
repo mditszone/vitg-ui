@@ -38,6 +38,6 @@ export class CardImagesComponent implements OnInit {
     });
   }
   onClick(id: any) {
-    this.zone.run(() => this.route.navigate(['/tabComponent'], { queryParams: { subCourseId: id } }));
+    this.zone.run(() => this.route.navigate(['/tabComponent'], { queryParams: { subCourseId: id },skipLocationChange: true }));
   }
 }

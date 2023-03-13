@@ -8,26 +8,26 @@
                     (change)="onUploadChangeTrainerPpt($event)">
             </div>
         </div>
+        <div style="border: 0.5px solid #0669ad;margin-top: 30px;margin-bottom: 20px;">
+            <table class="table table-grid">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let file of selectedFiles;let index = index">
+                        <td>{{ file.name }}</td>
+                        <td>
+                            <a (click)="removeSelectedFile(index)">
+                                <span class="material-icons delete"> delete </span>
+                            </a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
         <button class="btn upload" type="submit" (click)="uploadFiles('trainer')">Upload</button>
     </form>
-    <div style="border: 0.5px solid #0669ad;margin-top: 30px;margin-bottom: 20px;">
-        <table class="table table-grid">
-            <thead>
-                <tr>
-                    <th>Name</th>
-                    <th>Actions</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr *ngFor="let file of selectedFiles;let index = index">
-                    <td>{{ file.name }}</td>
-                    <td>
-                        <a (click)="removeSelectedFile(index)">
-                            <span class="material-icons delete"> delete </span>
-                        </a>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
 </div>

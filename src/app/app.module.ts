@@ -3,7 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { SidebarComponent } from './component/sidebar/sidebar.component';
+import { navItems, SidebarComponent } from './component/sidebar/sidebar.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { LayoutComponent } from './component/layout/layout.component';
 import { MainscreenModule } from './mainscreen/mainscreen.module';
@@ -71,8 +71,11 @@ import { ActiveUserChatService } from './shared/services/active.user.chat.servic
 import { AddFaqComponent } from './application-management/add-faq/add-faq.component';
 import { EditFaqComponent } from './application-management/edit-faq/edit-faq.component';
 import { FaqsComponent } from './application-management/faqs/faqs.component';
+
 import { SharedModuleModule } from './shared-module/shared-module.module';
 
+
+import { RouterModule } from '@angular/router';
 
 
 
@@ -152,7 +155,11 @@ import { SharedModuleModule } from './shared-module/shared-module.module';
     BrowserModule, 
     FormsModule, 
     TableModule,
+
     SharedModuleModule
+
+    //RouterModule.forRoot(navItems ,{ useHash: true }),
+
   ],
   providers: [
     { provide: DatePipe },

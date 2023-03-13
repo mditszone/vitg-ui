@@ -38,7 +38,7 @@ export class SidenavComponent implements OnInit {
 
   onItemSelected(item: NavItem) {
     if (!item.children || !item.children.length) {
-      this.router.navigate([item.route]);
+      this.router.navigate([item.route],{skipLocationChange: true});
     }
     if (item.children && item.children.length) {
       this.expanded = !this.expanded;
