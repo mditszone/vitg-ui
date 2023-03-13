@@ -12,6 +12,7 @@ import { MaterialModule } from 'src/app/shared/module/material.module';
 import { StudentTabsComponent } from './student-tabs/student-tabs.component';
 import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
 import { StudentSubcourseComponent } from './student-subcourse/student-subcourse.component';
+import { SharedModuleModule } from 'src/app/shared-module/shared-module.module';
 
 @NgModule({
   declarations: [
@@ -29,6 +30,7 @@ import { StudentSubcourseComponent } from './student-subcourse/student-subcourse
     DropdownModule,
     ToastModule,
     MaterialModule,
+    SharedModuleModule,
     NgMultiSelectDropDownModule.forRoot()
   ]
 })

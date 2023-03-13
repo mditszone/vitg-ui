@@ -10,14 +10,16 @@ import { CourseService } from 'src/app/shared/services/course.service';
 })
 export class ViewTopicComponent implements OnInit {
   id!: number
-  topicdata:any
+  data: any;
   constructor(public courseService: CourseService,public route:ActivatedRoute) { }
 
   ngOnInit(): void {
     this.id = this.route.snapshot.params['id']
     this.courseService.getTopicById(this.id).subscribe((data:Topic)=>{
-      this.topicdata=data;
-      console.log(this.topicdata);
+      this.data = {
+        id: data.id,
+        name: data.name,
+      };
     })
   }
 

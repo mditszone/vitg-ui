@@ -68,3 +68,12 @@
     border-bottom-right-radius: 4px;
   }
   
+  @media (max-width: 480px) {
+    ng-image-slider {
+      img {
+        height: 250px;
+        width: 90%;
+      }
+    }
+
+  }

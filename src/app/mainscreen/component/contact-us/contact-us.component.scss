@@ -1,50 +1,54 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;300;400&family=Montserrat:wght@100;300&family=Poppins:wght@300&display=swap');
+
 * {
   margin: 0;
   padding: 0;
-  font-family: 'Montserrat', sans-serif;}
+  font-family: 'Montserrat', sans-serif;
+}
 
 .contact-container {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    padding: 40px 10px;
-    .contact-details {
-      width: 50%;
-      h1 {
-        font-size: 2rem;
-        color: rgba(0, 0, 0, 0.65);
-      }
-      .note {
-        font-size: 1rem;
-        margin-bottom: 35px;
-        display: block;
-      }
-      .contct-item {
-        font-weight: 600;
-        padding: 8px 0;
-      }
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding: 40px 10px;
+
+  .contact-details {
+    width: 50%;
+    h1 {
+      font-size: 2rem;
+      color: rgba(0, 0, 0, 0.65);
     }
-    .faqs {
-      width: 30%;
-      margin: 15px;
-      border: 1px solid rgba(0, 0, 0, 0.25);
-      border-radius: 5px;
-      padding: 20px;
-      form {
-        .contact-row {
-          display: flex;
-          .element {
-            width: 50%;
-            padding:  5px 5px;
-          }
-        }
-        .full-element {
-          width: 100%;
-          padding:  5px 5px;
+    .note {
+      font-size: 1rem;
+      margin-bottom: 35px;
+      display: block;
+    }
+    .contct-item {
+      font-weight: 600;
+      padding: 8px 0;
+    }
+  }
+
+  .faqs {
+    width: 30%;
+    margin: 15px;
+    border: 1px solid rgba(0, 0, 0, 0.25);
+    border-radius: 5px;
+    padding: 20px;
+    form {
+      .contact-row {
+        display: flex;
+        .element {
+          width: 50%;
+          padding: 5px 5px;
         }
       }
+      .full-element {
+        width: 100%;
+        padding: 5px 5px;
+      }
     }
+  }
 }
 
 .contact-us {
@@ -53,7 +57,9 @@
   border-top: 10px solid #f45702;
 }
 
-label, input, textarea {
+label,
+input,
+textarea {
   display: block;
   font-size: 10pt;
   font-weight: 700;
@@ -80,7 +86,8 @@ em {
   font-weight: bold;
 }
 
-input, textarea {
+input,
+textarea {
   border: none;
   border: 1px solid rgba(0, 0, 0, 0.25);
   padding: 5px 10px;
@@ -89,7 +96,8 @@ input, textarea {
   border-radius: 7px;
 }
 
-input:focus, textarea:focus {
+input:focus,
+textarea:focus {
   border: 1px solid #6bd4b1;
 }
 
@@ -133,7 +141,7 @@ textarea:-webkit-autofill:focus {
   transition: background-color 5000s ease-in-out 0s;
 }
 
-.verify{
+.verify {
   background-color: #0669ad;
   color: #fff;
   border-radius: 5px;
@@ -146,47 +154,98 @@ textarea:-webkit-autofill:focus {
   cursor: pointer;
 }
 
-.example-accordion {
-  display: block;
-  max-width:100%;
-}
-
-.example-accordion-item {
-  display: block;
-  border: solid 1px #ccc;
-}
-
-.example-accordion-item + .example-accordion-item {
-  border-top: none;
-}
-
-.example-accordion-item-header {
+.contact-container {
+  width: 100%;
   display: flex;
-  align-content: center;
-  justify-content: space-between;
+  flex-direction: column;
+  padding: 40px 10px;
+  .contact-details {
+    width: 90%;
+    padding: 20px;
+    h1 {
+      font-size: 2rem;
+      color: rgba(0, 0, 0, 0.65);
+    }
+    .note {
+      font-size: 1rem;
+      margin-bottom: 35px;
+      display: block;
+    }
+    .contct-item {
+      font-weight: 600;
+      padding: 8px 0;
+      font-size: 14px;
+    }
+  }
+  .faqs {
+    width: 90%;
+    margin: 15px;
+    border: 1px solid rgba(0, 0, 0, 0.25);
+    border-radius: 5px;
+    padding: 20px;
+    form {
+      .contact-row {
+        display: flex;
+        .element {
+          width: 50%;
+          padding: 5px 5px;
+        }
+      }
+      .full-element {
+        width: 100%;
+        padding: 5px 5px;
+      }
+    }
+  }
 }
 
-.example-accordion-item-description {
-  font-size: 0.85em;
-  color: #999;
+/* Media Query for Mobile Devices */
+@media (max-width: 480px) {
+  
 }
 
-.example-accordion-item-header,
-.example-accordion-item-body {
-  padding: 16px;
+/* Media Query for low resolution  Tablets, Ipads */
+@media (min-width: 481px) and (max-width: 767px) {}
+
+/* Media Query for Tablets Ipads portrait mode */
+@media (min-width: 768px) and (max-width: 1024px) {}
+
+/* Media Query for Laptops and Desktops */
+@media (min-width: 1025px) and (max-width: 1280px) {
+  .contact-container {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    padding: 40px 10px;
+  
+    .contact-details {
+      width: 50%;
+    }
+  
+    .faqs {
+      width: 30%;
+
+    }
+  }
 }
 
-.example-accordion-item-header:hover {
-  cursor: pointer;
-  background-color: #eee;
-}
+/* Media Query for Large screens */
+@media (min-width: 1281px) {
+  .contact-container {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    padding: 40px 10px;
+  
+    .contact-details {
+      width: 50%;
+    }
+  
+    .faqs {
+      width: 30%;
 
-.example-accordion-item:first-child {
-  border-top-left-radius: 4px;
-  border-top-right-radius: 4px;
-}
-
-.example-accordion-item:last-child {
-  border-bottom-left-radius: 4px;
-  border-bottom-right-radius: 4px;
+    }
+  }
 }

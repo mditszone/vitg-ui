@@ -8,17 +8,21 @@ import { RouterModule, Routes } from '@angular/router';
 import { ChatComponent } from '../mainscreen/component/chat/chat.component';
 import { MatIconModule } from '@angular/material/icon';
 import { TableViewComponent } from './table-view/table-view.component';
+import { DataViewComponent } from './data-view/data-view.component';
 
 
 @NgModule({
   declarations: [
     FaqsComponent,
     ChatComponent,
-    TableViewComponent
+    TableViewComponent,
+    DataViewComponent
   ],
   exports: [
     FaqsComponent,
     ChatComponent,
+    TableViewComponent,
+    DataViewComponent
   ],
   imports: [
     CommonModule, FormsModule, TableModule, RouterModule, TableModule, MatIconModule

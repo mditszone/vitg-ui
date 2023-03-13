@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
+import { BatchTableInfo } from '../model/batch';
 import { Email } from '../model/email';
 import { Sms } from '../model/sms';
 
@@ -24,6 +25,12 @@ export class BatchService {
   public getAllBatches(): Observable<any> {
     return this.http.get(this.baseURL + '/api/batch/AllBatches');
   }
+
+  public getAllBatchesTableInfo(): Observable<BatchTableInfo[]> {
+    return this.http.get<BatchTableInfo[]>(this.baseURL + '/api/batch/AllBatchTableInfo');
+  }
+
+
   public getBatchById(id: number): Observable<any> {
     return this.http.get(this.baseURL + `/api/batch/${id}`)
   }

@@ -1,9 +1,7 @@
-<div class="about-us">
-   <h1 class="header">About Us</h1>
-</div>
-
-<div class="container">
-
+<div class="aboutus-container">
+   <div class="about-us">
+      <h1 class="header">About Us</h1>
+   </div>
    <div class="content">
       <div class="text">
          <div>
@@ -22,7 +20,7 @@
             resources for our clients who create competitive advantage.
          </p>
       </div>
-      <div>
+      <div class="image-slider">
          <ngb-carousel *ngIf="imageObject" [showNavigationArrows]="showNavigationArrows"
             [showNavigationIndicators]="showNavigationIndicators">
             <ng-template ngbSlide *ngFor="let image of imageObject">
@@ -73,6 +71,3 @@
    </ngb-carousel>
 
 </div> -->
-
-
-

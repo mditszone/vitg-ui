@@ -71,6 +71,8 @@ import { ActiveUserChatService } from './shared/services/active.user.chat.servic
 import { AddFaqComponent } from './application-management/add-faq/add-faq.component';
 import { EditFaqComponent } from './application-management/edit-faq/edit-faq.component';
 import { FaqsComponent } from './application-management/faqs/faqs.component';
+import { SharedModuleModule } from './shared-module/shared-module.module';
+
 
 
 
@@ -150,6 +152,7 @@ import { FaqsComponent } from './application-management/faqs/faqs.component';
     BrowserModule, 
     FormsModule, 
     TableModule,
+    SharedModuleModule
   ],
   providers: [
     { provide: DatePipe },

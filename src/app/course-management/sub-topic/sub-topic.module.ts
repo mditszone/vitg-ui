@@ -7,6 +7,7 @@ import { EditSubTopicComponent } from './edit-sub-topic/edit-sub-topic.component
 import { ViewSubTopicComponent } from './view-sub-topic/view-sub-topic.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { DropdownModule } from 'primeng/dropdown';
+import { SharedModuleModule } from 'src/app/shared-module/shared-module.module';
 
 
 @NgModule({
@@ -20,7 +21,8 @@ import { DropdownModule } from 'primeng/dropdown';
     SubTopicRoutingModule,
     FormsModule,
     ReactiveFormsModule,
-    DropdownModule
+    DropdownModule,
+    SharedModuleModule 
   ]
 })
 export class SubTopicModule { }

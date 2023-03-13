@@ -11,7 +11,7 @@ import { CourseService } from 'src/app/shared/services/course.service';
 export class ViewSubTopicComponent implements OnInit {
 
   id!: number;
-  subtopicdata:any
+  data: any;
   errorMessage:any;
   constructor(private courseService:CourseService,
     private route:ActivatedRoute) { }
@@ -19,8 +19,10 @@ export class ViewSubTopicComponent implements OnInit {
   ngOnInit(): void {
     this.id = this.route.snapshot.params['id'];
     this.courseService.getSubTopicById(this.id).subscribe((data: Subtopic)=>{
-      console.log(data);
-      this.subtopicdata=data;
+      this.data = {
+        subTopicId: data.id,
+        subTopicName: data.name
+      }
     });
   }
 }

@@ -17,7 +17,7 @@ export class CardImagesComponent implements OnInit {
 
   ngOnInit(): void {
     this.courseService.getAllSubCourses().subscribe((data: any) => {
-      console.log(data)
+      console.log("cards data", data);
 
       for (var object of data) {
         let subcourse = new Subcourse();

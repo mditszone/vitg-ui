@@ -1,12 +1,13 @@
-<!-- <div class="container">
-    <h1 class="name">Batch Details</h1>
+<div class="container">
+    <h1 class="name">{{tableData.nameOfTable}}</h1>
     <div class="card">
-      <p-table #dt1 [value]="data" dataKey="id" [paginator]="true" [rows]="10" [showCurrentPageReport]="true"
+      <p-table #dt1 [value]="tableData.rowData" dataKey="id" [paginator]="true" [rows]="10" [showCurrentPageReport]="true"
         [rowsPerPageOptions]="[10,15,20,100]" [filterDelay]="0" 
         [globalFilterFields]="['id','courseName','trainer']"
         >
         <ng-template pTemplate="caption">
-          <button class="createBatch" pButton label=" Create Batch" icon="pi pi-plus" routerLink="buttonRouteName"></button>
+          <!-- <button class="createBatch" pButton value="Create Batch" label=" Create Batch" icon="pi pi-plus" routerLink="tableData.buttonRouteName"></button> -->
+          <input type="button" class="createBatch" [value]="tableData.buttonName" [routerLink]="tableData.buttonRoute">
           <div class="search">
             <input class="search" pInputText type="text" pInputText size="20"
               (input)="dt1.filterGlobal($any($event.target).value, 'contains')" placeholder="Global Filter"><br><br>
@@ -14,23 +15,25 @@
         </ng-template>
         <ng-template pTemplate="header">
           <tr>
-            <th pSortableColumn="id" *ngFor="let header of headers">{{header}}<p-sortIcon field="header"></p-sortIcon>
+            <th pSortableColumn="id" *ngFor="let header of tableData.headers">{{header}}<p-sortIcon field="header"></p-sortIcon>
             </th> 
-            <th>ACTION </th>
           </tr>
         </ng-template>
         <ng-template pTemplate="body" let-batch>
           <tr>
-            <td *ngFor="let item of data">item</td>
-            <td>
-                <a [routerLink]="['/viewbatch/', batch.id]">
-                    <span class="material-icons eye"> visibility </span></a>
-                  <a [routerLink]="['/editbatch/', batch.id]">
-                    <span class="material-icons edit">edit </span></a>
-                    
+            <td *ngFor="let item of batch; let i = index">
+              <span *ngIf="i != batch.length-1">{{item}}</span>
+              <span *ngIf="i == batch.length-1">
+                <span *ngIf="tableData.headers.includes('ACTIONS')">
+                  <span *ngFor="let action of batch[batch.length-1]">
+                    <a [routerLink]="[action.route, action.routeArgs]">
+                      <span class="material-icons action.icon"> {{action.icon}} </span></a>
+                  </span>
+                </span>
+              </span>
             </td>
           </tr>
         </ng-template>
       </p-table>
     </div>
-  </div>  -->
+  </div> 

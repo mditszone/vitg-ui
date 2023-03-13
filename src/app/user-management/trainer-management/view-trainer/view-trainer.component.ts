@@ -13,13 +13,19 @@ export class ViewTrainerComponent implements OnInit {
   trainerdata: any;
   id!: number;
   errorMessage:string="";
-
+  data: any;
   constructor(private userService: UserService, public route: ActivatedRoute) {}
 
   ngOnInit() {
     this.id = this.route.snapshot.params['id'];
     this.userService.getTrainerById(this.id).subscribe((data: Trainer) => {
-      this.trainerdata = data;
+      this.data = {
+        id: data.id,
+        name: data.name,
+        phoneNumber: data.phoneNumber,
+        aadharNumber: data.aadharNumber,
+        panCardNumber: data.panCardNumber
+      }
     });
   }
 

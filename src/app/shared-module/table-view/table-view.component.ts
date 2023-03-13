@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { TableData } from 'src/app/shared/model/table.data';
 
 @Component({
   selector: 'app-table-view',
@@ -6,12 +7,13 @@ import { Component, Input, OnInit } from '@angular/core';
   styleUrls: ['./table-view.component.scss']
 })
 export class TableViewComponent implements OnInit {
-  @Input() buttonRouteName: string;
-  @Input() headers: string[];
-  @Input() data: any;
-
+  @Input() tableData: TableData;
+  batchData: any;
   constructor() { }
   ngOnInit(): void {
   }
 
 }
+
+
+

@@ -23,11 +23,11 @@ declare var Stomp: any;
 export class MainscreenComponent implements OnInit {
   @ViewChild(MatMenuTrigger) trigger!: MatMenuTrigger;
 
-  
+  divStyle: any;
   subscription: any;
   response: any;
   stompClient: any;
-
+  minimized: boolean = false;
   linksArray: ChatBotData[] = [{show: false, title: "Courses", heading: "Learning about courses", body: "VIT Global is an online learning and teaching marketplace with over 213000 courses and 57 million students. Learn programming, marketing, data science and more, Take one of Udemy’s range of Python courses and learn how to code using this incredibly useful language. Its simple syntax and readability makes Python perfect for Flask, Django, data science, and machine learning. You’ll learn how to build everything from games to sites to apps. Choose from a range of courses that will appeal to"},
   {show: false, title: "Batches", heading: "Learning about courses", body: "VIT Global is an online learning and teaching marketplace with over 213000 courses and 57 million students. Learn programming, marketing, data science and more, Take one of Udemy’s range of Python courses and learn how to code using this incredibly useful language. Its simple syntax and readability makes Python perfect for Flask, Django, data science, and machine learning. You’ll learn how to build everything from games to sites to apps. Choose from a range of courses that will appeal to"},
   {show: false, title: "Payment", heading: "Learning about courses", body: "VIT Global is an online learning and teaching marketplace with over 213000 courses and 57 million students. Learn programming, marketing, data science and more, Take one of Udemy’s range of Python courses and learn how to code using this incredibly useful language. Its simple syntax and readability makes Python perfect for Flask, Django, data science, and machine learning. You’ll learn how to build everything from games to sites to apps. Choose from a range of courses that will appeal to"}
@@ -119,8 +119,14 @@ export class MainscreenComponent implements OnInit {
     this.cdr.detectChanges();
   }
 
+  moveToLeft() {
+    //this.divStyle = this.divStyle == 320 ? 70 : 320;
+  }
 
-
+  minimize() {
+    this.minimized = this.minimized ? false: true;
+  }
+  
   batchView() {
     this.router.navigate(['/batchList']);
   }
@@ -133,6 +139,13 @@ export class MainscreenComponent implements OnInit {
   moveToTabs(id: any): void { 
     this.zone.run(() => this.router.navigate(['/tabComponent'], { queryParams: { subCourseId: id } }));
   }
+
+  onScroll(event: any) {
+    // visible height + pixel scrolled >= total height 
+    if (event.target.offsetHeight + event.target.scrollTop >= event.target.scrollHeight) {
+      console.log("End", event.target.scrollHeight);
+    }
+}
 
   // onClickMaterial() {
   //   console.log("i am working");

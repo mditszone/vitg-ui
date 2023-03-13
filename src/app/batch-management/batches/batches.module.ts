@@ -11,6 +11,7 @@ import { ToastModule } from 'primeng/toast';
 import { MaterialModule } from 'src/app/shared/module/material.module';
 import { EditBatchComponent } from './edit-batch/edit-batch.component';
 import { ViewBatchComponent } from './view-batch/view-batch.component';
+import { SharedModuleModule } from 'src/app/shared-module/shared-module.module';
 // import { MatMomentDateModule } from '@angular/material-moment-adapter';
 // import { Moment } from 'moment';
 //import { NgxMatTimepickerModule } from 'ngx-mat-timepicker';
@@ -33,6 +34,7 @@ import { ViewBatchComponent } from './view-batch/view-batch.component';
     DropdownModule,
     ToastModule,
     MaterialModule,
+    SharedModuleModule
     //MatMomentDateModule,
 
     //NgxMatTimepickerModule,

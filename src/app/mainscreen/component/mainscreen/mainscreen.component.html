@@ -1,4 +1,4 @@
-<div class="mainscreen-container">
+<div class="mainscreen-container" (scroll)="onScroll($event)">
     <mat-toolbar>
         <mat-toolbar-row class="header">
             <div class="vitg-logo-container">
@@ -104,41 +104,23 @@
                     </mat-menu>
                 </button>
             </mat-menu>
-            <!-- <mat-menu #subCourse="matMenu">
-                <span *ngFor="let item of menuItems[0].children">
-                    <span *ngFor="let child of item.children">
-                        <button mat-menu-item *ngFor="let item of menuItems[0].children">
-                            {{item.displayName}}
-                            <mat-menu #[item.displayName]="matMenu">
-                                <button mat-menu-item #menuTrigger="matMenuTrigger" (mouseover)="menuTrigger.openMenu()"
-                                    [matMenuTriggerFor]="item.displayName">
-                                    {{item.displayName}}
-                                </button>
-                            </mat-menu>
-                        </button>
-                    </span>
-                </span>
-                
-            </mat-menu> -->
-
         </mat-toolbar-row>
     </mat-toolbar>
-
-
-
     <div class="body">
         <router-outlet></router-outlet>
     </div>
-    
-    
-    <!-- <mat-toolbar class="footer">
-        <mat-toolbar-row>
-            
-        </mat-toolbar-row>
-    </mat-toolbar> -->
-    <div class="chat-box" #scrollMe [scrollTop]="scrollMe.scrollHeight">
-        <app-chat [links]="linksArray"></app-chat>
+    <div>
+        <div class="chat-box" #scrollMe [scrollTop]="scrollMe.scrollHeight" [ngStyle]="{'right.px': divStyle}" (click)="moveToLeft()">
+            <app-chat [links]="linksArray"></app-chat>
+        </div>
+        <!-- <div [ngClass]="minimized ? 'mobile-chat-minimized' : 'chat-box-hide'" (click)="minimize()">
+            <mat-icon [ngStyle]="{'color':'white'}" class="fullscreen" fontIcon="chat_bubble"></mat-icon>
+        </div> -->
+        <!-- <div class='mobile-chat-minimized' (click)="minimize()">
+            <mat-icon [ngStyle]="{'color':'white'}" class="fullscreen" fontIcon="chat_bubble"></mat-icon>
+        </div> -->
     </div>
+    
     <div class="footer">
         &copy;All rights reserved 2022
     </div>

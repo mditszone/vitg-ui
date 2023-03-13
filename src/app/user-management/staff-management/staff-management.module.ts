@@ -12,6 +12,7 @@ import { NgOtpInputModule } from 'ng-otp-input';
 import { DropdownModule } from 'primeng/dropdown';
 import { ToastModule } from 'primeng/toast';
 import { MaterialModule } from 'src/app/shared/module/material.module';
+import { SharedModuleModule } from 'src/app/shared-module/shared-module.module';
 
 
 @NgModule({
@@ -30,7 +31,8 @@ import { MaterialModule } from 'src/app/shared/module/material.module';
     NgOtpInputModule,
     DropdownModule,
     ToastModule,
-    MaterialModule
+    MaterialModule,
+    SharedModuleModule 
   ]
 })
 export class StaffManagementModule { }
