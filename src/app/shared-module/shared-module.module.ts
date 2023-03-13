@@ -16,13 +16,13 @@ import { DataViewComponent } from './data-view/data-view.component';
     FaqsComponent,
     ChatComponent,
     TableViewComponent,
-    DataViewComponent
+    DataViewComponent,
   ],
   exports: [
     FaqsComponent,
     ChatComponent,
     TableViewComponent,
-    DataViewComponent
+    DataViewComponent,
   ],
   imports: [
     CommonModule, FormsModule, TableModule, RouterModule, TableModule, MatIconModule

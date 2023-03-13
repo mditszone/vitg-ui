@@ -71,9 +71,28 @@
   @media (max-width: 480px) {
     ng-image-slider {
       img {
-        height: 250px;
+        height: 350px;
         width: 90%;
       }
     }
 
+  }
+
+  @media (min-width: 1025px) and (max-width: 1280px) {
+    ng-image-slider {
+      img {
+        height: 450px;
+        width: 90%;
+      }
+    }
+  }
+  
+  /* Media Query for Large screens */
+  @media (min-width: 1281px) {
+    ng-image-slider {
+      img {
+        height: 450px;
+        width: 90%;
+      }
+    }
   }
