@@ -71,7 +71,12 @@ import { ActiveUserChatService } from './shared/services/active.user.chat.servic
 import { AddFaqComponent } from './application-management/add-faq/add-faq.component';
 import { EditFaqComponent } from './application-management/edit-faq/edit-faq.component';
 import { FaqsComponent } from './application-management/faqs/faqs.component';
+
+import { SharedModuleModule } from './shared-module/shared-module.module';
+
+
 import { RouterModule } from '@angular/router';
+
 
 
 
@@ -150,7 +155,11 @@ import { RouterModule } from '@angular/router';
     BrowserModule, 
     FormsModule, 
     TableModule,
+
+    SharedModuleModule
+
     //RouterModule.forRoot(navItems ,{ useHash: true }),
+
   ],
   providers: [
     { provide: DatePipe },

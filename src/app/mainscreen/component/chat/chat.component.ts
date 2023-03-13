@@ -16,7 +16,6 @@ declare var Stomp: any;
 
 export class ChatComponent implements OnInit {
   @ViewChild('scrollMe') private myScrollContainer: ElementRef;
-
   @Input() userName: string = "Guest";
   @Input() links: ChatBotData[];
   @Input() botMessage: string = "Hey there, this is VIT Global chatbot, need assistance?";
@@ -25,7 +24,7 @@ export class ChatComponent implements OnInit {
   showBotMessage: boolean = true;
   showBot: boolean = true;
   showAgentMessage: boolean = false;
-  minimized: boolean = false;
+  minimized: boolean = true;
   showNameBox: boolean = false;
   message: string = "";
   sender: string = "";

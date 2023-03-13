@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Subtopic } from 'src/app/shared/model/subtopic';
+import { TableData } from 'src/app/shared/model/table.data';
 import { CourseService } from 'src/app/shared/services/course.service';
 
 @Component({
@@ -9,12 +10,18 @@ import { CourseService } from 'src/app/shared/services/course.service';
 })
 export class SubTopicListComponent implements OnInit {
 
- 
+  tableData: TableData = new TableData();
+  
   subtopicdata: Subtopic[] = [];
-  id: any;
   loggedInUserRole: string = "";
+
   constructor(
-    private courseService: CourseService) { }
+    private courseService: CourseService) { 
+      this.tableData.headers = ["SUB TOPIC ID", "SUB TOPIC NAME", "TOPIC NAME", "ACTIONS"];
+      this.tableData.nameOfTable = "SubTopic List";
+      this.tableData.buttonRoute = "/addSubTopic"
+      this.tableData.buttonName = "Add SubTopic"
+    }
 
 
   ngOnInit(): void {
@@ -23,7 +30,18 @@ export class SubTopicListComponent implements OnInit {
 
     this.courseService.getAllSubTopics().subscribe(data => {
       this.subtopicdata = data;
-      console.log(this.subtopicdata)
+      data.forEach(val => {
+        let arr = [];
+        arr.push(val.id);
+        arr.push(val.name);
+        arr.push(val.topic.name);
+        arr.push([
+          {icon: "visibility", route: '/viewsubtopic/', routeArgs: val.id}, 
+          {icon: "edit", route: '/editsubtopic/', routeArgs: val.id},
+          {icon: "delete", route: '/editcourse/', routeArgs: val.id}
+        ]);
+        this.tableData.rowData.push(arr);
+      });
     });
   }
   deleteSubTopic(id: number) {

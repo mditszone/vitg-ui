@@ -9,15 +9,17 @@ import { CourseService } from 'src/app/shared/services/course.service';
   styleUrls: ['./view-course.component.scss']
 })
 export class ViewCourseComponent implements OnInit {
-
-  coursedata!: any;
   id!: number;
+  data: any;
   constructor(private route: ActivatedRoute, private courseService: CourseService) { }
 
   ngOnInit(): void {
     this.id = this.route.snapshot.params['id'];
     this.courseService.getCourseById(this.id).subscribe((data: Course) => {
-      this.coursedata = data
+      this.data = {
+        courseId: data.id,
+        courseName: data.name,
+      }
     })
 
   }

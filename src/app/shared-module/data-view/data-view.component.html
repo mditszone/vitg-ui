@@ -1,0 +1,15 @@
+<div class="d-flex flex-row-reverse bd-highlight">
+    <a href="#" [routerLink]="back" class="btn back">Back</a>
+</div>
+<div class="container">
+    <h1 class="name">{{infoName}}</h1>
+    <div class="card">
+        <div class="item" *ngFor="let key of keys; let i = index">
+            <label class="key">{{key}}</label>
+            <div class="separator">:</div>
+            <div class="value">
+                {{values[i]}}
+            </div>
+        </div>
+    </div>
+</div>

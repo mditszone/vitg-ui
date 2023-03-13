@@ -21,3 +21,12 @@ export class Batch {
     startTime: string = "";
     endTime: string = "";
 }
+
+export class BatchTableInfo {
+    id: number;
+    name: string;
+    startDate: string;
+    endDate: string;
+    trainerName: string;
+    actions: any;
+}

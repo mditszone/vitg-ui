@@ -15,6 +15,7 @@ import { AddTrainerComponent } from './add-trainer/add-trainer.component';
 import { MaterialModule } from 'src/app/shared/module/material.module';
 import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
 import { TrainerCourseComponent } from './trainer-course/trainer-course.component';
+import { SharedModuleModule } from 'src/app/shared-module/shared-module.module';
 
 @NgModule({
   declarations: [
@@ -34,6 +35,7 @@ import { TrainerCourseComponent } from './trainer-course/trainer-course.componen
     DropdownModule,
     ToastModule,
     MaterialModule,
+    SharedModuleModule,
     NgMultiSelectDropDownModule.forRoot()
   ]
 })

@@ -9,24 +9,33 @@ import { BatchService } from 'src/app/shared/services/batch.service';
   styleUrls: ['./view-batch.component.scss']
 })
 export class ViewBatchComponent implements OnInit {
-
-  batchData: Object[] = [];
-
+  data: any;
   constructor(private route: ActivatedRoute, private batchService: BatchService) { }
 
   ngOnInit(): void {
     const id = this.route.snapshot.params['id'];
     this.batchService.getBatchById(id).subscribe((data: Batch) => {
-      this.batchData = [
-        ["Name", data.name],
-        ["Trainer", data.trainerCourse.trainerName],
-        ["Fee", `${data.fee} /-`],
-        ["Duration", `${data.duration} hrs`],
-        ["Start Date", data.startDate.substring(0, 10)],
-        ["End Date", data.endDate.substring(0, 10)],
-        ["Start Time", data.startTime],
-        ["End Time", data.endTime]
-      ];
+      // this.batchData = [
+      //   ["Name", data.name],
+      //   ["Trainer", data.trainerCourse.trainerName],
+      //   ["Fee", `${data.fee} /-`],
+      //   ["Duration", `${data.duration} hrs`],
+      //   ["Start Date", data.startDate.substring(0, 10)],
+      //   ["End Date", data.endDate.substring(0, 10)],
+      //   ["Start Time", data.startTime],
+      //   ["End Time", data.endTime]
+      // ];
+      this.data = {
+        name: data.name,
+        trainer: data.trainerCourse.trainerName,
+        fee: `${data.fee} /-`,
+        duration:  `${data.duration} hrs`,
+        startDate: data.startDate.substring(0, 10),
+        endDate: data.endDate.substring(0, 10),
+        startTime: data.startTime,
+        endTime: data.endTime
+      };
     });
+
   }
 }

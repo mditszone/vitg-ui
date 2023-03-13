@@ -2,13 +2,16 @@
     <div class="padding">
         <div class="user">
             <div class="user-wrap">
-                <img height="30" width="30" src="https://w7.pngwing.com/pngs/81/570/png-transparent-profile-logo-computer-icons-user-user-blue-heroes-logo-thumbnail.png" />
+                <img height="30" width="30"
+                    src="https://w7.pngwing.com/pngs/81/570/png-transparent-profile-logo-computer-icons-user-user-blue-heroes-logo-thumbnail.png" />
                 <span>Welcome, {{userName}}</span>
                 <span class="msg"></span>
             </div>
             <div class="status">
-                <mat-icon [ngStyle]="{'color':'#706F6F'}" class="minimize" fontIcon="home" (click)="goBackToHome()"></mat-icon>
-                <mat-icon [ngStyle]="{'color':'#706F6F'}" class="minimize" fontIcon="minimize" (click)="minimize()"></mat-icon>
+                <mat-icon  class="minimize" fontIcon="home"
+                    (click)="goBackToHome()"></mat-icon>
+                <mat-icon  class="minimize" fontIcon="minimize"
+                    (click)="minimize()"></mat-icon>
             </div>
         </div>
     </div>
@@ -19,17 +22,19 @@
                 <input type="button" value="submit" (click)="userJoin()" />
             </div>
             <div [ngClass]="!showNameBox ? 'agent-message' : 'hide'">
-                <img height="20" width="20" src="https://w7.pngwing.com/pngs/81/570/png-transparent-profile-logo-computer-icons-user-user-blue-heroes-logo-thumbnail.png" />
+                <img height="20" width="20"
+                    src="https://w7.pngwing.com/pngs/81/570/png-transparent-profile-logo-computer-icons-user-user-blue-heroes-logo-thumbnail.png" />
                 <span>{{agentMessage}}</span>
             </div>
         </div>
         <div [ngClass]="showBot ? 'bot' : 'hide'">
             <div class="bot-message">
                 <!-- <img height="20" width="20" src="https://w7.pngwing.com/pngs/81/570/png-transparent-profile-logo-computer-icons-user-user-blue-heroes-logo-thumbnail.png" /> -->
-                <mat-icon [ngStyle]="{'color':'#706F6F'}" class="minimize" fontIcon="live_help" (click)="minimize()"></mat-icon>
+                <mat-icon [ngStyle]="{'color':'#706F6F'}" class="minimize" fontIcon="live_help"
+                    (click)="minimize()"></mat-icon>
                 <span>{{botMessage}}</span>
             </div>
-    
+
             <div class="links">
                 <a class="link" href="#" *ngFor="let link of links" (click)="showMessage(link)">{{link.title}}</a>
             </div>
@@ -38,7 +43,6 @@
                 <a class="link" (click)="connect()" href="#">Connect with Agent</a>
             </div>
         </div>
-
         <ng-container>
             <span *ngFor="let link of links">
                 <div div [ngClass]="link.show ? 'bot-body' : 'hide'">
@@ -51,80 +55,6 @@
                 </div>
             </span>
         </ng-container>
-        
-
-        <!-- <div class="team-message">
-            <img height="20" width="20" src="https://w7.pngwing.com/pngs/81/570/png-transparent-profile-logo-computer-icons-user-user-blue-heroes-logo-thumbnail.png" />
-            <span>Hi vamshi, have you got the project report pdf?</span>
-        </div>
-        <div class="user-message">
-            <span>No, I did not get it</span>
-            <img height="20" width="20" src="https://cdn.icon-icons.com/icons2/1378/PNG/512/avatardefault_92824.png" />
-        </div>
-        <div class="team-message">
-            <img height="20" width="20" src="https://w7.pngwing.com/pngs/81/570/png-transparent-profile-logo-computer-icons-user-user-blue-heroes-logo-thumbnail.png" />
-            <span>Ok, I will just sent it hear, please be sure to fill details by then end of day</span>
-        </div>
-        <div class="user-message">
-            <span>Ok, should i send it over after filling details</span>
-            <img height="20" width="20" src="https://cdn.icon-icons.com/icons2/1378/PNG/512/avatardefault_92824.png" />
-        </div>
-        <div class="team-message">
-            <img height="20" width="20" src="https://w7.pngwing.com/pngs/81/570/png-transparent-profile-logo-computer-icons-user-user-blue-heroes-logo-thumbnail.png" />
-            <span>yeh, I will be adding more team members to it</span>
-        </div>
-        <div class="user-message">
-            <span>OK</span>
-            <img height="20" width="20" src="https://cdn.icon-icons.com/icons2/1378/PNG/512/avatardefault_92824.png" />
-        </div>
-        <div class="team-message">
-            <img height="20" width="20" src="https://w7.pngwing.com/pngs/81/570/png-transparent-profile-logo-computer-icons-user-user-blue-heroes-logo-thumbnail.png" />
-            <span>Ok, I will just sent it hear, please be sure to fill details by then end of day</span>
-        </div>
-        <div class="user-message">
-            <span>Ok, should i send it over after filling details</span>
-            <img height="20" width="20" src="https://cdn.icon-icons.com/icons2/1378/PNG/512/avatardefault_92824.png" />
-        </div>
-        <div class="team-message">
-            <img height="20" width="20" src="https://w7.pngwing.com/pngs/81/570/png-transparent-profile-logo-computer-icons-user-user-blue-heroes-logo-thumbnail.png" />
-            <span>yeh, I will be adding more team members to it</span>
-        </div>
-        <div class="user-message">
-            <span>OK</span>
-            <img height="20" width="20" src="https://cdn.icon-icons.com/icons2/1378/PNG/512/avatardefault_92824.png" />
-        </div>
-        <div class="team-message">
-            <img height="20" width="20" src="https://w7.pngwing.com/pngs/81/570/png-transparent-profile-logo-computer-icons-user-user-blue-heroes-logo-thumbnail.png" />
-            <span>Ok, I will just sent it hear, please be sure to fill details by then end of day</span>
-        </div>
-        <div class="user-message">
-            <span>Ok, should i send it over after filling details</span>
-            <img height="20" width="20" src="https://cdn.icon-icons.com/icons2/1378/PNG/512/avatardefault_92824.png" />
-        </div>
-        <div class="team-message">
-            <img height="20" width="20" src="https://w7.pngwing.com/pngs/81/570/png-transparent-profile-logo-computer-icons-user-user-blue-heroes-logo-thumbnail.png" />
-            <span>yeh, I will be adding more team members to it</span>
-        </div>
-        <div class="user-message">
-            <span>OK</span>
-            <img height="20" width="20" src="https://cdn.icon-icons.com/icons2/1378/PNG/512/avatardefault_92824.png" />
-        </div>
-        <div class="team-message">
-            <img height="20" width="20" src="https://w7.pngwing.com/pngs/81/570/png-transparent-profile-logo-computer-icons-user-user-blue-heroes-logo-thumbnail.png" />
-            <span>Ok, I will just sent it hear, please be sure to fill details by then end of day</span>
-        </div>
-        <div class="user-message">
-            <span>Ok, should i send it over after filling details</span>
-            <img height="20" width="20" src="https://cdn.icon-icons.com/icons2/1378/PNG/512/avatardefault_92824.png" />
-        </div>
-        <div class="team-message">
-            <img height="20" width="20" src="https://w7.pngwing.com/pngs/81/570/png-transparent-profile-logo-computer-icons-user-user-blue-heroes-logo-thumbnail.png" />
-            <span>yeh, I will be adding more team members to it</span>
-        </div>
-        <div class="user-message">
-            <span>OK</span>
-            <img height="20" width="20" src="https://cdn.icon-icons.com/icons2/1378/PNG/512/avatardefault_92824.png" />
-        </div> -->
     </div>
     <div class="send">
         <div class="input-wrap">
@@ -133,22 +63,22 @@
                 <mat-icon class="icon-send" (click)="send()">send</mat-icon>
             </div>
         </div>
-        <!-- <div class="submit">
-            <mat-icon class="icon-send">send</mat-icon>
-        </div> -->
     </div>
-    
+
 </div>
-    
-<div class="padding" >
-    <div [ngClass]="minimized ? 'user' : 'chat-box-hide'">
-        <div class="user-wrap">
-            <mat-icon [ngStyle]="{'color':'blue'}" class="fullscreen" fontIcon="chat_bubble"></mat-icon>
-            <span style="color: blue">Live Chat</span>
-            <span class="msg"></span>
-        </div>
-        <div class="status">
-            <mat-icon [ngStyle]="{'color':'blue'}" class="fullscreen" fontIcon="fullscreen_exit" (click)="minimize()"></mat-icon>
-        </div>
+
+
+<div [ngClass]="minimized ? 'laptop-chat-minized' : 'chat-box-hide'" (click)="minimize()">
+    <div class="user-wrap">
+        <mat-icon class="fullscreen" fontIcon="chat_bubble"></mat-icon>
+        <span style="color: white" class="value">Live Chat</span>
     </div>
 </div>
+
+<div [ngClass]="minimized ? 'mobile-chat-minized' : 'chat-box-hide'" (click)="minimize()">
+    <div class="user-wrap">
+        <mat-icon class="fullscreen" fontIcon="chat_bubble"></mat-icon>
+    </div>
+</div>
+
+

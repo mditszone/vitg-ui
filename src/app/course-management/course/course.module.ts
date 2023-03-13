@@ -6,6 +6,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ViewCourseComponent } from './view-course/view-course.component';
 import { EditCourseComponent } from './edit-course/edit-course.component';
 import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
+import { SharedModuleModule } from 'src/app/shared-module/shared-module.module';
 
 
 @NgModule({
@@ -20,7 +21,8 @@ import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
     CourseRoutingModule,
     ReactiveFormsModule,
     FormsModule,
-    CKEditorModule
+    CKEditorModule,
+    SharedModuleModule
   ]
 })
 export class CourseModule { }
