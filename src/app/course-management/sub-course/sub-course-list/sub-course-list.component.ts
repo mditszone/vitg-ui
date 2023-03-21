@@ -34,7 +34,7 @@ export class SubCourseListComponent implements OnInit {
         let arr = [];
         arr.push(val.id);
         arr.push(val.name);
-        arr.push(val.courseName);
+        arr.push(val.course.name);
         arr.push(val.durationDays);
         arr.push(val.durationHours);
         arr.push([

@@ -80,7 +80,7 @@ export class EditTrainerComponent implements OnInit {
 
     this.userService.updateTrainerinfo(this.trainer).subscribe(data => {
       this.trainerdata = data;
-      this.router.navigate(['/trainer'],{skipLocationChange: true})
+      this.router.navigate(['/trainer'])
     })
   }
 }

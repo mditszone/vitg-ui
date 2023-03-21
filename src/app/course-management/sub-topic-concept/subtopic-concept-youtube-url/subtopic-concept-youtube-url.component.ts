@@ -73,7 +73,7 @@ export class SubtopicConceptYoutubeUrlComponent implements OnInit {
       this.courseService.updateSubTopicConceptInfo(this.subTopicConceptdata).subscribe(
         (data: any) => {
           console.log(data)
-          this.router.navigate(['/subtopicConceptTab/subtopicConceptYoutubeUrl'],{skipLocationChange: true});
+          this.router.navigate(['/subtopicConceptTab/subtopicConceptYoutubeUrl']);
 
           (error) => {
             this.errorMessage = error.error.message;

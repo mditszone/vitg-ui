@@ -163,7 +163,7 @@ export class AddTrainerComponent implements OnInit {
       this.userService.updateTrainerinfo(this.trainer).subscribe(
         (data: any) => {
           console.log(data);
-          this.router.navigate(['/trainerCourse'], { queryParams: { id: data['id'] }, skipLocationChange: true });
+          this.router.navigate(['/trainerCourse'], { queryParams: { id: data['id'] }});
         });
       (error) => {
         this.errorMessage = error.error.message;

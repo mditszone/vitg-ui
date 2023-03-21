@@ -32,6 +32,8 @@ import { BatchRegisterComponent } from './batch-management/batch-register/batch-
 import { FaqsComponent } from './application-management/faqs/faqs.component';
 import { EditFaqComponent } from './application-management/edit-faq/edit-faq.component';
 import { AddFaqComponent } from './application-management/add-faq/add-faq.component';
+import { FacultyListComponent } from './user-management/faculty/faculty-list/faculty-list.component';
+import { MaterialFacultySidebarComponent } from './mainscreen/component/material-faculty-sidebar/material-faculty-sidebar.component';
 
 
 const routes: Routes = [
@@ -57,6 +59,14 @@ const routes: Routes = [
     children: [
       {
         path: 'materialSidebar', component: MaterialSidebarComponent
+      }
+    ]
+  },
+  {
+    path: '', component: MaterialScreenComponent,
+    children: [
+      {
+        path: 'materialFacultySidebar', component: MaterialFacultySidebarComponent
       }
     ]
   },
@@ -223,6 +233,15 @@ const routes: Routes = [
       {
         path: 'trainer', pathMatch: 'full',
         component: TrainerListComponent
+      }]
+  },
+  {
+    path: '',
+    component: LayoutComponent,
+    children: [
+      {
+        path: 'faculty', pathMatch: 'full',
+        component: FacultyListComponent
       }]
   },
   {

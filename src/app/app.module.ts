@@ -76,6 +76,9 @@ import { SharedModuleModule } from './shared-module/shared-module.module';
 
 
 import { RouterModule } from '@angular/router';
+import { FacultyListComponent } from './user-management/faculty/faculty-list/faculty-list.component';
+import { AddFacultyComponent } from './user-management/faculty/add-faculty/add-faculty.component';
+import { FacultyModule } from './user-management/faculty/faculty.module';
 
 
 
@@ -113,6 +116,7 @@ import { RouterModule } from '@angular/router';
     ChatBotLinksComponent,
     AddFaqComponent,
     EditFaqComponent,
+    FacultyListComponent,
 
   ],
   imports: [ 
@@ -156,7 +160,8 @@ import { RouterModule } from '@angular/router';
     FormsModule, 
     TableModule,
 
-    SharedModuleModule
+    SharedModuleModule,
+    FacultyModule
 
     //RouterModule.forRoot(navItems ,{ useHash: true }),
 

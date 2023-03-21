@@ -28,15 +28,15 @@ export class MainscreenComponent implements OnInit {
   response: any;
   stompClient: any;
   minimized: boolean = false;
-  linksArray: ChatBotData[] = [{show: false, title: "Courses", heading: "Learning about courses", body: "VIT Global is an online learning and teaching marketplace with over 213000 courses and 57 million students. Learn programming, marketing, data science and more, Take one of Udemy’s range of Python courses and learn how to code using this incredibly useful language. Its simple syntax and readability makes Python perfect for Flask, Django, data science, and machine learning. You’ll learn how to build everything from games to sites to apps. Choose from a range of courses that will appeal to"},
-  {show: false, title: "Batches", heading: "Learning about courses", body: "VIT Global is an online learning and teaching marketplace with over 213000 courses and 57 million students. Learn programming, marketing, data science and more, Take one of Udemy’s range of Python courses and learn how to code using this incredibly useful language. Its simple syntax and readability makes Python perfect for Flask, Django, data science, and machine learning. You’ll learn how to build everything from games to sites to apps. Choose from a range of courses that will appeal to"},
-  {show: false, title: "Payment", heading: "Learning about courses", body: "VIT Global is an online learning and teaching marketplace with over 213000 courses and 57 million students. Learn programming, marketing, data science and more, Take one of Udemy’s range of Python courses and learn how to code using this incredibly useful language. Its simple syntax and readability makes Python perfect for Flask, Django, data science, and machine learning. You’ll learn how to build everything from games to sites to apps. Choose from a range of courses that will appeal to"}
+  linksArray: ChatBotData[] = [{ show: false, title: "Courses", heading: "Learning about courses", body: "VIT Global is an online learning and teaching marketplace with over 213000 courses and 57 million students. Learn programming, marketing, data science and more, Take one of Udemy’s range of Python courses and learn how to code using this incredibly useful language. Its simple syntax and readability makes Python perfect for Flask, Django, data science, and machine learning. You’ll learn how to build everything from games to sites to apps. Choose from a range of courses that will appeal to" },
+  { show: false, title: "Batches", heading: "Learning about courses", body: "VIT Global is an online learning and teaching marketplace with over 213000 courses and 57 million students. Learn programming, marketing, data science and more, Take one of Udemy’s range of Python courses and learn how to code using this incredibly useful language. Its simple syntax and readability makes Python perfect for Flask, Django, data science, and machine learning. You’ll learn how to build everything from games to sites to apps. Choose from a range of courses that will appeal to" },
+  { show: false, title: "Payment", heading: "Learning about courses", body: "VIT Global is an online learning and teaching marketplace with over 213000 courses and 57 million students. Learn programming, marketing, data science and more, Take one of Udemy’s range of Python courses and learn how to code using this incredibly useful language. Its simple syntax and readability makes Python perfect for Flask, Django, data science, and machine learning. You’ll learn how to build everything from games to sites to apps. Choose from a range of courses that will appeal to" }
   ];
 
   openMyMenu() {
     this.trigger.openMenu();
   }
-  
+
   closeMyMenu() {
     this.trigger.closeMenu();
   }
@@ -50,14 +50,14 @@ export class MainscreenComponent implements OnInit {
 
   childCourse: any = this.menuItems.children;
 
-  constructor(private courseService: CourseService, 
-      private batchService: BatchService,  
-      private cdr: ChangeDetectorRef, 
-      private faqService: FaqService,
-      private router: Router, private zone: NgZone) {
+  constructor(private courseService: CourseService,
+    private batchService: BatchService,
+    private cdr: ChangeDetectorRef,
+    private faqService: FaqService,
+    private router: Router, private zone: NgZone) {
     this.courseService.getAllCourses().subscribe((arrayOfCourse: Course[]) => {
       arrayOfCourse.forEach((course, courseIndex) => {
-      console.log("course children", this.menuItems[0].children);
+        console.log("course children", this.menuItems[0].children);
 
         this.menuItems[0].children[courseIndex] = {
           "displayName": course.name,
@@ -73,11 +73,11 @@ export class MainscreenComponent implements OnInit {
           });
         });
       });
-      
+
     });
 
     this.batchService.getAllBatches().subscribe(data => {
-      this.batchMenu = data.map(item => { return {"name": item.name, "id": item.id}; });
+      this.batchMenu = data.map(item => { return { "name": item.name, "id": item.id }; });
       console.log("batchMenu", this.batchMenu);
     });
 
@@ -90,21 +90,21 @@ export class MainscreenComponent implements OnInit {
     // stomp.startConnect().then(() => {
     //   stomp.done('init');
     //   console.log('connected');
-      
+
     //   //subscribe
     //   this.subscription = stomp.subscribe('/topic', this.response);
-      
+
     //   //send data
     //   stomp.send('destionation',{"data":"data"});
-      
+
     //   //unsubscribe
     //   this.subscription.unsubscribe();
-      
+
     //   //disconnect
     //   stomp.disconnect().then(() => {
     //     console.log( 'Connection closed' )
     //   })
-      
+
     // });
 
   }
@@ -122,21 +122,21 @@ export class MainscreenComponent implements OnInit {
   }
 
   minimize() {
-    this.minimized = this.minimized ? false: true;
+    this.minimized = this.minimized ? false : true;
   }
-  
+
   batchView() {
-    this.router.navigate(['/batchList'],{skipLocationChange: true});
+    this.router.navigate(['/batchList']);
   }
 
   onClick() {
     console.log("i am working");
-    this.router.navigate(['/tabComponent'],{skipLocationChange: true});
+    this.router.navigate(['/tabComponent']);
   }
 
-  moveToTabs(id: any): void { 
+  moveToTabs(id: any): void {
     console.log("vamsi")
-    this.zone.run(() => this.router.navigate(['/tabComponent'], { queryParams: { subCourseId: id },skipLocationChange: true }));
+    this.zone.run(() => this.router.navigate(['/tabComponent'], { queryParams: { subCourseId: id }}));
   }
 
   onScroll(event: any) {
@@ -144,13 +144,7 @@ export class MainscreenComponent implements OnInit {
     if (event.target.offsetHeight + event.target.scrollTop >= event.target.scrollHeight) {
       console.log("End", event.target.scrollHeight);
     }
-}
-
-  // onClickMaterial() {
-  //   console.log("i am working");
-  //   this.router.navigate(['/materialSidebar']);
-  // }
-
+  }
 }
 
 

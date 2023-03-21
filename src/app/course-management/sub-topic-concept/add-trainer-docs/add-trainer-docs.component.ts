@@ -67,7 +67,7 @@ export class AddTrainerDocsComponent implements OnInit {
       this.courseService.pushFileToStorage(this.selectedFiles, this.subTopicConceptId, fileCategory).subscribe(
         (data: any) => {
           console.log(data)
-          this.router.navigate(['/subtopicConceptTab/trainerPpt'],{skipLocationChange: true});
+          this.router.navigate(['/subtopicConceptTab/trainerPpt']);
           this.dialogRef.close([]);
         })
     }

@@ -1,0 +1,95 @@
+<mat-sidenav-container>
+    <mat-sidenav class="app-sidenav" #sidenav mode="side" opened="true">
+        <mat-nav-list>
+            <mat-accordion>
+                <div *ngFor="let topic of topicListdata">
+                    <mat-expansion-panel>
+                        <mat-expansion-panel-header (click)="onClickTopic(topic.topicId)">
+                            <mat-panel-title>
+                                <div>
+                                    {{topic.topicName}}
+                                </div>
+                            </mat-panel-title>
+                        </mat-expansion-panel-header>
+                        <div *ngFor="let subTopic of subTopicListdata">
+                            <mat-list-item (click)="onClickSubTopic(subTopic.id)">
+                                {{subTopic.name}}
+                            </mat-list-item>
+                        </div>
+                    </mat-expansion-panel>
+                </div>
+            </mat-accordion>
+        </mat-nav-list>
+
+    </mat-sidenav>
+    <mat-sidenav-content>
+        <div class="container">
+            <mat-tab-group>
+                <mat-tab *ngFor="let tab of tabs" [label]="tab['tabName']">
+                    <div [innerHTML]="tab['tabData']"></div>
+                    <div *ngIf="tab['tabName'] === 'Examples' ">
+                        <div fxLayout="row wrap" fxLayout.xs="column wrap" fxLayoutAlign="start" fxLayoutGap="20px"
+                            fxLayoutGap.xs="0px">
+                            <div class="container">
+                                <p-table #dt1 [value]="exampleTabData" dataKey="id" [paginator]="true" [rows]="10"
+                                    [showCurrentPageReport]="true" [rowsPerPageOptions]="[10,15,20,100]"
+                                    [filterDelay]="0" [globalFilterFields]="['name']">
+
+                                    <ng-template pTemplate="header">
+                                        <tr>
+                                            <th pSortableColumn="name">FILE NAME<p-sortIcon field="name"></p-sortIcon>
+                                            </th>
+                                            <th>ACTION </th>
+                                        </tr>
+                                    </ng-template>
+
+                                    <ng-template pTemplate="body" let-exampleTabData>
+                                        <tr>
+                                            <td>{{this.exampleTabData.fileName}}</td>
+                                            <td>
+                                                <a (click)="viewFile(exampleTabData.fileName)">
+                                                    <span class="material-icons eye"> visibility </span>
+                                                </a>
+                                            </td>
+                                        </tr>
+                                    </ng-template>
+                                </p-table>
+                            </div>
+                        </div>
+                    </div>
+                    <div *ngIf="tab['tabName'] === 'Trainer Docs' ">
+                        <div fxLayout="row wrap" fxLayout.xs="column wrap" fxLayoutAlign="start" fxLayoutGap="20px"
+                            fxLayoutGap.xs="0px">
+                            <div class="container">
+                                <p-table #dt1 [value]="trainerTabData" dataKey="id" [paginator]="true" [rows]="10"
+                                    [showCurrentPageReport]="true" [rowsPerPageOptions]="[10,15,20,100]"
+                                    [filterDelay]="0" [globalFilterFields]="['name']">
+
+                                    <ng-template pTemplate="header">
+                                        <tr>
+                                            <th pSortableColumn="name">NAME<p-sortIcon field="name"></p-sortIcon>
+                                            </th>
+                                            <th>ACTION </th>
+                                        </tr>
+                                    </ng-template>
+
+                                    <ng-template pTemplate="body" let-trainerTabData>
+                                        <tr>
+                                            <td>{{this.trainerTabData.fileName}}</td>
+                                            <td>
+                                                <a (click)="viewFile(trainerTabData.fileName)">
+                                                    <span class="material-icons eye"> visibility </span>
+                                                </a>
+                                            </td>
+                                        </tr>
+                                    </ng-template>
+                                </p-table>
+                            </div>
+                        </div>
+                    </div>
+                </mat-tab>
+            </mat-tab-group>
+        </div>
+        <router-outlet></router-outlet>
+    </mat-sidenav-content>
+</mat-sidenav-container>

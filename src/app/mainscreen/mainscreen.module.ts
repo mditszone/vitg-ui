@@ -41,6 +41,8 @@ import { ChatComponent } from './component/chat/chat.component';
 import {CdkAccordionModule} from '@angular/cdk/accordion';
 import { MatIconModule } from '@angular/material/icon';
 import { SharedModuleModule } from '../shared-module/shared-module.module';
+import { VerifyTrainerComponent } from './component/student-dashboard/verify-trainer/verify-trainer.component';
+import { MaterialFacultySidebarComponent } from './component/material-faculty-sidebar/material-faculty-sidebar.component';
 
 
 @NgModule({
@@ -66,6 +68,8 @@ import { SharedModuleModule } from '../shared-module/shared-module.module';
     InternshipComponent,
     ProjectDevelopmentComponent,
     ViewExampleComponent,
+    VerifyTrainerComponent,
+    MaterialFacultySidebarComponent,
 
   ],
   imports: [

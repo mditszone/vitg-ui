@@ -23,9 +23,6 @@ export class MaterialSidebarComponent implements OnInit {
   fileURL: string | null = '';
   fileName: string | null = '';
 
-  @ViewChild("outsideElement", { static: true }) outsideElement: ElementRef;
-  @ViewChild('modalView', { static: true }) modalView$: ElementRef;
-
   constructor(
     @Inject(ActivatedRoute) private route: ActivatedRoute,
     private courseService: CourseService,

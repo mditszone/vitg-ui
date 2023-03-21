@@ -58,7 +58,7 @@ export class VerifyStaffComponent implements OnInit {
       this.staffDTO = data;
       this.router.navigate(['/addStaff'],
         {
-          queryParams: { data: btoa(JSON.stringify(this.staffDTO)) },skipLocationChange: true
+          queryParams: { data: btoa(JSON.stringify(this.staffDTO)) },
         });
     },
       (error) => {

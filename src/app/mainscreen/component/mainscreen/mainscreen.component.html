@@ -48,20 +48,16 @@
 
                 <div class="navbar-components">
                     <ul>
-                        <a routerLink="aboutus" routerLinkActive="active" skipLocationChange>ABOUT US</a>
-                        <a mat-button [matMenuTriggerFor]="services" skipLocationChange>SERVICES</a>
+                        <a routerLink="aboutus" routerLinkActive="active">ABOUT US</a>
+                        <a mat-button [matMenuTriggerFor]="services">SERVICES</a>
                         <mat-menu #services="matMenu">
-                            <a mat-menu-item routerLink="training" routerLinkActive="active" skipLocationChange>Training</a>
-                            <a mat-menu-item routerLink="outSourcing" routerLinkActive="active" skipLocationChange>Out Sourcing</a>
-                            <a mat-menu-item routerLink="internship" routerLinkActive="active" skipLocationChange>Internship</a>
-                            <a mat-menu-item routerLink="projectDevelopment" routerLinkActive="active" skipLocationChange>Project
+                            <a mat-menu-item routerLink="training" routerLinkActive="active">Training</a>
+                            <a mat-menu-item routerLink="outSourcing" routerLinkActive="active">Out Sourcing</a>
+                            <a mat-menu-item routerLink="internship" routerLinkActive="active">Internship</a>
+                            <a mat-menu-item routerLink="projectDevelopment" routerLinkActive="active">Project
                                 development</a>
                         </mat-menu>
 
-                        <a routerLink="portfolio" routerLinkActive="active" skipLocationChange>PORTFOLIO</a>
-                        <a routerLink="team" routerLinkActive="active" skipLocationChange>TEAM</a>
-                        <a routerLink="contactus" routerLinkActive="active" skipLocationChange>CONTACT US</a>
-                        <a routerLink="register" routerLinkActive="active" skipLocationChange>LOGIN/REGISTER</a>
                         <a routerLink="portfolio" routerLinkActive="active">PORTFOLIO</a>
                         <a routerLink="team" routerLinkActive="active">TEAM</a>
                         <a routerLink="contact" routerLinkActive="active">CONTACT US</a>
@@ -115,7 +111,8 @@
         <router-outlet></router-outlet>
     </div>
     <div>
-        <div class="chat-box" #scrollMe [scrollTop]="scrollMe.scrollHeight" [ngStyle]="{'right.px': divStyle}" (click)="moveToLeft()">
+        <div class="chat-box" #scrollMe [scrollTop]="scrollMe.scrollHeight" [ngStyle]="{'right.px': divStyle}"
+            (click)="moveToLeft()">
             <app-chat [links]="linksArray"></app-chat>
         </div>
         <!-- <div [ngClass]="minimized ? 'mobile-chat-minimized' : 'chat-box-hide'" (click)="minimize()">
@@ -125,7 +122,7 @@
             <mat-icon [ngStyle]="{'color':'white'}" class="fullscreen" fontIcon="chat_bubble"></mat-icon>
         </div> -->
     </div>
-    
+
     <div class="footer">
         &copy;All rights reserved 2022
     </div>

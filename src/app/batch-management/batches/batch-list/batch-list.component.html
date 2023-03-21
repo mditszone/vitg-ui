@@ -6,7 +6,7 @@
         [globalFilterFields]="['id','courseName','trainer']"
         >
         <ng-template pTemplate="caption">
-          <button class="createBatch" pButton label=" Create Batch" icon="pi pi-plus" routerLink="/addBatch" skipLocationChange></button>
+          <button class="createBatch" pButton label=" Create Batch" icon="pi pi-plus" routerLink="/addBatch"></button>
           <div class="search">
             <input class="search" pInputText type="text" pInputText size="20"
               (input)="dt1.filterGlobal($any($event.target).value, 'contains')" placeholder="Global Filter"><br><br>

@@ -71,7 +71,7 @@ export class AddStudentComponent implements OnInit {
       this.userService.updateStudentinfo(this.student).subscribe(
         (data: any) => {
           console.log(data)
-          this.router.navigate(['/materialScreen'],{skipLocationChange: true});
+          this.router.navigate(['/materialScreen']);
         },
         (error) => {
           this.errorMessage = error.error.message;

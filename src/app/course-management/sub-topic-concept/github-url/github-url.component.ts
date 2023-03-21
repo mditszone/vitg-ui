@@ -74,7 +74,7 @@ export class GithubUrlComponent implements OnInit {
 
       this.courseService.updateSubTopicConceptInfo(this.subTopicConceptdata).subscribe(
         (data: any) => {
-          this.router.navigate(['/subtopicConceptTab/githubUrl'],{skipLocationChange: true});
+          this.router.navigate(['/subtopicConceptTab/githubUrl']);
           (error) => {
             this.errorMessage = error.error.message;
             console.log(this.errorMessage)

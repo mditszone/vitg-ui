@@ -16,6 +16,7 @@ import { ServicesComponent } from './component/services/services.component';
 import { AddStudentComponent } from './component/student-dashboard/add-student/add-student.component';
 import { StudentRegisterComponent } from './component/student-dashboard/student-register/student-register.component';
 import { VerifyStudentComponent } from './component/student-dashboard/verify-student/verify-student.component';
+import { VerifyTrainerComponent } from './component/student-dashboard/verify-trainer/verify-trainer.component';
 import { TeamComponent } from './component/team/team.component';
 import { UpcomingBatchesTableComponent } from './component/upcoming-batches-table/upcoming-batches-table.component';
 
@@ -74,6 +75,10 @@ const routes: Routes = [
   {
     path: 'verifyStudent', pathMatch: 'full',
     component: VerifyStudentComponent
+  },
+  {
+    path: 'verifyTrainerLogin', pathMatch: 'full',
+    component: VerifyTrainerComponent
   },
   {
     path: 'addStudent', pathMatch: 'full',

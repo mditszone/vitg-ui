@@ -64,7 +64,7 @@ export class SubCourseNameComponent implements OnInit {
 
       this.courseService.updateSubCourse(this.subCoursedata).subscribe(data => {
         this.subCoursedata = data;
-        this.router.navigate(['/subCourseTab/overview'],{skipLocationChange: true});
+        this.router.navigate(['/subCourseTab/overview']);
       })
     }
 

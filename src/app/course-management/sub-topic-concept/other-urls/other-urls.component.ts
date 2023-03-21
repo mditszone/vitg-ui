@@ -75,7 +75,7 @@ export class OtherUrlsComponent implements OnInit {
       this.courseService.updateSubTopicConceptInfo(this.subTopicConceptdata).subscribe(
         (data: any) => {
           console.log(data)
-          this.router.navigate(['/subTopicConcept'],{skipLocationChange: true});
+          this.router.navigate(['/subTopicConcept']);
 
           (error) => {
             this.errorMessage = error.error.message;

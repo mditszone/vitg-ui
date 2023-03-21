@@ -51,7 +51,7 @@ export class EditSubTopicComponent implements OnInit {
 
       this.courseService.updateSubTopic(this.subTopicdata).subscribe((data:any)=>{
         console.log(data);
-        this.router.navigate(['/subtopic'],{skipLocationChange: true})
+        this.router.navigate(['/subtopic'])
       })
     }
   }

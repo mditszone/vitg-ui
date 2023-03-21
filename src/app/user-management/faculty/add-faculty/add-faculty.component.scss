@@ -1,0 +1,47 @@
+.card {
+    border: 1px solid #0669ad;
+    border-radius: 4px;
+    margin-top: -16px;
+    margin-bottom: 20px;
+    padding-left: 100px;
+    padding-top: 50px;
+    padding-bottom: 20px;
+}
+.save {
+    color: #ffff;
+    float: right;
+    background-color: #0669ad;
+    border-color: #fff;
+    border-radius: 6px;
+    padding: 5px 30px;
+    font-weight: 500;
+    font-size: 15px;
+    cursor: pointer;
+}
+
+.name {
+    color: #0669ad;
+}
+.form-group{
+    padding-bottom: 10px;
+}
+.custom-select {
+    height: auto;
+    width: 511px;
+    padding: 10px;
+    font-size: 15px;
+    cursor: pointer;
+    font-weight: 400;
+    color: #222222;
+    background-color: #FDFDFD;
+    border: 1px solid #ced7dd;
+    border-radius: 5px;
+}
+.custom-select:focus {
+    border: 1px solid #ced7dd;
+  }
+
+.custom-select:focus,
+.custom-select:focus {
+  box-shadow: none;
+}

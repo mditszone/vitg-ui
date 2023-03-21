@@ -19,8 +19,6 @@ export class StudentListComponent implements OnInit {
     private userService: UserService, public route: ActivatedRoute) {
       this.tableData.headers = ["ID", "NAME", "PHONE NUMBER", "EMAIL", "ACTIONS"];
       this.tableData.nameOfTable = "Student List";
-      this.tableData.buttonRoute = "/staffRegister"
-      this.tableData.buttonName = "Add Student"
   }
 
   ngOnInit(): void {

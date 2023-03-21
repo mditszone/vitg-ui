@@ -76,7 +76,7 @@ export class EditStudentComponent implements OnInit {
       this.userService.updateStudentinfo(this.studentdata).subscribe(data => {
         this.studentdata = data;
         console.log(data)
-        this.router.navigate(['/studentTab/access'], { queryParams: { id: data['id'] },skipLocationChange: true} )
+        this.router.navigate(['/studentTab/access'], { queryParams: { id: data['id'] }} )
       })
     }
   }

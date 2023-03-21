@@ -26,7 +26,7 @@ export class AllCoursesMenuComponent implements OnInit {
   }
 
   onClick(id: any): void {
-    this.zone.run(() => this.router.navigate(['/materialAllcoursestabs'], { queryParams: { subCourseId: id }, skipLocationChange: true }));
+    this.zone.run(() => this.router.navigate(['/materialAllcoursestabs'], { queryParams: { subCourseId: id }}));
   }
 
 }

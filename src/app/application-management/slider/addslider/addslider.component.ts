@@ -69,7 +69,7 @@ export class AddsliderComponent implements OnInit {
     console.log(this.slider);
     this.sliderService.addSlider(this.slider).subscribe(data => {
       console.log(data)
-      this.router.navigate(['/slider'],{skipLocationChange: true});
+      this.router.navigate(['/slider']);
     })
   }
 

@@ -83,7 +83,7 @@ export class AddTopicComponent implements OnInit {
 
       this.courseService.createTopic(this.topic).subscribe(
         (data: any) => {
-          this.router.navigate(['/topic'],{skipLocationChange: true});
+          this.router.navigate(['/topic']);
         });
     }
   }
