@@ -16,7 +16,6 @@ export class StaffListComponent implements OnInit {
   id: any;
   loggedInUserRole: string = "";
   constructor(private userService: UserService, public route: ActivatedRoute) {
-      this.tableData.headers = ["ID", "NAME", "PHONE NUMBER", "ROLE", "ACTIONS"];
       this.tableData.nameOfTable = "Staff List";
       this.tableData.buttonRoute = "/staffRegister"
       this.tableData.buttonName = "Add Staff"
@@ -30,12 +29,18 @@ export class StaffListComponent implements OnInit {
     this.userService.getAllStaff().subscribe(data => {
       data.forEach(val => {
         const actions = [
-          {icon: "visibility", route: '/viewstaff/', routeArgs: val.id}, 
-          {icon: "edit", route: '/editstaff/', routeArgs: val.id},
+          {icon: "visibility", route: '/viewcourse/', routeArgs: val.id}, 
+          {icon: "edit", route: '/editcourse/', routeArgs: val.id},
           {icon: "delete", route: '/editcourse/', routeArgs: val.id}
-        ]
-        const arr = this.tableData.createtRowData([val.id, val.name, val.phoneNumber, val.role.roleName], actions);
-        this.tableData.rowData.push(arr);
+        ];
+        const obj = {
+          id: val.id,
+          name: val.name,
+          phoneNumber: val.phoneNumber,
+          role: val.role.roleName,
+          actions: actions
+        }
+        this.tableData.createtData(obj);
       });
     });
   }

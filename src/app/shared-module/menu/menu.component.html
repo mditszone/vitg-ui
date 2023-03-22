@@ -1,0 +1,33 @@
+<!-- <mat-menu #childMenu="matMenu" [overlapTrigger]="false">
+  <span *ngFor="let child of items">
+    <span *ngIf="child.children && child.children.length > 0">
+      <button class="menu" mat-menu-item [matMenuTriggerFor]="menu.childMenu">
+        {{child.displayName}}
+      </button>
+      <app-menu #menu [items]="child.children"></app-menu>
+    </span>
+    <span *ngIf="!child.children || child.children.length === 0">
+      <button  class="menu" mat-menu-item (click)="onClick(child.id)">
+        <span>{{child.displayName}}</span>
+      </button>
+    </span>
+  </span>
+</mat-menu> -->
+
+<!-- <button mat-button [matMenuTriggerFor]="menu">
+  {{ trigger }}
+</button>
+<mat-menu #menu="matMenu">
+  <ng-container *ngFor="let node of data; let i = index">
+    <button mat-menu-item>
+      <app-menu
+        [trigger]="node"
+      ></app-menu>
+    </button>
+    <ng-template #menuItem>
+      <button mat-menu-item>
+        {{node}}
+      </button>
+    </ng-template>
+  </ng-container>
+</mat-menu> -->

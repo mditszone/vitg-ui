@@ -3,7 +3,6 @@ import { CommonModule } from '@angular/common';
 
 import { MaterialScreenRoutingModule } from './material-screen-routing.module';
 import { MaterialScreenComponent } from './material-screen/material-screen.component';
-import { MaterialMenuComponent } from './material-menu/material-menu.component';
 import { MaterialModule } from '../shared/module/material.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgOtpInputModule } from 'ng-otp-input';
@@ -14,21 +13,14 @@ import { ButtonModule } from 'primeng/button';
 import { ToolbarModule } from 'primeng/toolbar';
 import { DialogModule } from 'primeng/dialog';
 import { FlexLayoutModule } from '@angular/flex-layout';
-import { AllCoursesMenuComponent } from './all-courses-menu/all-courses-menu.component';
-import { MaterialAllcourseTabsComponent } from './material-allcourse-tabs/material-allcourse-tabs.component';
-import { BatchViewComponent } from './batch-view/batch-view.component';
-import { MaterialUpcomingBatchesTableComponent } from './material-upcoming-batches-table/material-upcoming-batches-table.component';
 import { SharedModuleModule } from '../shared-module/shared-module.module';
+import { StudentMaterialComponent } from './student-material/student-material.component';
 
 
 @NgModule({
   declarations: [
     MaterialScreenComponent,
-    MaterialMenuComponent,
-    AllCoursesMenuComponent,
-    MaterialAllcourseTabsComponent,
-    BatchViewComponent,
-    MaterialUpcomingBatchesTableComponent,
+    StudentMaterialComponent,
   ],
   imports: [
     CommonModule,

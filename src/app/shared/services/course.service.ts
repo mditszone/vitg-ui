@@ -95,6 +95,11 @@ export class CourseService {
     return this.http.get(this.baseURL + `/api/topic/getTopicListByStudentId?studentId=${studentId}&subCourseId=${subCourseId}`)
   }
   
+  public getTopicsListByStudentId(studentId: number): Observable<any> {
+    return this.http.get(this.baseURL + `/api/topic/getTopicsListByStudentId/${studentId}`)
+  }
+
+
   /////////////////////////////////
 
   public createSubTopic(subTopic: any): Observable<any> {

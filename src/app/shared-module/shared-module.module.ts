@@ -9,6 +9,16 @@ import { ChatComponent } from '../mainscreen/component/chat/chat.component';
 import { MatIconModule } from '@angular/material/icon';
 import { TableViewComponent } from './table-view/table-view.component';
 import { DataViewComponent } from './data-view/data-view.component';
+import { AllcoursesTabsComponent } from './allcourses-tabs/allcourses-tabs.component';
+import { DialogDemoComponent } from './dialog-demo/dialog-demo.component';
+import { MatTabsModule } from '@angular/material/tabs';
+import {MatMenuModule} from '@angular/material/menu';
+import { BatchViewComponent } from './batch-view/batch-view.component';
+import { HeaderComponent } from './header/header.component';
+import { FooterComponent } from './footer/footer.component';
+import {MatToolbarModule} from '@angular/material/toolbar';
+import { MenuComponent } from './dynamic_menu/menu.component';
+import { UpcomingBatchesTableComponent } from './upcoming-batches-table/upcoming-batches-table.component';
 
 
 @NgModule({
@@ -17,15 +27,27 @@ import { DataViewComponent } from './data-view/data-view.component';
     ChatComponent,
     TableViewComponent,
     DataViewComponent,
+    AllcoursesTabsComponent,
+    DialogDemoComponent,
+    MenuComponent,
+    BatchViewComponent,
+    HeaderComponent,
+    FooterComponent,
+    UpcomingBatchesTableComponent
   ],
   exports: [
     FaqsComponent,
     ChatComponent,
     TableViewComponent,
     DataViewComponent,
+    AllcoursesTabsComponent,
+    MenuComponent,
+    BatchViewComponent,
+    HeaderComponent,
+    FooterComponent
   ],
   imports: [
-    CommonModule, FormsModule, TableModule, RouterModule, TableModule, MatIconModule
+    MatToolbarModule, CommonModule, FormsModule, TableModule, RouterModule, TableModule, MatIconModule, MatTabsModule, MatMenuModule
   ]
 })
 export class SharedModuleModule { }

@@ -1,9 +1,9 @@
 import { Component, Inject, Input, OnInit } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { DomSanitizer } from '@angular/platform-browser';
+import { DialogDemoComponent } from 'src/app/shared-module/dialog-demo/dialog-demo.component';
 import { CourseService } from 'src/app/shared/services/course.service';
 import { DisableRightClickService } from 'src/app/shared/services/disable-right-click.service';
-import { DialogDemoComponent } from '../dialog-demo/dialog-demo.component';
 
 @Component({
   selector: 'app-view-example',

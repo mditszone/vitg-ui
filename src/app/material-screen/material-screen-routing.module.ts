@@ -1,23 +1,32 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { BatchViewComponent } from './batch-view/batch-view.component';
-import { MaterialAllcourseTabsComponent } from './material-allcourse-tabs/material-allcourse-tabs.component';
+import { AllcoursesTabsComponent } from '../shared-module/allcourses-tabs/allcourses-tabs.component';
+import { BatchViewComponent } from '../shared-module/batch-view/batch-view.component';
+import { UpcomingBatchesTableComponent } from '../shared-module/upcoming-batches-table/upcoming-batches-table.component';
 import { MaterialScreenComponent } from './material-screen/material-screen.component';
-import { MaterialUpcomingBatchesTableComponent } from './material-upcoming-batches-table/material-upcoming-batches-table.component';
+import { StudentMaterialComponent } from './student-material/student-material.component';
 
 const routes: Routes = [
   {
-    path: '', component: MaterialScreenComponent,
+    path: 'material', component: MaterialScreenComponent,
     children: [
       {
-        path: 'materialAllcoursestabs', component: MaterialAllcourseTabsComponent
+        path: 'student-material', component: StudentMaterialComponent
       },
       {
-        path: 'materialbatchList', component: MaterialUpcomingBatchesTableComponent,
+        path: 'batch', component: UpcomingBatchesTableComponent,
+        // children: [
+        //   {
+        //     path: 'view/:id', pathMatch: 'full', component: BatchViewComponent,
+        //   },
+        // ]
       },
       {
-        path: 'materialbatchView/:id', component: BatchViewComponent
-      }
+        path: 'batch/view/:id', pathMatch: 'full', component: BatchViewComponent,
+      },
+      {
+        path: 'tabs', pathMatch: 'full', component: AllcoursesTabsComponent
+      },
       
     ]
   }

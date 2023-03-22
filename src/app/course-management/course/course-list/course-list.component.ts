@@ -14,7 +14,6 @@ export class CourseListComponent implements OnInit {
   loggedInUserRole: string = "";
   constructor(
     private courseService: CourseService) { 
-      this.tableData.headers = ["ID", "COURSE NAME", "STATUS", "ACTIONS"];
       this.tableData.nameOfTable = "Course List";
       this.tableData.buttonRoute = "/addCourse"
       this.tableData.buttonName = "Create Course"
@@ -26,18 +25,22 @@ export class CourseListComponent implements OnInit {
     
     this.courseService.getAllCourses().subscribe(data => {
       data.forEach(val => {
-        let arr = [];
-        arr.push(val.id);
-        arr.push(val.name);
-        arr.push(val.status);
-        arr.push([
+        const actions = [
           {icon: "visibility", route: '/viewcourse/', routeArgs: val.id}, 
           {icon: "edit", route: '/editcourse/', routeArgs: val.id},
           {icon: "delete", route: '/editcourse/', routeArgs: val.id}
-        ]);
-        this.tableData.rowData.push(arr);
+        ];
+        const obj = {
+          id: val.id,
+          name: val.name,
+          status: val.status,
+          actions: actions
+        }
+        this.tableData.createtData(obj);
       });
     });
+
+    
   }
 
   // DELETE COURSE NEED WORK

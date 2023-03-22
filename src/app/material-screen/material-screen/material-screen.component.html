@@ -1,4 +1,4 @@
-<mat-toolbar class="header">
+<!-- <mat-toolbar class="header">
     <mat-toolbar-row>
         <img class="vitg-logo"  src="../../assets/vitg-logo.png">
         <h1 class="vision" >Vision </h1>
@@ -13,9 +13,9 @@
                         <mat-icon>apps</mat-icon>
                         {{item.displayName}}
                     </button>
-                    <app-all-courses-menu #menu [items]="item.children" >
+                    <app-menu #menu [items]="item.children" >
                         <span (mouseleave)="closeMyMenu()"></span>
-                    </app-all-courses-menu>
+                    </app-menu>
                 </span>
                 <span *ngIf="!item.children || item.children.length === 0">
                     <button mat-button (click)="onClick()">
@@ -33,7 +33,7 @@
                         <mat-icon>library_books</mat-icon>
                         {{item.displayName}}
                     </button>
-                    <app-material-menu #menu [items]="item.children"></app-material-menu>
+                    <app-menu #menu [items]="item.children"></app-menu>
                 </span>
                 <span *ngIf="!item.children || item.children.length === 0">
                     <button mat-button (click)="onClickMaterial()">
@@ -44,18 +44,18 @@
         </div>
 
         <button mat-button class="allcourses" (click)="batchView()" >Batch List</button>
-            <!-- #enddocregion mat-menu-trigger-for -->
-            <!-- <mat-menu #batch="matMenu">
+            #enddocregion mat-menu-trigger-for
+            <mat-menu #batch="matMenu">
                     <button mat-menu-item (click)="batchView()">{{batch.name}}</button>
-            </mat-menu> -->
+            </mat-menu>
         
         <span class="fill-remaining-space"></span>
         <ul class="menu">
-            <!-- <a routerLink="aboutus" routerLinkActive="active">ABOUT US</a>
+            <a routerLink="aboutus" routerLinkActive="active">ABOUT US</a>
             <a routerLink="services" routerLinkActive="active">SERVICES</a>
             <a routerLink="portfolio" routerLinkActive="active">PORTFOLIO</a>
             <a routerLink="team" routerLinkActive="active">TEAM</a>
-            <a routerLink="contactus" routerLinkActive="active">CONTACT US</a> -->
+            <a routerLink="contactus" routerLinkActive="active">CONTACT US</a>
             <button mat-icon-button [matMenuTriggerFor]="profile">
                 <mat-icon>account_circle</mat-icon>
             </button>
@@ -81,4 +81,41 @@
     <mat-toolbar-row>
         &copy;All rights reserved 2022
     </mat-toolbar-row>
-</mat-toolbar>
+</mat-toolbar> -->
+
+<div class="mainscreen-container">
+    <app-header [material]="true"></app-header>
+    <div class="body">
+        <div class="side-nav">
+            <mat-sidenav class="app-sidenav" #sidenav mode="side" opened="true">
+                <mat-nav-list>
+                    <mat-accordion>
+                        <div *ngFor="let item of topicData">
+                            <mat-expansion-panel>
+                                <mat-expansion-panel-header>
+                                    <mat-panel-title>
+                                        <div>
+                                            {{item.topic}}
+                                        </div>
+                                    </mat-panel-title>
+                                </mat-expansion-panel-header>
+                                <div *ngFor="let subTopic of item.subTopicNameList">
+                                    <mat-list-item (click)="onClickSubTopic(subTopic)">
+                                        {{subTopic.name}}
+                                    </mat-list-item>
+                                </div>
+                            </mat-expansion-panel>
+                        </div>
+                    </mat-accordion>
+                </mat-nav-list>
+            </mat-sidenav>
+        </div>
+        <div class="content"><router-outlet></router-outlet></div>
+    </div>
+    <div>
+        <div class="chat-box" #scrollMe [scrollTop]="scrollMe.scrollHeight">
+            <app-chat [links]="linksArray"></app-chat>
+        </div>
+    </div>
+    <app-footer></app-footer>
+</div>

@@ -3,7 +3,6 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { navItems, SidebarComponent } from './component/sidebar/sidebar.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { LayoutComponent } from './component/layout/layout.component';
 import { MainscreenModule } from './mainscreen/mainscreen.module';
@@ -76,6 +75,8 @@ import { SharedModuleModule } from './shared-module/shared-module.module';
 
 
 import { RouterModule } from '@angular/router';
+import { AuthGuardService } from './shared/services/auth.guard.service';
+import { AuthService } from './shared/services/auth.service';
 
 
 
@@ -83,7 +84,6 @@ import { RouterModule } from '@angular/router';
 @NgModule({
   declarations: [
     AppComponent,
-    SidebarComponent,
     DashboardComponent,
     LayoutComponent,
     StaffLoginComponent,
@@ -109,7 +109,7 @@ import { RouterModule } from '@angular/router';
 
     FullScreenLayoutComponent,
 
-
+    LayoutComponent,
     ChatBotLinksComponent,
     AddFaqComponent,
     EditFaqComponent,
@@ -165,7 +165,7 @@ import { RouterModule } from '@angular/router';
     { provide: DatePipe },
     { provide: MAT_MOMENT_DATE_ADAPTER_OPTIONS, useValue: { useUtc: true } },
     PushNotificationsService,
-    ActiveUserChatService
+    ActiveUserChatService, AuthGuardService, AuthService
   ],
   bootstrap: [AppComponent],
 

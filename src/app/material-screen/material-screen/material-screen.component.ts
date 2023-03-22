@@ -13,110 +13,30 @@ import { CourseService } from 'src/app/shared/services/course.service';
   styleUrls: ['./material-screen.component.scss']
 })
 export class MaterialScreenComponent implements OnInit {
-
-  @ViewChild(MatMenuTrigger) trigger!: MatMenuTrigger;
-  loggedInUserRole: string = "";
+  topicData: any;
   userName: string;
-  batchMenu: BatchMenu[];
   linksArray: ChatBotData[] = [{show: false, title: "Courses", heading: "Learning about courses", body: "VIT Global is an online learning and teaching marketplace with over 213000 courses and 57 million students. Learn programming, marketing, data science and more, Take one of Udemy’s range of Python courses and learn how to code using this incredibly useful language. Its simple syntax and readability makes Python perfect for Flask, Django, data science, and machine learning. You’ll learn how to build everything from games to sites to apps. Choose from a range of courses that will appeal to"},
   {show: false, title: "Batches", heading: "Learning about courses", body: "VIT Global is an online learning and teaching marketplace with over 213000 courses and 57 million students. Learn programming, marketing, data science and more, Take one of Udemy’s range of Python courses and learn how to code using this incredibly useful language. Its simple syntax and readability makes Python perfect for Flask, Django, data science, and machine learning. You’ll learn how to build everything from games to sites to apps. Choose from a range of courses that will appeal to"},
   {show: false, title: "Payment", heading: "Learning about courses", body: "VIT Global is an online learning and teaching marketplace with over 213000 courses and 57 million students. Learn programming, marketing, data science and more, Take one of Udemy’s range of Python courses and learn how to code using this incredibly useful language. Its simple syntax and readability makes Python perfect for Flask, Django, data science, and machine learning. You’ll learn how to build everything from games to sites to apps. Choose from a range of courses that will appeal to"}
   ];
   
+  constructor(private courseService: CourseService, private router: Router,) {}
+
   ngOnInit(): void {
-    const userInfo = JSON.parse(sessionStorage.getItem('student_dto') || '{}');
-    console.log("userInfo", userInfo);
-    this.userName = userInfo.name
-    console.log(this.userName);
-  }
-  onLoggedout() {
-    this.router.navigate(['/'],{skipLocationChange: true});
-  }
-  openMyMenu() {
-    this.trigger.openMenu();
-  }
-  closeMyMenu() {
-    this.trigger.closeMenu();
-  }
-
-  menuItems: any = [{
-    displayName: "All Courses",
-    children: []
-  }];
-  materialMenuItems: any = [{
-    displayName: "Material",
-    children: []
-  }];
-
-  constructor(private courseService: CourseService, private cdr: ChangeDetectorRef, private router: Router, private batchService: BatchService) {
-    this.courseService.getAllCourses().subscribe((arrayOfCourse: Course[]) => {
-      arrayOfCourse.forEach((course, courseIndex) => {
-        this.menuItems[0].children[courseIndex] = {
-          "displayName": course.name,
-          "children": []
-        };
-        this.courseService.getSubCourseListByCourseId(course.id).subscribe((arrayOfSubCourse: Subcourse[]) => {
-          arrayOfSubCourse.forEach((subCourse, subCourseIndex) => {
-            this.menuItems[0].children[courseIndex].children[subCourseIndex] = {
-              "displayName": subCourse.name,
-              "route": 'tabComponent',
-              "id": subCourse.id
-            };
-          });
-        });
-      });
-    });
-    this.courseService.getAllCourses().subscribe((arrayOfCourse: Course[]) => {
-      arrayOfCourse.forEach((course, courseIndex) => {
-        this.materialMenuItems[0].children[courseIndex] = {
-          "displayName": course.name,
-          "children": []
-        };
-        this.courseService.getSubCourseListByCourseId(course.id).subscribe((arrayOfSubCourse: Subcourse[]) => {
-          arrayOfSubCourse.forEach((subCourse, subCourseIndex) => {
-            this.materialMenuItems[0].children[courseIndex].children[subCourseIndex] = {
-              "displayName": subCourse.name,
-              "id": subCourse.id
-            };
-          });
-        });
-      });
-    });
-    this.batchService.getAllBatches().subscribe(data => {
-      this.batchMenu = data.map(item => { return {"name": item.name, "id": item.id}; });
-      console.log("batchMenu", this.batchMenu);
+    const user = JSON.parse(sessionStorage.getItem('student_dto') || '{}');
+    console.log("userInfo", user);
+    this.userName = user.name
+    console.log(user.id);
+    this.courseService.getTopicsListByStudentId(user.id).subscribe(data => {
+      console.log(data);
+      this.topicData = data;
     });
 
-    //student_dto
+  }
 
-    const userInfo = JSON.parse(sessionStorage.getItem('student_dto') || '{}');
-    console.log("userInfo", userInfo);
-    this.userName = userInfo.name
-
+  onClickSubTopic(subTopic: any) {
+    this.router.navigate(['/material/student-material'], { queryParams: { id: subTopic.id } })
   }
 
 
-  batchView() {
-    this.router.navigate(['/materialbatchList'],{skipLocationChange: true});
-  }
-
-  ngAfterContentChecked() {
-    this.cdr.detectChanges();
-  }
-
-  onClick() {
-    console.log("i am working");
-    this.router.navigate(['/tabComponent'],{skipLocationChange: true});
-  }
-
-  onClickMaterial() {
-    console.log("i am working");
-    this.router.navigate(['/materialSidebar'],{skipLocationChange: true});
-  }
-}
-
-
-interface BatchMenu {
-  id: number;
-  name: string;
 }

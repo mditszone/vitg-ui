@@ -4,6 +4,7 @@ export class TableData {
     buttonRoute: string = "";
     headers: string[];
     rowData: any[] = [];
+    data: any[] = [];
 
     createAction(icon: string, route: string, id: number) {
       return {
@@ -17,10 +18,16 @@ export class TableData {
       const array: any = [];
       for (let val of values) array.push(val);
       array.push(actions);
-
       return array;
-
     }
+
+    createtData(obj: any): void {
+      this.headers = Object.keys(obj);
+      let values = Object.values(obj);
+      this.rowData.push(values);
+      this.data.push(obj);
+    }
+
 
   }
 

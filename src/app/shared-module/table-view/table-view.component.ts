@@ -8,11 +8,10 @@ import { TableData } from 'src/app/shared/model/table.data';
 })
 export class TableViewComponent implements OnInit {
   @Input() tableData: TableData;
+  headers: string[];
   batchData: any;
   constructor() { }
-  ngOnInit(): void {
-  }
-
+  ngOnInit(): void {}
 }
 
 

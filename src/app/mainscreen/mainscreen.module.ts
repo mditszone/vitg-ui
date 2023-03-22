@@ -17,19 +17,13 @@ import { MainscreenComponent } from './component/mainscreen/mainscreen.component
 import { ImageSliderComponent } from './component/image-slider/image-slider.component';
 import { NgImageSliderModule } from 'ng-image-slider';
 import { CardImagesComponent } from './component/card-images/card-images.component';
-import { MenuComponent } from './component/menu/menu.component';
 import { PortfolioComponent } from './component/portfolio/portfolio.component';
-import { UpcomingBatchesTableComponent } from './component/upcoming-batches-table/upcoming-batches-table.component';
 import { TableModule } from 'primeng/table';
 import { ButtonModule } from 'primeng/button';
 import { DialogModule } from 'primeng/dialog';
 import { ToolbarModule } from 'primeng/toolbar';
 import { FlexLayoutModule } from '@angular/flex-layout';
-import { AllcoursesTabsComponent } from './component/allcourses-tabs/allcourses-tabs.component';
-import { MaterialSidebarComponent } from './component/material-sidebar/material-sidebar.component';
-import { DialogDemoComponent } from './component/dialog-demo/dialog-demo.component';
 import {NgxMatIntlTelInputComponent} from 'ngx-mat-intl-tel-input';
-import { BatchViewComponent } from './component/batch-view/batch-view.component';
 import { NgbCarouselConfig, NgbCarouselModule } from '@ng-bootstrap/ng-bootstrap';
 import { OutSourcingComponent } from './component/out-sourcing/out-sourcing.component';
 import { InternshipComponent } from './component/internship/internship.component';
@@ -55,13 +49,7 @@ import { SharedModuleModule } from '../shared-module/shared-module.module';
     MainscreenComponent,
     ImageSliderComponent,
     CardImagesComponent,
-    MenuComponent,
-    DialogDemoComponent,
     PortfolioComponent,
-    MainscreenModule.rootComponent,
-    AllcoursesTabsComponent,
-    MaterialSidebarComponent,
-    BatchViewComponent,
     OutSourcingComponent,
     InternshipComponent,
     ProjectDevelopmentComponent,
@@ -89,10 +77,7 @@ import { SharedModuleModule } from '../shared-module/shared-module.module';
     CdkAccordionModule,
     SharedModuleModule 
   ],
-  exports: [MainscreenModule.rootComponent],
-  entryComponents: [MainscreenModule.rootComponent]
 })
 
 export class MainscreenModule {
-  static rootComponent = UpcomingBatchesTableComponent
  }

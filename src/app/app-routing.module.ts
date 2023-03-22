@@ -6,7 +6,6 @@ import { TrainerListComponent } from './user-management/trainer-management/train
 import { LayoutComponent } from './component/layout/layout.component';
 import { VerifyStaffLoginComponent } from './login/verify-staff-login/verify-staff-login.component';
 import { StaffLoginComponent } from './login/staff-login/staff-login.component';
-import { SidebarComponent } from './component/sidebar/sidebar.component';
 import { CourseListComponent } from './course-management/course/course-list/course-list.component';
 import { SubCourseListComponent } from './course-management/sub-course/sub-course-list/sub-course-list.component';
 import { TopicListComponent } from './course-management/topic/topic-list/topic-list.component';
@@ -17,10 +16,8 @@ import { SliderListComponent } from './application-management/slider/slider-list
 import { ImageSliderComponent } from './mainscreen/component/image-slider/image-slider.component';
 import { BatchListComponent } from './batch-management/batches/batch-list/batch-list.component';
 import { TrackingListComponent } from './batch-management/tracking/tracking-list/tracking-list.component';
-import { AllcoursesTabsComponent } from './mainscreen/component/allcourses-tabs/allcourses-tabs.component';
 import { SubtopicConceptTabsComponent } from './course-management/sub-topic-concept/subtopic-concept-tabs/subtopic-concept-tabs.component';
 import { MaterialScreenComponent } from './material-screen/material-screen/material-screen.component';
-import { MaterialSidebarComponent } from './mainscreen/component/material-sidebar/material-sidebar.component';
 
 import { SubTopicConceptListComponent } from './course-management/sub-topic-concept/sub-topic-concept-list/sub-topic-concept-list.component';
 
@@ -32,6 +29,8 @@ import { BatchRegisterComponent } from './batch-management/batch-register/batch-
 import { FaqsComponent } from './application-management/faqs/faqs.component';
 import { EditFaqComponent } from './application-management/edit-faq/edit-faq.component';
 import { AddFaqComponent } from './application-management/add-faq/add-faq.component';
+import { AllcoursesTabsComponent } from './shared-module/allcourses-tabs/allcourses-tabs.component';
+import { AuthGuardService } from './shared/services/auth.guard.service';
 
 
 const routes: Routes = [
@@ -44,39 +43,16 @@ const routes: Routes = [
       }
     ]
   },
+  // {
+  //   path: '', component: MaterialScreenComponent,
+  //   children: [
+  //     {
+  //       path: 'materialSidebar', component: MaterialSidebarComponent
+  //     }
+  //   ]
+  // },
   {
-    path: '', component: MainscreenComponent,
-    children: [
-      {
-        path: 'tabComponent', component: AllcoursesTabsComponent
-      }
-    ]
-  },
-  {
-    path: '', component: MaterialScreenComponent,
-    children: [
-      {
-        path: 'materialSidebar', component: MaterialSidebarComponent
-      }
-    ]
-  },
-  {
-    path: '',
-    component: MainscreenComponent,
-    children: [{
-      path: '',
-      loadChildren: () =>
-        import('./mainscreen/mainscreen.module').then((mainscreen) => mainscreen.MainscreenModule),
-    }]
-  },
-
-
-  {
-    path: 'dashboard',
-    component: SidebarComponent,
-  },
-  {
-    path: 'materialScreen', component: MaterialScreenComponent
+    path: 'materialScreen', component: MaterialScreenComponent,
   },
   {
     path: 'staffLogin',
@@ -91,9 +67,10 @@ const routes: Routes = [
     component: LayoutComponent,
     children: [
       {
-        path: 'course', pathMatch: 'full',
-        component: CourseListComponent
-      }]
+        path: 'course', pathMatch: 'full', component: CourseListComponent,
+        canActivate: [AuthGuardService]
+      }
+    ]
   },
   {
     path: '',
@@ -244,8 +221,7 @@ const routes: Routes = [
       }]
   },
   {
-    path: '',
-    component: LayoutComponent,
+    path: '', component: LayoutComponent,
     children: [
       {
         path: 'faqs', pathMatch: 'full',
@@ -261,15 +237,6 @@ const routes: Routes = [
         component: AddFaqComponent
       }]
   },
-  // {
-  //   path: '',
-  //   component: LayoutComponent,
-  //   children: [
-  //     {
-  //       path: 'chat', pathMatch: 'full',
-  //       component: ChatWindowComponent
-  //     }]
-  // },
   {
     path: '',
     component: LayoutComponent,
@@ -286,4 +253,6 @@ const routes: Routes = [
   imports: [RouterModule.forRoot(routes, { useHash: false })],
   exports: [RouterModule]
 })
+
+
 export class AppRoutingModule { }
