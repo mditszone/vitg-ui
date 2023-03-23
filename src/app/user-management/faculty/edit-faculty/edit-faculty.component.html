@@ -1,0 +1,27 @@
+<div class="d-flex flex-row-reverse bd-highlight">
+    <a href="#" routerLink="/faculty" class="btn back">Back</a>
+</div>
+<div class="container">
+    <h1 class="name">Update Faculty</h1>
+    <form [formGroup]="facultyDetails">
+        <div class="form-group row">
+            <label for="id" class="col-sm-3 col-form-label">Id</label>
+            <div class="col-sm-6">
+                <input type="number" formControlName="id" [(ngModel)]="facultyDTO.id" class="form-control">
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="userName" class="col-sm-3 col-form-label">User Name</label>
+            <div class="col-sm-6">
+                <input type="text" formControlName="userName" [(ngModel)]="facultyDTO.userName" class="form-control">
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="pin" class="col-sm-3 col-form-label">Pin</label>
+            <div class="col-sm-6">
+                <input type="number" formControlName="pin" [(ngModel)]="facultyDTO.pin" class="form-control">
+            </div>
+        </div>
+        <button class="btn save" type="button" (click)="onSubmitUpdateStaff()">Save</button>
+    </form>
+</div>

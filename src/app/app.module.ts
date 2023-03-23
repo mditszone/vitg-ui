@@ -77,6 +77,8 @@ import { SharedModuleModule } from './shared-module/shared-module.module';
 import { RouterModule } from '@angular/router';
 import { AuthGuardService } from './shared/services/auth.guard.service';
 import { AuthService } from './shared/services/auth.service';
+import { FacultyListComponent } from './user-management/faculty/faculty-list/faculty-list.component';
+import { FacultyModule } from './user-management/faculty/faculty.module';
 
 
 
@@ -113,6 +115,7 @@ import { AuthService } from './shared/services/auth.service';
     ChatBotLinksComponent,
     AddFaqComponent,
     EditFaqComponent,
+    FacultyListComponent
 
   ],
   imports: [ 
@@ -156,7 +159,8 @@ import { AuthService } from './shared/services/auth.service';
     FormsModule, 
     TableModule,
 
-    SharedModuleModule
+    SharedModuleModule,
+    FacultyModule
 
     //RouterModule.forRoot(navItems ,{ useHash: true }),
 

@@ -1,0 +1,14 @@
+<div class="container">
+    <h1 class="name">Add Faculty</h1>
+    <div class="card">
+        <form [formGroup]="facultyDetailsForm">
+            <div class="form-group row">
+                <label for="userName" class="col-sm-3 col-form-label">User Name</label>
+                <div class="col-sm-6">
+                    <input type="text" formControlName="userName" class="form-control" required [(ngModel)]="faculty.userName">
+                </div>
+            </div>
+            <button type="submit" class="btn save" (click)="addFaculty()">Save</button>
+        </form>
+    </div>
+</div>

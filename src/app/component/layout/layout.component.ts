@@ -97,6 +97,14 @@ export const navItems: NavItem[] = [
         roles: [
           RoleEnum.ADMIN
         ]
+      },
+      {
+        displayName: 'Faculty',
+        iconName: '',
+        route: 'faculty',
+        roles: [
+          RoleEnum.ADMIN
+        ]
       }
     ]
   },

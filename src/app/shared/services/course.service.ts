@@ -1,5 +1,5 @@
 import { Subcourse } from './../model/subcourse';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
@@ -10,12 +10,17 @@ import { environment } from 'src/environments/environment';
 
 export class CourseService {
 
-
+  headers: any
   baseURL: string = environment?.config?.apiUrl
-  constructor(public http: HttpClient) { }
+  constructor(public http: HttpClient) { 
+    var data = JSON.parse(sessionStorage.getItem('staff_dto') || '{}');
+    let token = data.token
+    this.headers = new HttpHeaders()
+      .set("Authorization", "Bearer " + token);
+  }
 
   public createCourse(course: any): Observable<any> {
-    return this.http.post(this.baseURL + '/api/course', course);
+    return this.http.post(this.baseURL + '/api/course', course,{ headers: this.headers });
   }
   public getAllCourses(): Observable<any> {
     return this.http.get(this.baseURL + '/api/course/AllCourses')

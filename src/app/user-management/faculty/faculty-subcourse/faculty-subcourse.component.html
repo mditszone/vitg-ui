@@ -1,0 +1,31 @@
+<div class="container">
+    <div class="card">
+        <form [formGroup]="facultyDetailsForm">
+            <div class="form-group row">
+                <label for="course" class="col-sm-3 col-form-label">Course<span
+                        class="star text-danger">*</span></label>
+                <div class="col-sm-6">
+                    <p-dropdown placeholder="- Select -" [options]="courseList" optionLabel="name"
+                        formControlName="course" [style]="{width: '100%'}" (onChange)="getSubCourseList($event)">
+                    </p-dropdown>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="course" class="col-sm-3 col-form-label">SubCourse<span
+                        class="star text-danger">*</span></label>
+                <div class="col-sm-6">
+                    <ng-multiselect-dropdown [placeholder]="'Select SubCourses'" [settings]="dropdownSettings"
+                        [data]="subCourseListById" formControlName="subCourse" 
+                        [(ngModel)]="selected" 
+                        (onSelect)="onItemSelect($event)" (onSelectAll)="onSelectAll($event)">
+                    </ng-multiselect-dropdown>
+                </div>
+            </div>
+            <div class="form-group row">
+                <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 pr-0">
+                    <button class="btn save" type="button" (click)="onSubmitUpdateStudent()">Save</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

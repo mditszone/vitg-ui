@@ -31,6 +31,7 @@ import { EditFaqComponent } from './application-management/edit-faq/edit-faq.com
 import { AddFaqComponent } from './application-management/add-faq/add-faq.component';
 import { AllcoursesTabsComponent } from './shared-module/allcourses-tabs/allcourses-tabs.component';
 import { AuthGuardService } from './shared/services/auth.guard.service';
+import { FacultyListComponent } from './user-management/faculty/faculty-list/faculty-list.component';
 
 
 const routes: Routes = [
@@ -51,6 +52,10 @@ const routes: Routes = [
   //     }
   //   ]
   // },
+  {
+    path: 'dashboard',
+    component: LayoutComponent,
+  },
   {
     path: 'materialScreen', component: MaterialScreenComponent,
   },
@@ -200,6 +205,15 @@ const routes: Routes = [
       {
         path: 'trainer', pathMatch: 'full',
         component: TrainerListComponent
+      }]
+  },
+  {
+    path: '',
+    component: LayoutComponent,
+    children: [
+      {
+        path: 'faculty', pathMatch: 'full',
+        component: FacultyListComponent
       }]
   },
   {
