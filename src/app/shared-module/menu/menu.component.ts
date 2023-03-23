@@ -26,7 +26,7 @@
 //    }
 
 //   onClick(id: any): void {
-//     this.zone.run(() => this.router.navigate(['/tabComponent'], { queryParams: { subCourseId: id }, skipLocationChange: true }));
+//     this.zone.run(() => this.router.navigate(['/tabComponent'], { queryParams: { subCourseId: id } }));
 //   }
 
 // }

@@ -30,7 +30,7 @@ export class MenuComponent {
 
   onClick() {
     console.log("i am working");
-    //this.router.navigate(['/tabComponent'],{skipLocationChange: true});
+    //this.router.navigate(['/tabComponent']);
   }
 
   moveToTabs(name: string): void {

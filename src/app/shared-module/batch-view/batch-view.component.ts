@@ -36,7 +36,7 @@ export class BatchViewComponent implements OnInit {
   }
 
   batchRegister() {
-    this.router.navigate(["/register"],{skipLocationChange: true});
+    this.router.navigate(["/register"]);
   }
 
 }

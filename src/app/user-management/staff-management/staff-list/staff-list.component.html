@@ -6,7 +6,7 @@
       [globalFilterFields]="['id','name','role.roleName','phoneNumber']">
 
       <ng-template pTemplate="caption">
-        <button class="addStaff" pButton label="Add Staff" icon="pi pi-plus" routerLink="/staffRegister" skipLocationChange></button>
+        <button class="addStaff" pButton label="Add Staff" icon="pi pi-plus" routerLink="/staffRegister" ></button>
         <div class="search">
           <input class="search" pInputText type="text" pInputText size="20"
             (input)="dt1.filterGlobal($any($event.target).value, 'contains')" placeholder="Global Filter">

@@ -65,7 +65,7 @@ export class DurationDaysComponent implements OnInit {
 
       this.courseService.updateSubCourse(this.subCoursedata).subscribe(data => {
         this.subCoursedata = data;
-        this.router.navigate(['/subCourseTab/durationHours'], { queryParams: { id: data['id'],skipLocationChange: true} })
+        this.router.navigate(['/subCourseTab/durationHours'], { queryParams: { id: data['id']} })
       })
     }
 

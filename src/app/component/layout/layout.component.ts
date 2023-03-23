@@ -38,7 +38,7 @@ export class LayoutComponent implements OnInit {
   sidenavSmall: boolean = false;
 
   onLoggedout() {
-    this.router.navigate(['/'],{skipLocationChange: true});
+    this.router.navigate(['/']);
     sessionStorage.clear();
   }
 
@@ -48,7 +48,7 @@ export class LayoutComponent implements OnInit {
 
   openEnquires() {
     console.log("clicked");
-    this.router.navigate(["/enquaries"],{skipLocationChange: true});
+    this.router.navigate(["/enquaries"]);
   }
 
 }

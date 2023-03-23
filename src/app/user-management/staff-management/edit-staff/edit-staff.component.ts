@@ -167,7 +167,7 @@ export class EditStaffComponent implements OnInit {
       this.staff.panCardNumber = this.staffForm.panCardNumber;
 
       this.userService.updateStaffinfo(this.staff).subscribe(data => {
-        this.router.navigate(['/staff'],{skipLocationChange: true})
+        this.router.navigate(['/staff'])
       })
     }
   }

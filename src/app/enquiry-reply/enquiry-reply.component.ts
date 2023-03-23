@@ -46,7 +46,7 @@ export class EnquiryReplyComponent implements OnInit {
     }
     console.log(email);
     this.enquiryService.sendEmail(email).subscribe(data => {
-      this.router.navigate(['/enquaries'],{skipLocationChange: true});
+      this.router.navigate(['/enquaries']);
     });
 
   }

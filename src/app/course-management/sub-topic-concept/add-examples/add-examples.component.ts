@@ -69,7 +69,7 @@ export class AddExamplesComponent implements OnInit {
       this.courseService.pushFileToStorage(this.selectedFiles, this.subTopicConceptId, fileCategory).subscribe(
         (data: any) => {
           console.log(data)
-          this.router.navigate(['/subtopicConceptTab/examples'],{skipLocationChange: true});
+          this.router.navigate(['/subtopicConceptTab/examples']);
           this.dialogRef.close([]);
         })
     }

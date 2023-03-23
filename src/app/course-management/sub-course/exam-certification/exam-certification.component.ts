@@ -65,7 +65,7 @@ export class ExamCertificationComponent implements OnInit {
       this.courseService.updateSubCourse(this.subCoursedata).subscribe(data => {
         this.subCoursedata = data;
         console.log(this.subCoursedata);
-        this.router.navigate(['/subCourseTab/trainingMode'], { queryParams: { id: data['id'] },skipLocationChange: true });
+        this.router.navigate(['/subCourseTab/trainingMode'], { queryParams: { id: data['id'] } });
       })
     }
   }

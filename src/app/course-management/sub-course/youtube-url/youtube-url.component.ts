@@ -66,7 +66,7 @@ export class YoutubeUrlComponent implements OnInit {
 
       this.courseService.updateSubCourse(this.subCoursedata).subscribe(data => {
         this.subCoursedata = data;
-        this.router.navigate(['/subcourse'],{skipLocationChange: true});
+        this.router.navigate(['/subcourse']);
       })
     }
 

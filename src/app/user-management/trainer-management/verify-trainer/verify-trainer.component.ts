@@ -57,7 +57,7 @@ export class VerifyTrainerComponent implements OnInit {
       this.trainerDTO = data;
       this.router.navigate(['/addTrainer'],
         {
-          queryParams: { data: btoa(JSON.stringify(this.trainerDTO)) },skipLocationChange: true
+          queryParams: { data: btoa(JSON.stringify(this.trainerDTO)) }
         });
       },
       (error) => {

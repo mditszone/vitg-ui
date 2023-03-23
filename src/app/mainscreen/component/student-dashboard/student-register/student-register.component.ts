@@ -48,7 +48,7 @@ export class StudentRegisterComponent implements OnInit {
         console.log(data.phoneNumber);
         
         sessionStorage.setItem('student_send_otp_response',JSON.stringify(data))
-        this.router.navigate(['/verifyStudent'],{skipLocationChange: true});
+        this.router.navigate(['/verifyStudent']);
 
         (error: any) =>
           this.errorMessage = error.error.message;

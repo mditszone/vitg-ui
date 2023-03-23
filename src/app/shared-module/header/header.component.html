@@ -16,20 +16,20 @@
 
         <div class="menu-list">
             <ul [ngClass]="main ? 'show' : 'hide'">
-                <a routerLink="aboutus" routerLinkActive="active" skipLocationChange>ABOUT US</a>
-                <a mat-button [matMenuTriggerFor]="services" skipLocationChange>SERVICES</a>
+                <a routerLink="aboutus" routerLinkActive="active" >ABOUT US</a>
+                <a mat-button [matMenuTriggerFor]="services" >SERVICES</a>
                 <mat-menu #services="matMenu">
-                    <a mat-menu-item routerLink="training" routerLinkActive="active" skipLocationChange>Training</a>
-                    <a mat-menu-item routerLink="outSourcing" routerLinkActive="active" skipLocationChange>Out
+                    <a mat-menu-item routerLink="training" routerLinkActive="active" >Training</a>
+                    <a mat-menu-item routerLink="outSourcing" routerLinkActive="active" >Out
                         Sourcing</a>
-                    <a mat-menu-item routerLink="internship" routerLinkActive="active" skipLocationChange>Internship</a>
+                    <a mat-menu-item routerLink="internship" routerLinkActive="active" >Internship</a>
                     <a mat-menu-item routerLink="projectDevelopment" routerLinkActive="active"
-                        skipLocationChange>Projectdevelopment</a>
+                        >Projectdevelopment</a>
                 </mat-menu>
-                <a routerLink="portfolio" routerLinkActive="active" skipLocationChange>PORTFOLIO</a>
-                <a routerLink="team" routerLinkActive="active" skipLocationChange>TEAM</a>
-                <a routerLink="contact" routerLinkActive="active" skipLocationChange>CONTACT US</a>
-                <a routerLink="register" routerLinkActive="active" skipLocationChange>LOGIN/REGISTER</a>
+                <a routerLink="portfolio" routerLinkActive="active" >PORTFOLIO</a>
+                <a routerLink="team" routerLinkActive="active" >TEAM</a>
+                <a routerLink="contact" routerLinkActive="active">CONTACT US</a>
+                <a routerLink="register" routerLinkActive="active" >LOGIN/REGISTER</a>
             </ul>
             <ul [ngClass]="material ? 'show' : 'hide'">
                 <button mat-icon-button [matMenuTriggerFor]="profile">
