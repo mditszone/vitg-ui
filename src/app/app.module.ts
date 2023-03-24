@@ -4,7 +4,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { DashboardComponent } from './dashboard/dashboard.component';
-import { LayoutComponent } from './component/layout/layout.component';
+import { LayoutComponent, navItems } from './component/layout/layout.component';
 import { MainscreenModule } from './mainscreen/mainscreen.module';
 import { MatTableModule } from '@angular/material/table';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -46,23 +46,16 @@ import { MaterialScreenModule } from './material-screen/material-screen.module';
 import { MatMomentDateModule, MAT_MOMENT_DATE_ADAPTER_OPTIONS } from '@angular/material-moment-adapter';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { DatePipe } from '@angular/common';
-
 import { SubTopicConceptListComponent } from './course-management/sub-topic-concept/sub-topic-concept-list/sub-topic-concept-list.component';
-
 import { SendInvitationComponent } from './batch-management/send-invitation/send-invitation.component';
 import { SendSmsComponent } from './batch-management/send-sms/send-sms.component';
 import {DropdownModule} from 'primeng/dropdown';
-
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-
 import { EnquiryComponentComponent } from './enquiry-component/enquiry-component.component';
 import { EnquiryReplyComponent } from './enquiry-reply/enquiry-reply.component';
 import { AddRemarksComponent } from './add-remarks/add-remarks.component';
 import { BatchRegisterComponent } from './batch-management/batch-register/batch-register.component';
-
 import { FullScreenLayoutComponent } from './component/full-screen-layout/full-screen-layout.component';
-
-
 import { SupportTeamModule } from './support-team/support-team.module';
 import { ChatBotLinksComponent } from './application-management/chat-bot-links/chat-bot-links.component';
 import { PushNotificationsService } from 'ng-push';
@@ -70,17 +63,12 @@ import { ActiveUserChatService } from './shared/services/active.user.chat.servic
 import { AddFaqComponent } from './application-management/add-faq/add-faq.component';
 import { EditFaqComponent } from './application-management/edit-faq/edit-faq.component';
 import { FaqsComponent } from './application-management/faqs/faqs.component';
-
 import { SharedModuleModule } from './shared-module/shared-module.module';
-
-
 import { RouterModule } from '@angular/router';
 import { AuthGuardService } from './shared/services/auth.guard.service';
 import { AuthService } from './shared/services/auth.service';
 import { FacultyListComponent } from './user-management/faculty/faculty-list/faculty-list.component';
 import { FacultyModule } from './user-management/faculty/faculty.module';
-
-
 
 
 @NgModule({
@@ -108,9 +96,7 @@ import { FacultyModule } from './user-management/faculty/faculty.module';
     EnquiryReplyComponent,
     AddRemarksComponent,
     BatchRegisterComponent,
-
     FullScreenLayoutComponent,
-
     LayoutComponent,
     ChatBotLinksComponent,
     AddFaqComponent,
@@ -158,11 +144,9 @@ import { FacultyModule } from './user-management/faculty/faculty.module';
     BrowserModule, 
     FormsModule, 
     TableModule,
-
     SharedModuleModule,
-    FacultyModule
-
-    //RouterModule.forRoot(navItems ,{ useHash: true }),
+    FacultyModule,
+    RouterModule.forRoot(navItems ,{ useHash: true }),
 
   ],
   providers: [
