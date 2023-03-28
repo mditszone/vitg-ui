@@ -35,6 +35,7 @@ import { ChatComponent } from './component/chat/chat.component';
 import {CdkAccordionModule} from '@angular/cdk/accordion';
 import { MatIconModule } from '@angular/material/icon';
 import { SharedModuleModule } from '../shared-module/shared-module.module';
+import { VerifyFacultyComponent } from './component/student-dashboard/verify-faculty/verify-faculty.component';
 
 
 @NgModule({
@@ -54,6 +55,7 @@ import { SharedModuleModule } from '../shared-module/shared-module.module';
     InternshipComponent,
     ProjectDevelopmentComponent,
     ViewExampleComponent,
+    VerifyFacultyComponent,
 
   ],
   imports: [

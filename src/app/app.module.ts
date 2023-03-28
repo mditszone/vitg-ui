@@ -55,7 +55,6 @@ import { EnquiryComponentComponent } from './enquiry-component/enquiry-component
 import { EnquiryReplyComponent } from './enquiry-reply/enquiry-reply.component';
 import { AddRemarksComponent } from './add-remarks/add-remarks.component';
 import { BatchRegisterComponent } from './batch-management/batch-register/batch-register.component';
-import { FullScreenLayoutComponent } from './component/full-screen-layout/full-screen-layout.component';
 import { SupportTeamModule } from './support-team/support-team.module';
 import { ChatBotLinksComponent } from './application-management/chat-bot-links/chat-bot-links.component';
 import { PushNotificationsService } from 'ng-push';
@@ -96,7 +95,6 @@ import { FacultyModule } from './user-management/faculty/faculty.module';
     EnquiryReplyComponent,
     AddRemarksComponent,
     BatchRegisterComponent,
-    FullScreenLayoutComponent,
     LayoutComponent,
     ChatBotLinksComponent,
     AddFaqComponent,
@@ -146,7 +144,7 @@ import { FacultyModule } from './user-management/faculty/faculty.module';
     TableModule,
     SharedModuleModule,
     FacultyModule,
-    RouterModule.forRoot(navItems ,{ useHash: true }),
+    //RouterModule.forRoot(navItems ,{ useHash: true }),
 
   ],
   providers: [

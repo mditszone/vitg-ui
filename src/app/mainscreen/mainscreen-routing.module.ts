@@ -15,6 +15,7 @@ import { ProjectDevelopmentComponent } from './component/project-development/pro
 import { ServicesComponent } from './component/services/services.component';
 import { AddStudentComponent } from './component/student-dashboard/add-student/add-student.component';
 import { StudentRegisterComponent } from './component/student-dashboard/student-register/student-register.component';
+import { VerifyFacultyComponent } from './component/student-dashboard/verify-faculty/verify-faculty.component';
 import { VerifyStudentComponent } from './component/student-dashboard/verify-student/verify-student.component';
 import { TeamComponent } from './component/team/team.component';
 
@@ -59,6 +60,10 @@ const routes: Routes = [
       {
         path: 'verifyStudent', pathMatch: 'full',
         component: VerifyStudentComponent
+      },
+      {
+        path: 'verifyFaculty', pathMatch: 'full',
+        component: VerifyFacultyComponent
       },
       {
         path: 'addStudent', pathMatch: 'full',

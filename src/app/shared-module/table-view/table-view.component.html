@@ -4,7 +4,7 @@
     <ng-template pTemplate="caption">
       <input type="button" class="createBatch" [value]="tableData.buttonName" [routerLink]="tableData.buttonRoute">
       <div class="search">
-        <input class="search" pInputText type="text" pInputText size="5"
+        <input class="search" pInputText type="text" pInputText size="15"
           (input)="table.filterGlobal($any($event.target).value, 'contains')" placeholder="Global Filter"><br><br>
       </div>
     </ng-template>

@@ -1,0 +1,17 @@
+<div class="verify-staff-login">
+    <div class="verify-container">
+      <div>
+        <p class="card-subtitle">Enter OTP</p>
+        <div class="input-fields">
+        <ng-otp-input class="ngotpinput" (onInputChange)="onOtpChange($event)" [config]="config"
+          class="inline w-full lg:w-full">
+        </ng-otp-input>
+      </div>
+        <p class="resend-message">Didn't receive any Code? Click on Resend</p>
+        <div>
+          <!-- <button class="btn resend" (click)="resend()">Resend PIN</button> -->
+          <button class="btn verify mt-4" (click)="handleClick()" [disabled]="!pin">Verify OTP</button>
+        </div>
+      </div>
+    </div>
+  </div>
