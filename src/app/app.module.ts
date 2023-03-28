@@ -144,7 +144,7 @@ import { FacultyModule } from './user-management/faculty/faculty.module';
     TableModule,
     SharedModuleModule,
     FacultyModule,
-    //RouterModule.forRoot(navItems ,{ useHash: true }),
+    RouterModule.forRoot(navItems ,{ useHash: true }),
 
   ],
   providers: [
