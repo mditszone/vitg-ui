@@ -69,7 +69,6 @@ import { AuthService } from './shared/services/auth.service';
 import { FacultyListComponent } from './user-management/faculty/faculty-list/faculty-list.component';
 import { FacultyModule } from './user-management/faculty/faculty.module';
 
-
 @NgModule({
   declarations: [
     AppComponent,
@@ -144,7 +143,7 @@ import { FacultyModule } from './user-management/faculty/faculty.module';
     TableModule,
     SharedModuleModule,
     FacultyModule,
-    RouterModule.forRoot(navItems ,{ useHash: true }),
+    //RouterModule.forRoot(navItems ,{ useHash: true }),
 
   ],
   providers: [

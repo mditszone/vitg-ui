@@ -31,16 +31,28 @@ export class SubTopicListComponent implements OnInit {
     this.courseService.getAllSubTopics().subscribe(data => {
       this.subtopicdata = data;
       data.forEach(val => {
-        let arr = [];
-        arr.push(val.id);
-        arr.push(val.name);
-        arr.push(val.topic.name);
-        arr.push([
-          {icon: "visibility", route: '/viewsubtopic/', routeArgs: val.id}, 
-          {icon: "edit", route: '/editsubtopic/', routeArgs: val.id},
-          {icon: "delete", route: '/editcourse/', routeArgs: val.id}
-        ]);
-        this.tableData.rowData.push(arr);
+        const actions = [
+          { icon: "visibility", route: '/viewsubtopic/', routeArgs: val.id },
+          { icon: "edit", route: '/editsubtopic/', routeArgs: val.id },
+          { icon: "delete", route: '/editcourse/', routeArgs: val.id }
+        ]
+        const obj = {
+          id: val.id,
+          name: val.name,
+          topicName:val.topic.name,
+          actions: actions
+        }
+        this.tableData.createtData(obj);
+        // let arr = [];
+        // arr.push(val.id);
+        // arr.push(val.name);
+        // arr.push(val.topic.name);
+        // arr.push([
+        //   {icon: "visibility", route: '/viewsubtopic/', routeArgs: val.id}, 
+        //   {icon: "edit", route: '/editsubtopic/', routeArgs: val.id},
+        //   {icon: "delete", route: '/editcourse/', routeArgs: val.id}
+        // ]);
+        // this.tableData.rowData.push(arr);
       });
     });
   }

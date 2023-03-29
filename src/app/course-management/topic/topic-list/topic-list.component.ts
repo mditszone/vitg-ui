@@ -28,17 +28,29 @@ export class TopicListComponent implements OnInit {
 
     this.courseService.getAllTopics().subscribe((data) => {
       data.forEach(val => {
-        let arr = [];
-        arr.push(val.id);
-        arr.push(val.name);
-        arr.push(val.subCourse.course.name);
-        arr.push(val.subCourse.name);
-        arr.push([
-          {icon: "visibility", route: '/viewtopic/', routeArgs: val.id}, 
-          {icon: "edit", route: '/edittopic/', routeArgs: val.id},
-          {icon: "delete", route: '/editcourse/', routeArgs: val.id}
-        ]);
-        this.tableData.rowData.push(arr);
+        const actions = [
+          { icon: "visibility", route: '/viewtopic/', routeArgs: val.id },
+          { icon: "edit", route: '/edittopic/', routeArgs: val.id },
+          { icon: "delete", route: '/editcourse/', routeArgs: val.id }
+        ]
+        const obj = {
+          id: val.id,
+          name: val.name,
+          subCourseName:val.subCourse.name,
+          actions: actions
+        }
+        this.tableData.createtData(obj);
+        // let arr = [];
+        // arr.push(val.id);
+        // arr.push(val.name);
+        // arr.push(val.subCourse.course.name);
+        // arr.push(val.subCourse.name);
+        // arr.push([
+        //   {icon: "visibility", route: '/viewtopic/', routeArgs: val.id}, 
+        //   {icon: "edit", route: '/edittopic/', routeArgs: val.id},
+        //   {icon: "delete", route: '/editcourse/', routeArgs: val.id}
+        // ]);
+        // this.tableData.rowData.push(arr);
       });
     });
   }

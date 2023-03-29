@@ -27,9 +27,16 @@ export class FacultyListComponent implements OnInit {
           {icon: "visibility", route: '/viewfaculty/', routeArgs: val.id}, 
           {icon: "edit", route: '/editfaculty/', routeArgs: val.id},
           {icon: "delete", route: '/editfaculty/', routeArgs: val.id}
-        ]
-        const arr = this.tableData.createtRowData([val.id, val.userName,val.pin],actions)
-        this.tableData.rowData.push(arr)
+        ];
+        const obj = {
+          id: val.id,
+          userName: val.userName,
+          pin: val.pin,
+          actions: actions
+        }
+        this.tableData.createtData(obj);
+        // const arr = this.tableData.createtRowData([val.id, val.userName,val.pin],actions)
+        // this.tableData.rowData.push(arr)
       })
     })
   }

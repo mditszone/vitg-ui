@@ -31,18 +31,32 @@ export class SubCourseListComponent implements OnInit {
     this.courseService.getAllSubCourses().subscribe(data => {
       this.subcoursedata = data;
       data.forEach(val => {
-        let arr = [];
-        arr.push(val.id);
-        arr.push(val.name);
-        arr.push(val.courseName);
-        arr.push(val.durationDays);
-        arr.push(val.durationHours);
-        arr.push([
+        const actions = [
           {icon: "visibility", route: '/viewsubcourse/', routeArgs: val.id}, 
           {icon: "edit", route: '/subCourseTab/editsubcourse/', routeArgs: val.id},
           {icon: "delete", route: '/editcourse/', routeArgs: val.id}
-        ]);
-        this.tableData.rowData.push(arr);
+        ]
+        const obj = {
+          id: val.id,
+          name: val.name,
+          courseName:val.course.name,
+          durationDays:val.durationDays,
+          durationHours:val.durationHours,
+          actions: actions
+        }
+        this.tableData.createtData(obj);
+        // let arr = [];
+        // arr.push(val.id);
+        // arr.push(val.name);
+        // arr.push(val.courseName);
+        // arr.push(val.durationDays);
+        // arr.push(val.durationHours);
+        // arr.push([
+        //   {icon: "visibility", route: '/viewsubcourse/', routeArgs: val.id}, 
+        //   {icon: "edit", route: '/subCourseTab/editsubcourse/', routeArgs: val.id},
+        //   {icon: "delete", route: '/editcourse/', routeArgs: val.id}
+        // ]);
+        // this.tableData.rowData.push(arr);
       });
     });
   }

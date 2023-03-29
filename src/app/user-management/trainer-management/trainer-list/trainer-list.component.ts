@@ -30,9 +30,16 @@ export class TrainerListComponent implements OnInit {
         const actions = [
           {icon: "visibility", route: '/viewtrainer/', routeArgs: val.id}, 
           {icon: "edit", route: '/edittrainer/', routeArgs: val.id},
-        ]
-        const arr = this.tableData.createtRowData([val.id, val.name, val.phoneNumber], actions);
-        this.tableData.rowData.push(arr);
+        ];
+        const obj = {
+          id: val.id,
+          name: val.name,
+          phoneNumber: val.phoneNumber,
+          actions: actions
+        }
+        this.tableData.createtData(obj);
+        // const arr = this.tableData.createtRowData([val.id, val.name, val.phoneNumber], actions);
+        // this.tableData.rowData.push(arr);
       });
     });
   }

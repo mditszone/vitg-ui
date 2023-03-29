@@ -14,32 +14,44 @@ export class SubTopicConceptListComponent implements OnInit {
   id: any;
   loggedInUserRole: string = "";
   constructor(
-    private courseService: CourseService) { 
-      this.tableData.headers = ["ID", "SUBTOPIC CONCEPT", "SUB TOPIC", "ACTIONS"];
-      this.tableData.nameOfTable = "SubTopicConcept List";
-      this.tableData.buttonRoute = "/addSubTopicConcept"
-      this.tableData.buttonName = "Add SubTopicConcept"
-    }
+    private courseService: CourseService) {
+    this.tableData.headers = ["ID", "SUBTOPIC CONCEPT", "SUB TOPIC", "ACTIONS"];
+    this.tableData.nameOfTable = "SubTopicConcept List";
+    this.tableData.buttonRoute = "/addSubTopicConcept"
+    this.tableData.buttonName = "Add SubTopicConcept"
+  }
 
 
   ngOnInit(): void {
     const loggedInUser = JSON.parse(sessionStorage.getItem('staff_dto') || '{}');
     this.loggedInUserRole = loggedInUser.vitgStaffDTO.role.roleName;
-    
+
     this.courseService.getAllSubTopicConcepts().subscribe(data => {
       this.subTopicConceptData = data;
       data.forEach(val => {
-        let arr = [];
-        arr.push(val.id);
-        arr.push(val.concept);
-        arr.push(val.subTopic.name)
-        arr.push([
-          {icon: "visibility", route: '/subtopicConceptTab/editSubTopicConcept/', routeArgs: val.id}, 
-          {icon: "delete", route: '/editcourse/', routeArgs: val.id}
-        ]);
-        this.tableData.rowData.push(arr);
+        const actions = [
+          { icon: "visibility", route: '/subtopicConceptTab/editSubTopicConcept/', routeArgs: val.id },
+          { icon: "delete", route: '/editcourse/', routeArgs: val.id }
+        ];
+
+        const obj = {
+          id: val.id,
+          concept: val.concept,
+          subtopic: val.subTopic.name,
+          actions:actions
+        }
+        this.tableData.createtData(obj)
+        // let arr = [];
+        // arr.push(val.id);
+        // arr.push(val.concept);
+        // arr.push(val.subTopic.name)
+        // arr.push([
+        //   {icon: "visibility", route: '/subtopicConceptTab/editSubTopicConcept/', routeArgs: val.id}, 
+        //   {icon: "delete", route: '/editcourse/', routeArgs: val.id}
+        // ]);
+        // this.tableData.rowData.push(arr);
       });
-    }); 
+    });
   }
   deleteSubTopicConcept(id: number) {
     this.courseService.deleteSUbTopicConceptById(id).subscribe(data => {

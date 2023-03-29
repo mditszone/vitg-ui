@@ -17,10 +17,10 @@ export class StudentListComponent implements OnInit {
   loggedInUserRole: string = "";
   constructor(
     private userService: UserService, public route: ActivatedRoute) {
-      this.tableData.headers = ["ID", "NAME", "PHONE NUMBER", "EMAIL", "ACTIONS"];
-      this.tableData.nameOfTable = "Student List";
-      this.tableData.buttonRoute = "/staffRegister"
-      this.tableData.buttonName = "Add Student"
+    this.tableData.headers = ["ID", "NAME", "PHONE NUMBER", "EMAIL", "ACTIONS"];
+    this.tableData.nameOfTable = "Student List";
+    this.tableData.buttonRoute = "/staffRegister"
+    this.tableData.buttonName = "Add Student"
   }
 
   ngOnInit(): void {
@@ -30,11 +30,19 @@ export class StudentListComponent implements OnInit {
     this.userService.getAllStudents().subscribe(data => {
       data.forEach(val => {
         const actions = [
-          {icon: "visibility", route: '/viewstudent/', routeArgs: val.id}, 
-          {icon: "edit", route: '/studentTab/editstudent/', routeArgs: val.id},
-        ]
-        const arr = this.tableData.createtRowData([val.id, val.name, val.phoneNumber, val.email], actions);
-        this.tableData.rowData.push(arr);
+          { icon: "visibility", route: '/viewstudent/', routeArgs: val.id },
+          { icon: "edit", route: '/studentTab/editstudent/', routeArgs: val.id },
+        ];
+        const obj = {
+          id: val.id,
+          name: val.name,
+          phoneNumber: val.phoneNumber,
+          email: val.email,
+          actions: actions
+        }
+        this.tableData.createtData(obj);
+        // const arr = this.tableData.createtRowData([val.id, val.name, val.phoneNumber, val.email], actions);
+        // this.tableData.rowData.push(arr);
       });
     });
   }

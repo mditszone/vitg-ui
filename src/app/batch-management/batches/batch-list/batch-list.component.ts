@@ -18,7 +18,7 @@ export class BatchListComponent implements OnInit {
   loggedInUserRole: string = "";
   tableData: TableData = new TableData();
 
-  constructor(private batchService: BatchService, public route: ActivatedRoute) { 
+  constructor(private batchService: BatchService, public route: ActivatedRoute) {
     this.tableData.headers = ["ID", "BATCH NAME", "START DATE", "END DATE", "TRAINER", "ACTIONS"];
     this.tableData.nameOfTable = "Batch List";
     this.tableData.buttonRoute = "/addBatch";
@@ -28,18 +28,31 @@ export class BatchListComponent implements OnInit {
   ngOnInit(): void {
     const loggedInUser = JSON.parse(sessionStorage.getItem('staff_dto') || '{}');
     this.loggedInUserRole = loggedInUser.vitgStaffDTO.role.roleName;
+
     this.batchService.getAllBatchesTableInfo().subscribe(data => {
       data.forEach(item => {
-        let arr = Object.values(item);
-        arr.push([{icon: "visibility", route: '/viewbatch/', routeArgs: item.id}, {icon: "edit", route: '/editbatch/', routeArgs: item.id}]);
-        this.tableData.rowData.push(arr);
-      })    
+        const actions = [
+          { icon: "visibility", route: '/viewbatch/', routeArgs: item.id },
+          { icon: "edit", route: '/editbatch/', routeArgs: item.id }
+        ];
+        const obj = {
+          id: item.id,
+          name: item.name,
+          startDate: item.startDate,
+          endDate: item.endDate,
+          actions: actions
+        }
+        this.tableData.createtData(obj);
+        // let arr = Object.values(item);
+        // arr.push([{icon: "visibility", route: '/viewbatch/', routeArgs: item.id}, {icon: "edit", route: '/editbatch/', routeArgs: item.id}]);
+        // this.tableData.rowData.push(arr);
+      })
     });
   }
 }
 
 
-    
+
     // this.batchService.getAllBatches().subscribe(data => {
     //   sessionStorage.setItem('trainerdata', JSON.stringify(data));
     //   this.batchdata = data;
