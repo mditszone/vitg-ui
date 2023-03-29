@@ -12,13 +12,15 @@ import { DataViewComponent } from './data-view/data-view.component';
 import { AllcoursesTabsComponent } from './allcourses-tabs/allcourses-tabs.component';
 import { DialogDemoComponent } from './dialog-demo/dialog-demo.component';
 import { MatTabsModule } from '@angular/material/tabs';
-import {MatMenuModule} from '@angular/material/menu';
+import { MatMenuModule } from '@angular/material/menu';
 import { BatchViewComponent } from './batch-view/batch-view.component';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
-import {MatToolbarModule} from '@angular/material/toolbar';
+import { MatToolbarModule } from '@angular/material/toolbar';
 import { MenuComponent } from './dynamic_menu/menu.component';
 import { UpcomingBatchesTableComponent } from './upcoming-batches-table/upcoming-batches-table.component';
+import { ShareButtonsModule } from 'ngx-sharebuttons/buttons';
+import { ShareIconsModule } from 'ngx-sharebuttons/icons';
 
 
 @NgModule({
@@ -47,7 +49,17 @@ import { UpcomingBatchesTableComponent } from './upcoming-batches-table/upcoming
     FooterComponent
   ],
   imports: [
-    MatToolbarModule, CommonModule, FormsModule, TableModule, RouterModule, TableModule, MatIconModule, MatTabsModule, MatMenuModule
+    MatToolbarModule,
+    CommonModule,
+    FormsModule,
+    TableModule,
+    RouterModule,
+    TableModule,
+    MatIconModule,
+    MatTabsModule,
+    MatMenuModule,
+    ShareButtonsModule,
+    ShareIconsModule
   ]
 })
 export class SharedModuleModule { }
