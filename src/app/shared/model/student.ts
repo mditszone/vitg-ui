@@ -11,4 +11,5 @@ export class Student {
   gender: string = "";
   email:any;
   registrationStatus: any;
+  password: any;
 }

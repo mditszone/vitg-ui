@@ -49,14 +49,6 @@ const routes: Routes = [
       }
     ]
   },
-  // {
-  //   path: '', component: MaterialScreenComponent,
-  //   children: [
-  //     {
-  //       path: 'materialSidebar', component: MaterialSidebarComponent
-  //     }
-  //   ]
-  // },
   {
     path: 'dashboard',
     component: LayoutComponent,

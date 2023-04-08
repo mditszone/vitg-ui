@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Staff } from 'src/app/shared/model/staff';
 import { TableData } from 'src/app/shared/model/table.data';
+import { TableDataService } from 'src/app/shared/services/table.data.service';
 import { UserService } from 'src/app/shared/services/user.service';
 
 @Component({
@@ -15,7 +16,7 @@ export class StaffListComponent implements OnInit {
   staffdata: Staff[] = [];
   id: any;
   loggedInUserRole: string = "";
-  constructor(private userService: UserService, public route: ActivatedRoute) {
+  constructor(private userService: UserService, public route: ActivatedRoute, private tableDataService: TableDataService) {
       this.tableData.nameOfTable = "Staff List";
       this.tableData.buttonRoute = "/staffRegister"
       this.tableData.buttonName = "Add Staff"
@@ -42,6 +43,7 @@ export class StaffListComponent implements OnInit {
         }
         this.tableData.createtData(obj);
       });
+      this.tableDataService.setTableData(this.tableData);
     });
   }
   

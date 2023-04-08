@@ -4,16 +4,16 @@
   <button *ngIf="isRootNode" [matMenuTriggerFor]="menu" class="all-course">
     {{ trigger }}
   </button>
-  <button *ngIf="!isRootNode" mat-menu-item [matMenuTriggerFor]="menu" (menuOpened)="getData(trigger)">
+  <button *ngIf="!isRootNode" mat-menu-item [matMenuTriggerFor]="menu" (mouseover)="getData(trigger)">
     {{ trigger }}
   </button>
   <mat-menu #menu="matMenu">
     <ng-container *ngFor="let node of data; let i = index">
       <button mat-menu-item style="padding: 0">
-        <app-menu [trigger]="node" *ngIf="isExpandable(node); else menuItem"></app-menu>
+        <app-menu [type]="val" [trigger]="node" *ngIf="isExpandable(node); else menuItem"></app-menu>
       </button>
       <ng-template #menuItem>
-        <button mat-menu-item (click)="moveToTabs(node)">{{node}}</button>
+        <button mat-menu-item (click)="onClick(node, val)">{{node}}</button>
       </ng-template>
     </ng-container>
   </mat-menu>

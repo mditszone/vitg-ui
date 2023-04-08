@@ -5,6 +5,7 @@ export class TableData {
     headers: string[];
     rowData: any[] = [];
     data: any[] = [];
+    length: number;
 
     createAction(icon: string, route: string, id: number) {
       return {
@@ -26,6 +27,7 @@ export class TableData {
       let values = Object.values(obj);
       this.rowData.push(values);
       this.data.push(obj);
+      this.length = this.data.length;
     }
 
 

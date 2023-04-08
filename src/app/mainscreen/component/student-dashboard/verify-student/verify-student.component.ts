@@ -62,10 +62,7 @@ export class VerifyStudentComponent implements OnInit {
 
 
       if (this.studentDTO.registrationStatus) {
-        this.router.navigate(['/materialScreen'],
-          {
-            queryParams: { data: btoa(JSON.stringify(this.studentDTO)) }
-          });
+        this.router.navigate(['/material/batch']);
       } else {
         this.router.navigate(['/addStudent'],
           {

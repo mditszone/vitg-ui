@@ -7,6 +7,8 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { LayoutComponent, navItems } from './component/layout/layout.component';
 import { MainscreenModule } from './mainscreen/mainscreen.module';
 import { MatTableModule } from '@angular/material/table';
+import { MatIconModule} from '@angular/material/icon';
+import { MatButton} from '@angular/material/button';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { StaffLoginComponent } from './login/staff-login/staff-login.component';
@@ -68,12 +70,22 @@ import { AuthGuardService } from './shared/services/auth.guard.service';
 import { AuthService } from './shared/services/auth.service';
 import { FacultyListComponent } from './user-management/faculty/faculty-list/faculty-list.component';
 import { FacultyModule } from './user-management/faculty/faculty.module';
+<<<<<<< HEAD
 import { SubDomainsComponent } from './application-management/sub-domains/sub-domains.component';
 import { FacebookShareComponent } from './developers-management/facebook-share/facebook-share.component';
 import { ShareButtonsModule } from 'ngx-sharebuttons/buttons';
 import { ShareIconsModule } from 'ngx-sharebuttons/icons';
 import { ProfileComponent } from './shared-module/profile/profile.component';
 import { StudentProfileComponent } from './shared-module/student-profile/student-profile.component';
+=======
+import { LoginWCountryComponent } from './login/login-w-country/login-w-country.component';;
+import {MatSelectModule} from '@angular/material/select';
+import { NgxMatSelectSearchModule } from 'ngx-mat-select-search';
+import { LoginCountryComponent } from './login/login-country/login-country.component';
+import { IntlInputPhoneModule } from 'intl-input-phone';
+
+
+>>>>>>> 8cdb63e411743d3ed953a96288b41dcf0b9fc63f
 @NgModule({
   declarations: [
     AppComponent,
@@ -104,12 +116,21 @@ import { StudentProfileComponent } from './shared-module/student-profile/student
     AddFaqComponent,
     EditFaqComponent,
     FacultyListComponent,
+<<<<<<< HEAD
     SubDomainsComponent,
     FacebookShareComponent,
     ProfileComponent,
     StudentProfileComponent
+=======
+    LoginWCountryComponent,
+    LoginCountryComponent,
+>>>>>>> 8cdb63e411743d3ed953a96288b41dcf0b9fc63f
   ],
-  imports: [ 
+  imports: [
+    IntlInputPhoneModule,
+    MatSelectModule,
+    NgxMatSelectSearchModule, 
+    MatIconModule,
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,

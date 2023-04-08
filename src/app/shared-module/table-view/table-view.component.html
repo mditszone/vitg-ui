@@ -1,6 +1,8 @@
 <div class="table-container">
   <h1 class="name">{{tableData.nameOfTable}}</h1>
-  <p-table #table [value]="tableData.data" [paginator]="true" [rows]="4" [columns]="tableData.headers">
+  <!-- <p-table #table [value]="tableData.data" [paginator]="true" [rows]="4" [columns]="tableData.headers"> -->
+    <p-table #table [value]="tableData.data" dataKey="id" [paginator]="true" [rows]="5" [rowsPerPageOptions]="[5,10,15,20]"
+    [totalRecords]="totalRecords" [globalFilterFields]="tableData.headers" [columns]="tableData.headers">
     <ng-template pTemplate="caption">
       <input type="button" class="createBatch" [value]="tableData.buttonName" [routerLink]="tableData.buttonRoute">
       <div class="search">
@@ -10,48 +12,21 @@
     </ng-template>
     <ng-template pTemplate="header" let-columns>
       <tr>
-        <th *ngFor="let column of columns">
-          {{column | uppercase}}
-        </th>
+        <th pSortableColumn="{{column}}" *ngFor="let column of columns">{{column | uppercase}}<p-sortIcon field="{{column}}"></p-sortIcon>
       </tr>
     </ng-template>
     <ng-template pTemplate="body" let-rowData let-columns="columns">
       <tr>
         <td *ngFor="let column of columns">
-          {{rowData[column]}}
+          <span *ngIf="column !== 'actions'" >{{rowData[column]}}</span>
+          <span *ngIf="column == 'actions'" >
+            <span *ngFor="let action of rowData['actions']">
+              <a [routerLink]="[action.route, action.routeArgs]">
+                <span class="material-icons action.icon"> {{action.icon}}</span></a>
+            </span>
+          </span>
         </td>
       </tr>
     </ng-template>
   </p-table>
-  <!-- <div class="card">
-      <p-table #dt1 [value]="tableData.data" [paginator]="true" [rows]="5" [rowsPerPageOptions]="[5, 10,15,20,100]" [filterDelay]="0" 
-        [globalFilterFields]="tableData.headers">
-        <ng-template pTemplate="caption">
-          <input type="button" class="createBatch" [value]="tableData.buttonName" [routerLink]="tableData.buttonRoute">
-          <div class="search">
-            <input class="search" pInputText type="text" pInputText size="5"
-              (input)="dt1.filterGlobal($any($event.target).value, 'contains')" placeholder="Global Filter"><br><br>
-          </div>
-        </ng-template>
-          <ng-template pTemplate="header">
-            <tr>
-              <th pSortableColumn="{{data}}" *ngFor="let data of tableData.headers">{{data | uppercase}}<p-sortIcon field="{{data}}"></p-sortIcon>
-              </th> 
-            </tr>
-          </ng-template>
-        <ng-template pTemplate="body" let-batch>
-          <tr>
-            <td *ngFor="let item of tableData.headers; let i = index">
-              <span *ngIf="tableData.headers[i] != 'actions'">{{batch[tableData.headers[i]]}}</span>
-              <span *ngIf="tableData.headers[i] == 'actions'">
-                  <span *ngFor="let action of batch[tableData.headers[i]]">
-                    <a [routerLink]="[action.route, action.routeArgs]">
-                      <span class="material-icons action.icon"> {{action.icon}}</span></a>
-                  </span>
-              </span>
-            </td>
-          </tr>
-        </ng-template>
-      </p-table>
-    </div> -->
 </div>

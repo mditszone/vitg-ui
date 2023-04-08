@@ -21,6 +21,8 @@ export class StudentRegisterComponent implements OnInit {
   errorMessage: string = "";
   userNameArray: Array<any>;
   input:string
+  phoneNumber: string;
+
 
   constructor(private formBuilder: FormBuilder,
     private registrationService: RegistrationService,
@@ -66,16 +68,21 @@ export class StudentRegisterComponent implements OnInit {
     })
   }
 
+  onNumberChage(e: any) {
+    this.phoneNumber = e.Number;
+    console.log(this.phoneNumber);
+  }
+
   onSubmitStudent() {
+    console.log("test", this.phoneNumber);
     this.submitted = true;
     // stop here if form is invalid
-    if (this.studentRegister.invalid) {
-      return;
-    }
-    else {
-      let phonenumber = '91' + this.studentRegister.value.phonenumber;
-
-      this.subscription = this.registrationService.sendOTP('/api/auth/register/vitg/student/sendOtp/', `?phoneNumber=${phonenumber}`).subscribe((data: any) => {
+    // if (this.studentRegister.invalid) {
+    //   return;
+    // }
+    // else {
+      console.log("test", this.phoneNumber);
+      this.subscription = this.registrationService.sendOTP('/api/auth/register/vitg/student/sendOtp/', `?phoneNumber=${encodeURIComponent(this.phoneNumber)}`).subscribe((data: any) => {
         this.message = data;
         console.log(data)
         console.log(data.phoneNumber);
@@ -87,6 +94,6 @@ export class StudentRegisterComponent implements OnInit {
           this.errorMessage = error.error.message;
         console.log(this.errorMessage);
       });
-    }
+    //}
   }
 }

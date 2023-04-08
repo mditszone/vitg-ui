@@ -1,5 +1,6 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
 import { TableData } from 'src/app/shared/model/table.data';
+import { TableDataService } from 'src/app/shared/services/table.data.service';
 
 @Component({
   selector: 'app-table-view',
@@ -8,10 +9,14 @@ import { TableData } from 'src/app/shared/model/table.data';
 })
 export class TableViewComponent implements OnInit {
   @Input() tableData: TableData;
-  headers: string[];
-  batchData: any;
-  constructor() { }
-  ngOnInit(): void {}
+  totalRecords: number;
+  constructor(private tableDataService: TableDataService) { }
+  ngOnInit(): void {
+    this.tableDataService.tableDataSubject.subscribe(data => {
+      this.tableData = data;
+    });
+  }
+
 }
 
 

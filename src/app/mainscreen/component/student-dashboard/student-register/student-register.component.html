@@ -14,7 +14,7 @@
     <div class="login">
         <div class="student-login-container">
             <form [formGroup]="studentRegister" (ngSubmit)="onSubmitStudent()">
-                <div class="login-card">
+                <!-- <div class="login-card">
                     <div class="input-box">
                         <input (keypress)="keyPress($event)" required type="text" formControlName="phonenumber"
                             maxlength="10" placeholder="Enter Your Mobile Number"
@@ -27,6 +27,14 @@
                             Mobile Number must be at least 10 numbers
                         </div>
                     </div>
+                    
+                </div> -->
+                <div>
+                    <div>
+                        <h4>Select Country </h4>
+                        <intl-input-phone (OnNumberChange)="onNumberChage($event)"></intl-input-phone>
+                    </div>
+                
                 </div>
                 <input type="submit" class="btn proceed" value="Proceed">
             </form>

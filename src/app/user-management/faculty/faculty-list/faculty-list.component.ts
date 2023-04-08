@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { TableData } from 'src/app/shared/model/table.data';
+import { TableDataService } from 'src/app/shared/services/table.data.service';
 import { UserService } from 'src/app/shared/services/user.service';
 
 @Component({
@@ -12,7 +13,7 @@ export class FacultyListComponent implements OnInit {
   tableData: TableData = new TableData();
 
   constructor(
-    private userService: UserService
+    private userService: UserService, private tableDataService: TableDataService
   ) {
     this.tableData.headers = ["ID", "USER NAME","PIN", "ACTIONS"];
     this.tableData.nameOfTable = "Faculty List"
@@ -37,7 +38,8 @@ export class FacultyListComponent implements OnInit {
         this.tableData.createtData(obj);
         // const arr = this.tableData.createtRowData([val.id, val.userName,val.pin],actions)
         // this.tableData.rowData.push(arr)
-      })
+      });
+      this.tableDataService.setTableData(this.tableData);
     })
   }
 

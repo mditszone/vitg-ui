@@ -3,6 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { Subcourse } from 'src/app/shared/model/subcourse';
 import { TableData } from 'src/app/shared/model/table.data';
 import { CourseService } from 'src/app/shared/services/course.service';
+import { TableDataService } from 'src/app/shared/services/table.data.service';
 
 @Component({
   selector: 'app-sub-course-list',
@@ -16,7 +17,7 @@ export class SubCourseListComponent implements OnInit {
   loggedInUserRole: string = "";
   constructor(
     private courseService: CourseService,
-    public route: ActivatedRoute) {
+    public route: ActivatedRoute, private tableDataService: TableDataService) {
       this.tableData.headers = ["ID", "SUBCOURSE NAME", "COURSE NAME", "DUR. DAYS", "DUR. HOURS", "ACTIONS"];
       this.tableData.nameOfTable = "Sub Course List";
       this.tableData.buttonRoute = "/addBatch"
@@ -45,19 +46,8 @@ export class SubCourseListComponent implements OnInit {
           actions: actions
         }
         this.tableData.createtData(obj);
-        // let arr = [];
-        // arr.push(val.id);
-        // arr.push(val.name);
-        // arr.push(val.courseName);
-        // arr.push(val.durationDays);
-        // arr.push(val.durationHours);
-        // arr.push([
-        //   {icon: "visibility", route: '/viewsubcourse/', routeArgs: val.id}, 
-        //   {icon: "edit", route: '/subCourseTab/editsubcourse/', routeArgs: val.id},
-        //   {icon: "delete", route: '/editcourse/', routeArgs: val.id}
-        // ]);
-        // this.tableData.rowData.push(arr);
       });
+      this.tableDataService.setTableData(this.tableData);
     });
   }
   deleteSubCourse(id: number) {

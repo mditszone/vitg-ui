@@ -4,6 +4,7 @@ import { Tab } from '@mui/material';
 import { Batch, BatchTableInfo } from 'src/app/shared/model/batch';
 import { TableData } from 'src/app/shared/model/table.data';
 import { BatchService } from 'src/app/shared/services/batch.service';
+import { TableDataService } from 'src/app/shared/services/table.data.service';
 
 @Component({
   selector: 'app-batch-list',
@@ -18,7 +19,7 @@ export class BatchListComponent implements OnInit {
   loggedInUserRole: string = "";
   tableData: TableData = new TableData();
 
-  constructor(private batchService: BatchService, public route: ActivatedRoute) {
+  constructor(private batchService: BatchService, public route: ActivatedRoute, private tableDataService: TableDataService) {
     this.tableData.headers = ["ID", "BATCH NAME", "START DATE", "END DATE", "TRAINER", "ACTIONS"];
     this.tableData.nameOfTable = "Batch List";
     this.tableData.buttonRoute = "/addBatch";
@@ -43,30 +44,8 @@ export class BatchListComponent implements OnInit {
           actions: actions
         }
         this.tableData.createtData(obj);
-        // let arr = Object.values(item);
-        // arr.push([{icon: "visibility", route: '/viewbatch/', routeArgs: item.id}, {icon: "edit", route: '/editbatch/', routeArgs: item.id}]);
-        // this.tableData.rowData.push(arr);
-      })
+      });
+      this.tableDataService.setTableData(this.tableData);
     });
   }
 }
-
-
-
-    // this.batchService.getAllBatches().subscribe(data => {
-    //   sessionStorage.setItem('trainerdata', JSON.stringify(data));
-    //   this.batchdata = data;
-
-    //   data.forEach(item => {
-    //     let arr: any[] = [];
-    //     arr.push(item.id);
-    //     arr.push(item.name);
-    //     arr.push(item.startDate);
-    //     arr.push(item.endDate);
-    //     arr.push(item.trainerCourse.trainerName);
-    //     arr.push([{icon: "visibility", route: '/viewbatch/', routeArgs: item.id}, {icon: "edit", route: '/editbatch/', routeArgs: item.id}]);
-    //     this.tableData.rowData.push(arr);
-    //   });
-    //   console.log(this.tableData);
-
-    // });

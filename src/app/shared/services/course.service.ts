@@ -64,6 +64,10 @@ export class CourseService {
     return this.http.get(this.baseURL + `/api/studentSubCourse/by_subCourse_id_and_student_id?studentId=${studentId}&subCourseId=${subCourseId}`)
   }
 
+  public getStudentIdBySubCourseId2(studentId: number,subCourseId:number): Observable<any> {
+    return this.http.get(this.baseURL + `/api/studentSubCourse/by_subCourse_id_and_student_id?studentId=${studentId}&subCourseId=${subCourseId}`)
+  }
+
   public getTrainerListByCourseId(id: number): Observable<any> {
     return this.http.get(this.baseURL + `/api/trainerCourse/getTrainerListByCourseId/?courseId=${id}`)
   }
@@ -98,6 +102,10 @@ export class CourseService {
   }
   public getTopicListByStudentId(studentId: number,subCourseId:number): Observable<any> {
     return this.http.get(this.baseURL + `/api/topic/getTopicListByStudentId?studentId=${studentId}&subCourseId=${subCourseId}`)
+  }
+
+  public getTopicListByStudentId2(studentId: number,subCourseId:number): Observable<any> {
+    return this.http.get(this.baseURL + `/api/topic/getTopicsListByStudentId2?subCourseId=${subCourseId}&studentId=${studentId}`)
   }
   
   public getTopicsListByStudentId(studentId: number): Observable<any> {

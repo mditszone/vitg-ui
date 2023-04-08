@@ -19,6 +19,9 @@ import { FooterComponent } from './footer/footer.component';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MenuComponent } from './dynamic_menu/menu.component';
 import { UpcomingBatchesTableComponent } from './upcoming-batches-table/upcoming-batches-table.component';
+import { ShareButtonsModule } from 'ngx-sharebuttons/buttons';
+import { ShareIconsModule } from 'ngx-sharebuttons/icons';
+import { CustomizedTooltipComponent } from './customized-tooltip/customized-tooltip.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +35,8 @@ import { UpcomingBatchesTableComponent } from './upcoming-batches-table/upcoming
     BatchViewComponent,
     HeaderComponent,
     FooterComponent,
-    UpcomingBatchesTableComponent
+    UpcomingBatchesTableComponent,
+    CustomizedTooltipComponent
   ],
   exports: [
     FaqsComponent,
@@ -43,7 +47,8 @@ import { UpcomingBatchesTableComponent } from './upcoming-batches-table/upcoming
     MenuComponent,
     BatchViewComponent,
     HeaderComponent,
-    FooterComponent
+    FooterComponent,
+    CustomizedTooltipComponent
   ],
   imports: [
     MatToolbarModule,
