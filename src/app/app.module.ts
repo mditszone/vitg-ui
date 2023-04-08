@@ -7,6 +7,8 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { LayoutComponent, navItems } from './component/layout/layout.component';
 import { MainscreenModule } from './mainscreen/mainscreen.module';
 import { MatTableModule } from '@angular/material/table';
+import { MatIconModule} from '@angular/material/icon';
+import { MatButton} from '@angular/material/button';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { StaffLoginComponent } from './login/staff-login/staff-login.component';
@@ -68,6 +70,12 @@ import { AuthGuardService } from './shared/services/auth.guard.service';
 import { AuthService } from './shared/services/auth.service';
 import { FacultyListComponent } from './user-management/faculty/faculty-list/faculty-list.component';
 import { FacultyModule } from './user-management/faculty/faculty.module';
+import { LoginWCountryComponent } from './login/login-w-country/login-w-country.component';;
+import {MatSelectModule} from '@angular/material/select';
+import { NgxMatSelectSearchModule } from 'ngx-mat-select-search';
+import { LoginCountryComponent } from './login/login-country/login-country.component';
+import { IntlInputPhoneModule } from 'intl-input-phone';
+
 
 @NgModule({
   declarations: [
@@ -98,10 +106,15 @@ import { FacultyModule } from './user-management/faculty/faculty.module';
     ChatBotLinksComponent,
     AddFaqComponent,
     EditFaqComponent,
-    FacultyListComponent
-
+    FacultyListComponent,
+    LoginWCountryComponent,
+    LoginCountryComponent,
   ],
-  imports: [ 
+  imports: [
+    IntlInputPhoneModule,
+    MatSelectModule,
+    NgxMatSelectSearchModule, 
+    MatIconModule,
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,

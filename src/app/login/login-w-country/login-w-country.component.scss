@@ -1,0 +1,56 @@
+.loginwcountry-container {
+    width: 100%;
+    height: 500px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.loginwcountry {
+    height: 400px;
+    width: 400px;
+    border: 1px solid rgb(163, 163, 163);
+    border-radius: 4px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    .header {
+        text-align: center;
+        font-size: 24px;
+        font-weight: 600px;
+        margin-bottom: 64px;;
+    } 
+    form {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center; 
+        button {
+            margin-top: 34px;
+            width: 100%;
+        }
+    }   
+}
+.svg {
+    display: flex;
+    height: 20px;
+    margin: 3px;
+}
+
+.option {
+    display: flex;
+    align-items: center;
+}
+
+.country {
+    width: 90px !important;
+    margin-right: 5px;
+}
+
+.mat-form-field-appearance-outline .mat-form-field-outline {
+    color: rgb(112, 111, 111);
+  }
+  /* Font color */
+  input.mat-input-element {
+    color: rgb(71, 71, 71);
+  }

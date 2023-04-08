@@ -21,6 +21,8 @@ import { MenuComponent } from './dynamic_menu/menu.component';
 import { UpcomingBatchesTableComponent } from './upcoming-batches-table/upcoming-batches-table.component';
 import { ShareButtonsModule } from 'ngx-sharebuttons/buttons';
 import { ShareIconsModule } from 'ngx-sharebuttons/icons';
+import { CustomizedTooltipComponent } from './customized-tooltip/customized-tooltip.component';
+import { IntlInputPhoneModule } from 'intl-input-phone';
 
 
 @NgModule({
@@ -35,7 +37,8 @@ import { ShareIconsModule } from 'ngx-sharebuttons/icons';
     BatchViewComponent,
     HeaderComponent,
     FooterComponent,
-    UpcomingBatchesTableComponent
+    UpcomingBatchesTableComponent,
+    CustomizedTooltipComponent
   ],
   exports: [
     FaqsComponent,
@@ -46,9 +49,11 @@ import { ShareIconsModule } from 'ngx-sharebuttons/icons';
     MenuComponent,
     BatchViewComponent,
     HeaderComponent,
-    FooterComponent
+    FooterComponent,
+    CustomizedTooltipComponent
   ],
   imports: [
+    IntlInputPhoneModule,
     MatToolbarModule,
     CommonModule,
     FormsModule,

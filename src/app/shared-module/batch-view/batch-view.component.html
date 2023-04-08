@@ -1,7 +1,7 @@
-<div class="container">
+<div class="batch-view-container">
     <div class="tabs-header">
         <div class="batch-name">{{batchName}}</div>
-        <a href="#" routerLink="/" class="btn back">Back</a>
+        <!-- <a href="#" routerLink="/" class="btn back">Back</a> -->
     </div>
     <div class="tabs">
         <mat-tab-group>
@@ -26,7 +26,8 @@
                 </div>
                 <div *ngIf="isLoggedIn"class="fee-registration">
                     <p>Fee Details</p>
-                    <button (click)="batchRegister()">Register To Batch</button>
+                    <p>{{batchData[2][1]}}</p>
+                    <button (click)="pay()">Pay</button>
                 </div>
             </mat-tab>
         </mat-tab-group>

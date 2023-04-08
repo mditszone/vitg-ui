@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { TableViewComponent } from './table-view.component';
+import { LoginWCountryComponent } from './login-w-country.component';
 
-describe('TableViewComponent', () => {
-  let component: TableViewComponent;
-  let fixture: ComponentFixture<TableViewComponent>;
+describe('LoginWCountryComponent', () => {
+  let component: LoginWCountryComponent;
+  let fixture: ComponentFixture<LoginWCountryComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ TableViewComponent ]
+      declarations: [ LoginWCountryComponent ]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(TableViewComponent);
+    fixture = TestBed.createComponent(LoginWCountryComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
@@ -20,6 +20,4 @@ describe('TableViewComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
-
-
 });

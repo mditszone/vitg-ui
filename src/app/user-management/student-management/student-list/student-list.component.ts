@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Student } from 'src/app/shared/model/student';
 import { Action, TableData } from 'src/app/shared/model/table.data';
+import { TableDataService } from 'src/app/shared/services/table.data.service';
 import { UserService } from 'src/app/shared/services/user.service';
 
 @Component({
@@ -16,7 +17,7 @@ export class StudentListComponent implements OnInit {
   id: any;
   loggedInUserRole: string = "";
   constructor(
-    private userService: UserService, public route: ActivatedRoute) {
+    private userService: UserService, public route: ActivatedRoute, private tableDataService: TableDataService) {
     this.tableData.headers = ["ID", "NAME", "PHONE NUMBER", "EMAIL", "ACTIONS"];
     this.tableData.nameOfTable = "Student List";
     this.tableData.buttonRoute = "/staffRegister"
@@ -44,6 +45,7 @@ export class StudentListComponent implements OnInit {
         // const arr = this.tableData.createtRowData([val.id, val.name, val.phoneNumber, val.email], actions);
         // this.tableData.rowData.push(arr);
       });
+      this.tableDataService.setTableData(this.tableData);
     });
   }
 

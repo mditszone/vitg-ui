@@ -32,6 +32,7 @@ import { AddFaqComponent } from './application-management/add-faq/add-faq.compon
 import { AllcoursesTabsComponent } from './shared-module/allcourses-tabs/allcourses-tabs.component';
 import { AuthGuardService } from './shared/services/auth.guard.service';
 import { FacultyListComponent } from './user-management/faculty/faculty-list/faculty-list.component';
+import { LoginWCountryComponent } from './login/login-w-country/login-w-country.component';
 
 
 const routes: Routes = [
@@ -44,14 +45,6 @@ const routes: Routes = [
       }
     ]
   },
-  // {
-  //   path: '', component: MaterialScreenComponent,
-  //   children: [
-  //     {
-  //       path: 'materialSidebar', component: MaterialSidebarComponent
-  //     }
-  //   ]
-  // },
   {
     path: 'dashboard',
     component: LayoutComponent,
@@ -76,6 +69,9 @@ const routes: Routes = [
         canActivate: [AuthGuardService]
       }
     ]
+  },
+  {
+    path: 'loginwcountry', pathMatch: 'full', component: LoginWCountryComponent,
   },
   {
     path: '',

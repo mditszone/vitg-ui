@@ -36,6 +36,7 @@ import {CdkAccordionModule} from '@angular/cdk/accordion';
 import { MatIconModule } from '@angular/material/icon';
 import { SharedModuleModule } from '../shared-module/shared-module.module';
 import { VerifyFacultyComponent } from './component/student-dashboard/verify-faculty/verify-faculty.component';
+import { IntlInputPhoneModule } from 'intl-input-phone';
 
 
 @NgModule({
@@ -59,6 +60,7 @@ import { VerifyFacultyComponent } from './component/student-dashboard/verify-fac
 
   ],
   imports: [
+    IntlInputPhoneModule,
     MatIconModule,
     NgxMatIntlTelInputComponent,
     CommonModule,

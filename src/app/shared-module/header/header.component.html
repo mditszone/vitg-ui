@@ -1,19 +1,18 @@
 <div class="header-container">
     <div class="vitg-logo-container">
-        <img class="vitg-logo" routerLink="" routerLinkActive="active" src="../../assets/vitg-logo.png">
+        <img class="vitg-logo" [routerLink]="logoRoute" routerLinkActive="active" src="../../assets/vitg-logo.png">
         <div class="logo">
-            <h1 class="vision" routerLink="" routerLinkActive="active" style="color: #fff;">Vision </h1>
-            <h1 class="it" routerLink="" routerLinkActive="active">IT</h1>
-            <h1 class="global" routerLink="" routerLinkActive="active" style="color: #fff;">Global</h1>
+            <h1 class="vision" [routerLink]="logoRoute" routerLinkActive="active" style="color: #fff;">Vision </h1>
+            <h1 class="it" [routerLink]="logoRoute" routerLinkActive="active">IT</h1>
+            <h1 class="global" [routerLink]="logoRoute" routerLinkActive="active" style="color: #fff;">Global</h1>
         </div>
     </div>
-
     <div class="menu-buttons">
         <div class="buttons">
-            <app-menu trigger="All Courses" [data]="courses" [isRootNode]="true"></app-menu>
+            <app-menu trigger="All Courses" [data]="courses" [isRootNode]="true" type="courseButton"></app-menu>
+            <app-menu trigger="Material" [data]="courses" [isRootNode]="true" type="materialButton" *ngIf="isLoggedIn"></app-menu>
             <button class="header-buttons" (click)="batchView()">Batch List</button>
         </div>
-
         <div class="menu-list">
             <ul [ngClass]="main ? 'show' : 'hide'">
                 <a routerLink="aboutus" routerLinkActive="active" >ABOUT US</a>

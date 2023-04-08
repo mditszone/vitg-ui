@@ -11,7 +11,7 @@ import { BatchService } from 'src/app/shared/services/batch.service';
 export class BatchViewComponent implements OnInit {
   batchName: string = "";
   batchData: Object[] = [];
-  isLoggedIn: boolean = sessionStorage.getItem("student_dto") == null ? false : true;
+  isLoggedIn: boolean = sessionStorage.getItem("student_dto") ? true : false;
   constructor(private routes: ActivatedRoute, private batchService: BatchService, private router: Router) { }
 
   ngOnInit(): void {
@@ -37,6 +37,11 @@ export class BatchViewComponent implements OnInit {
 
   batchRegister() {
     this.router.navigate(["/register"]);
+  }
+
+
+  pay() {
+    
   }
 
 }

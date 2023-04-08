@@ -3,16 +3,28 @@
     height: 1200px;
     display: flex;
     flex-direction: row;
-    .side-nav {
-        width: 20%;
-        border-right: 1px solid rgb(213, 213, 213);
-    }
+        .side-nav {
+            width: 20%;
+            border-right: 1px solid rgb(213, 213, 213);
+        }
     .content {
         width: 80%;
+        display: flex;
+        justify-content: center;
     }
 }
 .chat-box {
     position: fixed;
-    bottom: 20px;
+    bottom: 120px;
     right: 20px;
+}
+
+.side-nav-hide {
+    display: none;
+}
+
+.content-on-side-nav-hide {
+    width: 100%;
+    display: flex;
+    justify-content: center;
 }

@@ -86,7 +86,7 @@
 <div class="mainscreen-container">
     <app-header [material]="true"></app-header>
     <div class="body">
-        <div class="side-nav">
+        <div [ngClass]="showSideMenu ? 'side-nav' : 'side-nav-hide'">
             <mat-sidenav class="app-sidenav" #sidenav mode="side" opened="true">
                 <mat-nav-list>
                     <mat-accordion>
@@ -110,7 +110,7 @@
                 </mat-nav-list>
             </mat-sidenav>
         </div>
-        <div class="content"><router-outlet></router-outlet></div>
+        <div [ngClass]="showSideMenu ? 'content' : 'content-on-side-nav-hide'"><router-outlet></router-outlet></div>
     </div>
     <div>
         <div class="chat-box" #scrollMe [scrollTop]="scrollMe.scrollHeight">

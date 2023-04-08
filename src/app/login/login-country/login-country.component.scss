@@ -1,0 +1,12 @@
+.login-w-country-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .login-w-country {
+        padding: 40px;
+        width: 400px;
+        border: 1px solid red;
+       
+    }
+}

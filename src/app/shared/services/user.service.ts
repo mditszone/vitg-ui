@@ -63,7 +63,7 @@ export class UserService {
   }
 
   public updateStudentinfo( body: any): Observable<any> {
-    return this.http.put(this.baseURL +'/api/student/editStudent',body,{ headers: this.headers });
+    return this.http.put(this.baseURL +'/api/student/editStudent',body);
   }
   public updateStudentSubCourse( body: any): Observable<any> {
     return this.http.put(this.baseURL +'/api/studentSubCourse/update_selected_subCourses',body,{ headers: this.headers });

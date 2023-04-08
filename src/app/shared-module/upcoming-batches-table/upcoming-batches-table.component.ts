@@ -13,7 +13,7 @@ export class UpcomingBatchesTableComponent implements OnInit {
 
   upcomingBatchdata: Batch[] = [];
   batchViewRoute: string;
-  isLoggedIn: boolean = sessionStorage.getItem("student_dto") == null ? false : true;
+  isLoggedIn: boolean = sessionStorage.getItem("student_dto") ? true : false;
   constructor(public batchService: BatchService) { }
 
   ngOnInit(): void {

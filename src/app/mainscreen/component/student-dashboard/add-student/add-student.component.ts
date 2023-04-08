@@ -65,13 +65,13 @@ export class AddStudentComponent implements OnInit {
       this.student.name = this.studentForm.name
       this.student.gender = this.studentForm.gender
       this.student.email = this.studentForm.email
-      
+      this.student.password = this.generatePassword();
       console.log(this.student);
 
       this.userService.updateStudentinfo(this.student).subscribe(
         (data: any) => {
           console.log(data)
-          this.router.navigate(['/materialScreen']);
+          this.router.navigate(['/material/batch']);
         },
         (error) => {
           this.errorMessage = error.error.message;
@@ -79,4 +79,15 @@ export class AddStudentComponent implements OnInit {
         });
     }
   }
+
+
+  generatePassword() {
+    var length = 8,
+        charset = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789",
+        retVal = "";
+    for (var i = 0, n = charset.length; i < length; ++i) {
+        retVal += charset.charAt(Math.floor(Math.random() * n));
+    }
+    return retVal;
+}
 }
