@@ -20,23 +20,26 @@ export class LayoutComponent implements OnInit {
     console.log(role)
     //this.menuItems = this.navItems.filter((menuItem) => menuItem.roles?.includes(role));
     navItems.forEach((menuItem) => {
-     const item = menuItem.children.filter(item => item.roles?.includes(role));
-     if (item.length > 0) {
-      menuItem.children = item;
-      this.menuItems.push(menuItem);
-     }
+      const item = menuItem.children.filter(item => item.roles?.includes(role));
+      if (item.length > 0) {
+        menuItem.children = item;
+        this.menuItems.push(menuItem);
+      }
     });
 
-    
+
   }
 
   ngOnInit(): void {
-    
+
   }
 
   @ViewChild('sidenav', { static: false }) sidenav!: MatSidenav;
   sidenavSmall: boolean = false;
 
+  onProfile(){
+    this.router.navigate(['/profile'])
+  }
   onLoggedout() {
     this.router.navigate(['/']);
     sessionStorage.clear();
@@ -232,13 +235,35 @@ export const navItems: NavItem[] = [
         roles: [
           RoleEnum.ADMIN
         ]
+      },
+      {
+        displayName: 'Sub Domains',
+        iconName: '',
+        route: 'subDomains',
+        roles: [
+          RoleEnum.ADMIN
+        ]
       }
+    ]
+  },
+  {
+    displayName: 'Developers management',
+    iconName: 'manage_accounts',
+    children: [
+      {
+        displayName: 'Facebook',
+        iconName: '',
+        route: 'fb',
+        roles: [
+          RoleEnum.ADMIN
+        ]
+      },
     ]
   },
   {
     displayName: 'Support Team',
     iconName: 'manage_accounts',
-    roles: [ RoleEnum.SUPPORT_ENGINEER],
+    roles: [RoleEnum.SUPPORT_ENGINEER],
     children: [
       {
         displayName: 'Notifications',

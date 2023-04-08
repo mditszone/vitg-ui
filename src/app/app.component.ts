@@ -10,7 +10,23 @@ import { DisableRightClickService } from './shared/services/disable-right-click.
 })
 export class AppComponent {
   title = 'vitg';
-  constructor(private rightClickDisable: DisableRightClickService,private router:Router) {}
+  constructor(private rightClickDisable: DisableRightClickService, private router: Router) {
+
+    var full = window.location.host
+    var parts = full.split('.')
+    console.log(parts)
+    var sub = parts[0]
+    console.log(sub)
+    if(sub === "faculty"){
+      this.router.navigate(['register'])
+    }
+    // var domain = parts[1]
+    // var type = parts[2]
+    //sub is 'subdomain', 'domain', type is 'com'
+    //var newUrl = 'http://' + domain + '.' + type + '/your/other/path/' + subDomain
+   // window.open(newUrl);
+    //console.log(full)
+  }
   // ngOnInit() {
   //   this.rightClickDisable.disableRightClick();
   // }

@@ -68,7 +68,12 @@ import { AuthGuardService } from './shared/services/auth.guard.service';
 import { AuthService } from './shared/services/auth.service';
 import { FacultyListComponent } from './user-management/faculty/faculty-list/faculty-list.component';
 import { FacultyModule } from './user-management/faculty/faculty.module';
-
+import { SubDomainsComponent } from './application-management/sub-domains/sub-domains.component';
+import { FacebookShareComponent } from './developers-management/facebook-share/facebook-share.component';
+import { ShareButtonsModule } from 'ngx-sharebuttons/buttons';
+import { ShareIconsModule } from 'ngx-sharebuttons/icons';
+import { ProfileComponent } from './shared-module/profile/profile.component';
+import { StudentProfileComponent } from './shared-module/student-profile/student-profile.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -98,8 +103,11 @@ import { FacultyModule } from './user-management/faculty/faculty.module';
     ChatBotLinksComponent,
     AddFaqComponent,
     EditFaqComponent,
-    FacultyListComponent
-
+    FacultyListComponent,
+    SubDomainsComponent,
+    FacebookShareComponent,
+    ProfileComponent,
+    StudentProfileComponent
   ],
   imports: [ 
     BrowserModule,
@@ -144,6 +152,8 @@ import { FacultyModule } from './user-management/faculty/faculty.module';
     SharedModuleModule,
     FacultyModule,
     //RouterModule.forRoot(navItems ,{ useHash: true }),
+    ShareButtonsModule,
+    ShareIconsModule
 
   ],
   providers: [

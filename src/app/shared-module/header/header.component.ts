@@ -15,7 +15,11 @@ export class HeaderComponent implements OnInit {
   @Input() material: boolean = false;
   courses: any = [];
   index: number = 0;
-  constructor(private menuDataService: MenuDataService, private courseService: CourseService, private router: Router) { }
+  studentDTO:any
+  constructor(private menuDataService: MenuDataService, private courseService: CourseService, private router: Router) {
+    this.studentDTO = JSON.parse(sessionStorage.getItem('student_dto') || '{}')
+    console.log(this.studentDTO)
+   }
 
   ngOnInit(): void {
     this.courseService.getAllCourses().subscribe((arrayOfCourse: Course[]) => {
@@ -39,6 +43,9 @@ export class HeaderComponent implements OnInit {
     this.router.navigate([route]);
   }
 
+  onProfile(){
+    this.router.navigate(['material/studentProfile'])
+  }
   onLoggedout() {
     sessionStorage.removeItem("student_dto");
     this.router.navigate(['/']);

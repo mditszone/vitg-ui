@@ -36,7 +36,7 @@
                     <mat-icon>account_circle</mat-icon>
                 </button>
                 <mat-menu #profile="matMenu" class="myMenu" yPosition="above" xPosition="before" class="notification-menu">
-                    <button mat-menu-item class="notification-menu__button">
+                    <button mat-menu-item class="notification-menu__button" (click)="onProfile()">
                         <mat-icon class="notification-menu__icon_yellow">person</mat-icon>profile
                     </button>
                     <button mat-menu-item class="notification-menu__button" (click)="onLoggedout()">

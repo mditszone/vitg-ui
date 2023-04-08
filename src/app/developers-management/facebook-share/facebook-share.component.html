@@ -1,0 +1,11 @@
+<div>
+    <input type="text" class="form-control" placeholder="Please enter a message" (keyup)="onKey($event)">
+    <input type="file" class="form-control" (change)="onUploadChangeImage($event)">
+    <button type="button" (click)="uploadImage()">Upload</button>
+</div>
+
+<div>
+    <share-buttons theme="circles-dark" [include]="['whatsapp','facebook','linkedin','twitter']" [showIcon]="true"
+        [showText]="false" url="http://visionitglobal.com/#/" description="Angular Share Buttons" class="pt-0">
+    </share-buttons>
+</div>

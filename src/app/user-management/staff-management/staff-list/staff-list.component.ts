@@ -38,7 +38,7 @@ export class StaffListComponent implements OnInit {
           name: val.name,
           phoneNumber: val.phoneNumber,
           role: val.role.roleName,
-          actions: actions[0].icon
+          actions: actions
         }
         this.tableData.createtData(obj);
       });

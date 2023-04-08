@@ -32,6 +32,11 @@ import { AddFaqComponent } from './application-management/add-faq/add-faq.compon
 import { AllcoursesTabsComponent } from './shared-module/allcourses-tabs/allcourses-tabs.component';
 import { AuthGuardService } from './shared/services/auth.guard.service';
 import { FacultyListComponent } from './user-management/faculty/faculty-list/faculty-list.component';
+import { SubDomainsComponent } from './application-management/sub-domains/sub-domains.component';
+import { FacebookShareComponent } from './developers-management/facebook-share/facebook-share.component';
+import { ProfileComponent } from './shared-module/profile/profile.component';
+import { StudentMaterialComponent } from './material-screen/student-material/student-material.component';
+import { StudentProfileComponent } from './shared-module/student-profile/student-profile.component';
 
 
 const routes: Routes = [
@@ -243,6 +248,22 @@ const routes: Routes = [
       }]
   },
   {
+    path: '', component: LayoutComponent,
+    children: [
+      {
+        path: 'subDomains', pathMatch: 'full',
+        component: SubDomainsComponent
+      }]
+  },
+  {
+    path: '', component: LayoutComponent,
+    children: [
+      {
+        path: 'fb', pathMatch: 'full',
+        component: FacebookShareComponent
+      }]
+  },
+  {
     path: '',
     component: LayoutComponent,
     children: [
@@ -259,8 +280,26 @@ const routes: Routes = [
         path: 'addSlider', pathMatch: 'full',
         component: AddsliderComponent
       }]
+  },
+  {
+    path: '',
+    component: LayoutComponent,
+    children: [
+      {
+        path: 'profile',
+        component: ProfileComponent
+      }
+    ]
+  },
+  {
+    path: 'material', component: MaterialScreenComponent,
+    children: [
+      {
+        path: 'studentProfile',
+        component: StudentProfileComponent
+      }
+    ]
   }
-
 ];
 
 @NgModule({
