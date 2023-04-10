@@ -1,7 +1,5 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { LoginCountryComponent } from '../login/login-country/login-country.component';
-import { LoginWCountryComponent } from '../login/login-w-country/login-w-country.component';
 import { AllcoursesTabsComponent } from '../shared-module/allcourses-tabs/allcourses-tabs.component';
 import { BatchViewComponent } from '../shared-module/batch-view/batch-view.component';
 import { UpcomingBatchesTableComponent } from '../shared-module/upcoming-batches-table/upcoming-batches-table.component';

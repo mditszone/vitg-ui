@@ -22,6 +22,7 @@ import { UpcomingBatchesTableComponent } from './upcoming-batches-table/upcoming
 import { ShareButtonsModule } from 'ngx-sharebuttons/buttons';
 import { ShareIconsModule } from 'ngx-sharebuttons/icons';
 import { CustomizedTooltipComponent } from './customized-tooltip/customized-tooltip.component';
+import { IntlInputPhoneModule } from 'intl-input-phone';
 
 @NgModule({
   declarations: [
@@ -51,6 +52,7 @@ import { CustomizedTooltipComponent } from './customized-tooltip/customized-tool
     CustomizedTooltipComponent
   ],
   imports: [
+    IntlInputPhoneModule,
     MatToolbarModule,
     CommonModule,
     FormsModule,
