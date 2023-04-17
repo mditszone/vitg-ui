@@ -112,6 +112,10 @@ export class CourseService {
     return this.http.get(this.baseURL + `/api/topic/getTopicsListByStudentId/${studentId}`)
   }
 
+  public getTopicListByFacultyId2(facultyId: number,subCourseId:number): Observable<any> {
+    return this.http.get(this.baseURL + `/api/topic/getTopicsListByFacultyId2?subCourseId=${subCourseId}&facultyId=${facultyId}`)
+  }
+
 
   /////////////////////////////////
 

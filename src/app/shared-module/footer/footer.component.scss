@@ -1,9 +1,10 @@
 .footer {
+  overflow: hidden;
+  position: sticky;
   display: flex;
   justify-content: center;
   align-items: center;
   column-gap:50px;
-  position: fixed;
   left: 0;
   bottom: 0;
   width: 100%;
@@ -12,4 +13,5 @@
   font-size: 13px;
   padding: 20px;
   text-align: center;
+  z-index: 20;
 }

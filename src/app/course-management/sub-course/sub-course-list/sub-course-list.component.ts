@@ -20,8 +20,8 @@ export class SubCourseListComponent implements OnInit {
     public route: ActivatedRoute, private tableDataService: TableDataService) {
       this.tableData.headers = ["ID", "SUBCOURSE NAME", "COURSE NAME", "DUR. DAYS", "DUR. HOURS", "ACTIONS"];
       this.tableData.nameOfTable = "Sub Course List";
-      this.tableData.buttonRoute = "/addBatch"
-      this.tableData.buttonName = "Create Course"
+      this.tableData.buttonRoute = "/addSubCourse"
+      this.tableData.buttonName = "Create SubCourse"
      }
 
 

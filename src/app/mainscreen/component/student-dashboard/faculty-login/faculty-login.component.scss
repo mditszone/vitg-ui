@@ -1,0 +1,96 @@
+.login-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.faculty-login-container {
+    height: 250px;
+    width: 400px;
+    border: 1px solid #0669ad;
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.name {
+    color: #0669ad;
+    padding-top: 100px;
+}
+.input-box input {
+    font-size: 14px;
+    background: #fff;
+    border: 1px solid #0669ad;
+    outline: none;
+    padding: 0.7rem;
+    width: 190px;
+    border-radius: 5px;
+}
+.proceed {
+    float: right;
+    background-color: #0669ad;
+    border-color: #fff;
+    color: #fff;
+    border-radius: 5px;
+    padding: 5px 20px;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 15px;
+    line-height: 24px;
+    margin-top: 10px;
+    cursor: pointer;
+    margin-top: 30px;
+}
+
+@media screen and (max-width: 480px) {
+    .login-container {
+        flex-direction: column;
+    }
+    .name {
+        font-size: 12px;
+        padding-bottom: 3px;
+    }
+    .input-box input {
+        font-size: 10px;
+        padding: 0.5rem;
+        width: 150px;
+        border-radius: 3px;
+    }
+    .proceed {
+        padding: 2px 13px;
+        font-weight: 400;
+        font-size: 12px;
+        line-height: 20px;
+        margin-top: 30px;
+    }
+}
+
+@media screen and (max-width: 900px) {
+    .login-container {
+        column-gap: 20px;
+    }
+    .student-login-container {
+        height: 200px;
+        width: 300px;
+    }
+    .trainer-login-container {
+        height: 200px;
+        width: 300px;
+    }
+    .name {
+        font-size: 13px;
+        padding-bottom: 4px;
+    }
+    .input-box input {
+        font-size: 10px;
+        padding: 0.5rem;
+        width: 150px;
+        border-radius: 3px;
+    }
+
+    .proceed {
+        padding: 3px 14px;
+        font-weight: 400;
+        font-size: 13px;
+        line-height: 22px;
+    }
+}

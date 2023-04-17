@@ -20,7 +20,7 @@ export class StudentListComponent implements OnInit {
     private userService: UserService, public route: ActivatedRoute, private tableDataService: TableDataService) {
     this.tableData.headers = ["ID", "NAME", "PHONE NUMBER", "EMAIL", "ACTIONS"];
     this.tableData.nameOfTable = "Student List";
-    this.tableData.buttonRoute = "/staffRegister"
+    this.tableData.buttonRoute = "/addStudent"
     this.tableData.buttonName = "Add Student"
   }
 

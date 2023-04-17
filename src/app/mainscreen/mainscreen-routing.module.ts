@@ -14,12 +14,20 @@ import { PortfolioComponent } from './component/portfolio/portfolio.component';
 import { ProjectDevelopmentComponent } from './component/project-development/project-development.component';
 import { ServicesComponent } from './component/services/services.component';
 import { AddStudentComponent } from './component/student-dashboard/add-student/add-student.component';
+import { FacultyLoginComponent } from './component/student-dashboard/faculty-login/faculty-login.component';
 import { StudentRegisterComponent } from './component/student-dashboard/student-register/student-register.component';
 import { VerifyFacultyComponent } from './component/student-dashboard/verify-faculty/verify-faculty.component';
 import { VerifyStudentComponent } from './component/student-dashboard/verify-student/verify-student.component';
 import { TeamComponent } from './component/team/team.component';
 
 const routes: Routes = [
+  {
+    path: 'facultyLogin', component: FacultyLoginComponent
+  },
+  {
+    path: 'verifyFaculty', pathMatch: 'full',
+    component: VerifyFacultyComponent
+  },
   {
     path: '', component: MainscreenComponent,
     children: [
@@ -56,14 +64,9 @@ const routes: Routes = [
       {
         path: 'register', component: StudentRegisterComponent
       },
-
       {
         path: 'verifyStudent', pathMatch: 'full',
         component: VerifyStudentComponent
-      },
-      {
-        path: 'verifyFaculty', pathMatch: 'full',
-        component: VerifyFacultyComponent
       },
       {
         path: 'addStudent', pathMatch: 'full',

@@ -46,8 +46,8 @@ export class VerifyFacultyComponent implements OnInit {
     }
 
     this.userService.verifyFacultyLogin(obj).subscribe(response => {
-      console.log(response)
-      this.router.navigate(['/materialScreen'])
+      sessionStorage.setItem('faculty_data',JSON.stringify(response))
+      this.router.navigate(['/material/batch'])
     })
   }
   ngOnInit(): void {

@@ -1,24 +1,26 @@
 ::ng-deep.mat-tab-label{
-    color:black
+    color:black;
 }
 ::ng-deep.mat-tab-label,
 ::ng-deep.mat-tab-label-active {
     min-width: 0px !important;
-    padding: 25px !important;
-    margin: 1px !important;
+    padding: 17px !important;
+    margin: 1px ;
+    max-height: 9px;
+    border-radius: 4px;
     background-color: #0669ad;
 }
 ::ng-deep.mat-tab-label-active {
    color: #fff;
+   background-color: #0669ad;
 }
 ::ng-deep .mat-ink-bar {
     background-color: #0669ad !important;
 }
 .tab-container{
     padding-top: 50px;
-    display: grid;
-    justify-content: center;
-    align-items: center;
+    margin-left: 50px;
+    
 }
 .title{
     font-size: 20px;
@@ -33,7 +35,6 @@
     display: grid;
     justify-content: center;
 }
-
 button {
     background-color: #0669ad;
     color: #fff;

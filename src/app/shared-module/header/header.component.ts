@@ -16,12 +16,14 @@ export class HeaderComponent implements OnInit {
   isUserLoggedIn: boolean = false;
   courses: any = [];
   index: number = 0;
-  studentDTO:any
+  studentDTO: any;
+  facultyData:any
   constructor(private menuDataService: MenuDataService, private courseService: CourseService, private router: Router) {
     this.studentDTO = JSON.parse(sessionStorage.getItem('student_dto') || '{}')
+    this.facultyData = JSON.parse(sessionStorage.getItem('faculty_data') || '{}')
     console.log(this.studentDTO)
-   }
-  isLoggedIn: boolean = sessionStorage.getItem("student_dto") == null ? false : true;
+  }
+  isLoggedIn: boolean = (sessionStorage.getItem("student_dto") || sessionStorage.getItem("faculty_data")) == null ? false : true;
   logoRoute: string;
 
   ngOnInit(): void {
@@ -47,8 +49,14 @@ export class HeaderComponent implements OnInit {
     this.router.navigate([route]);
   }
 
-  onProfile(){
-    this.router.navigate(['material/studentProfile'])
+  onProfile() {
+    if(this.studentDTO){
+      this.router.navigate(['material/profile'])
+    }
+    if(this.facultyData){
+      this.router.navigate(['material/facultyProfile'])
+    }
+    
   }
   onLoggedout() {
     sessionStorage.removeItem("student_dto");
@@ -56,5 +64,5 @@ export class HeaderComponent implements OnInit {
   }
 
 
-  
+
 }

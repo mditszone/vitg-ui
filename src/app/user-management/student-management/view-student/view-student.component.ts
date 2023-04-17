@@ -10,17 +10,13 @@ import { UserService } from 'src/app/shared/services/user.service';
 })
 export class ViewStudentComponent implements OnInit {
 
-  tabs: Array<any> = [];
-  studentdata: any;
   errorMessage: string = "";
   data: any;
   constructor(private userService: UserService, public route: ActivatedRoute) { }
 
   ngOnInit() {
-    this.tabs = [];
     let id:number = this.route.snapshot.params['id'];
     this.userService.getStudentById(id).subscribe((data: Student) => {
-      //this.studentdata = data;
 
       this.data = {
         id: data.id,
@@ -29,27 +25,6 @@ export class ViewStudentComponent implements OnInit {
         gener: data.gender,
         email: data.email
       }
-
-      // this.tabs.push({
-      //   tabName: "StudentId",
-      //     tabData: data.id
-      // })
-      // this.tabs.push({
-      //   tabName: "StudentName",
-      //     tabData: data.name
-      // })
-      // this.tabs.push({
-      //   tabName: "PhoneNumber",
-      //     tabData: data.phoneNumber
-      // })
-      // this.tabs.push({
-      //   tabName: "Gender",
-      //     tabData: data.gender
-      // })
-      // this.tabs.push({
-      //   tabName: "Email",
-      //     tabData: data.email
-      // })
     });
   }
 }

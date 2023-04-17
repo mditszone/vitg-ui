@@ -1,0 +1,16 @@
+<div class="login-container">
+    <div>
+        <h1 class="name">Faculty Login</h1>
+        <div class="faculty-login-container">
+            <form [formGroup]="facultyLogin">
+                <div class="login-card">
+                    <div class="input-box">
+                        <input type="text" formControlName="userName" placeholder="User Name"
+                            [(ngModel)]="faculty.userName">
+                    </div>
+                </div>
+                <button value="submit" class="btn proceed" (click)="onSubmitFaculty()">Proceed</button>
+            </form>
+        </div>
+    </div>
+</div>

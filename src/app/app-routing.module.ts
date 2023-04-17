@@ -37,6 +37,7 @@ import { FacebookShareComponent } from './developers-management/facebook-share/f
 import { ProfileComponent } from './shared-module/profile/profile.component';
 import { StudentMaterialComponent } from './material-screen/student-material/student-material.component';
 import { StudentProfileComponent } from './shared-module/student-profile/student-profile.component';
+import { FacultyProfileComponent } from './shared-module/faculty-profile/faculty-profile.component';
 
 
 const routes: Routes = [
@@ -287,11 +288,28 @@ const routes: Routes = [
     path: 'material', component: MaterialScreenComponent,
     children: [
       {
-        path: 'studentProfile',
+        path: 'profile',
         component: StudentProfileComponent
       }
     ]
-  }
+  },
+  {
+    path: 'material', component: MaterialScreenComponent,
+    children: [
+      {
+        path: 'facultyProfile',
+        component: FacultyProfileComponent
+      }
+    ]
+  },
+  {
+    path: '', component: MainscreenComponent,
+    children: [
+      {
+        path: 'tabComponent', component: AllcoursesTabsComponent
+      }
+    ]
+  },
 ];
 
 @NgModule({

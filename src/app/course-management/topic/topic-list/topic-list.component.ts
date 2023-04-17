@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 import { TableData } from 'src/app/shared/model/table.data';
 import { Topic } from 'src/app/shared/model/topic';
 import { CourseService } from 'src/app/shared/services/course.service';
+import { TableDataService } from 'src/app/shared/services/table.data.service';
 
 @Component({
   selector: 'app-topic-list',
@@ -15,7 +16,7 @@ export class TopicListComponent implements OnInit {
   topicdata: Topic[] = [];
   loggedInUserRole: string = "";
 
-  constructor(private courseService: CourseService) {
+  constructor(private courseService: CourseService,private tableDataService: TableDataService) {
       this.tableData.headers = ["ID", "TOPIC NAME", "COURSE NAME", "SUB COURSE NAME", "ACTIONS"];
       this.tableData.nameOfTable = "Topic List";
       this.tableData.buttonRoute = "/addTopic"
@@ -40,18 +41,8 @@ export class TopicListComponent implements OnInit {
           actions: actions
         }
         this.tableData.createtData(obj);
-        // let arr = [];
-        // arr.push(val.id);
-        // arr.push(val.name);
-        // arr.push(val.subCourse.course.name);
-        // arr.push(val.subCourse.name);
-        // arr.push([
-        //   {icon: "visibility", route: '/viewtopic/', routeArgs: val.id}, 
-        //   {icon: "edit", route: '/edittopic/', routeArgs: val.id},
-        //   {icon: "delete", route: '/editcourse/', routeArgs: val.id}
-        // ]);
-        // this.tableData.rowData.push(arr);
       });
+      this.tableDataService.setTableData(this.tableData);
     });
   }
 

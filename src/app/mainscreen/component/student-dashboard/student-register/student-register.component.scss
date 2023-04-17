@@ -4,12 +4,6 @@
   align-items: center;
   column-gap: 100px;
 }
-.login {
-  height: 88.5vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
 .student-login-container {
   height: 250px;
   width: 500px;
@@ -36,6 +30,7 @@
 }
 .name {
   color: #0669ad;
+  padding-top: 100px;
   padding-bottom: 5px;
 }
 .input-box input {

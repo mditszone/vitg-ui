@@ -3,6 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { Slider } from 'src/app/shared/model/slider';
 import { TableData } from 'src/app/shared/model/table.data';
 import { SliderService } from 'src/app/shared/services/slider.service';
+import { TableDataService } from 'src/app/shared/services/table.data.service';
 
 @Component({
   selector: 'app-slider-list',
@@ -16,7 +17,7 @@ export class SliderListComponent implements OnInit {
   loggedInUserRole: string = "";
 
   constructor(
-    private sliderService: SliderService) {
+    private sliderService: SliderService,private tableDataService: TableDataService) {
       this.tableData.nameOfTable = "Slider List";
       this.tableData.buttonRoute = "/addSlider"
       this.tableData.buttonName = "Add Slider"
@@ -42,6 +43,7 @@ export class SliderListComponent implements OnInit {
         }
         this.tableData.createtData(obj);
       });
+      this.tableDataService.setTableData(this.tableData);
     });
 
   }

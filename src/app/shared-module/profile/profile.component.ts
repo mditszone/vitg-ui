@@ -1,16 +1,18 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-profile',
   templateUrl: './profile.component.html',
   styleUrls: ['./profile.component.scss']
 })
-export class ProfileComponent {
+export class ProfileComponent implements OnInit {
 
   staffDTO: any;
-  url:any
+  url: any
 
-  constructor() {
+  constructor() { }
+
+  ngOnInit() {
     this.staffDTO = JSON.parse(sessionStorage.getItem('staff_dto') || '{}')
   }
 }

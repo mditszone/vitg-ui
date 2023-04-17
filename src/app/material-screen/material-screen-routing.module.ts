@@ -12,7 +12,7 @@ const routes: Routes = [
     path: 'material', component: MaterialScreenComponent,
     children: [
       {
-        path: 'student-material', component: StudentMaterialComponent
+        path: 'material', component: StudentMaterialComponent
       },
       {
         path: 'batch', component: UpcomingBatchesTableComponent,

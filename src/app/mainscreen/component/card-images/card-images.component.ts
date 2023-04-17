@@ -23,7 +23,7 @@ export class CardImagesComponent implements OnInit {
         let subcourse = new Subcourse();
         let course = new Course();
         let ext = object.name.split('.')[1]; // get image extension[png, jpeg, jpg]
-        this.base64Image = `data:image/${ext};,${object.image}`;
+        this.base64Image = `data:image/${ext};base64,${object.image}`;
         //this.finalSubcourseList.push();
         console.log(object.course.name);
 

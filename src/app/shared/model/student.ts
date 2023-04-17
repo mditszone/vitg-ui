@@ -12,4 +12,5 @@ export class Student {
   email:any;
   registrationStatus: any;
   password: any;
+  role:any
 }

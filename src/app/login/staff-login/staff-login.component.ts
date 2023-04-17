@@ -46,7 +46,7 @@ export class StaffLoginComponent implements OnInit {
 
       this.subscription = this.loginService.sendOTP('/api/auth/login/sendOtp/', `?phoneNumber=${phonenumber}`).subscribe((data: any) => {
         this.message = data;
-        console.log(data.phoneNumber);
+        console.log(data);
 
         sessionStorage.setItem('send_otp', JSON.stringify(data));
         this.router.navigate(['/verifyStaffLogin']);

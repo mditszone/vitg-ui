@@ -37,6 +37,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { SharedModuleModule } from '../shared-module/shared-module.module';
 import { VerifyFacultyComponent } from './component/student-dashboard/verify-faculty/verify-faculty.component';
 import { IntlInputPhoneModule } from 'intl-input-phone';
+import { FacultyLoginComponent } from './component/student-dashboard/faculty-login/faculty-login.component';
 
 
 @NgModule({
@@ -57,6 +58,7 @@ import { IntlInputPhoneModule } from 'intl-input-phone';
     ProjectDevelopmentComponent,
     ViewExampleComponent,
     VerifyFacultyComponent,
+    FacultyLoginComponent,
 
   ],
   imports: [

@@ -2,7 +2,7 @@
     <div class="vitg-logo-container">
         <img class="vitg-logo" [routerLink]="logoRoute" routerLinkActive="active" src="../../assets/vitg-logo.png">
         <div class="logo">
-            <h1 class="vision" [routerLink]="logoRoute" routerLinkActive="active" style="color: #fff;">Vision </h1>
+            <h1 class="vision" [routerLink]="logoRoute" routerLinkActive="active" style="color: #fff;">Vision</h1>
             <h1 class="it" [routerLink]="logoRoute" routerLinkActive="active">IT</h1>
             <h1 class="global" [routerLink]="logoRoute" routerLinkActive="active" style="color: #fff;">Global</h1>
         </div>
@@ -10,31 +10,32 @@
     <div class="menu-buttons">
         <div class="buttons">
             <app-menu trigger="All Courses" [data]="courses" [isRootNode]="true" type="courseButton"></app-menu>
-            <app-menu trigger="Material" [data]="courses" [isRootNode]="true" type="materialButton" *ngIf="isLoggedIn"></app-menu>
+            <app-menu trigger="Material" [data]="courses" [isRootNode]="true" type="materialButton" *ngIf="isLoggedIn">
+            </app-menu>
             <button class="header-buttons" (click)="batchView()">Batch List</button>
         </div>
         <div class="menu-list">
             <ul [ngClass]="main ? 'show' : 'hide'">
-                <a routerLink="aboutus" routerLinkActive="active" >ABOUT US</a>
-                <a mat-button [matMenuTriggerFor]="services" >SERVICES</a>
+                <a routerLink="aboutus" routerLinkActive="active">ABOUT US</a>
+                <a mat-button [matMenuTriggerFor]="services">SERVICES</a>
                 <mat-menu #services="matMenu">
-                    <a mat-menu-item routerLink="training" routerLinkActive="active" >Training</a>
-                    <a mat-menu-item routerLink="outSourcing" routerLinkActive="active" >Out
+                    <a mat-menu-item routerLink="training" routerLinkActive="active">Training</a>
+                    <a mat-menu-item routerLink="outSourcing" routerLinkActive="active">Out
                         Sourcing</a>
-                    <a mat-menu-item routerLink="internship" routerLinkActive="active" >Internship</a>
-                    <a mat-menu-item routerLink="projectDevelopment" routerLinkActive="active"
-                        >Projectdevelopment</a>
+                    <a mat-menu-item routerLink="internship" routerLinkActive="active">Internship</a>
+                    <a mat-menu-item routerLink="projectDevelopment" routerLinkActive="active">Projectdevelopment</a>
                 </mat-menu>
-                <a routerLink="portfolio" routerLinkActive="active" >PORTFOLIO</a>
-                <a routerLink="team" routerLinkActive="active" >TEAM</a>
+                <a routerLink="portfolio" routerLinkActive="active">PORTFOLIO</a>
+                <a routerLink="team" routerLinkActive="active">TEAM</a>
                 <a routerLink="contact" routerLinkActive="active">CONTACT US</a>
-                <a routerLink="register" routerLinkActive="active" >LOGIN/REGISTER</a>
+                <a routerLink="register" routerLinkActive="active">LOGIN/REGISTER</a>
             </ul>
             <ul [ngClass]="material ? 'show' : 'hide'">
                 <button mat-icon-button [matMenuTriggerFor]="profile">
                     <mat-icon>account_circle</mat-icon>
                 </button>
-                <mat-menu #profile="matMenu" class="myMenu" yPosition="above" xPosition="before" class="notification-menu">
+                <mat-menu #profile="matMenu" class="myMenu" yPosition="above" xPosition="before"
+                    class="notification-menu">
                     <button mat-menu-item class="notification-menu__button" (click)="onProfile()">
                         <mat-icon class="notification-menu__icon_yellow">person</mat-icon>profile
                     </button>
@@ -60,6 +61,5 @@
             <button mat-menu-item routerLink="aboutus">About Us</button>
         </mat-menu>
     </div>
-    
-</div>
 
+</div>

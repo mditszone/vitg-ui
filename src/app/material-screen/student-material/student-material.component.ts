@@ -11,7 +11,7 @@ import { CourseService } from 'src/app/shared/services/course.service';
 })
 export class StudentMaterialComponent implements OnInit {
 
-  
+
   s3BucketFiles: any;
   sTCD: any
   topicListdata: any;
@@ -23,7 +23,19 @@ export class StudentMaterialComponent implements OnInit {
   trainerTabData: any;
   fileURL: string | null = '';
   fileName: string | null = '';
-  constructor(private courseService: CourseService, public dialog: MatDialog, private router: Router, @Inject(ActivatedRoute) private route: ActivatedRoute) { }
+  studentRole: any;
+  facultyRole: any;
+  s3FileData: any = []
+
+  constructor(private courseService: CourseService,
+    public dialog: MatDialog,
+    private router: Router,
+    @Inject(ActivatedRoute) private route: ActivatedRoute
+  ) {
+    this.studentRole = JSON.parse(sessionStorage.getItem('student_dto'))
+    this.facultyRole = JSON.parse(sessionStorage.getItem('faculty_data'))
+
+  }
 
   ngOnInit(): void {
     this.route.queryParams.subscribe(params => {
@@ -33,43 +45,64 @@ export class StudentMaterialComponent implements OnInit {
         this.subTopicConceptDetails = res;
         this.courseService.getFileListsFromS3(res[0].id, 'examples').subscribe((response: any) => {
           this.exampleTabData = response;
+          //console.log(this.exampleTabData)
+          // for (let files of response) {
+          //   let file = files.fileName;
+          //   let splitResult = file.split('/')
+          //   let finalResult = splitResult[splitResult.length - 1]
+          //   //let s3 = new s3Data(finalResult,file);
+          //   this.s3FileData.push([finalResult, file])
+          // }
+          // console.log(this.s3FileData)
         })
         this.courseService.getFileListsFromS3(res[0].id, 'trainer').subscribe((response: any) => {
-          this.trainerTabData =response
+          this.trainerTabData = response
+          // let superArray = [];
+          // this.trainerTabData = superArray
+          // console.log(this.trainerTabData)
+          // for (let files of response) {
+          //   let subArray = [];
+          //   let file = files.fileName;
+          //   let splitResult = file.split('/')
+          //   let finalResult = splitResult[splitResult.length - 1]
+          //   subArray.push(finalResult)
+          //   superArray.push(subArray)
+          // }
+          // console.log(superArray)
         })
-  
-  
-        this.tabs = [];
-  
-        this.tabs.push({
-          tabName: "Concept",
-          tabData: this.subTopicConceptDetails[0].concept
-        })
-        this.tabs.push({
-          tabName: "Trainer Docs",
-          //tabData: this.trainerTabData
-        })
-        this.tabs.push({
-          tabName: "Examples",
-          //tabData: this.exampleTabData
-        })
-        this.tabs.push({
-          tabName: "Video",
-          tabData: this.subTopicConceptDetails[0].youtubeUrl
-        })
-        this.tabs.push({
-          tabName: "Github Url",
-          tabData: this.subTopicConceptDetails[0].githubUrl
-        })
-        this.tabs.push({
-          tabName: "Other Urls",
-          tabData: this.subTopicConceptDetails[0].otherUrls
-        })
-  
-      });
 
+        this.tabs = [];
+
+        if (this.facultyRole) {
+          this.tabs.push({
+            tabName: "Trainer Docs",
+            //tabData: this.trainerTabData
+          })
+          this.tabs.push({
+            tabName: "Github Url",
+            tabData: this.subTopicConceptDetails[0].githubUrl
+          })
+          this.tabs.push({
+            tabName: "Other Urls",
+            tabData: this.subTopicConceptDetails[0].otherUrls
+          })
+        }
+        if (this.studentRole) {
+          this.tabs.push({
+            tabName: "Concept",
+            tabData: this.subTopicConceptDetails[0].concept
+          })
+          this.tabs.push({
+            tabName: "Examples",
+            //tabData: this.exampleTabData
+          })
+          this.tabs.push({
+            tabName: "Video",
+            tabData: this.subTopicConceptDetails[0].youtubeUrl
+          })
+        }
+      });
     });
-    
 
   }
 
@@ -87,6 +120,10 @@ export class StudentMaterialComponent implements OnInit {
     this.courseService.deleteFileFromS3(fileName).subscribe((response: any) => {
       console.log(response)
     })
+  }
+  transform(file: string): string {
+    let arr = file.split('/')
+    return arr[arr.length - 1];
   }
 
 }

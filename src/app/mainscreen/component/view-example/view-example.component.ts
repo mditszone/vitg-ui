@@ -23,15 +23,21 @@ export class ViewExampleComponent implements OnInit {
     private rightClickDisable: DisableRightClickService) { }
 
   ngOnInit(): void {
+    console.log(this.data.dataKey)
     this.courseService.getFileFromS3(this.data.dataKey).subscribe((response: any) => {
       console.log(response)
       let fileExtention = response.type
-      if (fileExtention === 'application/octet-stream') {
+      if (fileExtention === 'application/pdf') {
         this.fileType = 'application/pdf';
-        // application/vnd.openxmlformats-officedocument.spreadsheetml.sheet
+      }
+      if (fileExtention === 'application/xml') {
+        this.fileType = 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet';
       }
       if(fileExtention === 'text/plain'){
         this.fileType = 'text/plain';
+      }
+      if(fileExtention === 'image/png'){
+        this.fileType = 'image/jpeg';
       }
       let file = new Blob([response], { type: this.fileType });
       //this.fileURL = URL.createObjectURL(file);

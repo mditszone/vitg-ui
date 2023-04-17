@@ -1,4 +1,4 @@
-<div class="container">
+<div class="material-container">
     <mat-tab-group>
         <mat-tab *ngFor="let tab of tabs" [label]="tab['tabName']">
             <div [innerHTML]="tab['tabData']"></div>
@@ -20,7 +20,7 @@
 
                             <ng-template pTemplate="body" let-exampleTabData>
                                 <tr>
-                                    <td>{{this.exampleTabData.fileName}}</td>
+                                    <td>{{transform(exampleTabData.fileName)}}</td>
                                     <td>
                                         <a (click)="viewFile(exampleTabData.fileName)">
                                             <span class="material-icons eye"> visibility </span>
@@ -49,7 +49,7 @@
                             </ng-template>
                             <ng-template pTemplate="body" let-trainerTabData>
                                 <tr>
-                                    <td>{{this.trainerTabData.fileName}}</td>
+                                    <td>{{transform(trainerTabData.fileName)}}</td>
                                     <td>
                                         <a (click)="viewFile(trainerTabData.fileName)">
                                             <span class="material-icons eye"> visibility </span>

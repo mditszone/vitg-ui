@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Subtopic } from 'src/app/shared/model/subtopic';
 import { TableData } from 'src/app/shared/model/table.data';
 import { CourseService } from 'src/app/shared/services/course.service';
+import { TableDataService } from 'src/app/shared/services/table.data.service';
 
 @Component({
   selector: 'app-sub-topic-list',
@@ -16,7 +17,7 @@ export class SubTopicListComponent implements OnInit {
   loggedInUserRole: string = "";
 
   constructor(
-    private courseService: CourseService) { 
+    private courseService: CourseService,private tableDataService: TableDataService) { 
       this.tableData.headers = ["SUB TOPIC ID", "SUB TOPIC NAME", "TOPIC NAME", "ACTIONS"];
       this.tableData.nameOfTable = "SubTopic List";
       this.tableData.buttonRoute = "/addSubTopic"
@@ -43,17 +44,8 @@ export class SubTopicListComponent implements OnInit {
           actions: actions
         }
         this.tableData.createtData(obj);
-        // let arr = [];
-        // arr.push(val.id);
-        // arr.push(val.name);
-        // arr.push(val.topic.name);
-        // arr.push([
-        //   {icon: "visibility", route: '/viewsubtopic/', routeArgs: val.id}, 
-        //   {icon: "edit", route: '/editsubtopic/', routeArgs: val.id},
-        //   {icon: "delete", route: '/editcourse/', routeArgs: val.id}
-        // ]);
-        // this.tableData.rowData.push(arr);
       });
+      this.tableDataService.setTableData(this.tableData);
     });
   }
   deleteSubTopic(id: number) {

@@ -23,6 +23,7 @@ import { ShareButtonsModule } from 'ngx-sharebuttons/buttons';
 import { ShareIconsModule } from 'ngx-sharebuttons/icons';
 import { CustomizedTooltipComponent } from './customized-tooltip/customized-tooltip.component';
 import { IntlInputPhoneModule } from 'intl-input-phone';
+import { FacultyProfileComponent } from './faculty-profile/faculty-profile.component';
 
 @NgModule({
   declarations: [
@@ -37,7 +38,8 @@ import { IntlInputPhoneModule } from 'intl-input-phone';
     HeaderComponent,
     FooterComponent,
     UpcomingBatchesTableComponent,
-    CustomizedTooltipComponent
+    CustomizedTooltipComponent,
+    FacultyProfileComponent
   ],
   exports: [
     FaqsComponent,

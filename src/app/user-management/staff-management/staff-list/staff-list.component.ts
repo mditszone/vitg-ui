@@ -30,9 +30,9 @@ export class StaffListComponent implements OnInit {
     this.userService.getAllStaff().subscribe(data => {
       data.forEach(val => {
         const actions = [
-          {icon: "visibility", route: '/viewcourse/', routeArgs: val.id}, 
-          {icon: "edit", route: '/editcourse/', routeArgs: val.id},
-          {icon: "delete", route: '/editcourse/', routeArgs: val.id}
+          {icon: "visibility", route: '/viewstaff/', routeArgs: val.id}, 
+          {icon: "edit", route: '/editstaff/', routeArgs: val.id},
+          {icon: "delete", route: '/viewstaff/', routeArgs: val.id}
         ];
         const obj = {
           id: val.id,

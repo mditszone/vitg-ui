@@ -14,13 +14,10 @@ import { UserService } from 'src/app/shared/services/user.service';
 export class StudentRegisterComponent implements OnInit {
   subscription: Subscription = new Subscription;
   studentRegister: FormGroup = new FormGroup({});
-  trainerLogin: FormGroup = new FormGroup({});
-  faculty: Faculty = new Faculty();
   submitted = false;
   message: string = "";
   errorMessage: string = "";
   userNameArray: Array<any>;
-  input:string
   phoneNumber: string;
 
 
@@ -41,32 +38,9 @@ export class StudentRegisterComponent implements OnInit {
     this.studentRegister = this.formBuilder.group({
       phonenumber: ['', [Validators.required, Validators.pattern("^[0-9]*$"), Validators.minLength(10), Validators.maxLength(10)]]
     });
-    this.trainerLogin = this.formBuilder.group({
-      userName: ['', [Validators.required]]
-    })
   }
   // convenience getter for easy access to form fields
-  get f() { return this.studentRegister.controls, this.trainerLogin.controls; }
-
-  onSubmitTrainer() {
-    this.input = this.faculty.userName
-    this.userService.getAllFaculty().subscribe(response => {
-      for (let array of response) {
-        let id = array.id
-        let name = array.userName
-        if(this.input === name){
-          let obj = {
-            id:id,
-            userName:this.input
-          }
-          this.userService.facultyLogin(obj).subscribe(response=>{
-            this.router.navigate(['verifyFaculty'])
-            sessionStorage.setItem('faculty_pin', JSON.stringify(response))
-          })
-        }
-      }
-    })
-  }
+  get f() { return this.studentRegister.controls }
 
   onNumberChage(e: any) {
     this.phoneNumber = e.Number;

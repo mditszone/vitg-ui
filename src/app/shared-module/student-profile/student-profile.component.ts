@@ -8,8 +8,15 @@ import { Component } from '@angular/core';
 export class StudentProfileComponent {
 
   studentDTO: any
+  facultyData:any;
+
   constructor() {
     this.studentDTO = JSON.parse(sessionStorage.getItem('student_dto') || '{}')
-    console.log(this.studentDTO)
+    // if(this.studentDTO) {
+
+    // }
+    // else{
+    //   console.log(this.facultyData)
+    // }
   }
 }

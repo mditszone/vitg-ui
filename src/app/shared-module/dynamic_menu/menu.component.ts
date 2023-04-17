@@ -22,9 +22,13 @@ export class MenuComponent {
   @Input() val: string;
   @Output() onSuggest: EventEmitter<any> = new EventEmitter();
 
+  studentDTO: any
+
   curNode: string = "";
-  isLoggedIn: boolean = sessionStorage.getItem("student_dto") == null ? false : true;
+  isLoggedIn: boolean = (sessionStorage.getItem("student_dto") || sessionStorage.getItem("faculty_data")) == null ? false : true;
   constructor(private menuDataService: MenuDataService, private router: Router, private courseService: CourseService, private zone: NgZone,) {
+
+    this.studentDTO = JSON.parse(sessionStorage.getItem('student_dto') || '{}');
   }
 
   ngOnInit() {
@@ -44,8 +48,12 @@ export class MenuComponent {
     const subCourseId: number = this.menuDataService.subCourses.find(item => item.name === node).id;
     if (this.val === "courseButton") {
       this.moveToTabs(subCourseId);
-    } else {
+    }
+    if(this.val === "materialButton" && this.studentDTO.role === "STUDENT") {
       this.checkAccess(subCourseId);
+    }
+    else if(this.val === "materialButton"){
+      this.checkFacultyAccess(subCourseId);
     }
 
   }
@@ -53,10 +61,10 @@ export class MenuComponent {
   moveToTabs(subCourseId: number) {
     console.log("test");
     this.menuDataService.curNode.subscribe(data => {
-      const route: string = this.isLoggedIn ? '/material/tabs' : '/tabs'; 
+      const route: string = this.isLoggedIn ? '/material/tabs' : '/tabs';
       this.zone.run(() => this.router.navigate([route], { queryParams: { subCourseId: subCourseId } }));
     });
-    
+
   }
 
   checkAccess(subCourseId: number) {
@@ -72,6 +80,22 @@ export class MenuComponent {
         console.log("working")
         this.menuDataService.setShowSideBar(false);
         alert("Student don't have access to this page,Please purchase this course to get access.");
+      }
+    })
+  }
+  checkFacultyAccess(subCourseId: number) {
+    const loggedInUser = JSON.parse(sessionStorage.getItem('faculty_data') || '{}');
+    const facultyId = loggedInUser.id;
+    this.courseService.getTopicListByFacultyId2(facultyId, subCourseId).subscribe((data: any) => {
+      console.log(data);
+      if (data) {
+        this.menuDataService.setShowSideBar(true);
+        this.menuDataService.setTopicData(data);
+      }
+      if (data.length === 0) {
+        console.log("working")
+        this.menuDataService.setShowSideBar(false);
+        alert("Faculty don't have access to this page,Please purchase this course to get access.");
       }
     })
   }

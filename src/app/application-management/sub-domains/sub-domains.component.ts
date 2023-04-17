@@ -7,11 +7,15 @@ import { SubDomainService } from 'src/app/shared/services/sub-domain.service';
   styleUrls: ['./sub-domains.component.scss']
 })
 export class SubDomainsComponent {
+  subDomain: any
+  constructor(private subDomainsService: SubDomainService) {}
 
-  constructor(private subDomainsService: SubDomainService) {
-
-    // this.subDomainsService.createSubDomain().subscribe(response => {
-    //   console.log(response)
-    // })
+  onKey(event) {
+    this.subDomain = event.target.value;
+  }
+  createSubDomain(){
+    this.subDomainsService.createSubDomain(this.subDomain).subscribe(response => {
+      console.log(response)
+    })
   }
 }

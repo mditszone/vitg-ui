@@ -36,7 +36,7 @@ export class MaterialScreenComponent implements OnInit {
   }
 
   onClickSubTopic(subTopic: any) {
-    this.router.navigate(['/material/student-material'], { queryParams: { id: subTopic.id } })
+    this.router.navigate(['/material/material'], { queryParams: { id: subTopic.id } })
   }
 
 }

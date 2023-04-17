@@ -1,1 +1,9 @@
-<p>sub-domains works!</p>
+<div class="subDomain-container">
+    <div class="form-group row">
+        <label for="createSubDomain" class="col-sm-2 col-form-label">Create SubDomain</label>
+        <div class="col-sm-3">
+            <input type="text" class="form-control" placeholder="Please enter a SubDomain" (keyup)="onKey($event)">
+        </div>
+    </div>
+    <button class="btn create" type="button" (click)="createSubDomain()">Create</button>
+</div>
